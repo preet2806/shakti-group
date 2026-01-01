@@ -40,6 +40,10 @@ const Contact: React.FC = () => {
 
   return (
     <div className="bg-white">
+      {/* React 19 SEO Hoisting */}
+      <title>Contact Shakti Gases | Industrial Gas Supply & Support Gujarat</title>
+      <meta name="description" content="Contact Shakti Gases in Ranoli GIDC, Vadodara. Inquire about sales, technical support, or logistics for Liquid CO2 and Argon, Nitrogen, Oxygen gases across India." />
+      <meta name="keywords" content="Shakti Gases Contact, Gas Supplier Vadodara, Industrial Gas Support Gujarat, Industrial Gases India, Shakti Group Phone Number" />
       {/* Header */}
       <div className="bg-shakti-dark relative overflow-hidden h-[350px] flex items-center justify-center">
          <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-blue-900 opacity-90"></div>

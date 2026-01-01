@@ -11,7 +11,7 @@ const EXPANSIONS = [
     linkText: "View Products",
     linkPath: "/products",
     images: [
-      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Screenshot%202025-12-04%20at%204.01.31%E2%80%AFPM.png",
+      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Lab2.jpeg",
       "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Screenshot%202025-12-04%20at%203.43.12%E2%80%AFPM.png",
       "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Screenshot%202025-12-04%20at%203.42.59%E2%80%AFPM.png"
     ]
@@ -121,6 +121,10 @@ const ExpansionBlock: React.FC<{ data: typeof EXPANSIONS[0]; index: number }> = 
 const Home: React.FC = () => {
   return (
     <div className="bg-white">
+      {/* React 19 SEO Hoisting */}
+      <title>Shakti Industrial Gases | Shakti Group of Companies | Industrial & Food Grade Cryogenic Gases</title>
+      <meta name="description" content="Leading manufacturer of high-purity Liquid Argon, Liquid Oxygen, Liquid Nitrogen and Liquid Carbon Dioxide. Operating 178 TPD ASU in Karjan and 120 TPD CO2 plant in Ahmedabad. ISO & PESO compliant." />
+      <meta name="keywords" content="Liquid CO2 Ahmedabad, Karjan ASU, Industrial Gas Gujarat, Food Grade CO2, Shaktishree Air, Indore Carbonic, Shakti Industrial Gases, Argon, Oxygen, Nitrogen, Carbon Dioxide" />
       {/* Hero Section */}
       <div className="relative bg-slate-900 h-[600px] overflow-hidden">
         <div className="absolute inset-0">

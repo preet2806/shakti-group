@@ -11,6 +11,10 @@ const Products: React.FC = () => {
 
   return (
     <div className="bg-white">
+      {/* React 19 SEO Hoisting */}
+      <title>Industrial Gas Products & Delivery | Liquid CO2, Argon, Oxygen, Nitrogen</title>
+      <meta name="description" content="Explore our portfolio of Cryogenic Liquids, High-Purity Calibration Gases. Reliable bulk tanker and cylinder delivery across India." />
+      <meta name="keywords" content="Cryogenic Liquids, Industrial Gases, Calibration Gases, Specialty Gases, Road Tanker Delivery, Gas Cylinder Supply Gujarat and West India" />
       {/* Hero */}
       <div className="relative h-[500px] overflow-hidden">
         <img

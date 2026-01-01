@@ -27,7 +27,7 @@ const SERVICE_TABS = [
       'High-Pressure Cylinder Manifolds',
       'Advanced Gas Regulation Panels'
     ],
-    image: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/service_tank.jpg'
+    image: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/service_tank.avif'
   },
   {
     id: 'logistics',
@@ -79,6 +79,10 @@ const Services: React.FC = () => {
 
   return (
     <div className="bg-white">
+      {/* React 19 SEO Hoisting */}
+      <title>Cryogenic Engineering & Gas Logistics Services | Shakti Group</title>
+      <meta name="description" content="Custom engineered cryogenic solutions, PESO-compliant gas storage systems, and GPS-tracked logistics. Ensuring zero-interruption supply for industrial operations." />
+      <meta name="keywords" content="Cryogenic Engineering, Industrial Gas Logistics, PESO Compliance, Gas System Maintenance, Pipeline Design, Shakti Group Services" />
       {/* Hero */}
       <div className="relative h-[550px] overflow-hidden">
         <img

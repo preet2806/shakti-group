@@ -6,6 +6,10 @@ import { NavLink, Outlet } from 'react-router-dom';
 const About: React.FC = () => {
   return (
     <div className="bg-white">
+{/* React 19 SEO Hoisting */}
+      <title>About Shakti Gases | 25 Years of Industrial Gas Excellence</title>
+      <meta name="description" content="Established in 1998, Shakti Gases specializes in cryogenic engineering, PESO-compliant storage, and liquid gas logistics. Learn about our legacy and group companies." />
+      <meta name="keywords" content="Shakti Gases History, Shaktishree Air, Indore Carbonic Legacy, Industrial Gas Experts, Cryogenic Storage Engineering, PESO Certified Gas Company" />
       {/* Hero */}
             <div className="relative h-[450px] overflow-hidden">
               <img
