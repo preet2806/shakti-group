@@ -162,8 +162,7 @@ const Home: React.FC = () => {
           {STATS.map((stat, index) => (
             <div key={index} className="bg-gray-50 p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition duration-300">
               <div className="text-sm text-gray-600 font-medium mb-2">{stat.label}</div>
-              <div className="text-4xl font-bold text-blue-500">{stat.value}</div>
-            </div>
+                <div className="text-2xl md:text-4xl font-bold text-blue-500">{stat.value}</div>
           ))}
         </div>
       </div>
