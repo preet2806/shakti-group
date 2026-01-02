@@ -137,7 +137,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-4 text-sm text-gray-600">
                <li className="flex flex-col">
                 <span className="font-medium text-gray-900">Email</span>
-                <span>info@shaktigroup.com</span>
+                <span>info@shaktigases.com</span>
               </li>
               <li className="flex flex-col">
                  <span className="font-medium text-gray-900">Phone</span>

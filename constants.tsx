@@ -265,7 +265,7 @@ export const GROUP_COMPANIES: GroupCompany[] = [
   },
   {
     name: 'Shaktishree Air Private Limited (SAPL)',
-    description: 'Our major expansion featuring a 178 TPD Air Separation Unit commencing operations by Jan 2026.'
+    description: 'Our major expansion featuring a 178 TPD Air Separation Unit commencing operations by Feb 2026.'
   }
 ];
 
