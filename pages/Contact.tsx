@@ -28,8 +28,6 @@ const Contact: React.FC = () => {
       await sendEmail(formData);
       setStatus('success');
       setFormData({ name: '', company: '', email: '', phone: '', type: 'Sales Inquiry', message: '' });
-
-      // Reset success message after 5 seconds
       setTimeout(() => setStatus('idle'), 5000);
     } catch (error: any) {
       console.error("Submission failed", error);
@@ -41,21 +39,53 @@ const Contact: React.FC = () => {
   return (
     <div className="bg-white">
       {/* React 19 SEO Hoisting */}
-      <title>Contact Shakti Gases | Industrial Gas Supply & Support Gujarat</title>
-      <meta name="description" content="Contact Shakti Gases in Ranoli GIDC, Vadodara. Inquire about sales, technical support, or logistics for Liquid CO2 and Argon, Nitrogen, Oxygen gases across India." />
-      <meta name="keywords" content="Shakti Gases Contact, Gas Supplier Vadodara, Industrial Gas Support Gujarat, Industrial Gases India, Shakti Group Phone Number" />
+      <title>Contact Shakti Gases | Industrial Gas Supplier in Gujarat & West India</title>
+      <meta
+        name="description"
+        content="Contact Shakti Gases, a leading industrial gas supplier in Gujarat. Get in touch for Liquid CO2, Oxygen, Nitrogen, Argon supply, logistics and technical support across West India."
+      />
+      <meta
+        name="keywords"
+        content="Shakti Gases Contact, Industrial Gas Supplier Gujarat, Gas Supplier Vadodara, Liquid CO2 Supplier India, Oxygen Nitrogen Argon Gujarat, Oxygen Nitrogen Argon India"
+      />
+
+      {/* Local Business Schema */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "Shakti Industrial Gases",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "45, Maruti Complex, Ranoli GIDC",
+            "addressLocality": "Vadodara",
+            "addressRegion": "Gujarat",
+            "postalCode": "391350",
+            "addressCountry": "IN"
+          },
+          "telephone": "+91-9727783440",
+          "email": "info@shaktigases.com",
+          "areaServed": "India"
+        })}
+      </script>
+
       {/* Header */}
       <div className="bg-shakti-dark relative overflow-hidden h-[350px] flex items-center justify-center">
-         <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-blue-900 opacity-90"></div>
-         {/* Abstract Lines */}
-         <div className="absolute inset-0 opacity-10" style={{backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px'}}></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-blue-900 opacity-90"></div>
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }}
+        ></div>
 
-         <div className="relative text-center px-4 max-w-4xl">
-            <h1 className="text-5xl font-bold text-white mb-6">Contact Us</h1>
-            <p className="text-blue-100 text-xl leading-relaxed">
-              We're here to help with your industrial gas and logistics needs. Reach out to our team today for technical excellence and unmatched reliability.
-            </p>
-         </div>
+        <div className="relative text-center px-4 max-w-4xl">
+          <h1 className="text-5xl font-bold text-white mb-6">Contact Us</h1>
+          <p className="text-blue-100 text-xl leading-relaxed">
+            We're here to help with your industrial gas and logistics needs. Reach out to our team today for technical excellence and unmatched reliability.
+          </p>
+        </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 -mt-24 relative z-10">
@@ -82,9 +112,7 @@ const Contact: React.FC = () => {
                 <AlertCircle className="w-6 h-6 shrink-0 text-red-600 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-lg">Submission Failed</h4>
-                  <p className="text-red-700 mt-1">
-                    {errorMessage}
-                  </p>
+                  <p className="text-red-700 mt-1">{errorMessage}</p>
                 </div>
               </div>
             )}
@@ -203,58 +231,25 @@ const Contact: React.FC = () => {
           {/* Contact Info */}
           <div className="lg:w-2/5 bg-gray-50 p-10 md:p-16 border-l border-gray-100">
             <h2 className="text-3xl font-bold text-gray-900 mb-10">Contact Information</h2>
-            <div className="space-y-10">
-              <div className="flex items-start gap-6 group">
-                <div className="bg-white p-4 rounded-xl text-shakti-blue shadow-sm group-hover:shadow-md transition shrink-0 border border-gray-100">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-2 text-lg">Communication Office</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    45, Maruti Complex, Ranoli GIDC,<br/> Ranoli, Dist: Vadodara-391350,<br/> Gujarat
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-6 group">
-                <div className="bg-white p-4 rounded-xl text-shakti-blue shadow-sm group-hover:shadow-md transition shrink-0 border border-gray-100">
-                  <Phone className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-2 text-lg">Phone</h3>
-                  <p className="text-gray-600 font-medium">9727783440</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-6 group">
-                <div className="bg-white p-4 rounded-xl text-shakti-blue shadow-sm group-hover:shadow-md transition shrink-0 border border-gray-100">
-                  <Mail className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-2 text-lg">Email</h3>
-                  <p className="text-gray-600 font-medium">info@shaktigases.com</p>
-                </div>
-              </div>
-            </div>
 
             <div className="mt-16 rounded-2xl overflow-hidden shadow-lg h-64 relative bg-gray-200 group">
-                <a
-                  href="https://maps.app.goo.gl/TGuzKakRvxbDB9dCA"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?q=80&w=600&auto=format&fit=crop"
-                    className="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition duration-500"
-                    alt="Map Location"
-                  />
-                </a>
+              <a
+                href="https://maps.app.goo.gl/TGuzKakRvxbDB9dCA"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?q=80&w=600&auto=format&fit=crop"
+                  className="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition duration-500"
+                  alt="Shakti Industrial Gases office location in Ranoli GIDC Vadodara Gujarat"
+                />
+              </a>
 
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                   <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-bold text-shakti-blue shadow-lg">
-                     Ranoli GIDC, Gujarat
-                   </div>
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-bold text-shakti-blue shadow-lg">
+                  Ranoli GIDC, Gujarat
                 </div>
+              </div>
             </div>
           </div>
 
