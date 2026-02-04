@@ -8,11 +8,11 @@ const About: React.FC = () => {
     <div className="bg-white">
       {/* React 19 SEO Hoisting */}
       <title>
-        About Shakti Industrial Gases | Industrial Gas Manufacturer Since 1998
+        About Shakti Industrial Gases | Industrial Gas Manufacturing Group
       </title>
       <meta
         name="description"
-        content="Founded in 1998, Shakti Industrial Gases is a leading Indian manufacturer specializing in cryogenic engineering, PESO-compliant gas storage, and large-scale industrial gas production and logistics."
+        content="Shakti Industrial Gases is an Indian industrial gas manufacturing group operating cryogenic ASUs, CO₂ plants, bulk storage, and tanker logistics since 1998."
       />
       <meta
         name="keywords"
@@ -23,17 +23,17 @@ const About: React.FC = () => {
       <div className="relative h-[450px] overflow-hidden">
         <img
           src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/about_hero.jpg"
-          alt="Large-scale industrial gas manufacturing facility and refinery operations"
+          alt="Industrial gas manufacturing plants with cryogenic storage and process equipment"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/80 to-transparent flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white w-full">
             <div className="max-w-3xl text-left">
               <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                Our Legacy in Industrial <br /> Gas Manufacturing Excellence
+                Built on Engineering & Execution
               </h1>
               <p className="text-xl text-gray-200 leading-relaxed">
-                Engineering-driven industrial gas manufacturing and logistics, trusted by Indian industry since 1998.
+                Operating cryogenic gas plants, storage systems, and bulk logistics to support continuous industrial operations since 1998.
               </p>
             </div>
           </div>
@@ -46,13 +46,13 @@ const About: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
             <div>
               <h4 className="text-shakti-blue font-bold uppercase tracking-wider text-sm mb-3">
-                Our History
+                Operating History
               </h4>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-                Building a Legacy of Industrial Gas Manufacturing
+                From Local Supply to Industrial-Scale Manufacturing
               </h2>
               <p className="text-gray-600 mb-12 leading-relaxed text-lg">
-                Our journey is rooted in cryogenic engineering excellence, safe gas manufacturing practices, and dependable industrial supply chains.
+                Our growth has been driven by cryogenic engineering excellence, capacity expansion, safety compliance, and long-term industrial supply relationships.
               </p>
 
               <div className="relative border-l-2 border-gray-200 ml-3 space-y-12">
@@ -61,11 +61,11 @@ const About: React.FC = () => {
                   <div className="flex flex-col sm:flex-row gap-4 sm:items-center mb-2">
                     <span className="text-shakti-blue font-bold text-xl">1998</span>
                     <h4 className="font-bold text-gray-900 text-lg">
-                      Industrial Gas Manufacturing Foundation
+                      Entry into Industrial Gas Sector
                     </h4>
                   </div>
                   <p className="text-gray-600">
-                    Establishing the groundwork for safe, reliable industrial gas production.
+                    Initiated industrial gas operations with a focus on safe handling, cylinder supply, and customer-specific delivery requirements.
                   </p>
                 </div>
 
@@ -78,7 +78,7 @@ const About: React.FC = () => {
                     </h4>
                   </div>
                   <p className="text-gray-600">
-                    Expansion into large-scale liquid oxygen, nitrogen, argon, and CO₂ manufacturing.
+                    Expanded into liquid oxygen, nitrogen, argon, and CO₂ manufacturing with cryogenic storage and tanker dispatch capability.
                   </p>
                 </div>
 
@@ -87,11 +87,11 @@ const About: React.FC = () => {
                   <div className="flex flex-col sm:flex-row gap-4 sm:items-center mb-2">
                     <span className="text-shakti-blue font-bold text-xl">Present</span>
                     <h4 className="font-bold text-gray-900 text-lg">
-                      Capacity Expansion & National Footprint
+                      Capacity Expansion & Multi-Plant Operations
                     </h4>
                   </div>
                   <p className="text-gray-600">
-                    Scaling ASU capacity, CO₂ plants, and cryogenic logistics to serve pan-India demand.
+                    Operating and developing multiple ASU and CO₂ plants with regional redundancy and pan-India logistics coverage.
                   </p>
                 </div>
               </div>
@@ -101,12 +101,12 @@ const About: React.FC = () => {
               <img
                 src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/about_legacy.png"
                 className="w-full h-full object-cover rounded-2xl shadow-2xl"
-                alt="Historical industrial gas plant showcasing Shakti Group manufacturing legacy"
+                alt="Cryogenic industrial gas plant showing storage tanks and process piping"
               />
               <div className="absolute bottom-6 right-6 bg-white p-6 rounded-xl shadow-lg max-w-xs">
                 <div className="text-4xl font-bold text-shakti-blue mb-1">25+</div>
                 <div className="text-gray-600 font-medium">
-                  Years of Industrial Gas Manufacturing
+                  Years of Industrial Gas Operations
                 </div>
               </div>
             </div>
@@ -119,10 +119,10 @@ const About: React.FC = () => {
         <div className="py-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Core Manufacturing & Engineering Expertise
+              Manufacturing Capabilities
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto">
-              Specialized capabilities that define our leadership in industrial gas manufacturing.
+              Core operational functions that support safe, continuous industrial gas supply.
             </p>
           </div>
 
@@ -132,7 +132,7 @@ const About: React.FC = () => {
                 <Factory className="w-7 h-7" />
               </div>
               <h3 className="font-bold text-xl text-gray-900 mb-3">
-                Cryogenic Engineering & Storage Systems
+                Cryogenic Plant & Storage Operations
               </h3>
               <p className="text-gray-600 leading-relaxed">
                 Design, installation, and operation of PESO-approved cryogenic storage and gas handling systems.
@@ -147,7 +147,7 @@ const About: React.FC = () => {
                 Nationwide Cryogenic Logistics
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                Dedicated cryogenic tanker fleet ensuring uninterrupted industrial gas supply across India.
+                Dedicated cryogenic tanker fleet with trained drivers, GPS tracking, and defined delivery cycles.
               </p>
             </div>
 
@@ -159,7 +159,7 @@ const About: React.FC = () => {
                 End-to-End Industrial Gas Solutions
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                Integrated manufacturing, storage, and distribution of oxygen, nitrogen, argon, and carbon dioxide.
+                Coordinated production planning, storage allocation, and dispatch for steel, refinery, EPC, manufacturing, and food-processing customers.
               </p>
             </div>
           </div>
@@ -175,10 +175,10 @@ const About: React.FC = () => {
             </div>
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                PESO-Compliant & Safety-First Manufacturing
+                Safety, Compliance & Regulatory Control
               </h3>
               <p className="text-gray-700 leading-relaxed text-lg">
-                All manufacturing plants, refilling units, tankers, and refilling stations operate under strict PESO regulations with ISO-certified safety and quality systems.
+                Manufacturing and refilling plants, storage installations, filling stations, and tankers operate under PESO approvals with ISO 9001:2015 certified quality and safety systems.
               </p>
             </div>
           </div>
@@ -189,10 +189,10 @@ const About: React.FC = () => {
       <section className="py-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
-            Shakti Group of Industrial Gas Companies
+            Shakti Group of Companies
           </h2>
           <p className="text-gray-500 text-center mb-12">
-            A synergy of specialized entities driving comprehensive industrial gas solutions.
+            Each entity focuses on a defined segment of industrial gas manufacturing and supply.
           </p>
 
           <div className="space-y-4">
@@ -207,16 +207,16 @@ const About: React.FC = () => {
       <section className="py-10 bg-gray-50 text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            Partner with a Trusted Industrial Gas Manufacturer
+            Discuss Industrial Gas Supply Requirements
           </h2>
           <p className="text-gray-600 mb-8">
-            Engage with a manufacturing partner known for engineering depth, operational reliability, and uncompromising safety standards.
+            Connect with our operations team to evaluate capacity, delivery models, and long-term supply arrangements.
           </p>
           <NavLink
             to="/contact"
             className="bg-shakti-blue hover:bg-blue-600 text-white px-10 py-4 rounded-lg font-bold transition shadow-lg shadow-blue-900/50 inline-block"
           >
-            Contact Our Experts
+            Contact Operations Team
           </NavLink>
         </div>
       </section>

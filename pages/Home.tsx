@@ -6,9 +6,10 @@ const EXPANSIONS = [
   {
     id: 1,
     company: "Shaktishree Air Private Limited (SAPL)",
-    title: "Karjan, Gujarat: 178 TPD Air Separation Unit",
-    description: "Our flagship manufacturing expansion in Karjan features a 178 TPD Air Separation Unit. Commencing operations by February 2026, this ASU will significantly enhance liquid oxygen, nitrogen, and argon supply across India, reinforcing our position as a large-scale industrial gas manufacturer.",
-    linkText: "View Products",
+    title: "Karjan, Gujarat – 178 TPD Air Separation Unit",
+    description:
+      "The Karjan ASU is a 178 TPD cryogenic air separation facility designed for continuous production of liquid oxygen, nitrogen, and argon. Scheduled for commissioning in February 2026, the plant is engineered for bulk supply to steel, refinery, EPC, and manufacturing customers, with dedicated liquid storage and tanker dispatch infrastructure.",
+    linkText: "View Gas Portfolio",
     linkPath: "/products",
     images: [
       "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Lab2.jpeg",
@@ -19,9 +20,10 @@ const EXPANSIONS = [
   {
     id: 2,
     company: "Indore Carbonic",
-    title: "High-Capacity Food & Industrial CO₂ Manufacturing Expansion",
-    description: "We are rapidly scaling carbon dioxide manufacturing capacity with four new dedicated CO₂ production units. One unit is operational in Ahmedabad, ensuring immediate industrial and food-grade CO₂ supply, while three additional high-capacity plants are scheduled for commissioning by mid-2026.",
-    linkText: "View Products",
+    title: "Food & Industrial CO₂ Manufacturing Capacity Expansion",
+    description:
+      "Indore Carbonic operates dedicated carbon dioxide recovery and purification units supplying food-grade and industrial CO₂. Three plants are operational in Ahmedabad and Indore, while three additional high-capacity units are under installation and scheduled for commissioning by mid-2026, enabling regional redundancy and higher dispatch volumes.",
+    linkText: "View Gas Portfolio",
     linkPath: "/products",
     images: [
       "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-01-01%20at%2010.38.10%20AM.jpeg",
@@ -48,7 +50,7 @@ const ExpansionBlock: React.FC<{ data: typeof EXPANSIONS[0]; index: number }> = 
         <div className="flex items-center gap-2 mb-4">
           <span className="w-12 h-1 bg-shakti-blue rounded-full"></span>
           <h4 className="text-shakti-blue font-bold uppercase tracking-widest text-sm">
-            Manufacturing Expansion
+            Manufacturing Infrastructure
           </h4>
         </div>
         <h3 className="text-0.5xl font-semibold text-gray-500 mb-2">
@@ -128,7 +130,7 @@ const Home: React.FC = () => {
       />
       <meta
         name="keywords"
-        content="Industrial Gas Manufacturer India, Liquid Oxygen Supplier, Liquid Nitrogen Manufacturer, Liquid Argon Plant, Food Grade CO2 Manufacturer, Karjan ASU, Ahmedabad CO2 Plant, Shakti Industrial Gases"
+        content="Industrial Gas Manufacturer India, Bulk Gas Supplier, Liquid Oxygen Supplier, Liquid Nitrogen Manufacturer, Liquid Argon Plant, Food Grade CO2 Manufacturer, Karjan ASU, Ahmedabad CO2 Plant, Shakti Industrial Gases"
       />
 
       <div className="relative bg-slate-900 h-[600px] overflow-hidden">
@@ -144,19 +146,11 @@ const Home: React.FC = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              Industrial Gas Manufacturing <br />
-              Excellence, Guaranteed <br />
-              Continuity, Nationwide Reach
+              25+ Years <br /> Of Industrial Gas Solutions
             </h1>
-            <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed">
-              Large-scale manufacturing of high-purity industrial and food-grade gases backed by robust infrastructure and nationwide cryogenic logistics.
+            <p className="text-xl text-slate-300 mb-8">
+              Production, bulk storage and distribution of oxygen, nitrogen, argon, and carbon dioxide for nationwide industries.
             </p>
-            <NavLink
-              to="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-lg text-white bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out shadow-lg shadow-blue-500/30"
-            >
-              Request a Quote
-            </NavLink>
           </div>
         </div>
       </div>
@@ -220,21 +214,20 @@ const Home: React.FC = () => {
       </section>
 
       <section className="bg-gray-900 py-10">
-        <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Safety, Compliance & Manufacturing Excellence
-          </h2>
-          <p className="text-slate-400 mb-10 max-w-3xl mx-auto text-lg">
-            All manufacturing plants, storage installations, and cryogenic tankers operate under strict PESO regulations with ISO-certified quality systems.
-          </p>
-          <div className="flex justify-center">
-            <div className="bg-white/10 backdrop-blur-md rounded-full p-4 px-8 border border-white/20">
-              <span className="text-white font-bold tracking-wider">
-                ISO 9001:2015 CERTIFIED MANUFACTURER
-              </span>
-            </div>
-          </div>
-        </div>
+              <div className="max-w-5xl mx-auto px-4 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  Safety, Compliance & Operating Discipline
+                </h2>
+                <p className="text-slate-400 mb-10 max-w-3xl mx-auto text-lg">
+                    All manufacturing and refilling plants, storage tanks, and cryogenic tankers operate under PESO approval with ISO 9001:2015 certified quality systems and defined operating procedures.                </p>
+                <div className="flex justify-center">
+                  <div className="bg-white/10 backdrop-blur-md rounded-full p-4 px-8 border border-white/20">
+                    <span className="text-white font-bold tracking-wider">
+                      ISO 9001:2015 CERTIFIED
+                    </span>
+                  </div>
+                </div>
+              </div>
       </section>
     </div>
   );

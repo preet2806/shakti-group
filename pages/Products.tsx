@@ -31,7 +31,8 @@ const Products: React.FC = () => {
               Industrial & Cryogenic Gas Products from a Trusted Indian Manufacturer
             </h1>
             <p className="text-xl text-gray-200 mb-8">
-              Manufacturing and supplying high-quality industrial, cryogenic and specialty gases with dependable bulk and cylinder logistics.
+              Manufacturing and supplying high-quality industrial, cryogenic and specialty gases <br />
+              with dependable bulk and cylinder logistics.
             </p>
             <button
               onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
