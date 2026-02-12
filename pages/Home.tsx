@@ -12,9 +12,9 @@ const EXPANSIONS = [
     linkText: "View Gas Portfolio",
     linkPath: "/products",
     images: [
-      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Lab2.jpeg",
-      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Screenshot%202025-12-04%20at%203.43.12%E2%80%AFPM.png",
-      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Screenshot%202025-12-04%20at%203.42.59%E2%80%AFPM.png"
+      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/ASU%20purity%20analysis%20lab%20setup.webp",
+      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/LIN%20LOX%20LAR%20Manufacturing%20unit.webp",
+      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air%20seperation%20unit%20at%20karjan.webp"
     ]
   },
   {
@@ -26,9 +26,9 @@ const EXPANSIONS = [
     linkText: "View Gas Portfolio",
     linkPath: "/products",
     images: [
-      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-01-01%20at%2010.38.10%20AM.jpeg",
-      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-01-01%20at%2010.38.42%20AM.jpeg",
-      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-01-01%20at%2010.41.06%20AM.jpeg"
+      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/CO2%20manufacturing%20control%20room.webp",
+      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/CO2%20manufacturing%20plant.webp",
+      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/Carbon%20dioxide%20recovery%20plant.webp"
     ]
   }
 ];
@@ -136,7 +136,7 @@ const Home: React.FC = () => {
       <div className="relative bg-slate-900 h-[600px] overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/home_hero.png"
+            src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air%20seperation%20unit%20at%20karjan.webp"
             alt="Cryogenic tanker fleet of Shakti Industrial Gases supplying liquid oxygen and nitrogen"
             className="w-full h-full object-cover opacity-40"
           />

@@ -99,9 +99,9 @@ const About: React.FC = () => {
 
             <div className="relative h-full min-h-[400px]">
               <img
-                src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/about_legacy.png"
+                src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/Industrial%20gas%20cylinders.webp"
                 className="w-full h-full object-cover rounded-2xl shadow-2xl"
-                alt="Cryogenic industrial gas plant showing storage tanks and process piping"
+                alt="Industrial gas cylinders"
               />
               <div className="absolute bottom-6 right-6 bg-white p-6 rounded-xl shadow-lg max-w-xs">
                 <div className="text-4xl font-bold text-shakti-blue mb-1">25+</div>

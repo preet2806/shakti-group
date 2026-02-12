@@ -4,6 +4,19 @@ import { NavLink } from 'react-router-dom';
 
 const SERVICE_TABS = [
   {
+      id: 'equipment',
+      label: 'Equipment & Supply',
+      title: 'Industrial Gas Storage & Vaporization Equipment',
+      description: 'We supply high-performance cryogenic storage tanks, vaporizers, and gas handling equipment, supported by uninterrupted industrial gas supply.',
+      points: [
+        'Vertical & Horizontal Cryogenic Storage Tanks',
+        'Ambient & Steam Heated Vaporizers',
+        'High-Pressure Gas Cylinder Manifolds',
+        'Precision Gas Regulation Panels'
+      ],
+      image: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Industrial%20Gas%20Storage%20%26%20Vaporization%20Equipment.webp'
+  },
+  {
     id: 'engineering',
     label: 'Engineered Solutions',
     title: 'Custom Cryogenic Engineering & Pipeline Solutions',
@@ -14,20 +27,7 @@ const SERVICE_TABS = [
       'End-to-End Industrial Gas Pipeline Design',
       'Automated & Flexible Gas Delivery Scheduling'
     ],
-    image: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/service_pipe.jpg'
-  },
-  {
-    id: 'equipment',
-    label: 'Equipment & Supply',
-    title: 'Industrial Gas Storage & Vaporization Equipment',
-    description: 'We supply high-performance cryogenic storage tanks, vaporizers, and gas handling equipment, supported by uninterrupted industrial gas supply.',
-    points: [
-      'Vertical & Horizontal Cryogenic Storage Tanks',
-      'Ambient & Steam Heated Vaporizers',
-      'High-Pressure Gas Cylinder Manifolds',
-      'Precision Gas Regulation Panels'
-    ],
-    image: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/service_tank.avif'
+    image: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/Custom%20Cryogenic%20Engineering%20%26%20Pipeline%20Solutions.webp'
   },
   {
     id: 'logistics',
@@ -89,8 +89,8 @@ const Services: React.FC = () => {
       {/* Hero */}
       <div className="relative h-[550px] overflow-hidden">
         <img
-          src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/service_hero.jpg"
-          alt="Cryogenic gas logistics and engineering services"
+          src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/Cryogenic%20storage%20tank.webp"
+          alt="Cryogenic liquid gas storage"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent flex items-center justify-center">
