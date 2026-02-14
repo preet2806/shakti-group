@@ -171,10 +171,16 @@ const ChatAssistant: React.FC = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-shakti-blue hover:bg-blue-600 text-white p-4 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center gap-3 group active:scale-95"
+        className="bg-shakti-blue hover:bg-blue-600 text-white p-4 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center gap-3 group active:scale-95 overflow-hidden"
       >
-        {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
-        {!isOpen && <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-in-out whitespace-nowrap font-medium pr-1">Chat with Us</span>}
+        {isOpen ? <X className="w-6 h-6 shrink-0" /> : <MessageCircle className="w-6 h-6 shrink-0" />}
+
+        {/* Animated label */}
+        <span className="flex items-center overflow-hidden">
+          <span className="whitespace-nowrap font-medium pr-1 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 w-0 group-hover:w-auto">
+            Chat with Us
+          </span>
+        </span>
       </button>
     </div>
   );
