@@ -128,6 +128,17 @@ const Footer: React.FC = () => {
               <li><NavLink to="/products" className="hover:text-blue-500 transition">Products</NavLink></li>
               <li><NavLink to="/services" className="hover:text-blue-500 transition">Services</NavLink></li>
               <li><NavLink to="/contact" className="hover:text-blue-500 transition">Contact Us</NavLink></li>
+              {/* PDF Link */}
+                  <li>
+                    <a
+                      href="/company_profile.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-blue-500 transition font-medium"
+                    >
+                      Company Profile (PDF)
+                    </a>
+                  </li>
             </ul>
           </div>
 
