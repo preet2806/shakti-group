@@ -8,7 +8,7 @@ const EXPANSIONS = [
     company: "Shaktishree Air Private Limited (SAPL)",
     title: "Karjan, Gujarat – 178 TPD Air Separation Unit",
     description:
-      "The Karjan ASU is a 178 TPD cryogenic air separation facility designed for continuous production of liquid oxygen, nitrogen, and argon. Scheduled for commissioning in February 2026, the plant is engineered for bulk supply to steel, refinery, EPC, and manufacturing customers, with dedicated liquid storage and tanker dispatch infrastructure.",
+      "The Karjan ASU is a 178 TPD cryogenic air separation facility designed for continuous production of liquid oxygen, nitrogen, and argon. Commissioned in April 2026, the plant is engineered for bulk supply to steel, refinery, EPC, and manufacturing customers, with dedicated liquid storage and tanker dispatch infrastructure.",
     linkText: "View Gas Portfolio",
     linkPath: "/products",
     images: [
