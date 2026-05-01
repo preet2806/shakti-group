@@ -41,7 +41,7 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const STATS: StatItem[] = [
-  { value: '398 TPD', label: 'Total Manufacturing Capacity' },
+  { value: '448 TPD', label: 'Total Manufacturing Capacity' },
   { value: '65+', label: 'Cryogenic Road Tankers' },
   { value: '6+', label: 'Refilling Stations' },
   { value: 'Since 1998', label: 'Legacy in Gases' },

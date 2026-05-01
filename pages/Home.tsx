@@ -22,7 +22,7 @@ const EXPANSIONS = [
     company: "Indore Carbonic",
     title: "Food & Industrial CO₂ Manufacturing Capacity Expansion",
     description:
-      "Indore Carbonic operates dedicated carbon dioxide recovery and purification units supplying food-grade and industrial CO₂. Three plants are operational in Ahmedabad and Indore, while three additional high-capacity units are under installation and scheduled for commissioning by mid-2026, enabling regional redundancy and higher dispatch volumes.",
+      "Indore Carbonic operates dedicated carbon dioxide recovery and purification units supplying food-grade and industrial CO₂. Four plants are operational in Ahmedabad, Hyderabad and Indore, while two additional high-capacity units are under installation and scheduled for commissioning by mid-2026, enabling regional redundancy and higher dispatch volumes.",
     linkText: "View Gas Portfolio",
     linkPath: "/products",
     images: [
