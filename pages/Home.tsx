@@ -12,9 +12,9 @@ const EXPANSIONS = [
     linkText: "View Gas Portfolio",
     linkPath: "/products",
     images: [
-      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/ASU%20purity%20analysis%20lab%20setup.webp",
-      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/LIN%20LOX%20LAR%20Manufacturing%20unit.webp",
-      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air%20seperation%20unit%20at%20karjan.webp"
+      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/webp/DSC_5398.webp",
+      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/webp/DSC_5458%20%281%29.webp",
+      "https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/webp/DSC_5442.webp"
     ]
   },
   {
@@ -135,20 +135,32 @@ const Home: React.FC = () => {
 
       <div className="relative bg-slate-900 h-[600px] overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air%20seperation%20unit%20at%20karjan.webp"
-            alt="Cryogenic tanker fleet of Shakti Industrial Gases supplying liquid oxygen and nitrogen"
-            className="w-full h-full object-cover opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/60 to-transparent"></div>
+          <video
+            className="w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air%20seperation%20unit%20at%20karjan.webp"
+          >
+            <source src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air-separation-unit-karjan.webm" type="video/webm" />
+            <source src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air-separation-unit-karjan.mp4" type="video/mp4" />
+          </video>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
           <div className="max-w-3xl">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            <h1
+              className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight"
+              style={{ textShadow: '0 2px 12px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.9)' }}
+            >
               25+ Years <br /> Of Industrial Gas Solutions
             </h1>
-            <p className="text-xl text-slate-300 mb-8">
+            <p
+              className="text-xl text-slate-300 mb-8"
+              style={{ textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}
+            >
               Production, bulk storage and distribution of oxygen, nitrogen, argon, and carbon dioxide for nationwide industries.
             </p>
           </div>
