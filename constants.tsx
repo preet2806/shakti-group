@@ -241,7 +241,7 @@ export const GROUP_COMPANIES: GroupCompany[] = [
   },
 {
     name: 'Indore Carbonic',
-    description: 'Manufacturer of Liquid Carbon Dioxide Gas. Plants located in Ahmedabad and Indore with upcoming facilities in Hazira and Hyderabad.'
+    description: 'Manufacturer of Liquid Carbon Dioxide Gas. Plants located in Ahmedabad and Indore with upcoming facilities in Hazira and Hyderabad to be commissioned by mid-2026.'
   },
   {
     name: 'Shreeji Acetylene Co.',
@@ -265,7 +265,7 @@ export const GROUP_COMPANIES: GroupCompany[] = [
   },
   {
     name: 'Shaktishree Air Private Limited (SAPL)',
-    description: 'Our major expansion featuring a 178 TPD Air Separation Unit commencing operations by Feb 2026.'
+    description: 'Our major expansion featuring a 178 TPD Air Separation Unit commissioned in April 2026, located in Karjan, Gujarat.'
   }
 ];
 

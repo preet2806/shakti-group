@@ -21,18 +21,25 @@ const About: React.FC = () => {
 
       {/* Hero */}
       <div className="relative h-[450px] overflow-hidden">
-        <img
-          src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/about_hero.jpg"
-          alt="Industrial gas manufacturing plants with cryogenic storage and process equipment"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/80 to-transparent flex items-center">
+        <video
+          className="w-full h-full object-cover scale-125 object-[75%_center] translate-x-[10%]"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="..."
+        >
+          <source src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/DJI_0184-small.webm" type="video/webm" />
+          <source src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/DJI_0184-small.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white w-full">
             <div className="max-w-3xl text-left">
-              <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+              <h1 className="text-3xl md:text-4xl font-bold mb-6 leading-tight" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.9)' }}>
                 Built on Engineering & Execution
               </h1>
-              <p className="text-xl text-gray-200 leading-relaxed">
+              <p className="text-xl text-gray-200 leading-relaxed" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}>
                 Operating cryogenic gas plants, storage systems, and bulk logistics to support continuous industrial operations since 1998.
               </p>
             </div>
