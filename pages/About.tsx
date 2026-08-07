@@ -37,7 +37,7 @@ const About: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white w-full">
             <div className="max-w-3xl text-left">
               <h1 className="text-3xl md:text-4xl font-bold mb-6 leading-tight" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.9)' }}>
-                Built on Engineering & Execution
+                Built on Engineering & Execution.
               </h1>
               <p className="text-xl text-gray-200 leading-relaxed" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}>
                 Operating cryogenic gas plants, storage systems, and bulk logistics to support continuous industrial operations since 1998.
