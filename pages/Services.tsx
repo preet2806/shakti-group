@@ -4,23 +4,10 @@ import { NavLink } from 'react-router-dom';
 
 const SERVICE_TABS = [
   {
-      id: 'equipment',
-      label: 'Equipment & Supply',
-      title: 'Industrial Gas Storage & Vaporization Equipment',
-      description: 'We supply high-performance cryogenic storage tanks, vaporizers, and gas handling equipment, supported by uninterrupted industrial gas supply.',
-      points: [
-        'Vertical & Horizontal Cryogenic Storage Tanks',
-        'Ambient & Steam Heated Vaporizers',
-        'High-Pressure Gas Cylinder Manifolds',
-        'Precision Gas Regulation Panels'
-      ],
-      image: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Industrial%20Gas%20Storage%20%26%20Vaporization%20Equipment.webp'
-  },
-  {
     id: 'engineering',
     label: 'Engineered Solutions',
-    title: 'Custom Cryogenic Engineering & Pipeline Solutions',
-    description: 'Our engineering team designs, installs, and maintains cryogenic gas systems tailored to your operational requirements, ensuring efficiency, safety, and long-term reliability.',
+    title: 'Cryogenic Engineering, Installation & Pipeline Solutions',
+    description: 'Our engineering team designs, installs, and maintains cryogenic gas storage systems tailored to your operational requirements, ensuring efficiency, safety, and long-term reliability.',
     points: [
       'Optimized Cryogenic Storage Tank Sizing',
       'Defined Pressure Ratings & Vaporizer Capacity',
@@ -46,15 +33,28 @@ const SERVICE_TABS = [
     id: 'support',
     label: 'Technical Support',
     title: 'Industrial Gas System Maintenance & Safety Support',
-    description: 'We provide ongoing technical support, safety audits, and system optimization to ensure compliant and efficient gas operations.',
+    description: 'We provide specialized services that support the safe installation, operation, and maintenance of industrial gas systems.',
     points: [
-      'On-Site Industrial Gas Safety Training',
-      'Routine Maintenance & PESO Compliance Audits',
+      'Nitrogen Purging Services',
+      'Routine Maintenance & PESO Compliance Support',
       'Gas System Performance Optimization',
-      'Expert Technical Troubleshooting'
+      'Cylinder Hydrostatic Testing'
     ],
     image: 'https://images.unsplash.com/photo-1662309376159-b95fb193d96b?q=80&w=774&auto=format&fit=crop'
-  }
+  },
+  {
+        id: 'export',
+        label: 'International Supply & Export',
+        title: 'Industrial Gas Export & International Supply',
+        description: 'Supporting international supply of industrial gases through dedicated infrastructure and multimodal road, rail and sea logistics.',
+        points: [
+          'Bulk & Cryogenic Gas Exports',
+          'Cylinder & Tonner Loads',
+          'ISO Tank Shipments',
+          'Multimodal Logistics'
+        ],
+        image: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Industrial%20Gas%20Storage%20%26%20Vaporization%20Equipment.webp'
+    }
 ];
 
 const SAFETY_ITEMS = [
@@ -99,7 +99,7 @@ const Services: React.FC = () => {
               Industrial Gas Engineering & Logistics Services
             </h1>
             <p className="text-xl text-gray-100 mb-10 max-w-2xl mx-auto">
-              Engineered cryogenic solutions, reliable gas logistics, and uncompromising safety standards.
+              Engineered cryogenic systems, reliable bulk gas supply, specialized industrial services, and safety-focused technical support.
             </p>
             <NavLink
               to="/contact"
