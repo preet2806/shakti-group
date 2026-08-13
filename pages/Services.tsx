@@ -1,6 +1,35 @@
 import React, { useState } from 'react';
-import { ShieldCheck, ChevronDown, CheckCircle, Settings, Truck } from 'lucide-react';
+import { ShieldCheck, ChevronRight, CheckCircle, Settings, Truck, ArrowRight, Wrench, Globe, Layers, PhoneCall } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
+import SEO from '../components/SEO';
+
+export const SOLUTIONS_SUBPAGES = [
+  {
+    path: '/solutions/bulk-gas-supply',
+    title: 'Bulk Gas Supply & Telemetry Solutions',
+    desc: 'On-site cryogenic storage vessel installation, automated tanker refills, and digital tank telemetry.'
+  },
+  {
+    path: '/solutions/cylinder-gas-supply',
+    title: 'Cylinder Gas Supply & Manifolds',
+    desc: 'Scheduled cylinder route delivery, automatic changeover manifolds, and quad bundle supply.'
+  },
+  {
+    path: '/solutions/cryogenic-engineering',
+    title: 'Cryogenic Engineering & Pipelines',
+    desc: 'Custom vacuum insulated piping (VIP), ambient vaporizers, pressure regulation, and plant integration.'
+  },
+  {
+    path: '/solutions/cylinder-services',
+    title: 'Cylinder Testing & Refurbishment',
+    desc: 'PESO approved hydrostatic stretch testing, internal chemical washing, valving, and certification.'
+  },
+  {
+    path: '/solutions/export',
+    title: 'International Export & ISO Tanks',
+    desc: 'Global export of bulk liquids in ISO containers, cylinder pallets, and tonners with dangerous goods clearance.'
+  }
+];
 
 const SERVICE_TABS = [
   {
@@ -43,18 +72,18 @@ const SERVICE_TABS = [
     image: 'https://images.unsplash.com/photo-1662309376159-b95fb193d96b?q=80&w=774&auto=format&fit=crop'
   },
   {
-        id: 'export',
-        label: 'International Supply & Export',
-        title: 'Industrial Gas Export & International Supply',
-        description: 'Supporting international supply of industrial gases through dedicated infrastructure and multimodal road, rail and sea logistics.',
-        points: [
-          'Bulk & Cryogenic Gas Exports',
-          'Cylinder & Tonner Loads',
-          'ISO Tank Shipments',
-          'Multimodal Logistics'
-        ],
-        image: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Industrial%20Gas%20Storage%20%26%20Vaporization%20Equipment.webp'
-    }
+    id: 'export',
+    label: 'International Supply & Export',
+    title: 'Industrial Gas Export & International Supply',
+    description: 'Supporting international supply of industrial gases through dedicated infrastructure and multimodal road, rail and sea logistics.',
+    points: [
+      'Bulk & Cryogenic Gas Exports',
+      'Cylinder & Tonner Loads',
+      'ISO Tank Shipments',
+      'Multimodal Logistics'
+    ],
+    image: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Industrial%20Gas%20Storage%20%26%20Vaporization%20Equipment.webp'
+  }
 ];
 
 const SAFETY_ITEMS = [
@@ -77,191 +106,201 @@ const Services: React.FC = () => {
 
   const activeContent = SERVICE_TABS.find(tab => tab.id === activeTab) || SERVICE_TABS[0];
 
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Industrial Gas Engineering & Supply Solutions',
+    provider: {
+      '@type': 'Organization',
+      name: 'Shakti Group of Companies'
+    },
+    serviceType: 'Cryogenic Engineering, Bulk Supply, Cylinder Management',
+    areaServed: 'India & Export Markets'
+  };
+
   return (
     <div className="bg-white">
-      {/* React 19 SEO Hoisting */}
-      <title>Industrial Gas Services & Cryogenic Engineering | Shakti Group India</title>
-      <meta
-        name="description"
-        content="Shakti Group offers cryogenic engineering, industrial gas logistics, PESO-compliant storage systems, pipeline design, and 24x7 technical support across India."
+      {/* SEO Metadata */}
+      <SEO
+        title="Industrial Gas Engineering & Supply Solutions | Shakti Group"
+        description="Comprehensive industrial gas solutions: Bulk cryogenic storage installation, automated tank telemetry, vacuum insulated pipelines, cylinder testing, and international export."
+        keywords="Cryogenic Engineering, Bulk Gas Supply Solution, Gas Pipeline Installation, Cylinder Testing PESO, Gas Telemetry System"
+        canonicalUrl="https://www.shaktigases.com/services"
+        schemaJson={schema}
       />
 
       {/* Hero */}
-      <div className="relative h-[550px] overflow-hidden">
-        <img
-          src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/Cryogenic%20storage%20tank.webp"
-          alt="Cryogenic liquid gas storage"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent flex items-center justify-center">
-          <div className="text-center px-4 max-w-4xl mx-auto">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight">
-              Industrial Gas Engineering & Logistics Services
-            </h1>
-            <p className="text-xl text-gray-100 mb-10 max-w-2xl mx-auto">
-              Engineered cryogenic systems, reliable bulk gas supply, specialized industrial services, and safety-focused technical support.
-            </p>
+      <div className="relative bg-gray-900 text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-950 via-gray-900 to-gray-950 opacity-90" />
+        <div className="relative max-w-7xl mx-auto">
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 text-xs font-semibold text-blue-400 uppercase tracking-widest mb-4">
+            <NavLink to="/" className="hover:text-white transition">Home</NavLink>
+            <ChevronRight className="h-3.5 w-3.5 text-gray-500" />
+            <span className="text-white">Solutions & Services</span>
+          </div>
+
+          <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 max-w-3xl leading-tight">
+            Industrial Gas Engineering & Delivery Solutions
+          </h1>
+          <p className="text-lg text-gray-300 max-w-3xl leading-relaxed">
+            Turnkey cryogenic storage engineering, high-pressure gas distribution pipelines, automated refilling telemetry, and PESO certified cylinder management.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-4">
             <NavLink
               to="/contact"
-              className="bg-shakti-blue hover:bg-blue-600 text-white px-10 py-4 rounded-lg font-bold transition shadow-xl shadow-blue-900/30"
+              className="bg-blue-500 hover:bg-blue-600 text-white font-bold uppercase tracking-wider px-6 py-3 rounded-xl text-sm transition shadow-lg shadow-blue-500/25"
             >
-              Speak to an Engineer
+              Consult an Engineer
             </NavLink>
           </div>
         </div>
       </div>
 
-      {/* Commitments */}
-      <section className="py-24 bg-white">
+      {/* Direct Subpages Directory Grid */}
+      <section className="py-16 bg-gray-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Reliable Industrial Gas Services Built for Scale
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-blue-600 font-bold uppercase tracking-widest text-xs block mb-1">
+              Solutions Directory
+            </span>
+            <h2 className="text-3xl font-extrabold text-gray-900">
+              Explore Targeted Solution Offerings
             </h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-lg">
-              Our services are designed to deliver safety, reliability, and performance across critical industrial operations.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-              <div className="bg-blue-50 p-4 rounded-xl w-fit mb-6 text-shakti-blue">
-                <ShieldCheck className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Uninterrupted Gas Supply</h3>
-              <p className="text-gray-600">
-                Redundant systems and real-time logistics ensure continuous industrial gas availability.
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-              <div className="bg-blue-50 p-4 rounded-xl w-fit mb-6 text-shakti-blue">
-                <Settings className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Custom Engineered Systems</h3>
-              <p className="text-gray-600">
-                Bespoke cryogenic storage, vaporization, and pipeline solutions engineered for your plant.
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-              <div className="bg-blue-50 p-4 rounded-xl w-fit mb-6 text-shakti-blue">
-                <Truck className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Safety & Compliance First</h3>
-              <p className="text-gray-600">
-                PESO-compliant systems operated by trained professionals with strict safety protocols.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Tabs */}
-      <div className="sticky top-20 z-30 bg-white/95 backdrop-blur-sm border-y border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-2 md:gap-12 text-sm font-semibold text-gray-500 overflow-x-auto no-scrollbar">
-            {SERVICE_TABS.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`py-6 whitespace-nowrap transition-all duration-300 border-b-2 ${
-                  activeTab === tab.id
-                    ? 'text-shakti-blue border-shakti-blue'
-                    : 'text-gray-500 border-transparent hover:text-gray-900 hover:border-gray-200'
-                }`}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {SOLUTIONS_SUBPAGES.map((sol) => (
+              <NavLink
+                key={sol.path}
+                to={sol.path}
+                className="group bg-white p-8 rounded-2xl border border-gray-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    {sol.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed mb-6">
+                    {sol.desc}
+                  </p>
+                </div>
 
-      {/* Detailed Section */}
-      <section className="py-24 bg-white min-h-[600px] transition-all duration-500 ease-in-out">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="animate-fade-in-up">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">{activeContent.title}</h2>
-              <p className="text-gray-600 mb-10 leading-relaxed text-lg">{activeContent.description}</p>
-              <ul className="space-y-6">
-                {activeContent.points.map((item, i) => (
-                  <li key={i} className="flex items-center gap-4">
-                    <CheckCircle className="w-6 h-6 text-shakti-blue flex-shrink-0" />
-                    <span className="text-gray-800 font-medium">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <img
-                src={activeContent.image}
-                alt={`${activeContent.title} service`}
-                className="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Safety */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Industrial Gas Safety & Regulatory Compliance
-            </h2>
-            <p className="text-gray-600">
-              Comprehensive safety systems aligned with national regulatory standards.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {SAFETY_ITEMS.map((item, index) => (
-              <SafetyAccordion key={index} title={item.title} description={item.description} />
+                <div className="flex items-center text-sm font-bold text-blue-600 pt-4 border-t border-gray-100 group-hover:translate-x-1 transition-transform">
+                  <span>View Details</span>
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </div>
+              </NavLink>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-shakti-dark text-center text-white">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6">
-            Talk to Industrial Gas Engineering Experts
+      {/* Tabbed Interactive Service Breakdown */}
+      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-blue-600 font-bold uppercase tracking-widest text-xs block mb-1">
+            Service Capabilities
+          </span>
+          <h2 className="text-3xl font-extrabold text-gray-900">
+            End-to-End Infrastructure & Distribution
           </h2>
-          <p className="text-gray-400 mb-10 text-lg">
-            Discuss your cryogenic, pipeline, and bulk gas supply requirements with Shakti Group.
-          </p>
-          <NavLink
-            to="/contact"
-            className="bg-shakti-blue hover:bg-blue-600 text-white px-10 py-4 rounded-lg font-bold transition shadow-lg shadow-blue-900/50 inline-block"
-          >
-            Request a Consultation
-          </NavLink>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex flex-wrap justify-center bg-gray-100 p-1.5 rounded-2xl max-w-3xl mx-auto mb-12 gap-1">
+          {SERVICE_TABS.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-5 py-3 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition ${
+                activeTab === tab.id
+                  ? 'bg-white text-blue-600 shadow-md'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Tab Content Display */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-white border border-gray-100 p-8 sm:p-12 rounded-3xl shadow-lg">
+          <div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">{activeContent.title}</h3>
+            <p className="text-gray-600 text-base leading-relaxed mb-8">{activeContent.description}</p>
+
+            <ul className="space-y-4 mb-8">
+              {activeContent.points.map((pt, idx) => (
+                <li key={idx} className="flex items-start gap-3 text-sm text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+                  <span>{pt}</span>
+                </li>
+              ))}
+            </ul>
+
+            <NavLink
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-xl text-sm transition shadow-lg shadow-blue-500/20"
+            >
+              <span>Discuss Engineering Requirements</span>
+              <ArrowRight className="h-4 w-4" />
+            </NavLink>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden shadow-md h-[380px]">
+            <img
+              src={activeContent.image}
+              alt={activeContent.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </section>
-    </div>
-  );
-};
 
-const SafetyAccordion: React.FC<{ title: string; description: string }> = ({ title, description }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50"
-      >
-        <span className="font-bold text-lg text-gray-900">{title}</span>
-        <ChevronDown
-          className={`w-5 h-5 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
-        />
-      </button>
-      <div className={`${isOpen ? 'max-h-48' : 'max-h-0'} overflow-hidden transition-all`}>
-        <div className="px-8 pb-8 pt-2 text-gray-600 border-t border-gray-100">
-          {description}
+      {/* Safety Section */}
+      <section className="py-16 bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-blue-400 font-bold uppercase tracking-widest text-xs block mb-1">
+              Safety First
+            </span>
+            <h2 className="text-3xl font-extrabold text-white">
+              PESO Compliance & Quality Assurance
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {SAFETY_ITEMS.map((item, index) => (
+              <div key={index} className="bg-gray-800/80 p-8 rounded-2xl border border-gray-700">
+                <div className="h-10 w-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold mb-6">
+                  <ShieldCheck className="h-6 w-6" />
+                </div>
+                <h3 className="font-bold text-white text-lg mb-3">{item.title}</h3>
+                <p className="text-xs text-gray-300 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Cross Backlinks Footer */}
+          <div className="mt-16 pt-8 border-t border-gray-800 flex flex-wrap items-center justify-between gap-4 text-xs font-semibold text-gray-400">
+            <div className="flex flex-wrap items-center gap-3">
+              <span>Related Operations:</span>
+              <NavLink to="/company/infrastructure" className="hover:text-blue-400 underline">Cryogenic Fleet</NavLink>
+              <span>•</span>
+              <NavLink to="/company/quality-safety" className="hover:text-blue-400 underline">Quality & PESO</NavLink>
+              <span>•</span>
+              <NavLink to="/products" className="hover:text-blue-400 underline">Gas Catalog</NavLink>
+              <span>•</span>
+              <NavLink to="/industries" className="hover:text-blue-400 underline">Sectors Served</NavLink>
+            </div>
+
+            <NavLink to="/contact" className="text-blue-400 font-bold hover:underline">
+              Submit RFP / Tender Documents →
+            </NavLink>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

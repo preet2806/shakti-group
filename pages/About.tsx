@@ -1,22 +1,17 @@
 import React from 'react';
 import { GROUP_COMPANIES, SERVICES } from '../constants';
-import { ChevronDown, ChevronUp, Factory, Users, TrendingUp, CheckCircle, Truck, ShieldCheck } from 'lucide-react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { ChevronDown, ChevronUp, Factory, Users, TrendingUp, CheckCircle, Truck, ShieldCheck, ChevronRight, ArrowLeft } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const About: React.FC = () => {
   return (
     <div className="bg-white">
-      {/* React 19 SEO Hoisting */}
-      <title>
-        About Shakti Industrial Gases | Industrial Gas Manufacturing Group
-      </title>
-      <meta
-        name="description"
-        content="Shakti Industrial Gases is an Indian industrial gas manufacturing group operating cryogenic ASUs, CO₂ plants, bulk storage, and tanker logistics since 1998."
-      />
-      <meta
-        name="keywords"
-        content="Shakti Industrial Gases, Industrial Gas Manufacturer India, Cryogenic Engineering Company, PESO Certified Gas Manufacturer, Shaktishree Air, Indore Carbonic, Industrial Gas History"
+      <SEO
+        title="About Shakti Industrial Gases | Industrial Gas Manufacturing Group"
+        description="Shakti Industrial Gases is an Indian industrial gas manufacturing group operating cryogenic ASUs, CO₂ plants, bulk storage, and tanker logistics since 1998."
+        keywords="Shakti Industrial Gases, Industrial Gas Manufacturer India, Cryogenic Engineering Company, PESO Certified Gas Manufacturer, Shaktishree Air, Indore Carbonic"
+        canonicalUrl="https://www.shaktigases.com/company/about"
       />
 
       {/* Hero */}
@@ -36,6 +31,13 @@ const About: React.FC = () => {
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white w-full">
             <div className="max-w-3xl text-left">
+              <div className="flex items-center gap-2 text-xs font-semibold text-blue-300 uppercase tracking-widest mb-4">
+                <NavLink to="/" className="hover:text-white transition">Home</NavLink>
+                <ChevronRight className="h-3.5 w-3.5 text-gray-400" />
+                <NavLink to="/company" className="hover:text-white transition">Company</NavLink>
+                <ChevronRight className="h-3.5 w-3.5 text-gray-400" />
+                <span className="text-white">About Shakti</span>
+              </div>
               <h1 className="text-3xl md:text-4xl font-bold mb-6 leading-tight" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.9)' }}>
                 Built on Engineering & Execution.
               </h1>

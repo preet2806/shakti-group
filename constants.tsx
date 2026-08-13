@@ -33,11 +33,56 @@ export const OUTLOOK_CONFIG = {
 };
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Home', path: '/' },
-  { label: 'About Us', path: '/about' },
-  { label: 'Products', path: '/products' },
-  { label: 'Services', path: '/services' },
-  { label: 'Contact', path: '/contact' },
+  {
+    label: 'Home',
+    path: '/'
+  },
+  {
+    label: 'Company',
+    path: '/company',
+    children: [
+      { label: 'About Shakti', path: '/company/about', description: 'Our history, leadership, and operational legacy since 1998' },
+      { label: 'Group Entities & Network', path: '/company/our-group', description: '9 Group entities, ASUs, CO₂ units & refilling stations across India' },
+      { label: 'Infrastructure', path: '/company/infrastructure', description: 'Cryogenic road tankers, storage tanks & vaporizers' },
+      { label: 'Quality & Safety', path: '/company/quality-safety', description: 'PESO certifications, ISO standards & safety protocols' },
+    ]
+  },
+  {
+    label: 'Products',
+    path: '/products',
+    children: [
+      { label: 'Bulk & Cryogenic Gases', path: '/products/bulk-cryogenic', description: 'Liquid LOX, LIN, LAR & LCO₂ in cryogenic tankers' },
+      { label: 'Industrial & Cylinder Gases', path: '/products/industrial-cylinder', description: 'Compressed Oxygen, Nitrogen, Argon, Acetylene & Mixtures' },
+      { label: 'Specialty & Calibration Gases', path: '/products/specialty-calibration', description: 'Ultra-high purity, laser gas mixtures & lab standards' },
+      { label: 'Other Products', path: '/products/other', description: 'Dry ice, gas regulators, dewars & accessories' },
+    ]
+  },
+  {
+    label: 'Solutions',
+    path: '/services',
+    children: [
+      { label: 'Bulk Gas Supply', path: '/solutions/bulk-gas-supply', description: 'On-site cryogenic storage & automated tanker telemetry' },
+      { label: 'Cylinder Gas Supply', path: '/solutions/cylinder-gas-supply', description: 'Scheduled cylinder bank & manifold delivery' },
+      { label: 'Cryogenic Engineering', path: '/solutions/cryogenic-engineering', description: 'Turnkey ASU installation, piping & vaporizer systems' },
+      { label: 'Cylinder Services', path: '/solutions/cylinder-services', description: 'Hydrostatic testing, PESO re-certification & valving' },
+      { label: 'Export', path: '/solutions/export', description: 'International gas supply, ISO tanks & multimodal freight' },
+    ]
+  },
+  {
+    label: 'Industries',
+    path: '/industries',
+    children: [
+      { label: 'Metals & Manufacturing', path: '/industries/metals-manufacturing', description: 'Steelmaking, cutting, welding & heat treatment' },
+      { label: 'Chemicals & Process Industries', path: '/industries/chemicals-process', description: 'Inerting, blanketing, purging & process reaction' },
+      { label: 'Life Sciences', path: '/industries/life-sciences', description: 'Medical oxygen, pharma synthesis & cryo-preservation' },
+      { label: 'Food & Beverage', path: '/industries/food-beverage', description: 'Cryogenic freezing, MAP packaging & carbonation' },
+      { label: 'Energy & Infrastructure', path: '/industries/energy-infrastructure', description: 'Refinery purging, power plants & pipeline solutions' },
+    ]
+  },
+  {
+    label: 'Contact',
+    path: '/contact'
+  },
 ];
 
 export const STATS: StatItem[] = [

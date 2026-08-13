@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
-import { NAV_ITEMS } from '../constants';
+import { Phone, Mail, MapPin } from 'lucide-react';
+import Navbar from './Navbar';
 import ChatAssistant from './ChatAssistant';
 
 const ShaktiLogo: React.FC<{ className?: string }> = ({ className }) => (
@@ -15,94 +15,7 @@ const ShaktiLogo: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <nav className="sticky top-0 z-40 bg-white border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
-          {/* Logo */}
-          <div className="flex items-center">
-            <NavLink to="/" className="flex items-center gap-2">
-              <div className="text-blue-500">
-                <ShaktiLogo className="h-8 w-8" />
-              </div>
-              <span className="text-xl font-bold text-gray-900 tracking-tight">Shakti Group Of Companies</span>
-            </NavLink>
-          </div>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {NAV_ITEMS.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={({ isActive }) =>
-                  `text-sm font-medium transition-colors duration-200 ${
-                    isActive ? 'text-blue-500' : 'text-gray-600 hover:text-blue-500'
-                  }`
-                }
-              >
-                {item.label}
-              </NavLink>
-            ))}
-            <NavLink
-              to="/contact"
-              className="bg-blue-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors shadow-lg shadow-blue-500/20"
-            >
-              Request a Quote
-            </NavLink>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="flex items-center md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-gray-900 p-2"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
-          <div className="px-4 pt-4 pb-6 space-y-2">
-            {NAV_ITEMS.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                onClick={() => setIsOpen(false)}
-                className={({ isActive }) =>
-                  `block px-3 py-3 rounded-md text-base font-medium ${
-                    isActive
-                      ? 'bg-blue-50 text-blue-600'
-                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                  }`
-                }
-              >
-                {item.label}
-              </NavLink>
-            ))}
-            <div className="pt-4">
-                 <NavLink
-                  to="/contact"
-                  onClick={() => setIsOpen(false)}
-                  className="block w-full text-center bg-blue-500 text-white px-5 py-3 rounded-lg text-base font-medium"
-                >
-                  Request a Quote
-                </NavLink>
-            </div>
-          </div>
-        </div>
-      )}
-    </nav>
-  );
-};
-
+// Footer component
 const Footer: React.FC = () => {
   return (
     <footer className="bg-white border-t border-gray-100 pt-16 pb-8">
