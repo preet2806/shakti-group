@@ -88,16 +88,20 @@ const SERVICE_TABS = [
 
 const SAFETY_ITEMS = [
   {
-    title: "Certified Gas Handling & Safety Training",
-    description: "Our personnel are rigorously trained in industrial gas handling, storage, and transportation with regular safety drills and refresher programs."
+    title: "100% PESO Approved Plants & Assets",
+    description: "All cryogenic storage vessels, ASU plants, road tankers, tube cascades, and cylinder filling manifolds are strictly approved and licensed under PESO (CCOE) statutory regulations."
   },
   {
-    title: "Emergency Response & Risk Mitigation",
-    description: "Well-defined emergency response procedures including leak control, spill containment, and first-response actions to minimize operational risk."
+    title: "ISO 9001 / 14001 / 45001 Integrated Systems",
+    description: "Certified Quality Management (ISO 9001), Environmental Management (ISO 14001), and Occupational Health & Safety (ISO 45001) covering all manufacturing and distribution workflows."
   },
   {
-    title: "PESO (CCOE) Licensed & Periodically Audited",
-    description: "All equipment and operations are routinely inspected and licensed under PESO regulations, ensuring statutory compliance and safe operations."
+    title: "FDA Licensed & WHO-GMP Certified",
+    description: "Full statutory Drug Manufacturing Licenses and WHO-GMP certifications for Medical Gases including IP Medical Oxygen and pharmaceutical-grade synthesis gases."
+  },
+  {
+    title: "FSSAI Food-Grade & Hydrostatic Testing",
+    description: "FSSAI licensed for beverage-grade LCO₂ (E290), food-flushing Nitrogen, and dry ice, supported by an in-house PESO approved 5-year hydrostatic cylinder stretch testing station."
   }
 ];
 
@@ -270,7 +274,7 @@ const Services: React.FC = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {SAFETY_ITEMS.map((item, index) => (
               <div key={index} className="bg-gray-800/80 p-8 rounded-2xl border border-gray-700">
                 <div className="h-10 w-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold mb-6">

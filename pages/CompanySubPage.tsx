@@ -57,7 +57,7 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
     overviewHeading: 'Group Entities & Manufacturing Footprint',
     overviewText: [
       'Shakti Group operates 9 specialized industrial gas divisions providing complete coverage across production, purification, compression, and logistics.',
-      'Our manufacturing footprint includes cryogenic Air Separation Units (ASUs) in Karjan and Gujarat, liquid CO₂ plants in Indore and Ahmedabad (expanding to Hazira & Hyderabad by mid-2026), Dissolved Acetylene production in Savli, Hydrogen cascades in Ranoli, and specialized cylinder refilling hubs across Vadodara GIDC belts.'
+      'Our manufacturing footprint includes cryogenic Air Separation Units (ASUs) in Karjan, 270 TPD liquid CO₂ plants across Ahmedabad, Indore, and Hyderabad (with an upcoming facility in Hazira), dedicated Dissolved Acetylene (DA) gas manufacturing by Shreeji Acetylene in Savli, Hydrogen gas refilling with High Purity (HP) and Ultra High Purity (UHP) by Shakti Gases in Ranoli, and specialized cylinder refilling hubs across the Vadodara industrial corridor.'
     ],
     entityOrFacilityTitle: 'Operating Divisions & Plant Locations',
     entitiesOrFacilities: [
@@ -93,32 +93,33 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
       },
       {
         name: 'Indore Carbonic',
-        location: 'Ahmedabad & Indore (Upcoming: Hazira & Hyderabad by Mid-2026)',
-        badge: 'Liquid CO₂ & Dry Ice',
-        description: 'CO₂ recovery and catalytic purification facility producing food-grade liquid carbon dioxide and solid dry ice.',
+        location: 'Ahmedabad (Gujarat), Indore (Madhya Pradesh) & Hyderabad (Telangana) [Upcoming: Hazira]',
+        badge: '270 TPD Liquid CO₂ & Dry Ice',
+        description: 'CO₂ recovery and catalytic purification facilities across Ahmedabad, Indore, and Hyderabad with a total manufacturing capacity of 270 TPD, producing food-grade liquid carbon dioxide and solid dry ice.',
         highlights: [
-          'E290 beverage-grade CO₂ purification lines (≥ 99.9%)',
-          'Solid dry ice extruders (pellets and 5kg blocks)',
-          'Multi-site distribution network expanding to Hazira & Hyderabad'
+          'Total group CO₂ manufacturing capacity of 270 TPD across 3 active plants',
+          'E290 beverage-grade CO₂ purification lines (≥ 99.9%) and industrial LCO₂',
+          'Solid dry ice extruders (pellets and high-density blocks)',
+          'Multi-state distribution network expanding to Hazira'
         ],
         specs: [
-          { label: 'Daily Capacity', value: '148+ TPD Liquid CO₂' },
-          { label: 'Products', value: 'LCO₂ & Dry Ice' }
+          { label: 'Total Capacity', value: '270 TPD Liquid CO₂' },
+          { label: 'Locations', value: 'Ahmedabad, Indore & Hyderabad' }
         ]
       },
       {
         name: 'Shreeji Acetylene Co.',
         location: 'Plot No. 37, G.I.D.C. Alindra, Ta: Savli, Dist: Vadodara',
-        badge: 'Dissolved Acetylene',
-        description: 'Manufacturer of Dissolved Acetylene (DA) gas for oxy-fuel cutting, brazing, and metal fabrication workshops.',
+        badge: 'DA Gas Manufacturer',
+        description: 'Dedicated manufacturer of Dissolved Acetylene (DA) gas for oxy-fuel cutting, brazing, chemical synthesis, and metal fabrication workshops.',
         highlights: [
-          'Calcium carbide reaction generators and chemical purifiers',
-          'Porous mass cylinder charging manifolds',
-          'Thermal and pressure safety interlocks'
+          'Calcium carbide reaction chemical generators for direct Dissolved Acetylene (DA) gas manufacturing',
+          'High Purity (HP) and Ultra High Purity (UHP) grades available upon request',
+          'Porous mass cylinder charging manifolds and safety interlocks'
         ],
         specs: [
-          { label: 'Product', value: 'Dissolved Acetylene (DA)' },
-          { label: 'Application', value: 'Cutting & Brazing' }
+          { label: 'Role', value: 'DA Gas Manufacturer' },
+          { label: 'Purities', value: 'Industrial, HP & UHP' }
         ]
       },
       {
@@ -139,16 +140,16 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
       {
         name: 'Shakti Gases',
         location: '1002, GIDC Industrial Estate, Ranoli, Dist: Vadodara',
-        badge: 'Hydrogen & Tube Cascades',
-        description: 'High-pressure Hydrogen supplier servicing refineries, heat treatment plants, and chemical synthesis units.',
+        badge: 'Hydrogen Refiller & Cascades',
+        description: 'Leading Hydrogen gas refiller supplying industrial, High Purity (HP) and Ultra High Purity (UHP) Hydrogen to refineries, heat treatment plants, and chemical synthesis units.',
         highlights: [
-          'Ultra-high pressure hydrogen compression up to 200 Bar',
-          'Mobile hydrogen tube cascades for high-volume feed',
-          'Refinery and industrial chemical supply'
+          'Specialized Hydrogen gas refilling in individual cylinders, mobile skids, and tube cascades',
+          'High Purity (HP) and Ultra High Purity (UHP Grade 5.0–6.0) grades available',
+          'High-pressure manifold connections and transport skids'
         ],
         specs: [
-          { label: 'Product', value: 'Compressed Hydrogen (H₂)' },
-          { label: 'Mode', value: 'Cylinders & Cascades' }
+          { label: 'Role', value: 'Hydrogen Refiller' },
+          { label: 'Grades', value: 'Commercial, HP & UHP' }
         ]
       },
       {
@@ -170,9 +171,9 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
         name: 'Shakti Air Products',
         location: 'Plot No. 2, Shri Hari Industrial Park, Por GIDC, Vadodara',
         badge: 'Multi-Gas Compression Hub',
-        description: 'Cylinder refilling station equipped with automated 200 Bar compression manifolds for Argon, Nitrogen, CO₂, and Oxygen.',
+        description: 'Cylinder refilling station equipped with high-pressure compression manifolds for Argon, Nitrogen, CO₂, and Oxygen.',
         highlights: [
-          'Automated 200 Bar cylinder filling headers with vacuum evacuation',
+          'High-pressure 200 Bar cylinder filling headers with vacuum evacuation',
           'Large stock of 47L / 50L cylinders and MCP quads',
           'Dispatch services for Por and Vadodara industrial corridors'
         ],
@@ -205,10 +206,10 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
       { step: '04', title: 'Distillation', desc: 'Fractional columns separate gases by boiling points (N₂ -195.8°C, Ar -185.9°C, O₂ -183.0°C).' }
     ],
     complianceList: [
-      'PESO (Petroleum & Explosives Safety Organization) approved licenses',
-      'ISO 9001:2015 Quality Management Systems',
-      'ISO 14001:2015 Environmental Management Systems',
-      'Indian Pharmacopoeia (IP) Medical Oxygen License'
+      '100% PESO Approved Plants, Assets & Transport Infrastructure',
+      'FDA Drug Manufacturing License & WHO-GMP Certified Facilities',
+      'ISO 9001:2015, ISO 14001:2015 & ISO 45001:2018 Certified Systems',
+      'FSSAI Certified Food-Grade Liquid CO₂ (E290) & Nitrogen'
     ],
     seoTitle: 'Group Entities & Manufacturing Network | Shakti Industrial Gases',
     seoDesc: 'Shakti Group 9 operational entities, Air Separation Units (ASU), CO2 plants, and refilling hubs across India.',
@@ -231,7 +232,7 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
     overviewHeading: 'Group Entities & Manufacturing Footprint',
     overviewText: [
       'Shakti Group operates 9 specialized industrial gas divisions providing complete coverage across production, purification, compression, and logistics.',
-      'Our manufacturing footprint includes cryogenic Air Separation Units (ASUs) in Karjan and Gujarat, liquid CO₂ plants in Indore and Ahmedabad (expanding to Hazira & Hyderabad by mid-2026), Dissolved Acetylene production in Savli, Hydrogen cascades in Ranoli, and specialized cylinder refilling hubs across Vadodara GIDC belts.'
+      'Our manufacturing footprint includes cryogenic Air Separation Units (ASUs) in Karjan, 270 TPD liquid CO₂ plants across Ahmedabad, Indore, and Hyderabad (with an upcoming facility in Hazira), dedicated Dissolved Acetylene (DA) gas manufacturing by Shreeji Acetylene in Savli, Hydrogen gas refilling with High Purity (HP) and Ultra High Purity (UHP) by Shakti Gases in Ranoli, and specialized cylinder refilling hubs across the Vadodara industrial corridor.'
     ],
     entityOrFacilityTitle: 'Operating Divisions & Plant Locations',
     entitiesOrFacilities: [
@@ -267,32 +268,33 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
       },
       {
         name: 'Indore Carbonic',
-        location: 'Ahmedabad & Indore (Upcoming: Hazira & Hyderabad by Mid-2026)',
-        badge: 'Liquid CO₂ & Dry Ice',
-        description: 'CO₂ recovery and catalytic purification facility producing food-grade liquid carbon dioxide and solid dry ice.',
+        location: 'Ahmedabad (Gujarat), Indore (Madhya Pradesh) & Hyderabad (Telangana) [Upcoming: Hazira]',
+        badge: '270 TPD Liquid CO₂ & Dry Ice',
+        description: 'CO₂ recovery and catalytic purification facilities across Ahmedabad, Indore, and Hyderabad with a total manufacturing capacity of 270 TPD, producing food-grade liquid carbon dioxide and solid dry ice.',
         highlights: [
-          'E290 beverage-grade CO₂ purification lines (≥ 99.9%)',
-          'Solid dry ice extruders (pellets and 5kg blocks)',
-          'Multi-site distribution network expanding to Hazira & Hyderabad'
+          'Total group CO₂ manufacturing capacity of 270 TPD across 3 active plants',
+          'E290 beverage-grade CO₂ purification lines (≥ 99.9%) and industrial LCO₂',
+          'Solid dry ice extruders (pellets and high-density blocks)',
+          'Multi-state distribution network expanding to Hazira'
         ],
         specs: [
-          { label: 'Daily Capacity', value: '148+ TPD Liquid CO₂' },
-          { label: 'Products', value: 'LCO₂ & Dry Ice' }
+          { label: 'Total Capacity', value: '270 TPD Liquid CO₂' },
+          { label: 'Locations', value: 'Ahmedabad, Indore & Hyderabad' }
         ]
       },
       {
         name: 'Shreeji Acetylene Co.',
         location: 'Plot No. 37, G.I.D.C. Alindra, Ta: Savli, Dist: Vadodara',
-        badge: 'Dissolved Acetylene',
-        description: 'Manufacturer of Dissolved Acetylene (DA) gas for oxy-fuel cutting, brazing, and metal fabrication workshops.',
+        badge: 'DA Gas Manufacturer',
+        description: 'Dedicated manufacturer of Dissolved Acetylene (DA) gas for oxy-fuel cutting, brazing, chemical synthesis, and metal fabrication workshops.',
         highlights: [
-          'Calcium carbide reaction generators and chemical purifiers',
-          'Porous mass cylinder charging manifolds',
-          'Thermal and pressure safety interlocks'
+          'Calcium carbide reaction chemical generators for direct Dissolved Acetylene (DA) gas manufacturing',
+          'High Purity (HP) and Ultra High Purity (UHP) grades available upon request',
+          'Porous mass cylinder charging manifolds and safety interlocks'
         ],
         specs: [
-          { label: 'Product', value: 'Dissolved Acetylene (DA)' },
-          { label: 'Application', value: 'Cutting & Brazing' }
+          { label: 'Role', value: 'DA Gas Manufacturer' },
+          { label: 'Purities', value: 'Industrial, HP & UHP' }
         ]
       },
       {
@@ -313,16 +315,16 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
       {
         name: 'Shakti Gases',
         location: '1002, GIDC Industrial Estate, Ranoli, Dist: Vadodara',
-        badge: 'Hydrogen & Tube Cascades',
-        description: 'High-pressure Hydrogen supplier servicing refineries, heat treatment plants, and chemical synthesis units.',
+        badge: 'Hydrogen Refiller & Cascades',
+        description: 'Leading Hydrogen gas refiller supplying industrial, High Purity (HP) and Ultra High Purity (UHP) Hydrogen to refineries, heat treatment plants, and chemical synthesis units.',
         highlights: [
-          'Ultra-high pressure hydrogen compression up to 200 Bar',
-          'Mobile hydrogen tube cascades for high-volume feed',
-          'Refinery and industrial chemical supply'
+          'Specialized Hydrogen gas refilling in individual cylinders, mobile skids, and tube cascades',
+          'High Purity (HP) and Ultra High Purity (UHP Grade 5.0–6.0) grades available',
+          'High-pressure manifold connections and transport skids'
         ],
         specs: [
-          { label: 'Product', value: 'Compressed Hydrogen (H₂)' },
-          { label: 'Mode', value: 'Cylinders & Cascades' }
+          { label: 'Role', value: 'Hydrogen Refiller' },
+          { label: 'Grades', value: 'Commercial, HP & UHP' }
         ]
       },
       {
@@ -344,9 +346,9 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
         name: 'Shakti Air Products',
         location: 'Plot No. 2, Shri Hari Industrial Park, Por GIDC, Vadodara',
         badge: 'Multi-Gas Compression Hub',
-        description: 'Cylinder refilling station equipped with automated 200 Bar compression manifolds for Argon, Nitrogen, CO₂, and Oxygen.',
+        description: 'Cylinder refilling station equipped with high-pressure compression manifolds for Argon, Nitrogen, CO₂, and Oxygen.',
         highlights: [
-          'Automated 200 Bar cylinder filling headers with vacuum evacuation',
+          'High-pressure 200 Bar cylinder filling headers with vacuum evacuation',
           'Large stock of 47L / 50L cylinders and MCP quads',
           'Dispatch services for Por and Vadodara industrial corridors'
         ],
@@ -379,10 +381,10 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
       { step: '04', title: 'Distillation', desc: 'Fractional columns separate gases by boiling points (N₂ -195.8°C, Ar -185.9°C, O₂ -183.0°C).' }
     ],
     complianceList: [
-      'PESO (Petroleum & Explosives Safety Organization) approved licenses',
-      'ISO 9001:2015 Quality Management Systems',
-      'ISO 14001:2015 Environmental Management Systems',
-      'Indian Pharmacopoeia (IP) Medical Oxygen License'
+      '100% PESO Approved Plants, Assets & Transport Infrastructure',
+      'FDA Drug Manufacturing License & WHO-GMP Certified Facilities',
+      'ISO 9001:2015, ISO 14001:2015 & ISO 45001:2018 Certified Systems',
+      'FSSAI Certified Food-Grade Liquid CO₂ (E290) & Nitrogen'
     ],
     seoTitle: 'Group Entities & Manufacturing Network | Shakti Industrial Gases',
     seoDesc: 'Shakti Group 9 operational entities, Air Separation Units (ASU), CO2 plants, and refilling hubs across India.',
@@ -474,16 +476,16 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
 
   'quality-safety': {
     slug: 'quality-safety',
-    title: 'Quality Assurance & PESO Compliance',
-    subtitle: 'Certified gas chromatography testing, PESO regulatory compliance, and EHS safety management.',
+    title: 'Quality Assurance, ISO & Statutory Compliance',
+    subtitle: 'FDA Licensed, WHO-GMP Certified, ISO 9001/14001/45001, FSSAI accredited, and 100% PESO-approved plants and infrastructure.',
     heroImage: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1600',
-    established: 'ISO Certified',
+    established: 'Certified',
     primaryStat: { value: 'Grade 6.0', label: 'Maximum Gas Purity (99.9999%)' },
     stats: [
-      { value: 'ISO 9001', label: 'Quality Certified', desc: 'Audited quality assurance systems across all facilities' },
-      { value: '100%', label: 'PESO Compliance', desc: 'Licensed pressure vessels, gas cylinders, and manifolds' },
-      { value: 'GC Lab', label: 'Gas Chromatography', desc: 'Precision trace impurity testing down to PPM levels' },
-      { value: '300 Bar', label: 'Hydrostatic Test', desc: 'Periodic cylinder wall elasticity qualification' }
+      { value: 'ISO 9001/14001/45001', label: 'Integrated Systems', desc: 'Audited quality, environmental & safety management' },
+      { value: '100%', label: 'PESO Compliance', desc: 'All plants, storage vessels, cascades & tankers PESO approved' },
+      { value: 'FDA & WHO-GMP', label: 'Medical Accreditations', desc: 'Licensed for IP medical oxygen & pharmaceutical gases' },
+      { value: 'FSSAI Certified', label: 'Food-Grade Compliance', desc: 'E290 beverage CO₂, nitrogen & solid dry ice' }
     ],
     overviewHeading: 'Quality Testing & Environmental Safety',
     overviewText: [
@@ -509,23 +511,38 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
       },
       {
         name: 'PESO & Statutory Compliance',
-        location: 'Regulatory Management',
-        badge: 'PESO Licensed',
-        description: 'Adherence to Petroleum and Explosives Safety Organization (PESO) regulations for pressure vessels and cylinder filling.',
+        location: 'All Plants & Transport Assets',
+        badge: '100% PESO Licensed',
+        description: 'Every manufacturing plant, cryogenic storage tank, transport tanker, and filling manifold strictly complies with Petroleum and Explosives Safety Organization (PESO) standards.',
         highlights: [
           'Hydrostatic stretch testing of high-pressure cylinders',
           'Safety relief valve calibration and burst-disc protocols',
           'Automated over-pressure shut-off interlocks'
         ],
         specs: [
-          { label: 'Licenses', value: 'PESO / CCOE Approved' },
-          { label: 'Record', value: '100% Statutory Compliance' }
+          { label: 'Infrastructure', value: '100% PESO Approved' },
+          { label: 'Compliance', value: 'Full Statutory Adherence' }
+        ]
+      },
+      {
+        name: 'FDA, WHO-GMP & FSSAI Standards',
+        location: 'Medical & Food Gas Divisions',
+        badge: 'FDA / WHO-GMP / FSSAI',
+        description: 'Statutory pharmaceutical licensing, WHO Good Manufacturing Practices, and food safety standards for beverage and medical gas applications.',
+        highlights: [
+          'FDA Drug Manufacturing licenses for Medical Oxygen (IP)',
+          'WHO-GMP compliance for hygiene and analytical testing',
+          'FSSAI food safety certification for beverage-grade LCO₂ (E290)'
+        ],
+        specs: [
+          { label: 'Medical', value: 'FDA & WHO-GMP Certified' },
+          { label: 'Food Grade', value: 'FSSAI Certified' }
         ]
       },
       {
         name: 'Environmental, Health & Safety (EHS)',
         location: 'Group Standard',
-        badge: 'EHS Management',
+        badge: 'ISO 14001 & 45001',
         description: 'Occupational health, risk assessment, hazard control, and cryo-handling safety training across all facilities.',
         highlights: [
           'Regular safety drills covering cryogenic burns and oxygen safety',
@@ -546,14 +563,15 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
       { step: '04', title: 'COA Issuance', desc: 'Certificate of Analysis generated with purity metrics.' }
     ],
     complianceList: [
-      'ISO 9001:2015 Quality Management System',
-      'ISO 14001:2015 Environmental Management System',
-      'ISO 45001:2018 Occupational Health & Safety',
-      'PESO licensed testing center for high-pressure cylinders'
+      '100% PESO Approved Plants, Storage Tanks, Road Tankers & Cascades',
+      'FDA Drug Manufacturing License & WHO-GMP Certified Facilities',
+      'ISO 9001:2015 (QMS), ISO 14001:2015 (EMS) & ISO 45001:2018 (OH&S)',
+      'FSSAI Food Safety License for Food-Grade LCO₂ (E290) & Nitrogen',
+      'PESO Licensed Periodic Hydrostatic Cylinder Testing Station'
     ],
-    seoTitle: 'Quality Standards & PESO Compliance | Shakti Group',
-    seoDesc: 'Shakti Group quality assurance: ISO certifications, Gas Chromatography testing, and PESO compliance.',
-    keywords: 'PESO Gas Certification, ISO 9001 Industrial Gas, Gas Chromatography, Hydrostatic Testing'
+    seoTitle: 'Quality Standards, FDA, ISO & PESO Compliance | Shakti Group',
+    seoDesc: 'Shakti Group statutory compliance: FDA License, WHO-GMP, ISO 9001/14001/45001, FSSAI, and 100% PESO approved plants and assets.',
+    keywords: 'PESO Gas Certification, FDA Medical Oxygen, WHO-GMP Gas, ISO 9001, ISO 14001, ISO 45001, FSSAI Food Gas'
   }
 };
 

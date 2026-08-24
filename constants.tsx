@@ -282,35 +282,39 @@ export const SERVICES: Service[] = [
 export const GROUP_COMPANIES: GroupCompany[] = [
   {
     name: 'Shakti Industrial Gases',
-    description: 'Supplier of Argon, Oxygen, Nitrogen and Carbon-Dioxide. Plant located at: Plot No. 628/14, G.I.D.C, Manjusar, Ta. Savli, Dist: Vadodara- 391 350'
+    description: 'Supplier of Argon, Oxygen, Nitrogen and Carbon-Dioxide in bulk liquid and cylinder formats. Plant located at: Plot No. 628/14, G.I.D.C, Manjusar, Ta. Savli, Dist: Vadodara- 391 350'
   },
-{
+  {
     name: 'Indore Carbonic',
-    description: 'Manufacturer of Liquid Carbon Dioxide Gas. Plants located in Ahmedabad and Indore with upcoming facilities in Hazira and Hyderabad to be commissioned by mid-2026.'
+    description: 'Manufacturer of Liquid Carbon Dioxide Gas with a total capacity of 270 TPD. Plants located in Ahmedabad, Indore and Hyderabad, with upcoming facility in Hazira.'
   },
   {
     name: 'Shreeji Acetylene Co.',
-    description: 'Leading Manufacturer of Dissolved Acetylene Gas. Plant located at: Plot No. 37. G.I.D.C. Alindra, Ta:Savli, Dist: Vadodara.'
-  },{
+    description: 'Dedicated Manufacturer of Dissolved Acetylene (DA) Gas. Plant located at: Plot No. 37, G.I.D.C. Alindra, Ta: Savli, Dist: Vadodara.'
+  },
+  {
     name: 'Moxi Industrial Gases',
-    description: 'Supplier of Carbon Dioxide Gas. Plant located at: Survey No.: 431/1/P, Village: Moxi, Ta: Savli, Dist:Vadodara.'
+    description: 'Supplier of Carbon Dioxide Gas. Plant located at: Survey No.: 431/1/P, Village: Moxi, Ta: Savli, Dist: Vadodara.'
   },
   {
     name: 'Shakti Gases',
-    description: 'Leading Supplier of Hydrogen Gas in Cylinder(s), Cylinder Skids and Cascades. Plant Located at: 1002, GIDC Industrial Estate, RANOLI, Dist: Vadodara- 391 350'
-  },{
+    description: 'Leading Hydrogen Gas Refiller supplying Industrial, High Purity (HP) and Ultra High Purity (UHP) Hydrogen in Cylinders, Cylinder Skids and Tube Cascades. Plant Located at: 1002, GIDC Industrial Estate, Ranoli, Dist: Vadodara- 391 350.'
+  },
+  {
     name: 'Shakti Sales Agency',
-    description: 'Dealing in all types of UHP Gases, Mixture Gas & Calibration Gases. Office situated at: 45, Maruti Complex, Ranoli GIDC, RANOLI, Dist: Vadodara- 391 350'
-  },{
+    description: 'Specialist in High Purity (HP) and Ultra High Purity (UHP) Gases, Mixture Gases & Calibration Standards. Office situated at: 45, Maruti Complex, Ranoli GIDC, Ranoli, Dist: Vadodara- 391 350.'
+  },
+  {
     name: 'Shakti Air Products',
-    description: 'Leading Supplier of Argon, Nitrogen, Carbon-dioxide & Oxygen. Plant located at: Plot No. 2 Shri Hari Industrial Park, Por GIDC, Por - Ramangamdi Road Por, Vadodara- 391 243'
-  },{
+    description: 'Supplier of Argon, Nitrogen, Carbon-Dioxide & Oxygen cylinders and packs. Plant located at: Plot No. 2, Shri Hari Industrial Park, Por GIDC, Por - Ramangamdi Road, Por, Vadodara- 391 243.'
+  },
+  {
     name: 'Bhavani Enterprise',
-    description: 'Leading Supplier of Dry Ice. Office situated at: 45, Maruti Complex, Ranoli GIDC, RANOLI, Dist: Vadodara-391 350'
+    description: 'Leading Supplier of Dry Ice (Pellets & Blocks). Office situated at: 45, Maruti Complex, Ranoli GIDC, Ranoli, Dist: Vadodara- 391 350.'
   },
   {
     name: 'Shaktishree Air Private Limited (SAPL)',
-    description: 'Our major expansion featuring a 178 TPD Air Separation Unit commissioned in April 2026, located in Karjan, Gujarat.'
+    description: 'Cryogenic 178 TPD Air Separation Unit (ASU) producing Liquid Oxygen, Nitrogen and Argon, located in Karjan, Gujarat.'
   }
 ];
 
