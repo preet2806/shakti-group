@@ -8,6 +8,7 @@ interface SEOProps {
   ogType?: string;
   ogImage?: string;
   schemaJson?: object | object[];
+  schema?: object | object[];
 }
 
 export const SEO: React.FC<SEOProps> = ({
@@ -16,10 +17,12 @@ export const SEO: React.FC<SEOProps> = ({
   keywords = 'Shakti Group, Industrial Gases, Cryogenic Gases, Liquid Oxygen, Liquid Nitrogen, Argon, CO2, PESO Certified, Gujarat India',
   canonicalUrl,
   ogType = 'website',
-  ogImage = 'https://www.shaktigases.com/logo.png',
-  schemaJson
+  ogImage = 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/product_hero.png',
+  schemaJson,
+  schema
 }) => {
   const currentUrl = canonicalUrl || (typeof window !== 'undefined' ? window.location.href : 'https://www.shaktigases.com');
+  const activeSchema = schemaJson || schema;
 
   useEffect(() => {
     // 1. Update Document Title
@@ -70,18 +73,18 @@ export const SEO: React.FC<SEOProps> = ({
 
     // Schema.org JSON-LD Injection
     let scriptTag = document.querySelector('script[id="json-ld-schema"]') as HTMLScriptElement | null;
-    if (schemaJson) {
+    if (activeSchema) {
       if (!scriptTag) {
         scriptTag = document.createElement('script');
         scriptTag.id = 'json-ld-schema';
         scriptTag.type = 'application/ld+json';
         document.head.appendChild(scriptTag);
       }
-      scriptTag.textContent = JSON.stringify(schemaJson);
+      scriptTag.textContent = JSON.stringify(activeSchema);
     } else if (scriptTag) {
       scriptTag.remove();
     }
-  }, [title, description, keywords, currentUrl, ogType, ogImage, schemaJson]);
+  }, [title, description, keywords, currentUrl, ogType, ogImage, activeSchema]);
 
   return (
     <>

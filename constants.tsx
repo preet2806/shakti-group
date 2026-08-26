@@ -99,6 +99,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'p1',
     title: 'Liquid Oxygen (LOX)',
+    slug: 'liquid-oxygen',
     description: 'High-purity liquid oxygen used across industrial & medical applications.',
     image: 'https://images.unsplash.com/photo-1615486510988-2c6ecc66ceba?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     category: 'liquid'
@@ -106,6 +107,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'p2',
     title: 'Liquid Nitrogen (LIN)',
+    slug: 'liquid-nitrogen',
     description: 'Ideal for cooling, shrink-fitting, cryogenic grinding and industrial freezing.',
     image: 'https://plus.unsplash.com/premium_photo-1720616742209-5ca756a58be7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fG5pdHJvZ2VuJTIwcHVyZ2luZ3xlbnwwfHwwfHx8MA%3D%3D',
     category: 'liquid'
@@ -113,14 +115,16 @@ export const PRODUCTS: Product[] = [
   {
     id: 'p3',
     title: 'Liquid Argon (LAR)',
+    slug: 'liquid-argon',
     description: 'High-purity inert liquid argon widely used for shielding in welding and metallurgy.',
     image: 'https://plus.unsplash.com/premium_photo-1682144582509-e520bf8771d3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YXJnb24lMjB3ZWxkaW5nfGVufDB8fDB8fHww',
     category: 'liquid'
   },
   {
     id: 'p4',
-    title: 'Liquid Carbon Dioxide',
-    description: 'Used for carbonation, food preservation and environmental applications.',
+    title: 'Liquid Carbon Dioxide (LCO₂)',
+    slug: 'liquid-carbon-dioxide',
+    description: 'Used for carbonation, food preservation, dry ice manufacturing and environmental applications.',
     image: 'https://plus.unsplash.com/premium_photo-1676979223508-1509a7dc4571?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNhcmJvbmF0aW9ufGVufDB8fDB8fHww',
     category: 'liquid'
   },
@@ -131,6 +135,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'p5',
     title: 'Hydrogen Gas',
+    slug: 'hydrogen-gas',
     description: 'Industrial fuel for refineries, metal treatment and chemical manufacturing.',
     image: 'https://images.unsplash.com/photo-1631304480499-b45f5e4aa882?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aHlkcm9nZW58ZW58MHx8MHx8fDA%3D',
     category: 'industrial'
@@ -138,21 +143,24 @@ export const PRODUCTS: Product[] = [
   {
     id: 'p6',
     title: 'Dissolved Acetylene (DA)',
+    slug: 'dissolved-acetylene',
     description: 'High-temperature flame for cutting, brazing, metal fabrication and workshops.',
     image: 'https://media.istockphoto.com/id/2249079819/photo/copper-pipe-soldering-process-with-tin-by-specialized-technicians.webp?a=1&b=1&s=612x612&w=0&k=20&c=gJ8unfsXi--OY9ii5tzkks8cUt6FpXDL5K6Zl-LsV8s=',
     category: 'industrial'
   },
   {
     id: 'p7',
-    title: 'Carbon Dioxide (Gaseous)',
+    title: 'Carbon Dioxide Gas (CO₂)',
+    slug: 'carbon-dioxide-gas',
     description: 'Used in MIG welding, fire suppression and controlled industrial atmospheres.',
     image: 'https://plus.unsplash.com/premium_photo-1661490162121-41df314e1ef1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZmlyZSUyMHN1cHByZXNzaW9ufGVufDB8fDB8fHww',
     category: 'industrial'
   },
   {
     id: 'p8',
-    title: 'Oxygen, Nitrogen, Argon (Gaseous)',
-    description: 'Reliable supply of gaseous O₂, N₂, and Ar for industrial operations.',
+    title: 'Compressed O₂, N₂, Ar Cylinders',
+    slug: 'industrial-cylinder',
+    description: 'Reliable supply of gaseous high-pressure O₂, N₂, and Ar cylinders and quads.',
     image: 'https://plus.unsplash.com/premium_photo-1756175546649-1846fb6fbcca?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8',
     category: 'industrial'
   },
@@ -163,6 +171,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'p9',
     title: 'High Purity Oxygen (99.9999%)',
+    slug: 'high-purity-oxygen',
     description: 'Ultra-high purity oxygen for specialized laboratory and analytical applications.',
     image: 'https://images.unsplash.com/photo-1748261347902-451fb437e8fb?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFib3JhdG9yeSUyMG94eWdlbnxlbnwwfHwwfHx8MA%3D%3D',
     category: 'high-purity'
@@ -170,6 +179,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'p10',
     title: 'High Purity Chlorine (99.999%)',
+    slug: 'high-purity-chlorine',
     description: 'High-grade chlorine gas for chemical synthesis and industrial purification.',
     image: 'https://images.unsplash.com/photo-1557313773-74c3490a350d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNobG9yaW5lJTIwc3ludGhlc2lzfGVufDB8fDB8fHww',
     category: 'high-purity'
@@ -177,13 +187,15 @@ export const PRODUCTS: Product[] = [
   {
     id: 'p11',
     title: 'Calibration Gas Mixtures',
+    slug: 'calibration-gas-mixtures',
     description: 'Accurate gas mixtures for instrument calibration and environmental monitoring.',
     image: 'https://plus.unsplash.com/premium_photo-1661857085334-50e11ccd7629?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q2FsaWJyYXRpb24lMjBHYXN8ZW58MHx8MHx8fDA%3D',
     category: 'high-purity'
   },
   {
     id: 'p12',
-    title: 'Helium (He)',
+    title: 'Helium Gas (He)',
+    slug: 'helium-gas',
     description: 'High-purity helium for MRI systems, leak detection, cryogenics, and welding.',
     image: 'https://plus.unsplash.com/premium_photo-1663047674926-3e35e511c80e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TVJJfGVufDB8fDB8fHww',
     category: 'high-purity'
@@ -195,6 +207,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'p13',
     title: 'Carbon Monoxide (CO)',
+    slug: 'carbon-monoxide',
     description: 'Specialty-grade used in metal carbonyl production & chemical processing.',
     image: 'https://images.unsplash.com/photo-1727504172743-08f14448fab8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWV0YWwlMjBjYXJib255bCUyMHByb2R1Y3Rpb258ZW58MHx8MHx8fDA%3D',
     category: 'specialty'
@@ -202,13 +215,15 @@ export const PRODUCTS: Product[] = [
   {
     id: 'p14',
     title: 'Nitrous Oxide (N₂O)',
-    description: 'Industrial-grade N₂O used in food processing, and electronics.',
+    slug: 'nitrous-oxide',
+    description: 'Industrial and medical grade N₂O used in food processing, semiconductors and healthcare.',
     image: 'https://images.unsplash.com/photo-1652211955967-99c892925469?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZCUyMHByb2Nlc3Npbmd8ZW58MHx8MHx8fDA%3D',
     category: 'specialty'
   },
   {
     id: 'p15',
     title: 'Sulphur Hexafluoride (SF₆)',
+    slug: 'sulphur-hexafluoride',
     description: 'Dielectric gas used in electrical switchgear & high-voltage equipment.',
     image: 'https://images.unsplash.com/photo-1560700105-716e308979fc?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZWxlY3RyaWNhbCUyMHN3aXRjaGdlYXJ8ZW58MHx8MHx8fDA%3D',
     category: 'specialty'
@@ -216,6 +231,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'p16',
     title: 'Hydrogen Chloride (HCl)',
+    slug: 'hydrogen-chloride',
     description: 'Used in chemical synthesis, plasma etching, and industrial processing.',
     image: 'https://plus.unsplash.com/premium_photo-1675186951036-d87283dac099?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZXRjaGluZ3xlbnwwfHwwfHx8MA%3D%3D',
     category: 'specialty'
@@ -223,6 +239,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'p17',
     title: 'Ethylene Gas',
+    slug: 'ethylene-gas',
     description: 'Used in polymer production, agriculture ripening chambers, and chemical processing.',
     image: 'https://images.unsplash.com/photo-1703365508981-cc87f60446cb?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWdyaWN1bHR1cmUlMjByaXBlbmluZ3xlbnwwfHwwfHx8MA%3D%3D',
     category: 'specialty'
@@ -230,6 +247,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'p18',
     title: 'Methane Gas',
+    slug: 'methane-gas',
     description: 'Clean-burning gas widely used in energy, laboratories, and calibration mixtures.',
     image: 'https://plus.unsplash.com/premium_photo-1682148795124-dac95dd91fd4?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TWV0aGFuZXxlbnwwfHwwfHx8MA%3D%3D',
     category: 'specialty'
@@ -237,6 +255,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'p19',
     title: 'Propane Gas',
+    slug: 'propane-gas',
     description: 'Versatile fuel gas for heating, cutting, combustion, and industrial burners.',
     image: 'https://images.unsplash.com/photo-1600885764629-a715b643f024?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UHJvcGFuZSUyMGN1dHRpbmd8ZW58MHx8MHx8fDA%3D',
     category: 'specialty'
@@ -244,6 +263,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'p20',
     title: 'Sulphur Dioxide (SO₂)',
+    slug: 'sulphur-dioxide',
     description: 'Used in food preservation, chemicals, and environmental applications.',
     image: 'https://images.unsplash.com/photo-1551884171-004163219904?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZCUyMHByZXNlcnZhdGlvbnxlbnwwfHwwfHx8MA%3D%3D',
     category: 'specialty'
@@ -251,9 +271,18 @@ export const PRODUCTS: Product[] = [
   {
     id: 'p21',
     title: 'Hydrogen Sulfide (H₂S)',
+    slug: 'hydrogen-sulfide',
     description: 'Used in analytical labs, chemical research, and calibration standards.',
     image: 'https://images.unsplash.com/photo-1578496479914-7ef3b0193be3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW5hbHl0aWNhbCUyMGxhYnN8ZW58MHx8MHx8fDA%3D',
     category: 'specialty'
+  },
+  {
+    id: 'p22',
+    title: 'Solid CO₂ Dry Ice & Dewars',
+    slug: 'other',
+    description: 'Food-grade solid dry ice blocks/pellets, liquid nitrogen dewars, and gas manifolds.',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600',
+    category: 'other'
   }
 ];
 

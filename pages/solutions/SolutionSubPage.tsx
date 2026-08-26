@@ -47,19 +47,19 @@ export const SOLUTION_SUBPAGES_DATA: Record<string, SolutionPageData> = {
   'bulk-gas-supply': {
     slug: 'bulk-gas-supply',
     title: 'Bulk Gas Supply & Tank Telemetry Solutions',
-    subtitle: 'On-site cryogenic liquid storage vessel installation, automated telemetry refill triggers, and continuous gas pipeline feed.',
+    subtitle: 'Turnkey on-site cryogenic storage vessel installation on rental / opex model, automated telemetry refills, and continuous gas pipeline feed.',
     heroImage: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/service_tanker.png',
     serviceCategory: 'Bulk Storage & Telemetry',
     keySpecs: [
-      { label: 'Storage Tanks', value: '3 KL to 50 KL Vessels' },
+      { label: 'Storage Tanks', value: '3 KL to 60 KL Vessels' },
+      { label: 'Supply Setup', value: 'On-Site Storage on Rental' },
       { label: 'Refill Trigger', value: 'Automated IoT Telemetry' },
-      { label: 'Supply Model', value: 'Capex or Opex Options' },
       { label: 'Downtime Risk', value: 'Zero Production Interruption' }
     ],
-    overviewHeading: 'On-Site Cryogenic Bulk Storage Infrastructure',
+    overviewHeading: 'On-Site Cryogenic Bulk Storage Infrastructure (Rental / Opex Model)',
     overviewText: [
       'High-volume industrial gas consumers often experience operational bottlenecks with compressed gas cylinders—frequent cylinder swapping, pressure fluctuations, and labor overhead.',
-      'Shakti Group’s bulk solution installs stationary cryogenic storage vessels, ambient vaporizers, and IoT telemetry on client premises. Telemetry sensors monitor liquid height and pressure, automatically triggering tanker dispatches before levels drop.'
+      'Shakti Group provides turnkey on-site cryogenic storage tank setups on a flexible rental / opex model, eliminating large upfront capital investments. We supply and install stationary vacuum-insulated cryogenic vessels (3 KL to 60 KL), ambient air vaporizers, and IoT digital telemetry on your factory premises. Sensors monitor liquid level and pressure 24/7, automatically triggering tanker dispatches from our 65+ road tanker fleet before levels drop.'
     ],
     workflowTitle: 'Turnkey Installation & Commissioning Workflow',
     workflowSteps: [

@@ -1,8 +1,15 @@
 import { LucideIcon } from 'lucide-react';
 
-export interface NavItem {
+export interface NavSubItem {
   label: string;
   path: string;
+  description?: string;
+}
+
+export interface NavItem {
+  label: string;
+  path?: string;
+  children?: NavSubItem[];
 }
 
 export interface StatItem {
@@ -13,9 +20,10 @@ export interface StatItem {
 export interface Product {
   id: string;
   title: string;
+  slug?: string;
   description: string;
   image: string;
-  category?: 'liquid' | 'specialty';
+  category?: 'liquid' | 'industrial' | 'high-purity' | 'specialty' | 'other';
 }
 
 export interface Service {
