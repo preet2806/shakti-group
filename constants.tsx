@@ -72,11 +72,14 @@ export const NAV_ITEMS: NavItem[] = [
     label: 'Industries',
     path: '/industries',
     children: [
-      { label: 'Metals & Manufacturing', path: '/industries/metals-manufacturing', description: 'Steelmaking, cutting, welding & heat treatment' },
-      { label: 'Chemicals & Process Industries', path: '/industries/chemicals-process', description: 'Inerting, blanketing, purging & process reaction' },
-      { label: 'Life Sciences', path: '/industries/life-sciences', description: 'Medical oxygen, pharma synthesis & cryo-preservation' },
-      { label: 'Food & Beverage', path: '/industries/food-beverage', description: 'Cryogenic freezing, MAP packaging & carbonation' },
-      { label: 'Energy & Infrastructure', path: '/industries/energy-infrastructure', description: 'Refinery purging, power plants & pipeline solutions' },
+      { label: 'Metals & Steelmaking', path: '/industries/metals-manufacturing', description: 'Gas for steel mills, BOF/EAF, laser assist & welding' },
+      { label: 'Glass & Ceramics', path: '/industries/glass-ceramics', description: 'LOX for oxy-fuel glass melting, frit kilns & float glass' },
+      { label: 'Chemicals & Process', path: '/industries/chemicals-process', description: 'Nitrogen reactor blanketing, hydrogen cascades & VOC recovery' },
+      { label: 'Life Sciences & Healthcare', path: '/industries/life-sciences', description: 'Medical oxygen IP, pharma API synthesis & cryo-banking' },
+      { label: 'Food & Beverage', path: '/industries/food-beverage', description: 'Food grade CO₂ (E290), flash freezing & MAP packaging' },
+      { label: 'Energy & Infrastructure', path: '/industries/energy-infrastructure', description: 'Refinery nitrogen purging, SF₆ switchgear & hydrogen' },
+      { label: 'Water & Environment', path: '/industries/water-environment', description: 'LOX for ozone generation, CO₂ for effluent pH balancing' },
+      { label: 'Electronics & Semiconductor', path: '/industries/electronics-semiconductor', description: 'Grade 6.0 UHP gases, wafer fab & CVD diamond synthesis' }
     ]
   },
   {

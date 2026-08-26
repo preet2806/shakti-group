@@ -185,8 +185,10 @@ const Contact: React.FC = () => {
                     className="w-full px-4 py-3.5 rounded-lg border border-gray-200 focus:ring-2 focus:ring-shakti-blue focus:border-transparent outline-none transition bg-white appearance-none disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     <option>Sales Inquiry</option>
-                    <option>Technical Support</option>
                     <option>Logistics Query</option>
+                    <option>Engineered Solutions</option>
+                    <option>Media</option>
+                    <option>HR/Careers</option>
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
                     <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" /></svg>
@@ -229,10 +231,59 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="lg:w-2/5 bg-gray-50 p-10 md:p-16 border-l border-gray-100">
-            <h2 className="text-3xl font-bold text-gray-900 mb-10">Contact Information</h2>
+          <div className="lg:w-2/5 bg-gray-50 p-10 md:p-16 border-l border-gray-100 flex flex-col justify-between">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Contact Information</h2>
 
-            <div className="mt-16 rounded-2xl overflow-hidden shadow-lg h-64 relative bg-gray-200 group">
+              <div className="space-y-6 text-gray-700">
+                {/* Email */}
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-blue-100/60 rounded-xl text-shakti-blue shrink-0">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">Email</h3>
+                    <a
+                      href="mailto:info@shaktigases.com"
+                      className="text-base font-semibold text-gray-900 hover:text-shakti-blue transition"
+                    >
+                      info@shaktigases.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* Phone */}
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-blue-100/60 rounded-xl text-shakti-blue shrink-0">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">Phone</h3>
+                    <a
+                      href="tel:+919727783440"
+                      className="text-base font-semibold text-gray-900 hover:text-shakti-blue transition"
+                    >
+                      +91 9727783440
+                    </a>
+                  </div>
+                </div>
+
+                {/* Address */}
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-blue-100/60 rounded-xl text-shakti-blue shrink-0">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">Address</h3>
+                    <p className="text-sm font-medium text-gray-900 leading-relaxed">
+                      45, Maruti Complex, Ranoli GIDC, Ranoli, Dist: Vadodara-391350, Gujarat
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-10 rounded-2xl overflow-hidden shadow-lg h-56 relative bg-gray-200 group">
               <a
                 href="https://maps.app.goo.gl/TGuzKakRvxbDB9dCA"
                 target="_blank"
@@ -247,7 +298,7 @@ const Contact: React.FC = () => {
 
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-bold text-shakti-blue shadow-lg">
-                  Ranoli GIDC, Gujarat
+                  Head Office
                 </div>
               </div>
             </div>

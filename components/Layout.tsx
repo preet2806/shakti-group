@@ -38,20 +38,34 @@ const Footer: React.FC = () => {
             <h3 className="font-bold text-gray-900 mb-6">Quick Links</h3>
             <ul className="space-y-3 text-sm text-gray-600">
               <li><NavLink to="/about" className="hover:text-blue-500 transition">About Us</NavLink></li>
-              <li><NavLink to="/products" className="hover:text-blue-500 transition">Products</NavLink></li>
-              <li><NavLink to="/services" className="hover:text-blue-500 transition">Services</NavLink></li>
-              <li><NavLink to="/contact" className="hover:text-blue-500 transition">Contact Us</NavLink></li>
-              {/* PDF Link */}
-                  <li>
-                    <a
-                      href="/company_profile.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-blue-500 transition font-medium"
-                    >
-                      Company Profile (PDF)
-                    </a>
-                  </li>
+              <li><NavLink to="/products" className="hover:text-blue-500 transition">Products Catalog</NavLink></li>
+              <li><NavLink to="/services" className="hover:text-blue-500 transition">Services & On-Site Tanks</NavLink></li>
+              <li><NavLink to="/industries" className="hover:text-blue-500 transition">Industries Overview</NavLink></li>
+              <li><NavLink to="/contact" className="hover:text-blue-500 transition">Contact & Inquiries</NavLink></li>
+              <li>
+                <a
+                  href="/company_profile.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-500 transition font-medium"
+                >
+                  Company Profile (PDF)
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Key Industries */}
+          <div>
+            <h3 className="font-bold text-gray-900 mb-6">Industries Served</h3>
+            <ul className="space-y-2.5 text-xs text-gray-600">
+              <li><NavLink to="/industries/metals-manufacturing" className="hover:text-blue-500 transition">Metals & Steelmaking (BOF/EAF)</NavLink></li>
+              <li><NavLink to="/industries/glass-ceramics" className="hover:text-blue-500 transition">Glass & Ceramics (LOX Oxy-Fuel)</NavLink></li>
+              <li><NavLink to="/industries/chemicals-process" className="hover:text-blue-500 transition">Chemicals & Reactor Blanketing</NavLink></li>
+              <li><NavLink to="/industries/life-sciences" className="hover:text-blue-500 transition">Healthcare & Medical Oxygen (IP)</NavLink></li>
+              <li><NavLink to="/industries/food-beverage" className="hover:text-blue-500 transition">Food & Beverage CO₂ (E290)</NavLink></li>
+              <li><NavLink to="/industries/water-environment" className="hover:text-blue-500 transition">Water Treatment & ETP LOX/CO₂</NavLink></li>
+              <li><NavLink to="/industries/energy-infrastructure" className="hover:text-blue-500 transition">Refinery Nitrogen Purging & SF₆</NavLink></li>
             </ul>
           </div>
 

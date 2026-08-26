@@ -126,10 +126,13 @@ export const ALL_SUBPAGES: Record<string, SubPageDetails> = {
 
   // Industry Subpages
   'industries-metals-manufacturing': getIndustrySubpage('metals-manufacturing'),
+  'industries-glass-ceramics': getIndustrySubpage('glass-ceramics'),
   'industries-chemicals-process': getIndustrySubpage('chemicals-process'),
   'industries-life-sciences': getIndustrySubpage('life-sciences'),
   'industries-food-beverage': getIndustrySubpage('food-beverage'),
-  'industries-energy-infrastructure': getIndustrySubpage('energy-infrastructure')
+  'industries-energy-infrastructure': getIndustrySubpage('energy-infrastructure'),
+  'industries-water-environment': getIndustrySubpage('water-environment'),
+  'industries-electronics-semiconductor': getIndustrySubpage('electronics-semiconductor')
 };
 
 export const SubPage: React.FC = () => {

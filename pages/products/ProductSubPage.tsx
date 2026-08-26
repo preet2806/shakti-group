@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import {
   ChevronRight,
   CheckCircle2,
-  FlaskConical,
   Truck,
   Gauge,
   Boxes,
@@ -15,11 +14,7 @@ import {
   Atom,
   Grid,
   MapPin,
-  HelpCircle,
-  ChevronDown,
-  Tag,
-  Clock,
-  Sparkles
+  Clock
 } from 'lucide-react';
 import SEO from '../../components/SEO';
 import {
@@ -338,13 +333,6 @@ export const ProductSubPage: React.FC = () => {
   const resolvedSlug = PRODUCT_SLUG_ALIASES[rawSlug.toLowerCase()] || rawSlug;
   const data = ALL_PRODUCTS_SUBPAGES_DATA[resolvedSlug] || CATEGORY_SUBPAGES_DATA['bulk-cryogenic'];
 
-  // State for interactive FAQ accordion
-  const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
-
-  const toggleFaq = (idx: number) => {
-    setOpenFaqIdx(openFaqIdx === idx ? null : idx);
-  };
-
   // Structured Data (JSON-LD) multi-schema graph for search engines
   const canonicalUrl = `https://www.shaktigases.com/products/${data.slug}`;
 
@@ -445,12 +433,18 @@ export const ProductSubPage: React.FC = () => {
 
   const combinedSchema = [productSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])];
 
+  // Dynamic keyword string combining keywords and targetQueries in pipeline format
+  const pipelineTargetQueries = data.targetQueries && data.targetQueries.length > 0
+    ? data.targetQueries.join(' | ')
+    : '';
+  const formattedKeywords = [data.keywords, pipelineTargetQueries].filter(Boolean).join(' | ');
+
   return (
     <div className="bg-white min-h-screen text-slate-900 font-sans">
       <SEO
         title={data.seoTitle}
         description={data.seoDesc}
-        keywords={data.keywords}
+        keywords={formattedKeywords}
         canonicalUrl={canonicalUrl}
         schemaJson={combinedSchema}
       />
@@ -664,41 +658,6 @@ export const ProductSubPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Physical & Thermodynamic Properties Bar */}
-      <section className="bg-slate-50 border-b border-slate-200 py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 mb-3">
-            <FlaskConical className="h-4 w-4 text-blue-700" />
-            <h2 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-              Technical Physical & Thermodynamic Properties
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-            <div className="bg-white p-3 rounded-lg border border-slate-200 shadow-xs">
-              <span className="text-[11px] font-semibold text-slate-500 block">Boiling Point</span>
-              <span className="text-xs font-bold text-slate-900">{data.physicalProperties.boilingPoint}</span>
-            </div>
-            <div className="bg-white p-3 rounded-lg border border-slate-200 shadow-xs">
-              <span className="text-[11px] font-semibold text-slate-500 block">Expansion Ratio</span>
-              <span className="text-xs font-bold text-blue-700">{data.physicalProperties.expansionRatio}</span>
-            </div>
-            <div className="bg-white p-3 rounded-lg border border-slate-200 shadow-xs">
-              <span className="text-[11px] font-semibold text-slate-500 block">Gas Density</span>
-              <span className="text-xs font-bold text-slate-900">{data.physicalProperties.gasDensity}</span>
-            </div>
-            <div className="bg-white p-3 rounded-lg border border-slate-200 shadow-xs">
-              <span className="text-[11px] font-semibold text-slate-500 block">Molecular Weight</span>
-              <span className="text-xs font-bold text-slate-900">{data.physicalProperties.molecularWeight}</span>
-            </div>
-            <div className="bg-white p-3 rounded-lg border border-slate-200 shadow-xs">
-              <span className="text-[11px] font-semibold text-slate-500 block">Critical Temp / Press.</span>
-              <span className="text-xs font-bold text-slate-900">{data.physicalProperties.criticalTemp}</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Main Content Area */}
       <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -857,73 +816,6 @@ export const ProductSubPage: React.FC = () => {
                 </table>
               </div>
             </div>
-
-            {/* Frequently Asked Questions (FAQ) Section - High SEO Authority */}
-            {data.faqs && data.faqs.length > 0 && (
-              <div className="space-y-4">
-                <div className="flex items-center justify-between border-b border-slate-200 pb-2">
-                  <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                    <HelpCircle className="h-4 w-4 text-blue-700" />
-                    <span>Frequently Asked Questions ({data.title})</span>
-                  </h3>
-                  <span className="text-xs font-semibold text-slate-500">
-                    Buyer & Technical Guide
-                  </span>
-                </div>
-
-                <div className="space-y-2.5">
-                  {data.faqs.map((faq, fIdx) => {
-                    const isOpen = openFaqIdx === fIdx;
-                    return (
-                      <div
-                        key={fIdx}
-                        className={`rounded-xl border transition ${
-                          isOpen ? 'bg-blue-50/50 border-blue-300 shadow-xs' : 'bg-white border-slate-200 hover:border-slate-300'
-                        }`}
-                      >
-                        <button
-                          type="button"
-                          onClick={() => toggleFaq(fIdx)}
-                          className="w-full p-4 text-left flex items-center justify-between gap-4 font-bold text-xs sm:text-sm text-slate-900 focus:outline-hidden"
-                          aria-expanded={isOpen}
-                        >
-                          <span>{faq.question}</span>
-                          <ChevronDown className={`h-4 w-4 text-slate-500 shrink-0 transition-transform ${isOpen ? 'rotate-180 text-blue-600' : ''}`} />
-                        </button>
-                        {isOpen && (
-                          <div className="px-4 pb-4 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-blue-100">
-                            {faq.answer}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* Targeted Commercial Search Phrases Cloud (SEO Internal Relevance) */}
-            {data.targetQueries && data.targetQueries.length > 0 && (
-              <div className="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-2.5">
-                <div className="flex items-center gap-2">
-                  <Tag className="h-3.5 w-3.5 text-blue-600" />
-                  <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-                    Related Commercial Searches & Specifications
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {data.targetQueries.map((query, qIdx) => (
-                    <span
-                      key={qIdx}
-                      className="inline-flex items-center gap-1 bg-white text-slate-700 text-xs px-3 py-1 rounded-full border border-slate-200 shadow-xs font-medium"
-                    >
-                      <Sparkles className="h-3 w-3 text-blue-500" />
-                      {query}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
 
             {/* Related Products Bar */}
             {data.relatedProducts && data.relatedProducts.length > 0 && (
