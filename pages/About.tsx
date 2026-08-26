@@ -184,10 +184,10 @@ const About: React.FC = () => {
             </div>
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Safety, Compliance & Regulatory Control
+                Statutory Approvals & Quality Certifications
               </h3>
               <p className="text-gray-700 leading-relaxed text-lg">
-                Manufacturing and refilling plants, storage installations, filling stations, and tankers operate under PESO approvals with ISO 9001:2015 certified quality and safety systems.
+                All manufacturing and refilling plants, cryogenic storage installations, tanker fleets, and filling manifolds are 100% PESO approved and operate under ISO 9001:2015, ISO 14001:2015, and ISO 45001:2018 certifications, alongside FDA manufacturing licenses, WHO-GMP medical certification, and FSSAI food-grade licensing.
               </p>
             </div>
           </div>
