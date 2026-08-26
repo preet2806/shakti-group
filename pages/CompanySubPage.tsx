@@ -198,12 +198,12 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
         ]
       }
     ],
-    processTitle: 'Cryogenic Air Separation Process',
+    processTitle: 'End-to-End Gas Operations: Production to Bulk Delivery & Bottling',
     processSteps: [
-      { step: '01', title: 'Air Compression', desc: 'Ambient air is drawn through multi-stage filters and compressed to ~6 bar.' },
-      { step: '02', title: 'Purification', desc: 'Molecular sieve beds remove water vapor, CO₂, and hydrocarbons.' },
-      { step: '03', title: 'Liquefaction', desc: 'Purified air is cooled to -170°C inside main heat exchangers.' },
-      { step: '04', title: 'Distillation', desc: 'Fractional columns separate gases by boiling points (N₂ -195.8°C, Ar -185.9°C, O₂ -183.0°C).' }
+      { step: '01', title: 'Multi-Gas Production & Recovery', desc: 'Cryogenic air separation (LOX, LIN, LAR), catalytic CO₂ recovery & purification (270 TPD), and chemical DA generation across dedicated plants.' },
+      { step: '02', title: 'Cryogenic Bulk Logistics', desc: 'Direct decanting and temperature-controlled bulk road transport via our dedicated fleet of 65+ vacuum-insulated cryogenic tankers (10–35 KL).' },
+      { step: '03', title: 'High-Pressure Bottling & Cascades', desc: 'High-pressure cylinder manifold filling (up to 200 Bar) for O₂, N₂, Ar, CO₂, and DA, along with mobile MCP quads and H₂ tube cascades.' },
+      { step: '04', title: 'Specialty Blending & On-Site Supply', desc: 'Ultra-high purity (UHP) laboratory mixtures, dry ice extrusion (-78.5°C), and automated telemetry monitoring for customer storage installations.' }
     ],
     complianceList: [
       '100% PESO Approved Plants, Assets & Transport Infrastructure',
@@ -373,12 +373,12 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
         ]
       }
     ],
-    processTitle: 'Cryogenic Air Separation Process',
+    processTitle: 'End-to-End Gas Operations: Production to Bulk Delivery & Bottling',
     processSteps: [
-      { step: '01', title: 'Air Compression', desc: 'Ambient air is drawn through multi-stage filters and compressed to ~6 bar.' },
-      { step: '02', title: 'Purification', desc: 'Molecular sieve beds remove water vapor, CO₂, and hydrocarbons.' },
-      { step: '03', title: 'Liquefaction', desc: 'Purified air is cooled to -170°C inside main heat exchangers.' },
-      { step: '04', title: 'Distillation', desc: 'Fractional columns separate gases by boiling points (N₂ -195.8°C, Ar -185.9°C, O₂ -183.0°C).' }
+      { step: '01', title: 'Multi-Gas Production & Recovery', desc: 'Cryogenic air separation (LOX, LIN, LAR), catalytic CO₂ recovery & purification (270 TPD), and chemical DA generation across dedicated plants.' },
+      { step: '02', title: 'Cryogenic Bulk Logistics', desc: 'Direct decanting and temperature-controlled bulk road transport via our dedicated fleet of 65+ vacuum-insulated cryogenic tankers (10–35 KL).' },
+      { step: '03', title: 'High-Pressure Bottling & Cascades', desc: 'High-pressure cylinder manifold filling (up to 200 Bar) for O₂, N₂, Ar, CO₂, and DA, along with mobile MCP quads and H₂ tube cascades.' },
+      { step: '04', title: 'Specialty Blending & On-Site Supply', desc: 'Ultra-high purity (UHP) laboratory mixtures, dry ice extrusion (-78.5°C), and automated telemetry monitoring for customer storage installations.' }
     ],
     complianceList: [
       '100% PESO Approved Plants, Assets & Transport Infrastructure',
@@ -400,14 +400,14 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
     primaryStat: { value: '65+', label: 'Cryogenic Road Tankers' },
     stats: [
       { value: '10-35 KL', label: 'Tanker Capacity Range', desc: 'Dedicated liquid transport for LOX, LIN, LAR, and LCO₂' },
-      { value: '24/7 GPS', label: 'Fleet Telemetry', desc: 'Location, pressure, and tank level monitoring' },
-      { value: '300+', label: 'On-Site Storage Tanks', desc: 'Turnkey cryogenic storage installed at client factories' },
-      { value: '<0.2%', label: 'Boil-Off Loss Rate', desc: 'High-vacuum multi-layer insulation vessels' }
+      { value: '24/7 GPS', label: 'Fleet Tracking', desc: 'Real-time vehicle location, route monitoring, and transit security' },
+      { value: 'IoT Telemetry', label: 'Tank Level Monitoring', desc: 'Live differential pressure and vessel liquid level monitoring' },
+      { value: 'Rental / Opex', label: 'On-Site Storage Setup', desc: 'Turnkey tank setup & vaporizer installation provided on rental for continuous gas supply' }
     ],
     overviewHeading: 'Cryogenic Logistics & On-Site Storage Engineering',
     overviewText: [
       'Shakti Group operates a fleet of stainless steel inner-vessel cryogenic tankers built with double-walled vacuum insulation for transport of liquid gases down to -196°C.',
-      'To ensure continuous supply, customer-installed storage vessels are integrated with cellular telemetry modules, automatically notifying dispatch centers before liquid levels reach critical reorder thresholds.'
+      'We provide complete on-site cryogenic storage tank setups on flexible rental models, coupled with automated cellular telemetry modules that notify dispatch centers before liquid levels reach critical reorder thresholds.'
     ],
     entityOrFacilityTitle: 'Logistics Assets & On-Site Infrastructure',
     entitiesOrFacilities: [
@@ -427,18 +427,19 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
         ]
       },
       {
-        name: 'On-Site Storage & Vaporizer Systems',
+        name: 'On-Site Storage & Vaporizer Systems (Rental Available)',
         location: 'Customer Factory Installations',
         badge: 'Turnkey Tanks (3 KL - 50 KL)',
-        description: 'Vertical and horizontal cryogenic storage vessels with ambient air vaporizers for zero-electricity liquid-to-gas conversion.',
+        description: 'Vertical and horizontal cryogenic storage vessels with ambient air vaporizers, available on rental/opex models with complete installation and continuous gas supply.',
         highlights: [
+          'Turnkey tank installation provided on rental basis to eliminate upfront capex',
           'Replaces cylinder handling and reduces gas loss',
-          'Maintains stable line pressure for factory operations',
-          'Full installation and preventive maintenance'
+          'Maintains stable line pressure for continuous 24/7 factory operations',
+          'Full installation, civil/piping setup, and preventive maintenance included'
         ],
         specs: [
-          { label: 'Capacities', value: '3,000L to 50,000L' },
-          { label: 'Vaporizers', value: 'Aluminum Fin Ambient Air' }
+          { label: 'Model', value: 'Rental / Turnkey Supply' },
+          { label: 'Capacities', value: '3,000L to 50,000L' }
         ]
       },
       {
