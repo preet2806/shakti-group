@@ -93,33 +93,33 @@ const Products: React.FC = () => {
         <img
           src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/product_hero.png"
           alt="Industrial gas manufacturing and delivery fleet"
-          className="w-full h-full object-cover opacity-40 scale-105"
+          className="w-full h-full object-cover opacity-85 scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/85 to-transparent flex items-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-900/40 to-slate-950/20 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-xs font-semibold text-blue-400 uppercase tracking-widest mb-4">
               <NavLink to="/" className="hover:text-white transition">Home</NavLink>
-              <ChevronRight className="h-3.5 w-3.5 text-slate-500" />
+              <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
               <span className="text-white">Products Catalog</span>
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 max-w-3xl leading-tight">
+            <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 max-w-3xl leading-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.9)' }}>
               Industrial, Cryogenic & Specialty Gases
             </h1>
-            <p className="text-sm sm:text-base text-slate-200 mb-6 max-w-2xl leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-100 mb-6 max-w-2xl leading-relaxed" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}>
               Manufacturing and supplying high-purity cryogenic liquids (LOX, LIN, LAR, LCO₂), compressed gas cylinders, UHP specialty mixtures, and on-site tank setups across India.
             </p>
             <div className="flex flex-wrap gap-3">
               <button
                 onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
-                className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-lg font-bold uppercase tracking-wider text-xs transition shadow-md"
+                className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-lg font-bold uppercase tracking-wider text-xs transition shadow-lg shadow-black/40"
               >
                 Browse Gas Catalog
               </button>
               <button
                 onClick={() => document.getElementById("individual-products")?.scrollIntoView({ behavior: "smooth" })}
-                className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-6 py-2.5 rounded-lg font-semibold text-xs transition border border-slate-700"
+                className="bg-slate-900/80 hover:bg-slate-800 text-slate-200 px-6 py-2.5 rounded-lg font-semibold text-xs transition border border-white/20 backdrop-blur-xs"
               >
                 Individual Product Specs (LOX, LAR, etc.) ↓
               </button>

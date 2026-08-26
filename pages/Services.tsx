@@ -135,7 +135,12 @@ const Services: React.FC = () => {
 
       {/* Hero */}
       <div className="relative bg-gray-900 text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-950 via-gray-900 to-gray-950 opacity-90" />
+        <img
+          src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/team.webp"
+          alt="Shakti Group Team & Engineering Solutions"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-950/95 via-gray-900/85 to-gray-950/80" />
         <div className="relative max-w-7xl mx-auto">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-xs font-semibold text-blue-400 uppercase tracking-widest mb-4">

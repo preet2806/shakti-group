@@ -93,9 +93,9 @@ const MANUFACTURING_SITES = [
     linkText: 'Explore Industrial Cylinders',
     linkPath: '/products/industrial-cylinder',
     images: [
-      'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/service_tanker.png',
-      'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Industrial%20Gas%20Storage%20%26%20Vaporization%20Equipment.webp',
-      'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=1600'
+      'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/cylinders.webp',
+      'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/packaging.webp',
+      'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/hydrogen.webp'
     ]
   }
 ];
@@ -874,3 +874,4 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+
