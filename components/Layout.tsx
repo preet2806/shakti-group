@@ -25,7 +25,9 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <ShaktiLogo className="h-6 w-6 text-blue-500" />
+              <div className="text-blue-500">
+                <ShaktiLogo className="h-8 w-8" />
+              </div>
               <span className="text-xl font-bold text-gray-900">Shakti Group</span>
             </div>
             <p className="text-gray-500 text-sm leading-relaxed mb-6">
@@ -52,20 +54,6 @@ const Footer: React.FC = () => {
                   Company Profile (PDF)
                 </a>
               </li>
-            </ul>
-          </div>
-
-          {/* Key Industries */}
-          <div>
-            <h3 className="font-bold text-gray-900 mb-6">Industries Served</h3>
-            <ul className="space-y-2.5 text-xs text-gray-600">
-              <li><NavLink to="/industries/metals-manufacturing" className="hover:text-blue-500 transition">Metals & Steelmaking (BOF/EAF)</NavLink></li>
-              <li><NavLink to="/industries/glass-ceramics" className="hover:text-blue-500 transition">Glass & Ceramics (LOX Oxy-Fuel)</NavLink></li>
-              <li><NavLink to="/industries/chemicals-process" className="hover:text-blue-500 transition">Chemicals & Reactor Blanketing</NavLink></li>
-              <li><NavLink to="/industries/life-sciences" className="hover:text-blue-500 transition">Healthcare & Medical Oxygen (IP)</NavLink></li>
-              <li><NavLink to="/industries/food-beverage" className="hover:text-blue-500 transition">Food & Beverage CO₂ (E290)</NavLink></li>
-              <li><NavLink to="/industries/water-environment" className="hover:text-blue-500 transition">Water Treatment & ETP LOX/CO₂</NavLink></li>
-              <li><NavLink to="/industries/energy-infrastructure" className="hover:text-blue-500 transition">Refinery Nitrogen Purging & SF₆</NavLink></li>
             </ul>
           </div>
 

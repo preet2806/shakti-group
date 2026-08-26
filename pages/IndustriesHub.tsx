@@ -116,7 +116,15 @@ export const IndustriesHub: React.FC = () => {
 
       {/* Hero Banner */}
       <div className="relative bg-slate-950 text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-950 via-slate-950 to-slate-900 opacity-95" />
+        <video
+            src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/filling.webm"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            autoPlay
+            muted
+            loop
+            playsInline
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-950 via-slate-950 to-slate-900 opacity-80" />
         <div className="relative max-w-7xl mx-auto">
           {/* Breadcrumbs */}
           <div className="flex items-center gap-2 text-xs font-semibold text-blue-400 uppercase tracking-widest mb-4">

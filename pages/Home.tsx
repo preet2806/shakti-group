@@ -32,13 +32,12 @@ const MANUFACTURING_SITES = [
     company: 'Shaktishree Air Private Limited (SAPL)',
     title: 'Karjan, Gujarat – 178 TPD Cryogenic Air Separation Unit',
     description:
-      'Continuous air separation facility producing high-purity Liquid Oxygen (LOX), Liquid Nitrogen (LIN), and Liquid Argon (LAR). Features dedicated cryogenic buffer storage tanks and automated tanker loading bays for continuous bulk dispatch.',
+      'Continuous air separation facility producing Liquid Oxygen (LOX), Liquid Medical Oxygen (LMO), Liquid Nitrogen (LIN), and Liquid Argon (LAR). Features dedicated cryogenic buffer storage tanks and automated tanker loading bays for continuous bulk dispatch.',
     capacity: '178 TPD Cryogenic ASU',
     purity: 'LOX ≥ 99.5% | LIN ≥ 99.999% | LAR ≥ 99.999%',
     location: 'Karjan, Dist. Vadodara, Gujarat',
     features: [
-      'Low-pressure cryogenic distillation columns',
-      'Dedicated bays for 35 KL cryogenic road tankers',
+      '1000 KL LOX | 250 KL LIN | 35 KL LAR storage backup',
       'Continuous online gas chromatography analysis',
       'Direct pipeline and tanker distribution infrastructure'
     ],
@@ -61,7 +60,6 @@ const MANUFACTURING_SITES = [
     purity: 'E290 Food Grade (≥ 99.9%) & Industrial Grade',
     location: 'Ahmedabad (Gujarat), Indore (Madhya Pradesh) & Hyderabad (Telangana)',
     features: [
-      'Catalytic oxidation and multi-stage liquefaction',
       'Food-grade liquid storage and insulated road tanker fleet',
       'Solid dry ice extrusion (pellets and high-density blocks)',
       'Regional distribution hubs serving Western, Central & Southern India'
@@ -80,12 +78,12 @@ const MANUFACTURING_SITES = [
     company: 'Shreeji Acetylene, Shakti Gases & Shakti Air Products',
     title: 'Savli, Ranoli & Por – Gas Manufacturing, Refilling & Synthesis Hubs',
     description:
-      'Network of specialized production units and cylinder refilling stations across the Vadodara industrial corridor. Shreeji Acetylene is a dedicated Dissolved Acetylene (DA) gas manufacturer, and Shakti Gases is a leading Hydrogen gas refiller with High Purity (HP) and Ultra High Purity (UHP) capabilities.',
+      'Network of specialized production units and cylinder refilling stations across the Vadodara industrial corridor.',
     capacity: '6+ Refilling & Synthesis Hubs',
     purity: 'Industrial, High Purity (HP) & Ultra High Purity (UHP)',
     location: 'Savli, Ranoli GIDC & Por GIDC, Vadodara, Gujarat',
     features: [
-      'Shreeji Acetylene: Calcium carbide chemical generators for Dissolved Acetylene (DA) gas manufacturing',
+      'Shreeji Acetylene: Dissolved Acetylene (DA) gas manufacturing, HP and UHP grade',
       'Shakti Gases: Hydrogen gas refilling in cylinders, mobile cylinder skids and high-pressure cascades',
       'High Purity (HP) and Ultra High Purity (UHP) grades available for specialized industrial and analytical needs',
       'Hydrostatic cylinder testing and PESO re-certification stations'
@@ -229,7 +227,6 @@ const Home: React.FC = () => {
             loop
             playsInline
             preload="auto"
-            poster="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air%20seperation%20unit%20at%20karjan.webp"
           >
             <source src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air-separation-unit-karjan.webm" type="video/webm" />
             <source src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air-separation-unit-karjan.mp4" type="video/mp4" />
@@ -317,9 +314,9 @@ const Home: React.FC = () => {
               <div className="space-y-1.5">
                 <div className="text-base font-bold text-gray-900 flex items-center gap-2">
                   <ShieldCheck className="w-5 h-5 text-blue-600 shrink-0" />
-                  <span>PESO, ISO, FDA & FSSAI Certified</span>
+                  <span>Safety Certified</span>
                 </div>
-                <p className="text-sm text-gray-500 leading-relaxed">100% PESO approved assets, ISO 9001/14001/45001, WHO-GMP, FDA license & FSSAI certified</p>
+                <p className="text-sm text-gray-500 leading-relaxed">PESO approved assets, ISO 9001/14001/45001, WHO-GMP, FDA & FSSAI certified</p>
               </div>
             </div>
 
@@ -346,10 +343,10 @@ const Home: React.FC = () => {
               <span>Production Infrastructure</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Our Operating Manufacturing Network
+              Our Manufacturing Network
             </h2>
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              Shakti operates primary production facilities, cryogenic distillation columns, and multi-gas refilling hubs strategically situated across Western and Central India.
+              Shakti operates primary production facilities, cryogenic distillation columns, and multi-gas refilling hubs strategically situated across Western , Central and Southern India.
             </p>
           </div>
 
@@ -420,15 +417,15 @@ const Home: React.FC = () => {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4">
               {DELIVERY_OPTIONS.map((opt, idx) => (
-                <div key={idx} className="bg-slate-800/50 p-3.5 rounded-xl border border-slate-700/60 hover:border-blue-500 transition text-center flex flex-col items-center justify-between gap-2 group">
-                  <div className="w-14 h-14 rounded-lg bg-slate-900/80 flex items-center justify-center p-1.5 overflow-hidden">
+                <div key={idx} className="bg-white p-3.5 rounded-xl border border-slate-700/60 hover:border-blue-500 transition text-center flex flex-col items-center justify-between gap-2 group">
+                  <div className="w-20 h-20 rounded-lg bg-white flex items-center justify-center p-1.5 overflow-hidden">
                     <img
                       src={opt.image}
                       alt={opt.title}
                       className="w-full h-full object-contain group-hover:scale-105 transition"
                     />
                   </div>
-                  <span className="text-xs font-medium text-slate-200 line-clamp-2 leading-tight">
+                  <span className="text-xs font-medium text-gray-900 line-clamp-2 leading-tight">
                     {opt.title}
                   </span>
                 </div>
@@ -479,7 +476,7 @@ const Home: React.FC = () => {
               </p>
               <ul className="space-y-1.5 text-sm text-gray-700 pt-2 border-t border-gray-100">
                 <li className="flex items-center gap-1.5">• LOX (≥ 99.5% purity)</li>
-                <li className="flex items-center gap-1.5">• LIN (-196°C cryo liquid)</li>
+                <li className="flex items-center gap-1.5">• LIN (≥ 99.999% purity)</li>
                 <li className="flex items-center gap-1.5">• LAR (≥ 99.999% purity)</li>
                 <li className="flex items-center gap-1.5">• E290 Food-Grade LCO₂</li>
               </ul>
@@ -803,7 +800,7 @@ const Home: React.FC = () => {
               </div>
               <h3 className="text-base font-bold text-gray-900">Hydrostatic Testing & PESO Stamping</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
-                In-house cylinder testing station performing mandatory 5-year periodic water-jacket hydrostatic stretch testing, internal boroscope checks, valving, and PESO neck stamping.
+                In-house peso approved cylinder testing station performing mandatory periodic hydrostatic stretch testing, internal boroscope checks, valving, and PESO neck stamping.
               </p>
             </div>
 

@@ -68,7 +68,7 @@ export const CompanyHub: React.FC = () => {
           alt="Shakti Group Team & Leadership"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-950/95 via-gray-900/85 to-gray-950/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-950/45 via-gray-900/25 to-gray-950/0" />
         <div className="relative max-w-7xl mx-auto">
           {/* Breadcrumbs */}
           <div className="flex items-center gap-2 text-xs font-semibold text-blue-400 uppercase tracking-widest mb-4">
