@@ -1,37 +1,310 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Core Pages -->
     <url>
         <loc>https://www.shaktigases.com/</loc>
-        <lastmod>2026-01-01</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
-
     <url>
         <loc>https://www.shaktigases.com/about</loc>
-        <lastmod>2026-01-01</lastmod>
+        <lastmod>2026-08-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-
-    <url>
-        <loc>https://www.shaktigases.com/services</loc>
-        <lastmod>2026-01-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
     <url>
         <loc>https://www.shaktigases.com/products</loc>
-        <lastmod>2026-01-01</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
-
+    <url>
+        <loc>https://www.shaktigases.com/industries</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/company</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/services</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
     <url>
         <loc>https://www.shaktigases.com/contact</loc>
-        <lastmod>2026-01-01</lastmod>
-        <changefreq>yearly</changefreq>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Bulk Cryogenic & Industrial Gas Products -->
+    <url>
+        <loc>https://www.shaktigases.com/products/liquid-nitrogen</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/liquid-oxygen</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/liquid-argon</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/liquid-carbon-dioxide</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/hydrogen-gas</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/dissolved-acetylene</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/helium-gas</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/compressed-air</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <!-- High Purity & Specialty Gases -->
+    <url>
+        <loc>https://www.shaktigases.com/products/calibration-gas-mixtures</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/ultra-high-purity-argon</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/ultra-high-purity-nitrogen</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/ultra-high-purity-helium</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/sulphur-hexafluoride</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/hydrogen-chloride</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/high-purity-chlorine</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/methane-gas</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/propane-gas</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/sulphur-dioxide</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.75</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/hydrogen-sulfide</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <!-- Medical & Food Grade Gases -->
+    <url>
+        <loc>https://www.shaktigases.com/products/medical-oxygen-ip</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/nitrous-oxide</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/ethylene-gas</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/products/dry-ice</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- Industry Sector Solutions -->
+    <url>
+        <loc>https://www.shaktigases.com/industries/metals-manufacturing</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/industries/glass-ceramics</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/industries/chemicals-process</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/industries/life-sciences</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/industries/food-beverage</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/industries/energy-infrastructure</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/industries/water-environment</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/industries/electronics-semiconductor</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- Company Hub & Group Entities -->
+    <url>
+        <loc>https://www.shaktigases.com/company/shakti-gases</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/company/shakti-industrial-gases</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/company/shakti-air-products</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/company/infrastructure</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/company/safety-compliance</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/company/leadership-history</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/company/careers</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.7</priority>
+    </url>
+
+    <!-- Solution Delivery Modes -->
+    <url>
+        <loc>https://www.shaktigases.com/solutions/bulk-supply</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/solutions/on-site-generation</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/solutions/specialty-blends</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.shaktigases.com/solutions/packaged-cylinders</loc>
+        <lastmod>2026-08-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
 </urlset>
