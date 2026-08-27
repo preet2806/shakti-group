@@ -180,7 +180,7 @@ const Products: React.FC = () => {
               Individual Product Specifications
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl">
-              Access dedicated technical specification pages, CAS numbers, physical properties, supply modes, and handling guidelines for each gas.
+              Access dedicated technical specification pages, purity grades, CAS registry numbers, physical states, and available supply formats for each gas.
             </p>
           </div>
         </div>

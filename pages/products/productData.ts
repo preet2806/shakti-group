@@ -10,6 +10,9 @@ export interface ProductPageData {
   category: 'liquid' | 'industrial' | 'high-purity' | 'specialty' | 'other';
   categoryLabel: string;
   categorySlug: string;
+  physicalState?: string;
+  appearance?: string;
+  availableSupplyFormats?: string[];
   puritiesAvailable: string[];
   physicalProperties: {
     boilingPoint: string;
@@ -31,7 +34,7 @@ export interface ProductPageData {
     useCase: string;
     recommendedPurity: string;
   }[];
-  handlingSafety: string[];
+  handlingSafety?: string[];
   relatedProducts?: { title: string; slug: string; formula: string }[];
   seoTitle: string;
   seoDesc: string;
@@ -58,6 +61,13 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'liquid',
     categoryLabel: 'Bulk & Cryogenic Gases',
     categorySlug: 'bulk-cryogenic',
+    physicalState: 'Cryogenic Liquid (-182.96°C)',
+    appearance: 'Pale blue transparent cryogenic liquid / Colorless, odorless gas upon vaporization',
+    availableSupplyFormats: [
+      'Bulk Cryogenic Road Tankers (10 KL to 35 KL)',
+      'Cryogenic Dura Liquid Cylinders (160L to 250L)',
+      'Turnkey On-Site Storage Tanks (3 KL to 50 KL Rental)'
+    ],
     puritiesAvailable: ['Commercial Grade (≥ 99.5%)', 'Medical Oxygen IP Grade (≥ 99.5%)', 'Ultra High Purity Grade 5.0 (99.999%)', 'Electronic / Laser Grade (99.9995%)'],
     physicalProperties: {
       boilingPoint: '-182.96°C (-297.3°F)',
@@ -155,6 +165,13 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'liquid',
     categoryLabel: 'Bulk & Cryogenic Gases',
     categorySlug: 'bulk-cryogenic',
+    physicalState: 'Cryogenic Liquid (-195.79°C)',
+    appearance: 'Clear, colorless cryogenic liquid / Colorless, odorless inert gas upon vaporization',
+    availableSupplyFormats: [
+      'Bulk Cryogenic Road Tankers (10 KL to 35 KL)',
+      'Turnkey On-Site Storage Tanks & Vaporizers (3 KL to 60 KL Rental)',
+      'Cryogenic Liquid Dewars & Dura Cylinders (10L to 250L)'
+    ],
     puritiesAvailable: ['Industrial Grade (≥ 99.99%)', 'Food Grade E941 (≥ 99.9%)', 'Ultra High Purity Grade 5.0 (99.999%)', 'UHP Grade 6.0 (99.9999%)'],
     physicalProperties: {
       boilingPoint: '-195.79°C (-320.4°F)',
@@ -257,6 +274,13 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'liquid',
     categoryLabel: 'Bulk & Cryogenic Gases',
     categorySlug: 'bulk-cryogenic',
+    physicalState: 'Cryogenic Liquid (-185.87°C)',
+    appearance: 'Clear, colorless cryogenic liquid / Colorless, odorless noble gas upon vaporization',
+    availableSupplyFormats: [
+      'Dedicated Cryogenic Road Tankers (10 KL to 32 KL)',
+      'Liquid Dura Cylinders & Microbulk (160L to 1000L)',
+      'Turnkey On-Site Storage Tanks (3 KL to 40 KL Rental)'
+    ],
     puritiesAvailable: ['Commercial Grade (≥ 99.99%)', 'High Purity (≥ 99.995%)', 'Ultra High Purity Grade 5.0 (99.999%)', 'Grade 6.0 (99.9999%)'],
     physicalProperties: {
       boilingPoint: '-185.87°C (-302.6°F)',
@@ -345,6 +369,13 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'liquid',
     categoryLabel: 'Bulk & Cryogenic Gases',
     categorySlug: 'bulk-cryogenic',
+    physicalState: 'Refrigerated Liquid (-20°C @ 20 Bar)',
+    appearance: 'Clear, colorless refrigerated liquid / Colorless, odorless gas upon vaporization',
+    availableSupplyFormats: [
+      'Insulated LCO₂ Road Tankers (12 MT to 30 MT)',
+      'Turnkey On-Site Storage Tanks (5 MT to 60 MT Rental)',
+      'High-Pressure CO₂ Cylinders & Packs (30 kg to 45 kg)'
+    ],
     puritiesAvailable: ['Food Grade E290 (≥ 99.9% ISBT Compliant)', 'Industrial Grade (≥ 99.8%)', 'Welding Grade (≥ 99.5%)', 'UHP Grade (99.995%)'],
     physicalProperties: {
       boilingPoint: '-78.5°C Sublimation Point (Triple Point -56.6°C @ 5.18 bar)',
@@ -437,6 +468,13 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'industrial',
     categoryLabel: 'Industrial & Cylinder Gases',
     categorySlug: 'industrial-cylinder',
+    physicalState: 'High-Pressure Compressed Gas (150 - 200 Bar)',
+    appearance: 'Colorless, odorless, ultra-light compressed gas',
+    availableSupplyFormats: [
+      'Mobile Tube Trailer Cascades (1,500m³ to 4,500m³)',
+      'Multi-Cylinder Packs / MCP Quads (16-Cylinder Bundles)',
+      'High-Pressure Seamless Cylinders (47L / 50L)'
+    ],
     puritiesAvailable: ['Commercial Grade (≥ 99.5%)', 'High Purity (≥ 99.99%)', 'Ultra High Purity Grade 5.0 (99.999%)', 'Grade 6.0 UHP (99.9999%)'],
     physicalProperties: {
       boilingPoint: '-252.87°C (-423.2°F)',
@@ -529,6 +567,12 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'industrial',
     categoryLabel: 'Industrial & Cylinder Gases',
     categorySlug: 'industrial-cylinder',
+    physicalState: 'Gas Dissolved in Acetone / Porous Mass (15 Bar)',
+    appearance: 'Colorless gas with characteristic ethereal / garlic odor',
+    availableSupplyFormats: [
+      'Standard DA Maroon Cylinders (6m³ to 8.5m³ / 4.5 to 7.0 kg)',
+      'Manifolded DA Cylinder Packs (MCP 6 to 12 Cylinders)'
+    ],
     puritiesAvailable: ['Commercial DA (≥ 98.5% IS:308 Compliant)', 'Purified Acetylene (≥ 99.5%)', 'Atomic Absorption Spectroscopy (AAS) Grade (≥ 99.6%)'],
     physicalProperties: {
       boilingPoint: '-84°C Sublimation Point',
@@ -608,6 +652,13 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'industrial',
     categoryLabel: 'Industrial & Cylinder Gases',
     categorySlug: 'industrial-cylinder',
+    physicalState: 'Compressed Gas / Liquefied Equilibrium (50 - 60 Bar)',
+    appearance: 'Colorless, odorless compressed gas',
+    availableSupplyFormats: [
+      'High-Pressure Seamless Cylinders (30 kg to 45 kg)',
+      'Multi-Cylinder Bundles (CO₂ MCP Quads with Heated Vaporizer)',
+      'Dip-Tube Liquid Extraction Cylinders'
+    ],
     puritiesAvailable: ['Commercial Grade (≥ 99.5%)', 'Welding Shielding Grade (≥ 99.8%)', 'Food & Beverage Grade (≥ 99.9%)', 'Dry / Low Moisture Grade (< 20 ppm H₂O)'],
     physicalProperties: {
       boilingPoint: '-78.5°C Sublimation Point',
@@ -686,6 +737,13 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'high-purity',
     categoryLabel: 'Specialty & Calibration Gases',
     categorySlug: 'specialty-calibration',
+    physicalState: 'High-Pressure Compressed Noble Gas (150 - 200 Bar)',
+    appearance: 'Colorless, odorless, non-flammable noble gas',
+    availableSupplyFormats: [
+      'High-Pressure Seamless Steel/Aluminium Cylinders (10L / 47L / 50L)',
+      'Multi-Cylinder Packs (16-Cylinder MCP Bundles ~120m³)',
+      'High-Purity Laboratory Lecture Bottles'
+    ],
     puritiesAvailable: ['Balloon / Commercial Grade (≥ 99.0%)', 'High Purity Grade 4.5 (99.995%)', 'Ultra High Purity Grade 5.0 (99.999%)', 'UHP Grade 6.0 (99.9999%)'],
     physicalProperties: {
       boilingPoint: '-268.93°C (-452.1°F, 4.2 K)',
@@ -770,6 +828,12 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'high-purity',
     categoryLabel: 'Specialty & Calibration Gases',
     categorySlug: 'specialty-calibration',
+    physicalState: 'Compressed Gas @ 150-200 Bar',
+    appearance: 'Colorless, odorless, high-purity oxidizing gas',
+    availableSupplyFormats: [
+      'Specialty High-Pressure Aluminum & Steel Cylinders (10L to 47L)',
+      'Ultra-Clean Diaphragm Valve Cylinders with Certificate of Analysis (COA)'
+    ],
     puritiesAvailable: ['Grade 5.0 (99.999%, Total Impurities < 10 ppm)', 'Grade 5.5 (99.9995%, Impurities < 5 ppm)', 'Grade 6.0 (99.9999%, Impurities < 1 ppm)'],
     physicalProperties: {
       boilingPoint: '-182.96°C',
@@ -839,6 +903,13 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'high-purity',
     categoryLabel: 'Specialty & Calibration Gases',
     categorySlug: 'specialty-calibration',
+    physicalState: 'Compressed Gas / Certified Gravimetric Blend',
+    appearance: 'Colorless gas blend with individual analytical Certificate of Analysis (COA)',
+    availableSupplyFormats: [
+      'Disposable Aluminum Canisters (34L, 58L, 110L)',
+      'High-Pressure Refillable Cylinders (10L to 47L)',
+      'NIST / NABL Traceable Calibration Cylinders'
+    ],
     puritiesAvailable: ['PPM & PPB Level Multi-Component Standards', 'LEL Combustible Gas Mixes (% LEL CH₄, C₃H₈, H₂)', 'Toxic Gas Blends (CO, H₂S, SO₂, NO, NO₂)', 'Laser Resonator Cutting Gas Mixtures (He/N₂/CO₂)'],
     physicalProperties: {
       boilingPoint: 'Mixture Specific',
@@ -913,6 +984,12 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'specialty',
     categoryLabel: 'Specialty & Calibration Gases',
     categorySlug: 'specialty-calibration',
+    physicalState: 'High-Pressure Compressed Gas (150 Bar)',
+    appearance: 'Colorless, odorless, highly flammable and toxic gas',
+    availableSupplyFormats: [
+      'High-Pressure Seamless Steel Cylinders (10L to 47L)',
+      'Custom PPM / % Span Gas Mixtures'
+    ],
     puritiesAvailable: ['Commercial Grade (≥ 99.0%)', 'High Purity (≥ 99.5%)', 'Ultra High Purity Grade 4.8 (99.98%)'],
     physicalProperties: {
       boilingPoint: '-191.5°C',
@@ -973,6 +1050,13 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'specialty',
     categoryLabel: 'Specialty & Calibration Gases',
     categorySlug: 'specialty-calibration',
+    physicalState: 'Liquefied Compressed Gas (50 Bar @ 20°C)',
+    appearance: 'Colorless gas with a slightly sweet odor and taste',
+    availableSupplyFormats: [
+      'High-Pressure Liquefied Cylinders (30 kg to 32 kg)',
+      'Pin-Index Medical Gas Cylinders',
+      'Electronic-Grade High Purity Cylinders'
+    ],
     puritiesAvailable: ['Medical Grade IP (≥ 99.0%)', 'Food Grade E942 (≥ 99.5%)', 'Electronic / Semiconductor Grade (99.999%)'],
     physicalProperties: {
       boilingPoint: '-88.5°C',
@@ -1021,6 +1105,12 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'specialty',
     categoryLabel: 'Specialty & Calibration Gases',
     categorySlug: 'specialty-calibration',
+    physicalState: 'Liquefied Gas (22 Bar @ 20°C)',
+    appearance: 'Colorless, odorless, extremely dense non-flammable gas',
+    availableSupplyFormats: [
+      'High-Pressure Liquefied Gas Cylinders (40 kg to 50 kg)',
+      'IEC 60376 Certified Electrical Utility Cylinders'
+    ],
     puritiesAvailable: ['Electrical Grade IEC 60376 (≥ 99.9%)', 'Electronic / Etching Grade (≥ 99.999%)'],
     physicalProperties: {
       boilingPoint: '-63.8°C Sublimation',
@@ -1068,6 +1158,12 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'specialty',
     categoryLabel: 'Specialty & Calibration Gases',
     categorySlug: 'specialty-calibration',
+    physicalState: 'Liquefied Compressed Gas (42 Bar)',
+    appearance: 'Colorless, pungent fuming gas (corrosive, acid odor)',
+    availableSupplyFormats: [
+      'Specialty Passivated Cylinders (20 kg to 40 kg)',
+      'Corrosion-Resistant Hastelloy / Monel Valve Cylinders'
+    ],
     puritiesAvailable: ['Technical Grade (≥ 99.0%)', 'Electronic / VLSI Grade (≥ 99.999%)'],
     physicalProperties: {
       boilingPoint: '-85.05°C',
@@ -1115,6 +1211,12 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'high-purity',
     categoryLabel: 'Specialty & Calibration Gases',
     categorySlug: 'specialty-calibration',
+    physicalState: 'Liquefied Gas (6.8 Bar @ 20°C)',
+    appearance: 'Greenish-yellow gas with pungent, irritating suffocating odor',
+    availableSupplyFormats: [
+      'PESO Certified 100 kg Chlorine Cylinders',
+      '900 kg Chlorine Tonners with Safety Hoods'
+    ],
     puritiesAvailable: ['Commercial Grade (≥ 99.5%)', 'High Purity Grade (≥ 99.99%)', 'Electronic Grade (99.999%)'],
     physicalProperties: {
       boilingPoint: '-34.04°C',
@@ -1162,6 +1264,12 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'specialty',
     categoryLabel: 'Specialty & Calibration Gases',
     categorySlug: 'specialty-calibration',
+    physicalState: 'High-Pressure Compressed Gas (70 - 100 Bar)',
+    appearance: 'Colorless gas with a faint sweet, musky odor',
+    availableSupplyFormats: [
+      'High-Pressure Seamless Cylinders (5 kg to 15 kg)',
+      'Controlled Fruit Ripening Dosing Cylinders'
+    ],
     puritiesAvailable: ['Fruit Ripening Grade (≥ 99.5%)', 'Polymer Grade (≥ 99.95%)', 'UHP Grade 5.0 (99.999%)'],
     physicalProperties: {
       boilingPoint: '-103.7°C',
@@ -1209,6 +1317,12 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'specialty',
     categoryLabel: 'Specialty & Calibration Gases',
     categorySlug: 'specialty-calibration',
+    physicalState: 'High-Pressure Compressed Gas (150 - 200 Bar)',
+    appearance: 'Colorless, odorless, lighter-than-air flammable gas',
+    availableSupplyFormats: [
+      'High-Pressure Seamless Steel Cylinders (10L to 47L)',
+      'Lab-Grown Diamond CVD Synthesis Bundles'
+    ],
     puritiesAvailable: ['Commercial Grade (≥ 99.0%)', 'High Purity Grade (≥ 99.95%)', 'UHP Grade 5.0 (99.999%)'],
     physicalProperties: {
       boilingPoint: '-161.5°C',
@@ -1255,6 +1369,12 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'specialty',
     categoryLabel: 'Specialty & Calibration Gases',
     categorySlug: 'specialty-calibration',
+    physicalState: 'Liquefied Gas (8.5 Bar @ 20°C)',
+    appearance: 'Colorless liquefied gas with faint petroleum odor / stenching agent added',
+    availableSupplyFormats: [
+      'Industrial Propane Cylinders (19 kg to 47 kg)',
+      'Liquid or Vapor Phase Withdrawal Cylinders'
+    ],
     puritiesAvailable: ['Commercial Grade (≥ 95%)', 'High Purity Grade (≥ 99.5%)', 'Instrument Grade (99.99%)'],
     physicalProperties: {
       boilingPoint: '-42.1°C',
@@ -1301,6 +1421,12 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'specialty',
     categoryLabel: 'Specialty & Calibration Gases',
     categorySlug: 'specialty-calibration',
+    physicalState: 'Liquefied Gas (3.3 Bar @ 20°C)',
+    appearance: 'Colorless, toxic gas with pungent, suffocating, pungent odor',
+    availableSupplyFormats: [
+      'Liquefied Gas Cylinders (50 kg)',
+      '500 kg Liquefied Tonners'
+    ],
     puritiesAvailable: ['Commercial Grade (≥ 99.9%)', 'Calibration Grade (PPM Blends in N₂/Air)'],
     physicalProperties: {
       boilingPoint: '-10.0°C',
@@ -1347,6 +1473,12 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     category: 'specialty',
     categoryLabel: 'Specialty & Calibration Gases',
     categorySlug: 'specialty-calibration',
+    physicalState: 'Liquefied Gas (18 Bar @ 20°C)',
+    appearance: 'Colorless, flammable, extremely hazardous gas (rotten egg odor at low conc.)',
+    availableSupplyFormats: [
+      'NIST Traceable Calibration Gas Canisters (34L, 58L, 110L)',
+      '10L High-Pressure Calibration Cylinders'
+    ],
     puritiesAvailable: ['Technical Grade (≥ 99.5%)', 'PPM Trace Calibration Standards (10-50 ppm in N₂/Air)'],
     physicalProperties: {
       boilingPoint: '-60.3°C',

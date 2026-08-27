@@ -771,21 +771,6 @@ export const ProductSubPage: React.FC = () => {
                   <span className="text-slate-500 text-[11px]">Major Industrial Belts</span>
                 </div>
               </div>
-
-              <div className="space-y-2 pt-2">
-                <span className="text-xs font-bold text-slate-700 uppercase tracking-wider block">
-                  Key Industrial Delivery Zones Covered:
-                </span>
-                <div className="flex flex-wrap gap-1.5">
-                  {(data.deliveryCoverage || [
-                    'Vadodara', 'Dahej PCPIR', 'Ankleshwar', 'Surat & Hazira', 'Ahmedabad', 'Sanand', 'Halol & Savli', 'Bharuch & Jhagadia', 'Vapi & Valsad', 'Maharashtra', 'Madhya Pradesh', 'Rajasthan', 'Pan-India'
-                  ]).map((loc, lIdx) => (
-                    <span key={lIdx} className="bg-white text-slate-700 border border-slate-300 text-xs px-2.5 py-1 rounded-md font-medium">
-                      {loc}
-                    </span>
-                  ))}
-                </div>
-              </div>
             </div>
 
             {/* Industrial Applications Table */}
