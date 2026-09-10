@@ -123,7 +123,7 @@ const Services: React.FC = () => {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white font-sans text-slate-900">
       {/* SEO Metadata */}
       <SEO
         title="Industrial Gas Engineering & Supply Solutions | Shakti Group"
@@ -133,71 +133,83 @@ const Services: React.FC = () => {
         schemaJson={schema}
       />
 
-      {/* Hero */}
-      <div className="relative bg-gray-900 text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Hero - Full Size Image */}
+      <div className="relative min-h-[440px] sm:min-h-[500px] flex items-center overflow-hidden bg-slate-950 border-b border-slate-800">
         <img
           src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/team.webp"
           alt="Shakti Group Team & Engineering Solutions"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-950/45 via-gray-900/25 to-gray-950/0" />
-        <div className="relative max-w-7xl mx-auto">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs font-semibold text-blue-400 uppercase tracking-widest mb-4">
-            <NavLink to="/" className="hover:text-white transition">Home</NavLink>
-            <ChevronRight className="h-3.5 w-3.5 text-gray-500" />
-            <span className="text-white">Solutions & Services</span>
-          </div>
 
-          <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 max-w-3xl leading-tight">
-            Industrial Gas Engineering & Delivery Solutions
-          </h1>
-          <p className="text-lg text-gray-300 max-w-3xl leading-relaxed">
-            Turnkey cryogenic storage engineering, high-pressure gas distribution pipelines, automated refilling telemetry, and PESO certified cylinder management.
-          </p>
+        {/* Subtle optical gradient scrim */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/50 to-slate-950/20 sm:to-transparent" />
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <NavLink
-              to="/contact"
-              className="bg-blue-500 hover:bg-blue-600 text-white font-bold uppercase tracking-wider px-6 py-3 rounded-xl text-sm transition shadow-lg shadow-blue-500/25"
-            >
-              Consult an Engineer
-            </NavLink>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 text-white w-full">
+          <div className="max-w-2xl space-y-4">
+            <div className="flex items-center gap-2 text-xs font-medium text-slate-400">
+              <NavLink to="/" className="hover:text-white transition">Home</NavLink>
+              <ChevronRight className="h-3.5 w-3.5 text-slate-500" />
+              <span className="text-slate-200">Solutions & Services</span>
+            </div>
+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
+              Industrial Gas Engineering <br />
+              <span className="text-slate-300 font-medium">& Delivery Solutions</span>
+            </h1>
+
+            <p className="text-base sm:text-lg text-slate-300 max-w-xl leading-relaxed font-normal">
+              Turnkey cryogenic storage engineering, high-pressure gas distribution pipelines, automated refilling telemetry, and PESO certified cylinder management.
+            </p>
+
+            <div className="flex flex-wrap gap-3 pt-2">
+              <NavLink
+                to="/contact"
+                className="inline-flex items-center justify-center bg-sky-600 hover:bg-sky-500 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition duration-150 shadow-sm"
+              >
+                Consult an Engineer
+              </NavLink>
+              <NavLink
+                to="/solutions/bulk-gas-supply"
+                className="inline-flex items-center justify-center bg-slate-900/70 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold px-5 py-2.5 rounded-lg text-sm transition duration-150 backdrop-blur-sm"
+              >
+                Bulk Gas Supply
+              </NavLink>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Direct Subpages Directory Grid */}
-      <section className="py-16 bg-gray-50 border-b border-gray-100">
+      <section className="py-10 sm:py-12 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-blue-600 font-bold uppercase tracking-widest text-xs block mb-1">
+          <div className="text-center max-w-2xl mx-auto mb-7">
+            <span className="text-sky-700 font-bold uppercase tracking-widest text-xs block mb-1">
               Solutions Directory
             </span>
-            <h2 className="text-3xl font-extrabold text-gray-900">
+            <h2 className="text-xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Explore Targeted Solution Offerings
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {SOLUTIONS_SUBPAGES.map((sol) => (
               <NavLink
                 key={sol.path}
                 to={sol.path}
-                className="group bg-white p-8 rounded-2xl border border-gray-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="group bg-white p-5 sm:p-6 rounded-lg border border-slate-200 hover:border-slate-300 hover:shadow-xs transition flex flex-col justify-between"
               >
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-base font-bold text-slate-900 mb-1.5 group-hover:text-sky-700 transition-colors">
                     {sol.title}
                   </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-6">
+                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
                     {sol.desc}
                   </p>
                 </div>
 
-                <div className="flex items-center text-sm font-bold text-blue-600 pt-4 border-t border-gray-100 group-hover:translate-x-1 transition-transform">
+                <div className="flex items-center text-xs font-bold text-sky-700 pt-2.5 border-t border-slate-100 group-hover:translate-x-1 transition-transform">
                   <span>View Details</span>
-                  <ArrowRight className="h-4 w-4 ml-2" />
+                  <ArrowRight className="h-3.5 w-3.5 ml-1.5" />
                 </div>
               </NavLink>
             ))}
@@ -206,26 +218,26 @@ const Services: React.FC = () => {
       </section>
 
       {/* Tabbed Interactive Service Breakdown */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-blue-600 font-bold uppercase tracking-widest text-xs block mb-1">
+      <section className="py-10 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-7">
+          <span className="text-sky-700 font-bold uppercase tracking-widest text-xs block mb-1">
             Service Capabilities
           </span>
-          <h2 className="text-3xl font-extrabold text-gray-900">
+          <h2 className="text-xl sm:text-3xl font-bold text-slate-900 tracking-tight">
             End-to-End Infrastructure & Distribution
           </h2>
         </div>
 
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center bg-gray-100 p-1.5 rounded-2xl max-w-3xl mx-auto mb-12 gap-1">
+        <div className="flex flex-wrap justify-center bg-slate-100 p-1 rounded-lg max-w-3xl mx-auto mb-8 gap-1 border border-slate-200">
           {SERVICE_TABS.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-5 py-3 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition ${
+              className={`px-3.5 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition ${
                 activeTab === tab.id
-                  ? 'bg-white text-blue-600 shadow-md'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-white text-sky-700 shadow-xs border border-slate-200'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               {tab.label}
@@ -234,15 +246,15 @@ const Services: React.FC = () => {
         </div>
 
         {/* Tab Content Display */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-white border border-gray-100 p-8 sm:p-12 rounded-3xl shadow-lg">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center bg-white border border-slate-200 p-5 sm:p-8 rounded-xl shadow-xs">
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">{activeContent.title}</h3>
-            <p className="text-gray-600 text-base leading-relaxed mb-8">{activeContent.description}</p>
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">{activeContent.title}</h3>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5">{activeContent.description}</p>
 
-            <ul className="space-y-4 mb-8">
+            <ul className="space-y-2.5 mb-6">
               {activeContent.points.map((pt, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-sm text-gray-700">
-                  <CheckCircle className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+                <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                  <CheckCircle className="h-4 w-4 text-sky-600 shrink-0 mt-0.5" />
                   <span>{pt}</span>
                 </li>
               ))}
@@ -250,14 +262,14 @@ const Services: React.FC = () => {
 
             <NavLink
               to="/contact"
-              className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-xl text-sm transition shadow-lg shadow-blue-500/20"
+              className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-bold px-5 py-2.5 rounded-lg text-xs uppercase tracking-wider transition shadow-sm"
             >
               <span>Discuss Engineering Requirements</span>
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-3.5 w-3.5" />
             </NavLink>
           </div>
 
-          <div className="rounded-2xl overflow-hidden shadow-md h-[380px]">
+          <div className="rounded-lg overflow-hidden border border-slate-200 h-[260px] sm:h-[320px] bg-slate-100">
             <img
               src={activeContent.image}
               alt={activeContent.title}
@@ -268,43 +280,43 @@ const Services: React.FC = () => {
       </section>
 
       {/* Safety Section */}
-      <section className="py-16 bg-gray-900 text-white">
+      <section className="py-10 sm:py-12 bg-slate-950 text-white border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-blue-400 font-bold uppercase tracking-widest text-xs block mb-1">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <span className="text-sky-400 font-bold uppercase tracking-widest text-xs block mb-1">
               Safety First
             </span>
-            <h2 className="text-3xl font-extrabold text-white">
+            <h2 className="text-xl sm:text-3xl font-bold text-white tracking-tight">
               PESO Compliance & Quality Assurance
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {SAFETY_ITEMS.map((item, index) => (
-              <div key={index} className="bg-gray-800/80 p-8 rounded-2xl border border-gray-700">
-                <div className="h-10 w-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold mb-6">
-                  <ShieldCheck className="h-6 w-6" />
+              <div key={index} className="bg-slate-900 p-5 rounded-lg border border-slate-800 space-y-2.5">
+                <div className="h-8 w-8 rounded bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center font-bold">
+                  <ShieldCheck className="h-4 w-4" />
                 </div>
-                <h3 className="font-bold text-white text-lg mb-3">{item.title}</h3>
-                <p className="text-xs text-gray-300 leading-relaxed">{item.description}</p>
+                <h3 className="font-bold text-white text-sm">{item.title}</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
 
           {/* Cross Backlinks Footer */}
-          <div className="mt-16 pt-8 border-t border-gray-800 flex flex-wrap items-center justify-between gap-4 text-xs font-semibold text-gray-400">
+          <div className="mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium text-slate-400">
             <div className="flex flex-wrap items-center gap-3">
               <span>Related Operations:</span>
-              <NavLink to="/company/infrastructure" className="hover:text-blue-400 underline">Cryogenic Fleet</NavLink>
+              <NavLink to="/company/infrastructure" className="hover:text-white underline">Cryogenic Fleet</NavLink>
               <span>•</span>
-              <NavLink to="/company/quality-safety" className="hover:text-blue-400 underline">Quality & PESO</NavLink>
+              <NavLink to="/company/quality-safety" className="hover:text-white underline">Quality & PESO</NavLink>
               <span>•</span>
-              <NavLink to="/products" className="hover:text-blue-400 underline">Gas Catalog</NavLink>
+              <NavLink to="/products" className="hover:text-white underline">Gas Catalog</NavLink>
               <span>•</span>
-              <NavLink to="/industries" className="hover:text-blue-400 underline">Sectors Served</NavLink>
+              <NavLink to="/industries" className="hover:text-white underline">Sectors Served</NavLink>
             </div>
 
-            <NavLink to="/contact" className="text-blue-400 font-bold hover:underline">
+            <NavLink to="/contact" className="text-sky-400 font-bold hover:underline">
               Submit RFP / Tender Documents →
             </NavLink>
           </div>

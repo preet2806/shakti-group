@@ -110,7 +110,117 @@ function getAIClient(): GoogleGenAI | null {
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+  res.json({
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    telegramConfigured: Boolean(process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID),
+  });
+});
+
+// Telegram Notification Dispatcher
+async function sendTelegramNotification(payload: {
+  userMessage: string;
+  botResponse?: string;
+  clientIp?: string;
+}) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+
+  if (!token || !chatId) {
+    return;
+  }
+
+  const istTime = new Date().toLocaleString('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    dateStyle: 'medium',
+    timeStyle: 'short',
+  });
+
+  const escapeHtml = (str: string) =>
+    str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+
+  const cleanUserMessage = escapeHtml(payload.userMessage.trim());
+  const cleanBotResponse = payload.botResponse
+    ? escapeHtml(payload.botResponse.trim().slice(0, 1800))
+    : '';
+
+  // Detect potential sales lead or RFQ in message
+  const hasContactInfo = /(\+?\d{10,13}|[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)/i.test(payload.userMessage);
+  const isRFQ = /(quote|rfq|pricing|price|rate|tonnes?|tpd|mt|bulk|tanker|cylinder|dura|supply|deliver|requirement|urgent)/i.test(payload.userMessage);
+
+  let header = '💬 <b>New Shakti AI Chat Message</b>';
+  if (hasContactInfo || isRFQ) {
+    header = '🚨 <b>HOT LEAD / RFQ ALERT — Shakti AI</b>';
+  }
+
+  let text = `${header}\n\n`;
+  text += `🕒 <b>Time (IST):</b> ${istTime}\n`;
+  if (payload.clientIp) {
+    text += `🌐 <b>Visitor IP:</b> <code>${payload.clientIp}</code>\n`;
+  }
+  text += `\n👤 <b>User Query:</b>\n<i>"${cleanUserMessage}"</i>\n`;
+
+  if (cleanBotResponse) {
+    text += `\n🤖 <b>Shakti AI Response:</b>\n${cleanBotResponse}${payload.botResponse && payload.botResponse.length > 1800 ? '...\n<i>[truncated]</i>' : ''}\n`;
+  }
+
+  try {
+    const url = `https://api.telegram.org/bot${token}/sendMessage`;
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text,
+        parse_mode: 'HTML',
+        disable_web_page_preview: true,
+      }),
+    });
+
+    if (!response.ok) {
+      const errBody = await response.text();
+      console.error('Telegram API response not OK:', errBody);
+    }
+  } catch (err) {
+    console.error('Failed to send Telegram notification:', err);
+  }
+}
+
+// Telegram Test Endpoint to verify credentials
+app.post('/api/telegram/test', async (req, res) => {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+
+  if (!token || !chatId) {
+    return res.status(400).json({
+      success: false,
+      error: 'TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is missing in environment variables.',
+    });
+  }
+
+  try {
+    const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: '✅ <b>Telegram Bot Connected Successfully!</b>\n\nYou will now receive instant alerts whenever a user messages Shakti AI on the website.',
+        parse_mode: 'HTML',
+      }),
+    });
+
+    const data = (await response.json()) as any;
+    if (data.ok) {
+      res.json({ success: true, message: 'Test message sent to Telegram!' });
+    } else {
+      res.status(400).json({ success: false, error: data.description });
+    }
+  } catch (err: any) {
+    res.status(500).json({ success: false, error: err.message });
+  }
 });
 
 // Chat API endpoint (streaming response)
@@ -121,11 +231,22 @@ app.post('/api/chat', async (req, res) => {
     return res.status(400).json({ error: 'Message is required' });
   }
 
+  const clientIp = ((req.headers['x-forwarded-for'] as string)?.split(',')[0] || req.socket.remoteAddress || '').trim();
+
   const client = getAIClient();
   if (!client) {
+    const fallbackMessage = 'Welcome to Shakti Group! For inquiries regarding industrial gases, cryogenic logistics, or quotes, please reach out directly at info@shaktigases.com or call +91-9727783440.';
+
+    // Notify on Telegram even if AI fallback triggered
+    sendTelegramNotification({
+      userMessage: message,
+      botResponse: `[System Fallback]: ${fallbackMessage}`,
+      clientIp,
+    }).catch(console.error);
+
     return res.status(503).json({
       error: 'Gemini API currently down',
-      fallback: 'Welcome to Shakti Group! For inquiries regarding industrial gases, cryogenic logistics, or quotes, please reach out directly at info@shaktigases.com or call +91-9727783440.'
+      fallback: fallbackMessage
     });
   }
 
@@ -151,16 +272,32 @@ app.post('/api/chat', async (req, res) => {
 
     const result = await chat.sendMessageStream({ message });
 
+    let fullBotResponse = '';
     for await (const chunk of result) {
       if (chunk.text) {
+        fullBotResponse += chunk.text;
         res.write(`data: ${JSON.stringify({ text: chunk.text })}\n\n`);
       }
     }
 
     res.write('data: [DONE]\n\n');
     res.end();
+
+    // Asynchronously dispatch Telegram alert after streaming finishes
+    sendTelegramNotification({
+      userMessage: message,
+      botResponse: fullBotResponse,
+      clientIp,
+    }).catch((err) => console.error('Error in sendTelegramNotification:', err));
   } catch (error: any) {
     console.error('Gemini API Error in /api/chat:', error);
+
+    sendTelegramNotification({
+      userMessage: message,
+      botResponse: `⚠️ [Error]: ${error.message || 'Error processing stream'}`,
+      clientIp,
+    }).catch(console.error);
+
     if (!res.headersSent) {
       res.status(500).json({ error: 'Failed to process chat message' });
     } else {
@@ -180,7 +317,7 @@ async function startServer() {
   } else {
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));
-    app.get('*all', (req, res) => {
+    app.use((req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
     });
   }
