@@ -887,9 +887,8 @@ export const IndustrySubPage: React.FC = () => {
       />
 
       {/* Clean High-Contrast Industry Hero Header */}
-      <div className="bg-slate-950 text-white py-14 border-b border-slate-800 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-950/80 via-slate-950 to-slate-900 opacity-95 pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="bg-slate-950 text-white py-12 sm:py-16 border-b border-slate-800 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-400 mb-5">
@@ -897,16 +896,16 @@ export const IndustrySubPage: React.FC = () => {
             <ChevronRight className="h-3 w-3 text-slate-600" />
             <NavLink to="/industries" className="hover:text-white transition">Industries</NavLink>
             <ChevronRight className="h-3 w-3 text-slate-600" />
-            <span className="text-blue-400 font-medium">{data.title}</span>
+            <span className="text-sky-400 font-medium">{data.title}</span>
           </nav>
 
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div className="max-w-3xl space-y-3">
               <div className="inline-flex items-center gap-2">
-                <span className="bg-blue-900/60 text-blue-300 text-xs font-mono font-semibold px-3 py-1 rounded-md border border-blue-700/60 uppercase tracking-wider">
+                <span className="bg-sky-950 text-sky-300 text-xs font-mono font-semibold px-2.5 py-1 rounded border border-sky-800 uppercase tracking-wider">
                   {data.sectorTag}
                 </span>
-                <span className="bg-slate-800 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-md border border-slate-700">
+                <span className="bg-slate-800 text-slate-300 text-xs font-medium px-2.5 py-1 rounded border border-slate-700">
                   PESO / ISO Certified
                 </span>
               </div>
@@ -915,7 +914,7 @@ export const IndustrySubPage: React.FC = () => {
                 {data.title}
               </h1>
 
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal pt-1">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal pt-1">
                 {data.subtitle}
               </p>
             </div>
@@ -923,14 +922,14 @@ export const IndustrySubPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
               <NavLink
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-xl transition shadow-lg shadow-blue-600/30"
+                className="inline-flex items-center justify-center gap-2 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-lg transition shadow-sm"
               >
                 <span>Consult Industry Engineer</span>
                 <ArrowRight className="h-4 w-4" />
               </NavLink>
               <NavLink
                 to="/services"
-                className="inline-flex items-center justify-center gap-2 bg-slate-800/90 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-6 py-3.5 rounded-xl transition border border-slate-700"
+                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-semibold px-5 py-3 rounded-lg transition border border-slate-700"
               >
                 <span>On-Site Storage Rental</span>
               </NavLink>
@@ -945,8 +944,8 @@ export const IndustrySubPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {data.keyImpactStats.map((st, idx) => (
-              <div key={idx} className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-sm">
-                <span className="text-xl sm:text-2xl font-extrabold text-blue-700 block">{st.value}</span>
+              <div key={idx} className="bg-white p-4 rounded-lg border border-slate-200">
+                <span className="text-lg sm:text-xl font-extrabold text-sky-700 block">{st.value}</span>
                 <span className="text-xs font-semibold text-slate-700 mt-1 block leading-tight">{st.label}</span>
               </div>
             ))}
@@ -962,12 +961,12 @@ export const IndustrySubPage: React.FC = () => {
 
             {/* Sector Challenge & Solution */}
             <div className="space-y-4">
-              <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-2">
+              <div className="bg-slate-50 p-6 rounded-lg border border-slate-200 space-y-2">
                 <div className="flex items-center gap-2 text-rose-700 font-bold text-xs uppercase tracking-wider">
                   <Flame className="h-4 w-4" />
                   <span>Sector Challenge</span>
                 </div>
-                <h2 className="text-lg font-bold text-slate-900">
+                <h2 className="text-base sm:text-lg font-bold text-slate-900">
                   {data.challengeTitle}
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -975,12 +974,12 @@ export const IndustrySubPage: React.FC = () => {
                 </p>
               </div>
 
-              <div className="bg-blue-50/50 p-6 rounded-2xl border border-blue-200/80 space-y-2">
-                <div className="flex items-center gap-2 text-blue-700 font-bold text-xs uppercase tracking-wider">
+              <div className="bg-sky-50/60 p-6 rounded-lg border border-sky-200 space-y-2">
+                <div className="flex items-center gap-2 text-sky-700 font-bold text-xs uppercase tracking-wider">
                   <Sparkles className="h-4 w-4" />
                   <span>The Shakti Engineered Solution</span>
                 </div>
-                <h2 className="text-lg font-bold text-blue-900">
+                <h2 className="text-base sm:text-lg font-bold text-slate-900">
                   Tailored Gas Chemistry & High-Reliability Logistics
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
@@ -990,13 +989,13 @@ export const IndustrySubPage: React.FC = () => {
             </div>
 
             {/* On-Site Storage Rental Callout Banner */}
-            <div className="bg-gradient-to-r from-slate-900 to-blue-950 text-white p-6 rounded-2xl border border-slate-800 shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+            <div className="bg-slate-950 text-white p-6 rounded-lg border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
               <div className="space-y-1 max-w-xl">
-                <div className="inline-flex items-center gap-1.5 text-blue-400 text-xs font-bold uppercase tracking-wider">
+                <div className="inline-flex items-center gap-1.5 text-sky-400 text-xs font-bold uppercase tracking-wider">
                   <Truck className="h-4 w-4" />
                   <span>Turnkey On-Site Storage Setup</span>
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-white">
+                <h3 className="text-sm sm:text-base font-bold text-white">
                   3 KL to 60 KL Cryogenic Storage Vessels on Rental / Opex Model
                 </h3>
                 <p className="text-xs text-slate-300 leading-relaxed">
@@ -1005,7 +1004,7 @@ export const IndustrySubPage: React.FC = () => {
               </div>
               <NavLink
                 to="/contact"
-                className="bg-blue-500 hover:bg-blue-600 text-white text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-lg transition shrink-0 whitespace-nowrap"
+                className="bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-lg transition shrink-0 whitespace-nowrap"
               >
                 Inquire For Tank Lease
               </NavLink>
@@ -1013,16 +1012,16 @@ export const IndustrySubPage: React.FC = () => {
 
             {/* Technical Comparison Table */}
             <div className="space-y-4">
-              <h3 className="text-lg font-bold text-slate-900 border-b border-slate-200 pb-2 flex items-center justify-between">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 border-b border-slate-200 pb-2 flex items-center justify-between">
                 <span>{data.comparisonTitle}</span>
               </h3>
 
-              <div className="overflow-x-auto bg-white rounded-2xl border border-slate-200 shadow-sm">
+              <div className="overflow-x-auto bg-white rounded-lg border border-slate-200">
                 <table className="w-full text-left text-xs sm:text-sm text-slate-700">
-                  <thead className="bg-slate-100 text-slate-900 font-bold uppercase tracking-wider text-[11px] border-b border-slate-200">
+                  <thead className="bg-slate-50 text-slate-900 font-bold uppercase tracking-wider text-xs border-b border-slate-200">
                     <tr>
                       <th className="p-3.5">{data.comparisonHeaders[0]}</th>
-                      <th className="p-3.5 text-blue-800 bg-blue-50/70">{data.comparisonHeaders[1]}</th>
+                      <th className="p-3.5 text-sky-900 bg-sky-50/70">{data.comparisonHeaders[1]}</th>
                       <th className="p-3.5 text-slate-600">{data.comparisonHeaders[2]}</th>
                     </tr>
                   </thead>
@@ -1030,7 +1029,7 @@ export const IndustrySubPage: React.FC = () => {
                     {data.comparisonRows.map((row, idx) => (
                       <tr key={idx} className="hover:bg-slate-50">
                         <td className="p-3.5 font-semibold text-slate-900">{row.feature}</td>
-                        <td className="p-3.5 font-medium text-slate-800 bg-blue-50/30">{row.col1}</td>
+                        <td className="p-3.5 font-medium text-slate-800 bg-sky-50/30">{row.col1}</td>
                         <td className="p-3.5 text-slate-600">{row.col2}</td>
                       </tr>
                     ))}
@@ -1041,17 +1040,17 @@ export const IndustrySubPage: React.FC = () => {
 
             {/* Key Applications & Delivery Formats */}
             <div className="space-y-4">
-              <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
-                <Boxes className="h-5 w-5 text-blue-700" />
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
+                <Boxes className="h-5 w-5 text-sky-700" />
                 <span>Sector Applications & Specialized Delivery Formats</span>
               </h3>
 
               <div className="grid grid-cols-1 gap-4">
                 {data.applications.map((app, idx) => (
-                  <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm space-y-2.5">
+                  <div key={idx} className="bg-white p-5 rounded-lg border border-slate-200 space-y-2.5">
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <h4 className="text-base font-bold text-slate-900">{app.title}</h4>
-                      <span className="bg-blue-50 text-blue-800 font-bold text-xs px-3 py-1 rounded-full border border-blue-200">
+                      <h4 className="text-sm sm:text-base font-bold text-slate-900">{app.title}</h4>
+                      <span className="bg-sky-50 text-sky-800 font-bold text-xs px-3 py-0.5 rounded border border-sky-200">
                         {app.gasUsed}
                       </span>
                     </div>
@@ -1081,10 +1080,10 @@ export const IndustrySubPage: React.FC = () => {
           <div className="lg:col-span-4 space-y-6">
 
             {/* Primary Gas Products Box */}
-            <div className="bg-slate-900 text-white p-6 rounded-2xl space-y-4 border border-slate-800 shadow-md">
+            <div className="bg-slate-950 text-white p-6 rounded-lg space-y-4 border border-slate-800">
               <div className="flex items-center gap-2 border-b border-slate-800 pb-3">
-                <Building2 className="h-5 w-5 text-blue-400" />
-                <h3 className="text-base font-bold text-white">
+                <Building2 className="h-5 w-5 text-sky-400" />
+                <h3 className="text-sm sm:text-base font-bold text-white">
                   Primary Sector Gases
                 </h3>
               </div>
@@ -1092,7 +1091,7 @@ export const IndustrySubPage: React.FC = () => {
               <ul className="space-y-2 text-xs text-slate-300 font-medium">
                 {data.primaryGases.map((gas, idx) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-blue-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-sky-400 shrink-0 mt-0.5" />
                     <span>{gas}</span>
                   </li>
                 ))}
@@ -1101,13 +1100,13 @@ export const IndustrySubPage: React.FC = () => {
               {/* Regulatory Standards */}
               <div className="pt-3 border-t border-slate-800 space-y-2">
                 <div className="flex items-center gap-1.5 text-xs text-slate-300 font-semibold">
-                  <ShieldCheck className="h-4 w-4 text-blue-400" />
+                  <ShieldCheck className="h-4 w-4 text-sky-400" />
                   <span>Compliance & Quality Norms:</span>
                 </div>
-                <ul className="space-y-1.5 text-[11px] text-slate-400">
+                <ul className="space-y-1.5 text-xs text-slate-400">
                   {data.regulatoryStandards.map((std, sIdx) => (
                     <li key={sIdx} className="flex items-start gap-1.5">
-                      <span className="h-1.5 w-1.5 rounded-full bg-blue-400 mt-1.5 shrink-0" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0" />
                       <span>{std}</span>
                     </li>
                   ))}
@@ -1118,12 +1117,12 @@ export const IndustrySubPage: React.FC = () => {
               {data.deliveryCoverage && (
                 <div className="pt-3 border-t border-slate-800 space-y-2">
                   <div className="flex items-center gap-1.5 text-xs text-slate-300 font-semibold">
-                    <MapPin className="h-4 w-4 text-blue-400" />
+                    <MapPin className="h-4 w-4 text-sky-400" />
                     <span>Logistics Coverage Hubs:</span>
                   </div>
                   <div className="flex flex-wrap gap-1">
                     {data.deliveryCoverage.map((hub, hIdx) => (
-                      <span key={hIdx} className="bg-slate-800 text-[10px] text-slate-300 px-2 py-0.5 rounded border border-slate-700">
+                      <span key={hIdx} className="bg-slate-800 text-xs text-slate-300 px-2 py-0.5 rounded border border-slate-700">
                         {hub}
                       </span>
                     ))}
@@ -1134,7 +1133,7 @@ export const IndustrySubPage: React.FC = () => {
               <div className="pt-3">
                 <NavLink
                   to="/contact"
-                  className="block text-center w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition shadow-md"
+                  className="block text-center w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-2.5 rounded-lg text-xs uppercase tracking-wider transition shadow-sm"
                 >
                   Request Commercial Quotation
                 </NavLink>
@@ -1142,7 +1141,7 @@ export const IndustrySubPage: React.FC = () => {
             </div>
 
             {/* Other Industries Quick Navigation */}
-            <div className="bg-white p-5 rounded-2xl border border-slate-200 space-y-3">
+            <div className="bg-white p-5 rounded-lg border border-slate-200 space-y-3">
               <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider border-b border-slate-100 pb-2">
                 Explore Other Industries
               </h4>
@@ -1153,7 +1152,7 @@ export const IndustrySubPage: React.FC = () => {
                     <li key={ind.slug}>
                       <NavLink
                         to={`/industries/${ind.slug}`}
-                        className="flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 text-slate-700 hover:text-blue-600 font-medium transition"
+                        className="flex items-center justify-between p-2 rounded hover:bg-slate-50 text-slate-700 hover:text-sky-700 font-medium transition"
                       >
                         <span className="truncate">{INDUSTRY_DISPLAY_NAMES[ind.slug] || ind.title}</span>
                         <ChevronRight className="h-3.5 w-3.5 text-slate-400" />

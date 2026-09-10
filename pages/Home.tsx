@@ -105,103 +105,106 @@ const PlantCarousel: React.FC<{ data: typeof MANUFACTURING_SITES[0]; index: numb
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImg((prev) => (prev + 1) % data.images.length);
-    }, 4000 + index * 500);
+    }, 4500 + index * 500);
     return () => clearInterval(timer);
   }, [data.images.length, index]);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center py-10 border-b border-gray-200 last:border-b-0">
-      {/* Content Column */}
-      <div className={`lg:col-span-6 ${isReverse ? 'lg:order-2' : 'lg:order-1'} space-y-4`}>
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="bg-blue-50 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full border border-blue-200/60">
-            {data.badge}
-          </span>
-          <span className="text-xs font-medium text-gray-500">
-            {data.company}
-          </span>
-        </div>
-
-        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 leading-snug">
-          {data.title}
-        </h3>
-
-        <div className="flex items-center gap-1.5 text-sm text-gray-600">
-          <MapPin className="w-4 h-4 text-blue-600 shrink-0" />
-          <span>{data.location}</span>
-        </div>
-
-        <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-          {data.description}
-        </p>
-
-        {/* Key Specs Grid */}
-        <div className="grid grid-cols-2 gap-3 pt-1">
-          <div className="bg-slate-50 p-3.5 rounded-lg border border-slate-200">
-            <span className="text-xs font-medium text-gray-500 block mb-0.5">Rated Output</span>
-            <span className="text-sm sm:text-base font-bold text-slate-900">{data.capacity}</span>
+    <div className="bg-white rounded-xl border border-slate-200 p-5 sm:p-7 shadow-xs hover:border-slate-300 transition mb-6 last:mb-0">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+        {/* Content Column */}
+        <div className={`lg:col-span-6 ${isReverse ? 'lg:order-2' : 'lg:order-1'} space-y-3.5`}>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="bg-sky-50 text-sky-800 text-xs font-semibold px-2.5 py-0.5 rounded border border-sky-200">
+              {data.badge}
+            </span>
+            <span className="text-xs font-semibold text-slate-500 tracking-wide uppercase">
+              {data.company}
+            </span>
           </div>
-          <div className="bg-slate-50 p-3.5 rounded-lg border border-slate-200">
-            <span className="text-xs font-medium text-gray-500 block mb-0.5">Purity Standard</span>
-            <span className="text-sm font-bold text-slate-900">{data.purity}</span>
-          </div>
-        </div>
 
-        {/* Feature Points */}
-        <div className="space-y-2 pt-1">
-          {data.features.map((feat, fIdx) => (
-            <div key={fIdx} className="flex items-start gap-2 text-sm text-gray-700">
-              <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-              <span>{feat}</span>
+          <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+            {data.title}
+          </h3>
+
+          <div className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-600 font-medium">
+            <MapPin className="w-4 h-4 text-sky-600 shrink-0" />
+            <span>{data.location}</span>
+          </div>
+
+          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            {data.description}
+          </p>
+
+          {/* Key Specs Grid */}
+          <div className="grid grid-cols-2 gap-3 pt-1">
+            <div className="bg-slate-50 p-2.5 sm:p-3 rounded-lg border border-slate-200">
+              <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block mb-0.5">Rated Output</span>
+              <span className="text-xs sm:text-sm font-bold text-slate-900">{data.capacity}</span>
             </div>
-          ))}
-        </div>
-
-        <div className="pt-2">
-          <NavLink
-            to={data.linkPath}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-900 transition"
-          >
-            <span>{data.linkText}</span>
-            <ArrowRight className="w-4 h-4" />
-          </NavLink>
-        </div>
-      </div>
-
-      {/* Image Slider Column */}
-      <div className={`lg:col-span-6 ${isReverse ? 'lg:order-1' : 'lg:order-2'} relative h-[320px] sm:h-[380px] w-full rounded-2xl overflow-hidden shadow-md border border-gray-200 bg-gray-100`}>
-        {data.images.map((img, i) => (
-          <div
-            key={i}
-            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-              i === currentImg ? 'opacity-100 z-10' : 'opacity-0 z-0'
-            }`}
-          >
-            <img
-              src={img}
-              alt={`${data.title} plant view ${i + 1}`}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-            <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs sm:text-sm">
-              <span className="font-semibold">{data.company}</span>
-              <span className="text-xs opacity-80">Photo {i + 1} of {data.images.length}</span>
+            <div className="bg-slate-50 p-2.5 sm:p-3 rounded-lg border border-slate-200">
+              <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block mb-0.5">Purity Standard</span>
+              <span className="text-xs sm:text-sm font-bold text-slate-900">{data.purity}</span>
             </div>
           </div>
-        ))}
 
-        {/* Slide Indicators */}
-        <div className="absolute top-3 right-3 z-20 flex gap-1.5 bg-black/40 backdrop-blur-sm p-1.5 rounded-full">
-          {data.images.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrentImg(i)}
-              aria-label={`View photo ${i + 1}`}
-              className={`w-2 h-2 rounded-full transition-all ${
-                i === currentImg ? 'bg-white w-4' : 'bg-white/50'
-              }`}
-            />
-          ))}
+          {/* Feature Points */}
+          <div className="space-y-1.5 pt-1">
+            {data.features.map((feat, fIdx) => (
+              <div key={fIdx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
+                <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0 mt-0.5" />
+                <span>{feat}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="pt-1">
+            <NavLink
+              to={data.linkPath}
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-sky-700 hover:text-sky-900 transition"
+            >
+              <span>{data.linkText}</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </NavLink>
+          </div>
+        </div>
+
+        {/* Image Slider Column - NO overlay across image */}
+        <div className={`lg:col-span-6 ${isReverse ? 'lg:order-1' : 'lg:order-2'} space-y-2`}>
+          <div className="relative h-[250px] sm:h-[320px] w-full rounded-lg overflow-hidden border border-slate-200 bg-slate-100 shadow-xs">
+            {data.images.map((img, i) => (
+              <div
+                key={i}
+                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                  i === currentImg ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                }`}
+              >
+                <img
+                  src={img}
+                  alt={`${data.title} plant view ${i + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+
+            {/* Slide Indicators */}
+            <div className="absolute top-3 right-3 z-20 flex gap-1 bg-slate-950/80 p-1.5 rounded">
+              {data.images.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentImg(i)}
+                  aria-label={`View photo ${i + 1}`}
+                  className={`h-1.5 rounded-xs transition-all ${
+                    i === currentImg ? 'bg-sky-400 w-4' : 'bg-white/50 w-2'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center justify-between text-xs text-slate-500 px-1">
+            <span className="font-medium text-slate-700">{data.company}</span>
+            <span className="text-[11px]">Facility Photo {currentImg + 1} of {data.images.length}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -217,47 +220,49 @@ const Home: React.FC = () => {
         keywords="Industrial Gas Manufacturer India, Bulk Cryogenic Gas Supplier, Liquid Oxygen Plant, Liquid Nitrogen Gujarat, Karjan ASU, Liquid CO2 Manufacturer, Shakti Group"
       />
 
-      {/* 1. HERO SECTION (Retained existing visual identity, video, overlays & styling) */}
-      <div className="relative bg-slate-900 h-[600px] overflow-hidden">
-        <div className="absolute inset-0">
-          <video
-            className="w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-          >
-            <source src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air-separation-unit-karjan.webm" type="video/webm" />
-            <source src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air-separation-unit-karjan.mp4" type="video/mp4" />
-          </video>
-        </div>
+      {/* 1. HERO SECTION - Full Size Video Hero */}
+      <div className="relative min-h-[520px] sm:min-h-[580px] lg:min-h-[620px] flex items-center overflow-hidden bg-slate-950 border-b border-slate-800">
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        >
+          <source src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air-separation-unit-karjan.webm" type="video/webm" />
+          <source src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air-separation-unit-karjan.mp4" type="video/mp4" />
+        </video>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
-          <div className="max-w-3xl">
-            <h1
-              className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight"
-              style={{ textShadow: '0 2px 12px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.9)' }}
-            >
-              25+ Years <br /> Of Industrial Gas Solutions
+        {/* Subtle optical gradient scrim for crisp text legibility without artificial shadows */}
+        <div className="absolute inset-0" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18 lg:py-22 w-full text-white">
+          <div className="max-w-2xl space-y-5">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-900/80 border border-slate-700/80 text-sky-400 text-xs font-medium tracking-wide rounded-full backdrop-blur-sm">
+              <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
+              <span>PESO & CCOE Approved Gas Manufacturing</span>
+            </div>
+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.12]">
+              25+ Years of <br className="hidden sm:inline" />
+              <span className="text-sky-400">Industrial Gas Engineering</span>
             </h1>
-            <p
-              className="text-lg sm:text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed"
-              style={{ textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}
-            >
-              Production, bulk storage and distribution of oxygen, nitrogen, argon, and carbon dioxide for nationwide industries.
+
+            <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-xl">
+              Production, bulk cryogenic storage, and automated distribution of oxygen, nitrogen, argon, and carbon dioxide for industrial manufacturing across India.
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3 pt-2">
               <NavLink
                 to="/products"
-                className="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg text-sm sm:text-base transition shadow-md"
+                className="inline-flex items-center justify-center bg-sky-600 hover:bg-sky-500 text-white font-semibold px-6 py-3 rounded-lg text-sm transition duration-150 shadow-sm"
               >
                 View Gas Portfolio
               </NavLink>
               <NavLink
                 to="/contact"
-                className="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold px-6 py-3 rounded-lg text-sm sm:text-base transition backdrop-blur-sm"
+                className="inline-flex items-center justify-center bg-slate-900/70 hover:bg-slate-800 text-white border border-slate-700 font-semibold px-6 py-3 rounded-lg text-sm transition duration-150 backdrop-blur-sm"
               >
                 Request Supply Quote
               </NavLink>
@@ -267,63 +272,63 @@ const Home: React.FC = () => {
       </div>
 
       {/* 2. OUR SCALE (Key operational metrics) */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 mb-16">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {STATS.map((stat, index) => (
-            <div key={index} className="bg-white p-6 sm:p-8 rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition duration-300">
-              <div className="text-sm text-gray-500 font-medium mb-1">{stat.label}</div>
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-blue-700">{stat.value}</div>
+            <div key={index} className="bg-white p-4 sm:p-5 rounded-lg border border-slate-200 shadow-xs">
+              <div className="text-xs text-slate-500 font-bold uppercase tracking-wider mb-0.5">{stat.label}</div>
+              <div className="text-xl sm:text-2xl font-extrabold text-slate-900">{stat.value}</div>
             </div>
           ))}
         </div>
       </div>
 
       {/* 3. WHO WE ARE (Tangible operational overview) */}
-      <section className="py-14 bg-white border-b border-gray-100">
+      <section className="py-10 sm:py-12 bg-white border-t border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl space-y-6">
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
-              <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
+          <div className="max-w-4xl space-y-4">
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-sky-700 uppercase tracking-wider">
+              <span className="w-6 h-0.5 bg-sky-600"></span>
               <span>Operating Profile</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-tight">
               Integrated Gas Manufacturing & Bulk Distribution Network
             </h2>
-            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
               Shakti Group operates an integrated network of cryogenic air separation units, carbon dioxide recovery & purification plants, cylinder refilling hubs, and a dedicated distribution fleet across Western, Central, and Southern India.
             </p>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
               From high-tonnage liquid deliveries via vacuum-insulated road tankers to high-purity cylinder manifolds, we provide complete supply chain infrastructure supporting steelworks, chemical refineries, pharmaceutical manufacturing, food & beverage processing, and healthcare facilities.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-gray-100">
-              <div className="space-y-1.5">
-                <div className="text-base font-bold text-gray-900 flex items-center gap-2">
-                  <Factory className="w-5 h-5 text-blue-600 shrink-0" />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-200">
+              <div className="space-y-1">
+                <div className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <Factory className="w-4 h-4 text-sky-600 shrink-0" />
                   <span>Cryogenic ASUs & CO₂</span>
                 </div>
-                <p className="text-sm text-gray-500 leading-relaxed">Continuous production of liquid LOX, LIN, LAR & 270 TPD Liquid CO₂</p>
+                <p className="text-xs text-slate-500 leading-relaxed">Continuous production of liquid LOX, LIN, LAR & 270 TPD Liquid CO₂</p>
               </div>
-              <div className="space-y-1.5">
-                <div className="text-base font-bold text-gray-900 flex items-center gap-2">
-                  <Truck className="w-5 h-5 text-blue-600 shrink-0" />
+              <div className="space-y-1">
+                <div className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <Truck className="w-4 h-4 text-sky-600 shrink-0" />
                   <span>65+ Tankers Fleet</span>
                 </div>
-                <p className="text-sm text-gray-500 leading-relaxed">GPS-tracked cryogenic road tankers with round-the-clock dispatch</p>
+                <p className="text-xs text-slate-500 leading-relaxed">GPS-tracked cryogenic road tankers with round-the-clock dispatch</p>
               </div>
-              <div className="space-y-1.5">
-                <div className="text-base font-bold text-gray-900 flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-blue-600 shrink-0" />
+              <div className="space-y-1">
+                <div className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-sky-600 shrink-0" />
                   <span>Safety Certified</span>
                 </div>
-                <p className="text-sm text-gray-500 leading-relaxed">PESO approved assets, ISO 9001/14001/45001, WHO-GMP, FDA & FSSAI certified</p>
+                <p className="text-xs text-slate-500 leading-relaxed">PESO approved assets, ISO 9001/14001/45001, WHO-GMP, FDA & FSSAI certified</p>
               </div>
             </div>
 
             <div className="pt-2">
               <NavLink
                 to="/company/our-group"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-900 transition"
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-sky-700 hover:text-sky-900 transition"
               >
                 <span>Explore Group Entities & Infrastructure</span>
                 <ChevronRight className="w-4 h-4" />
@@ -334,23 +339,23 @@ const Home: React.FC = () => {
       </section>
 
       {/* 4. MANUFACTURING NETWORK (Our Operating Locations) */}
-      <section className="py-16 bg-white" id="manufacturing-network">
+      <section className="py-10 sm:py-12 bg-slate-50 border-b border-slate-200" id="manufacturing-network">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="max-w-3xl mb-12 space-y-2">
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
-              <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
+          <div className="max-w-3xl mb-8 space-y-1.5">
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-sky-700 uppercase tracking-wider">
+              <span className="w-6 h-0.5 bg-sky-600"></span>
               <span>Production Infrastructure</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Our Manufacturing Network
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              Shakti operates primary production facilities, cryogenic distillation columns, and multi-gas refilling hubs strategically situated across Western , Central and Southern India.
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              Shakti operates primary production facilities, cryogenic distillation columns, and multi-gas refilling hubs strategically situated across Western, Central and Southern India.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-5">
             {MANUFACTURING_SITES.map((site, index) => (
               <PlantCarousel key={site.id} data={site} index={index} />
             ))}
@@ -360,72 +365,73 @@ const Home: React.FC = () => {
       </section>
 
       {/* 5. FROM PRODUCTION TO DELIVERY (Supply Chain & Packaging Modes) */}
-      <section className="py-16 bg-slate-900 text-white" id="supply-capabilities">
+      <section className="py-10 sm:py-12 bg-slate-950 text-white" id="supply-capabilities">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="max-w-3xl mb-12 space-y-3">
-            <span className="bg-blue-900/60 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full border border-blue-700">
-              Logistics & Distribution Chain
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white">
+          <div className="max-w-3xl mb-8 space-y-1.5">
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-sky-400 uppercase tracking-wider">
+              <span className="w-6 h-0.5 bg-sky-400"></span>
+              <span>Logistics & Distribution Chain</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
               From Production to Delivery
             </h2>
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
               We manage the complete journey from cryogenic distillation and catalytic purification to multi-modal delivery formats suited for every volume requirement.
             </p>
           </div>
 
           {/* 3-Step Supply Process */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-slate-800/80 p-6 rounded-xl border border-slate-700/80 space-y-3">
-              <div className="w-9 h-9 rounded-lg bg-blue-600/20 text-blue-400 flex items-center justify-center font-bold text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+            <div className="bg-slate-900 p-5 rounded-lg border border-slate-800 space-y-2.5">
+              <div className="w-8 h-8 rounded bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-xs">
                 01
               </div>
-              <h3 className="text-base font-bold text-white">Cryogenic Production & Buffer Storage</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <h3 className="text-sm font-bold text-white">Cryogenic Production & Buffer Storage</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
                 ASU distillation and CO₂ recovery units feed stationary bulk liquid vacuum-insulated buffer tanks with continuous online purity verification.
               </p>
             </div>
 
-            <div className="bg-slate-800/80 p-6 rounded-xl border border-slate-700/80 space-y-3">
-              <div className="w-9 h-9 rounded-lg bg-blue-600/20 text-blue-400 flex items-center justify-center font-bold text-sm">
+            <div className="bg-slate-900 p-5 rounded-lg border border-slate-800 space-y-2.5">
+              <div className="w-8 h-8 rounded bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-xs">
                 02
               </div>
-              <h3 className="text-base font-bold text-white">65+ Cryogenic Road Tanker Fleet</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <h3 className="text-sm font-bold text-white">65+ Cryogenic Road Tanker Fleet</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
                 Dedicated vacuum-insulated tankers equipped with GPS tracking, digital flow meters, and decanting pumps for direct client tank decanting.
               </p>
             </div>
 
-            <div className="bg-slate-800/80 p-6 rounded-xl border border-slate-700/80 space-y-3">
-              <div className="w-9 h-9 rounded-lg bg-blue-600/20 text-blue-400 flex items-center justify-center font-bold text-sm">
+            <div className="bg-slate-900 p-5 rounded-lg border border-slate-800 space-y-2.5">
+              <div className="w-8 h-8 rounded bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-xs">
                 03
               </div>
-              <h3 className="text-base font-bold text-white">High-Pressure Compression & Cylinders</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <h3 className="text-sm font-bold text-white">High-Pressure Compression & Cylinders</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
                 Dedicated high-pressure compression manifolds fill standard cylinders, MCP quad bundles, tube cascades, and tonners with batch chromatographic testing.
               </p>
             </div>
           </div>
 
           {/* Packaging Formats Grid */}
-          <div className="space-y-4">
-            <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
-              <Boxes className="w-5 h-5 text-blue-400" />
+          <div className="space-y-3.5">
+            <h3 className="text-sm font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-2.5">
+              <Boxes className="w-4 h-4 text-sky-400" />
               <span>Multi-Format Packaging & Delivery Modes</span>
             </h3>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
               {DELIVERY_OPTIONS.map((opt, idx) => (
-                <div key={idx} className="bg-white p-3.5 rounded-xl border border-slate-700/60 hover:border-blue-500 transition text-center flex flex-col items-center justify-between gap-2 group">
-                  <div className="w-20 h-20 rounded-lg bg-white flex items-center justify-center p-1.5 overflow-hidden">
+                <div key={idx} className="bg-slate-900 p-3 rounded-lg border border-slate-800 hover:border-slate-700 transition text-center flex flex-col items-center justify-between gap-2 group">
+                  <div className="w-14 h-14 rounded bg-slate-950 border border-slate-800 flex items-center justify-center p-1.5 overflow-hidden">
                     <img
                       src={opt.image}
                       alt={opt.title}
                       className="w-full h-full object-contain group-hover:scale-105 transition"
                     />
                   </div>
-                  <span className="text-xs font-medium text-gray-900 line-clamp-2 leading-tight">
+                  <span className="text-[11px] font-semibold text-slate-300 line-clamp-2 leading-tight">
                     {opt.title}
                   </span>
                 </div>
@@ -436,111 +442,111 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. GAS PORTFOLIO (Concise, structured overview) */}
-      <section className="py-16 bg-slate-50 border-b border-gray-200" id="gas-portfolio">
+      {/* 6. GAS PORTFOLIO */}
+      <section className="py-10 sm:py-12 bg-white border-b border-slate-200" id="gas-portfolio">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
-                <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+            <div className="space-y-1.5">
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-sky-700 uppercase tracking-wider">
+                <span className="w-6 h-0.5 bg-sky-600"></span>
                 <span>Product Offerings</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                 Industrial Gas Portfolio
               </h2>
-              <p className="text-gray-600 text-sm sm:text-base">
+              <p className="text-slate-600 text-xs sm:text-sm">
                 Comprehensive range of bulk cryogenic liquids, compressed cylinder gases, and high-purity calibration mixtures.
               </p>
             </div>
 
             <NavLink
               to="/products"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-900 transition shrink-0"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-sky-700 hover:text-sky-900 transition shrink-0"
             >
               <span>View Complete Catalog (21+ Gases)</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </NavLink>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
 
             {/* Category 1 */}
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
-                <Droplet className="w-5 h-5" />
+            <div className="bg-slate-50 p-5 rounded-lg border border-slate-200 space-y-2.5">
+              <div className="w-8 h-8 rounded bg-sky-100 text-sky-800 flex items-center justify-center">
+                <Droplet className="w-4 h-4" />
               </div>
-              <h3 className="text-base font-bold text-gray-900">Bulk & Cryogenic Liquids</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h3 className="text-sm font-bold text-slate-900">Bulk & Cryogenic Liquids</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Liquid Oxygen (LOX), Liquid Nitrogen (LIN), Liquid Argon (LAR), and Liquid Carbon Dioxide (LCO₂) delivered by road tankers.
               </p>
-              <ul className="space-y-1.5 text-sm text-gray-700 pt-2 border-t border-gray-100">
+              <ul className="space-y-1 text-xs text-slate-700 pt-2 border-t border-slate-200">
                 <li className="flex items-center gap-1.5">• LOX (≥ 99.5% purity)</li>
                 <li className="flex items-center gap-1.5">• LIN (≥ 99.999% purity)</li>
                 <li className="flex items-center gap-1.5">• LAR (≥ 99.999% purity)</li>
                 <li className="flex items-center gap-1.5">• E290 Food-Grade LCO₂</li>
               </ul>
-              <NavLink to="/products/bulk-cryogenic" className="inline-block text-sm font-semibold text-blue-700 pt-2 hover:underline">
+              <NavLink to="/products/bulk-cryogenic" className="inline-block text-xs font-bold text-sky-700 pt-1.5 hover:underline">
                 View Bulk Specs →
               </NavLink>
             </div>
 
             {/* Category 2 */}
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
-                <Wind className="w-5 h-5" />
+            <div className="bg-slate-50 p-5 rounded-lg border border-slate-200 space-y-2.5">
+              <div className="w-8 h-8 rounded bg-sky-100 text-sky-800 flex items-center justify-center">
+                <Wind className="w-4 h-4" />
               </div>
-              <h3 className="text-base font-bold text-gray-900">Industrial & Fuel Gases</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h3 className="text-sm font-bold text-slate-900">Industrial & Fuel Gases</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Compressed gases in individual 47L/50L cylinders and 16-cylinder MCP quads for cutting, welding, and fabrication.
               </p>
-              <ul className="space-y-1.5 text-sm text-gray-700 pt-2 border-t border-gray-100">
+              <ul className="space-y-1 text-xs text-slate-700 pt-2 border-t border-slate-200">
                 <li className="flex items-center gap-1.5">• Compressed O₂, N₂, Argon</li>
                 <li className="flex items-center gap-1.5">• Dissolved Acetylene (DA)</li>
                 <li className="flex items-center gap-1.5">• High-Pressure Hydrogen (H₂)</li>
                 <li className="flex items-center gap-1.5">• Gaseous Carbon Dioxide</li>
               </ul>
-              <NavLink to="/products/industrial-cylinder" className="inline-block text-sm font-semibold text-blue-700 pt-2 hover:underline">
+              <NavLink to="/products/industrial-cylinder" className="inline-block text-xs font-bold text-sky-700 pt-1.5 hover:underline">
                 View Cylinder Specs →
               </NavLink>
             </div>
 
             {/* Category 3 */}
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
-                <FlaskConical className="w-5 h-5" />
+            <div className="bg-slate-50 p-5 rounded-lg border border-slate-200 space-y-2.5">
+              <div className="w-8 h-8 rounded bg-sky-100 text-sky-800 flex items-center justify-center">
+                <FlaskConical className="w-4 h-4" />
               </div>
-              <h3 className="text-base font-bold text-gray-900">High-Purity & Calibration</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h3 className="text-sm font-bold text-slate-900">High-Purity & Calibration</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Ultra-High Purity (Grade 5.0 to 6.0) gases and gravimetrically blended calibration mixtures for analytical laboratories.
               </p>
-              <ul className="space-y-1.5 text-sm text-gray-700 pt-2 border-t border-gray-100">
+              <ul className="space-y-1 text-xs text-slate-700 pt-2 border-t border-slate-200">
                 <li className="flex items-center gap-1.5">• Grade 5.0 & 6.0 UHP Gases</li>
                 <li className="flex items-center gap-1.5">• Pure Helium (He Grade 5.5)</li>
                 <li className="flex items-center gap-1.5">• NABL Traceable Mixtures</li>
                 <li className="flex items-center gap-1.5">• Laser Gas Premixes</li>
               </ul>
-              <NavLink to="/products/specialty-calibration" className="inline-block text-sm font-semibold text-blue-700 pt-2 hover:underline">
+              <NavLink to="/products/specialty-calibration" className="inline-block text-xs font-bold text-sky-700 pt-1.5 hover:underline">
                 View UHP Specs →
               </NavLink>
             </div>
 
             {/* Category 4 */}
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
-                <Atom className="w-5 h-5" />
+            <div className="bg-slate-50 p-5 rounded-lg border border-slate-200 space-y-2.5">
+              <div className="w-8 h-8 rounded bg-sky-100 text-sky-800 flex items-center justify-center">
+                <Atom className="w-4 h-4" />
               </div>
-              <h3 className="text-base font-bold text-gray-900">Specialty & Refrigerants</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h3 className="text-sm font-bold text-slate-900">Specialty & Refrigerants</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Chemical process gases, electrical insulating dielectrics, cold-chain dry ice, and industrial fuel gases.
               </p>
-              <ul className="space-y-1.5 text-sm text-gray-700 pt-2 border-t border-gray-100">
+              <ul className="space-y-1 text-xs text-slate-700 pt-2 border-t border-slate-200">
                 <li className="flex items-center gap-1.5">• Sulphur Hexafluoride (SF₆)</li>
                 <li className="flex items-center gap-1.5">• Solid Dry Ice (Pellets/Blocks)</li>
                 <li className="flex items-center gap-1.5">• Hydrogen Chloride (HCl)</li>
                 <li className="flex items-center gap-1.5">• Ethylene, Methane & Propane</li>
               </ul>
-              <NavLink to="/products/other" className="inline-block text-sm font-semibold text-blue-700 pt-2 hover:underline">
+              <NavLink to="/products/other" className="inline-block text-xs font-bold text-sky-700 pt-1.5 hover:underline">
                 View Specialty Specs →
               </NavLink>
             </div>
@@ -550,52 +556,52 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 7. INDUSTRIES WE SERVE (Concise sector grid) */}
-      <section className="py-16 bg-white" id="industries">
+      {/* 7. INDUSTRIES WE SERVE */}
+      <section className="py-10 sm:py-12 bg-slate-50 border-b border-slate-200" id="industries">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
-                <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+            <div className="space-y-1.5">
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-sky-700 uppercase tracking-wider">
+                <span className="w-6 h-0.5 bg-sky-600"></span>
                 <span>Applications & Sectors</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                 Industries We Serve
               </h2>
-              <p className="text-gray-600 text-sm sm:text-base">
+              <p className="text-slate-600 text-xs sm:text-sm">
                 Engineering gas supply tailored to specific operational and purity standards across diverse industrial sectors.
               </p>
             </div>
 
             <NavLink
               to="/industries"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-900 transition shrink-0"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-sky-700 hover:text-sky-900 transition shrink-0"
             >
               <span>Explore All Industry Solutions</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </NavLink>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {INDUSTRIES.map((ind, idx) => (
               <NavLink
                 key={idx}
                 to="/industries"
-                className="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-md transition group space-y-3"
+                className="bg-white p-5 sm:p-6 rounded-lg border border-slate-200 hover:border-slate-300 hover:shadow-xs transition group space-y-2.5"
               >
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition">
-                  <ind.icon className="w-5 h-5" />
+                <div className="w-8 h-8 rounded bg-slate-100 text-slate-800 flex items-center justify-center group-hover:bg-sky-600 group-hover:text-white transition">
+                  <ind.icon className="w-4 h-4" />
                 </div>
-                <h3 className="text-base font-bold text-gray-900 group-hover:text-blue-700 transition">
+                <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-700 transition">
                   {ind.name}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Engineered supply for manufacturing pipelines, continuous combustion, reactor inerting, and high-pressure applications.
                 </p>
-                <div className="text-sm font-semibold text-blue-600 flex items-center gap-1 pt-1">
+                <div className="text-xs font-bold text-sky-700 flex items-center gap-1 pt-1">
                   <span>View Sector Overview</span>
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-3.5 h-3.5" />
                 </div>
               </NavLink>
             ))}
@@ -605,84 +611,85 @@ const Home: React.FC = () => {
       </section>
 
       {/* 8. THE SHAKTI GROUP (Condensed group entities) */}
-      <section className="py-16 bg-slate-900 text-white" id="the-shakti-group">
+      <section className="py-10 sm:py-12 bg-slate-950 text-white" id="the-shakti-group">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="max-w-3xl mb-10 space-y-2">
-            <span className="bg-blue-900/60 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full border border-blue-700">
-              Corporate Structure
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white">
+          <div className="max-w-3xl mb-8 space-y-1.5">
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-sky-400 uppercase tracking-wider">
+              <span className="w-6 h-0.5 bg-sky-400"></span>
+              <span>Corporate Structure</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
               The Shakti Group of Companies
             </h2>
-            <p className="text-slate-300 text-sm sm:text-base">
+            <p className="text-slate-400 text-xs sm:text-sm">
               Shakti operates through 9 specialized operating companies, each managing dedicated manufacturing units, product lines, and regional distribution nodes.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
             {GROUP_COMPANIES.map((company, idx) => (
-              <div key={idx} className="bg-slate-800/70 p-5 rounded-xl border border-slate-700/80 space-y-2 hover:border-blue-500 transition">
-                <div className="flex items-center gap-2 text-blue-400">
+              <div key={idx} className="bg-slate-900 p-4 sm:p-5 rounded-lg border border-slate-800 space-y-1.5 hover:border-slate-700 transition">
+                <div className="flex items-center gap-2 text-sky-400">
                   <Building2 className="w-4 h-4 shrink-0" />
-                  <h3 className="text-sm sm:text-base font-bold text-white truncate">{company.name}</h3>
+                  <h3 className="text-sm font-bold text-white truncate">{company.name}</h3>
                 </div>
-                <p className="text-sm text-slate-300 leading-relaxed line-clamp-3">
+                <p className="text-xs text-slate-400 leading-relaxed line-clamp-3">
                   {company.description}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 text-center">
+          <div className="mt-6 text-center">
             <NavLink
               to="/company/our-group"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-sky-400 hover:text-sky-300 transition"
             >
               <span>View Full Group Entity Details & Plant Addresses</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </NavLink>
           </div>
 
         </div>
       </section>
 
-      {/* 9. 25+ YEAR JOURNEY (Evolutionary timeline moved lower on the page) */}
-      <section className="py-16 bg-white border-b border-gray-200" id="journey">
+      {/* 9. 25+ YEAR JOURNEY */}
+      <section className="py-10 sm:py-12 bg-white border-b border-slate-200" id="journey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="max-w-3xl mb-12 space-y-2">
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
-              <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
+          <div className="max-w-3xl mb-8 space-y-1.5">
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-sky-700 uppercase tracking-wider">
+              <span className="w-6 h-0.5 bg-sky-600"></span>
               <span>Evolutionary Timeline</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               25+ Years of Operational Evolution
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base">
+            <p className="text-slate-600 text-xs sm:text-sm">
               A progressive track record of continuous manufacturing expansion, fleet investment, and infrastructure building.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 relative">
             {TIMELINE.map((item, idx) => (
-              <div key={idx} className="bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-3 relative">
-                <div className="text-xs font-bold text-blue-700 bg-blue-100/70 inline-block px-2.5 py-1 rounded">
+              <div key={idx} className="bg-slate-50 p-5 sm:p-6 rounded-lg border border-slate-200 space-y-2.5 relative">
+                <div className="text-xs font-bold text-sky-800 bg-sky-100/80 inline-block px-2.5 py-0.5 rounded">
                   {item.year}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900">{item.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
+                <h3 className="text-sm sm:text-base font-bold text-slate-900">{item.title}</h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 text-center">
+          <div className="mt-6 text-center">
             <NavLink
               to="/company/about"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-900 transition"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-sky-700 hover:text-sky-900 transition"
             >
               <span>Read Complete Company History & Legacy</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </NavLink>
           </div>
 
@@ -690,116 +697,116 @@ const Home: React.FC = () => {
       </section>
 
       {/* 10. QUALITY & SAFETY (Statutory Certifications & PESO Approvals) */}
-      <section className="py-16 bg-slate-50 border-b border-gray-200" id="quality-safety">
+      <section className="py-10 sm:py-12 bg-slate-50 border-b border-slate-200" id="quality-safety">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="max-w-3xl mb-12 space-y-2">
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
-              <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
+          <div className="max-w-3xl mb-8 space-y-1.5">
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-sky-700 uppercase tracking-wider">
+              <span className="w-6 h-0.5 bg-sky-600"></span>
               <span>Regulatory Compliance & Accreditations</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Statutory Approvals & Quality Certifications
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base">
+            <p className="text-slate-600 text-xs sm:text-sm">
               All manufacturing plants, bulk storage installations, road tanker fleets, and filling infrastructure operate under strict statutory approvals and certified international management systems.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
 
             {/* PESO Approved Assets */}
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-3">
+            <div className="bg-white p-5 rounded-lg border border-slate-200 shadow-xs space-y-2.5">
               <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
-                  <Factory className="w-5 h-5" />
+                <div className="w-8 h-8 rounded bg-sky-100 text-sky-800 flex items-center justify-center">
+                  <Factory className="w-4 h-4" />
                 </div>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-800 border border-blue-200">
+                <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-sky-50 text-sky-800 border border-sky-200">
                   100% PESO Approved
                 </span>
               </div>
-              <h3 className="text-base font-bold text-gray-900">PESO Approved Plants & Infrastructure</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h3 className="text-sm font-bold text-slate-900">PESO Approved Plants & Infrastructure</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 All production plants, cryogenic storage vessels, road tankers, tube cascades, and manifold filling stations are fully approved by the Petroleum and Explosives Safety Organization (PESO / CCOE).
               </p>
             </div>
 
             {/* ISO Certifications */}
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-3">
+            <div className="bg-white p-5 rounded-lg border border-slate-200 shadow-xs space-y-2.5">
               <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
-                  <ShieldCheck className="w-5 h-5" />
+                <div className="w-8 h-8 rounded bg-emerald-100 text-emerald-800 flex items-center justify-center">
+                  <ShieldCheck className="w-4 h-4" />
                 </div>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
                   ISO 9001 / 14001 / 45001
                 </span>
               </div>
-              <h3 className="text-base font-bold text-gray-900">Integrated ISO Management Systems</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h3 className="text-sm font-bold text-slate-900">Integrated ISO Management Systems</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Certified Quality Management (ISO 9001:2015), Environmental Management (ISO 14001:2015), and Occupational Health & Safety (ISO 45001:2018) spanning production to delivery.
               </p>
             </div>
 
             {/* FDA License */}
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-3">
+            <div className="bg-white p-5 rounded-lg border border-slate-200 shadow-xs space-y-2.5">
               <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
-                  <FileCheck className="w-5 h-5" />
+                <div className="w-8 h-8 rounded bg-indigo-100 text-indigo-800 flex items-center justify-center">
+                  <FileCheck className="w-4 h-4" />
                 </div>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-800 border border-indigo-200">
+                <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-indigo-50 text-indigo-800 border border-indigo-200">
                   Drug Mfg License
                 </span>
               </div>
-              <h3 className="text-base font-bold text-gray-900">FDA Licensed Manufacturing</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h3 className="text-sm font-bold text-slate-900">FDA Licensed Manufacturing</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Approved Food and Drug Administration (FDA) licenses for the manufacturing, filling, and distribution of Medical Gases including IP Medical Oxygen and healthcare gas solutions.
               </p>
             </div>
 
             {/* WHO-GMP Certificate */}
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-3">
+            <div className="bg-white p-5 rounded-lg border border-slate-200 shadow-xs space-y-2.5">
               <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
-                  <Award className="w-5 h-5" />
+                <div className="w-8 h-8 rounded bg-amber-100 text-amber-800 flex items-center justify-center">
+                  <Award className="w-4 h-4" />
                 </div>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">
+                <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
                   WHO-GMP Certified
                 </span>
               </div>
-              <h3 className="text-base font-bold text-gray-900">WHO-GMP Compliant Operations</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h3 className="text-sm font-bold text-slate-900">WHO-GMP Compliant Operations</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 World Health Organization Good Manufacturing Practices (WHO-GMP) certification ensuring strict cleanliness, validated batch testing, trace impurity controls, and full analytical traceability.
               </p>
             </div>
 
             {/* FSSAI */}
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-3">
+            <div className="bg-white p-5 rounded-lg border border-slate-200 shadow-xs space-y-2.5">
               <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
-                  <Utensils className="w-5 h-5" />
+                <div className="w-8 h-8 rounded bg-cyan-100 text-cyan-800 flex items-center justify-center">
+                  <Utensils className="w-4 h-4" />
                 </div>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-50 text-cyan-800 border border-cyan-200">
+                <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-cyan-50 text-cyan-800 border border-cyan-200">
                   FSSAI Certified
                 </span>
               </div>
-              <h3 className="text-base font-bold text-gray-900">FSSAI Food-Grade Certification</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h3 className="text-sm font-bold text-slate-900">FSSAI Food-Grade Certification</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Food Safety and Standards Authority of India (FSSAI) certified for food-grade Liquid Carbon Dioxide (E290), Food-Grade Nitrogen for beverage preservation/inerting, and solid Dry Ice.
               </p>
             </div>
 
             {/* Hydrostatic Testing */}
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-3">
+            <div className="bg-white p-5 rounded-lg border border-slate-200 shadow-xs space-y-2.5">
               <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
-                  <Activity className="w-5 h-5" />
+                <div className="w-8 h-8 rounded bg-slate-100 text-slate-800 flex items-center justify-center">
+                  <Activity className="w-4 h-4" />
                 </div>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-800 border border-slate-200">
+                <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 text-slate-800 border border-slate-200">
                   In-House Station
                 </span>
               </div>
-              <h3 className="text-base font-bold text-gray-900">Hydrostatic Testing & PESO Stamping</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h3 className="text-sm font-bold text-slate-900">Hydrostatic Testing & PESO Stamping</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 In-house peso approved cylinder testing station performing mandatory periodic hydrostatic stretch testing, internal boroscope checks, valving, and PESO neck stamping.
               </p>
             </div>
@@ -809,26 +816,26 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 11. CONTINUING GROWTH (Small, grounded concluding section) */}
-      <section className="py-12 bg-white border-b border-gray-200" id="growth">
+      {/* 11. CONTINUING GROWTH */}
+      <section className="py-10 bg-white border-b border-slate-200" id="growth">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-blue-50/50 p-6 sm:p-8 rounded-2xl border border-blue-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="space-y-2 max-w-3xl">
-              <div className="flex items-center gap-2 text-xs font-bold text-blue-800">
-                <TrendingUp className="w-4 h-4 text-blue-700" />
+          <div className="bg-slate-50 p-5 sm:p-6 rounded-lg border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+            <div className="space-y-1.5 max-w-3xl">
+              <div className="flex items-center gap-2 text-xs font-bold text-sky-800">
+                <TrendingUp className="w-4 h-4 text-sky-700" />
                 <span>CONTINUING CAPACITY EXPANSION</span>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900">
+              <h3 className="text-sm sm:text-base font-bold text-slate-900">
                 Ongoing Additions to Regional Supply Infrastructure
               </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed">
                 As part of our continuous manufacturing investments, two additional high-capacity carbon dioxide recovery and purification units are under installation in Hazira, scheduled for commissioning by mid-2027 to expand regional dispatch capacity.
               </p>
             </div>
 
             <NavLink
               to="/company/infrastructure"
-              className="bg-white hover:bg-gray-50 text-blue-700 border border-blue-300 font-semibold px-5 py-2.5 rounded-lg text-sm transition shrink-0 shadow-sm"
+              className="bg-white hover:bg-slate-50 text-slate-900 border border-slate-300 font-bold px-4 py-2.5 rounded-lg text-xs tracking-wider uppercase transition shrink-0 shadow-xs"
             >
               View Infrastructure Details
             </NavLink>
@@ -837,28 +844,30 @@ const Home: React.FC = () => {
       </section>
 
       {/* 12. REQUEST A QUOTE / CTA */}
-      <section className="py-16 bg-slate-900 text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <span className="bg-blue-900/70 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full border border-blue-700">
-            Industrial Gas Procurement
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
+      <section className="py-12 sm:py-14 bg-slate-950 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+          <div className="inline-flex items-center gap-2 text-xs font-bold text-sky-400 uppercase tracking-wider">
+            <span className="w-6 h-0.5 bg-sky-400"></span>
+            <span>Industrial Gas Procurement</span>
+            <span className="w-6 h-0.5 bg-sky-400"></span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
             Consult Our Engineering & Gas Supply Team
           </h2>
-          <p className="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-400 max-w-2xl mx-auto text-xs sm:text-sm leading-relaxed">
             Whether you require bulk cryogenic tanker contracts, on-site storage tank installation, scheduled cylinder deliveries, or specialty gas mixtures, our operations desk is ready to assist.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 pt-2">
+          <div className="flex flex-wrap justify-center gap-3 pt-2">
             <NavLink
               to="/contact"
-              className="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-7 py-3 rounded-lg text-sm sm:text-base transition shadow-lg inline-flex items-center gap-2"
+              className="bg-sky-600 hover:bg-sky-700 text-white font-bold px-6 py-3 rounded-lg text-xs sm:text-sm tracking-wide uppercase transition shadow-sm inline-flex items-center gap-2"
             >
               <span>Request a Supply Quote</span>
               <ArrowRight className="w-4 h-4" />
             </NavLink>
             <NavLink
               to="/services"
-              className="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-7 py-3 rounded-lg text-sm sm:text-base transition backdrop-blur-sm"
+              className="bg-slate-900 hover:bg-slate-800 text-white border border-slate-700 font-bold px-6 py-3 rounded-lg text-xs sm:text-sm tracking-wide uppercase transition"
             >
               Explore Gas Solutions
             </NavLink>
@@ -871,4 +880,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-

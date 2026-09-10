@@ -78,7 +78,7 @@ const Products: React.FC = () => {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white font-sans text-slate-900">
       {/* SEO Metadata */}
       <SEO
         title="Industrial & Cryogenic Gas Products | LOX, LIN, LAR, LCO₂, H₂, Acetylene, Helium"
@@ -88,40 +88,46 @@ const Products: React.FC = () => {
         schemaJson={schema}
       />
 
-      {/* Hero */}
-      <div className="relative h-[440px] overflow-hidden bg-slate-950">
+      {/* Hero - Full Size Image */}
+      <div className="relative min-h-[440px] sm:min-h-[500px] flex items-center overflow-hidden bg-slate-950 border-b border-slate-800">
         <img
           src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/product_hero.png"
           alt="Industrial gas manufacturing and delivery fleet"
-          className="w-full h-full object-cover opacity-85 scale-105"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-900/40 to-slate-950/20 flex items-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-xs font-semibold text-blue-400 uppercase tracking-widest mb-4">
+
+        {/* Subtle optical gradient scrim */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/60 to-slate-950/10" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 text-white w-full">
+          <div className="max-w-2xl space-y-4">
+            <div className="flex items-center gap-2 text-xs font-medium text-slate-400">
               <NavLink to="/" className="hover:text-white transition">Home</NavLink>
-              <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
-              <span className="text-white">Products Catalog</span>
+              <ChevronRight className="h-3.5 w-3.5 text-slate-500" />
+              <span className="text-slate-200">Products Catalog</span>
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 max-w-3xl leading-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.9)' }}>
-              Industrial, Cryogenic & Specialty Gases
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
+              Industrial, Cryogenic <br />
+              <span className="text-slate-300 font-medium">& Specialty Gases</span>
             </h1>
-            <p className="text-sm sm:text-base text-slate-100 mb-6 max-w-2xl leading-relaxed" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}>
-              Manufacturing and supplying high-purity cryogenic liquids (LOX, LIN, LAR, LCO₂), compressed gas cylinders, UHP specialty mixtures, and on-site tank setups across India.
+
+            <p className="text-base sm:text-lg text-slate-300 max-w-xl leading-relaxed font-normal">
+              High-purity cryogenic liquids (LOX, LIN, LAR, LCO₂), compressed industrial cylinders, and ultra-high-purity specialty mixtures engineered for demanding manufacturing standards.
             </p>
-            <div className="flex flex-wrap gap-3">
+
+            <div className="flex flex-wrap gap-3 pt-2">
               <button
                 onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
-                className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-lg font-bold uppercase tracking-wider text-xs transition shadow-lg shadow-black/40"
+                className="inline-flex items-center justify-center bg-sky-600 hover:bg-sky-500 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition duration-150 shadow-sm"
               >
                 Browse Gas Catalog
               </button>
               <button
                 onClick={() => document.getElementById("individual-products")?.scrollIntoView({ behavior: "smooth" })}
-                className="bg-slate-900/80 hover:bg-slate-800 text-slate-200 px-6 py-2.5 rounded-lg font-semibold text-xs transition border border-white/20 backdrop-blur-xs"
+                className="inline-flex items-center justify-center bg-slate-900/70 hover:bg-slate-800 text-slate-200 px-5 py-2.5 rounded-lg font-semibold text-sm transition duration-150 border border-slate-700 backdrop-blur-sm"
               >
-                Individual Product Specs (LOX, LAR, etc.) ↓
+                View Specifications
               </button>
             </div>
           </div>
@@ -129,36 +135,36 @@ const Products: React.FC = () => {
       </div>
 
       {/* Main Categories Direct Links Grid */}
-      <section className="bg-slate-50 py-12 border-b border-slate-200">
+      <section className="bg-slate-50 py-10 sm:py-12 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <span className="text-blue-600 font-bold uppercase tracking-widest text-xs block mb-1">
+          <div className="text-center max-w-2xl mx-auto mb-7">
+            <span className="text-sky-700 font-bold uppercase tracking-widest text-xs block mb-1">
               Gas Product Sub-Catalogs
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
+            <h2 className="text-xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Explore Our Core Product Categories
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {PRODUCT_SUBPAGES.map((sub) => (
               <NavLink
                 key={sub.path}
                 to={sub.path}
-                className="group bg-white p-6 rounded-2xl border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="group bg-white p-5 sm:p-6 rounded-lg border border-slate-200 hover:border-slate-300 hover:shadow-xs transition flex flex-col justify-between"
               >
                 <div>
-                  <span className="inline-block bg-blue-50 text-blue-700 text-[11px] font-mono font-bold px-2 py-0.5 rounded mb-2.5 border border-blue-100">
+                  <span className="inline-block bg-sky-50 text-sky-800 text-[11px] font-mono font-bold px-2 py-0.5 rounded mb-2 border border-sky-200">
                     {sub.badge}
                   </span>
-                  <h3 className="font-bold text-slate-900 text-base mb-2 group-hover:text-blue-600 transition-colors">
+                  <h3 className="font-bold text-slate-900 text-base mb-1.5 group-hover:text-sky-700 transition-colors">
                     {sub.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                  <p className="text-xs text-slate-600 leading-relaxed mb-3">
                     {sub.desc}
                   </p>
                 </div>
-                <div className="flex items-center text-xs font-bold text-blue-600 pt-3 border-t border-slate-100 group-hover:translate-x-1 transition-transform">
+                <div className="flex items-center text-xs font-bold text-sky-700 pt-2.5 border-t border-slate-100 group-hover:translate-x-1 transition-transform">
                   <span>Explore Sub-Catalog</span>
                   <ArrowRight className="h-3.5 w-3.5 ml-1" />
                 </div>
@@ -169,47 +175,47 @@ const Products: React.FC = () => {
       </section>
 
       {/* Quick Individual Products Showcase Section */}
-      <section id="individual-products" className="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-slate-200">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <section id="individual-products" className="py-10 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
           <div>
-            <div className="flex items-center gap-1.5 text-blue-600 font-bold uppercase tracking-widest text-xs mb-1">
+            <div className="flex items-center gap-1.5 text-sky-700 font-bold uppercase tracking-widest text-xs mb-1">
               <FlaskConical className="h-4 w-4" />
               <span>Technical Data Sheets & Product Pages</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Individual Product Specifications
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl">
+            <p className="text-xs sm:text-sm text-slate-600 mt-0.5 max-w-2xl">
               Access dedicated technical specification pages, purity grades, CAS registry numbers, physical states, and available supply formats for each gas.
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-3.5">
           {POPULAR_INDIVIDUAL_PRODUCTS.map((prod) => (
             <NavLink
               key={prod.slug}
               to={`/products/${prod.slug}`}
-              className="p-4 rounded-xl border border-slate-200 hover:border-blue-500 hover:shadow-md transition-all bg-white group flex flex-col justify-between"
+              className="p-3.5 sm:p-4 rounded-lg border border-slate-200 hover:border-slate-300 hover:shadow-xs transition bg-white group flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="font-mono text-xs font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
+                <div className="flex items-center justify-between gap-2 mb-1.5">
+                  <span className="font-mono text-xs font-bold text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200">
                     {prod.formula}
                   </span>
-                  <span className="text-[10px] text-slate-500 font-medium">
+                  <span className="text-[11px] text-slate-500 font-medium">
                     {prod.temp}
                   </span>
                 </div>
-                <h3 className="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-blue-600 transition-colors">
+                <h3 className="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-sky-700 transition-colors">
                   {prod.title}
                 </h3>
-                <span className="text-[11px] text-slate-500 block mt-1">
+                <span className="text-[11px] text-slate-500 block mt-0.5">
                   {prod.category}
                 </span>
               </div>
 
-              <div className="flex items-center justify-between pt-3 mt-3 border-t border-slate-100 text-[11px] font-semibold text-blue-600">
+              <div className="flex items-center justify-between pt-2.5 mt-2.5 border-t border-slate-100 text-[11px] font-semibold text-sky-700">
                 <span>View Details</span>
                 <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
               </div>
@@ -219,25 +225,25 @@ const Products: React.FC = () => {
       </section>
 
       {/* Portfolio Filter & Cards Grid */}
-      <section id="portfolio" className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <section id="portfolio" className="py-10 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
           <div>
-            <span className="text-blue-600 font-bold uppercase tracking-widest text-xs block mb-1">
+            <span className="text-sky-700 font-bold uppercase tracking-widest text-xs block mb-1">
               Complete Portfolio
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Browse Gas Products by Application
             </h2>
           </div>
 
           {/* Filter Controls */}
-          <div className="flex flex-wrap bg-slate-100 p-1.5 rounded-xl w-fit gap-1 border border-slate-200">
+          <div className="flex flex-wrap bg-slate-100 p-1 rounded-lg w-fit gap-1 border border-slate-200">
             {["liquid","industrial","high-purity","specialty"].map(cat => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat as Category)}
-                className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition ${
-                  filter === cat ? "bg-white text-blue-600 shadow-sm border border-slate-200" : "text-slate-600 hover:text-slate-900"
+                className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition ${
+                  filter === cat ? "bg-white text-sky-700 shadow-xs border border-slate-200" : "text-slate-600 hover:text-slate-900"
                 }`}
               >
                 {(() => {
@@ -253,38 +259,41 @@ const Products: React.FC = () => {
           </div>
         </div>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Product Grid - Clean Image with text body */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {filteredProducts.map((product) => (
-            <div key={product.id} className="group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between">
+            <div key={product.id} className="group bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs hover:border-slate-300 transition flex flex-col justify-between">
               <NavLink
                 to={`/products/${product.slug || 'bulk-cryogenic'}`}
-                className="relative h-52 overflow-hidden block"
+                className="relative h-44 overflow-hidden block bg-slate-100"
               >
                 <img
                   src={product.image}
                   alt={`${product.title} industrial gas`}
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent flex flex-col justify-end p-4">
-                  <h3 className="text-white font-bold text-base mb-1 group-hover:text-blue-300 transition-colors">
-                    {product.title}
-                  </h3>
-                  <p className="text-slate-300 text-xs line-clamp-2">{product.description}</p>
-                </div>
               </NavLink>
 
-              <div className="p-4 bg-white flex items-center justify-between gap-2 border-t border-slate-100">
+              <div className="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-slate-900 font-bold text-sm mb-1 group-hover:text-sky-700 transition-colors">
+                    {product.title}
+                  </h3>
+                  <p className="text-slate-600 text-xs line-clamp-2 leading-relaxed">{product.description}</p>
+                </div>
+              </div>
+
+              <div className="p-3 bg-slate-50 flex items-center justify-between gap-2 border-t border-slate-100">
                 <NavLink
                   to={`/products/${product.slug || 'bulk-cryogenic'}`}
-                  className="text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                  className="text-xs font-bold text-sky-700 hover:text-sky-900 flex items-center gap-1"
                 >
-                  <span>View Specifications</span>
+                  <span>View Specs</span>
                   <ArrowRight className="h-3 w-3" />
                 </NavLink>
                 <NavLink
                   to="/contact"
-                  className="text-[11px] font-semibold bg-slate-100 hover:bg-slate-200 text-slate-800 px-2.5 py-1 rounded transition"
+                  className="text-[11px] font-bold uppercase tracking-wider bg-white hover:bg-slate-100 text-slate-800 border border-slate-200 px-2.5 py-1 rounded transition"
                 >
                   Request Quote
                 </NavLink>
@@ -295,29 +304,29 @@ const Products: React.FC = () => {
       </section>
 
       {/* On-Site Storage Rental Highlight Banner */}
-      <section className="bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 text-white py-12 border-t border-b border-blue-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
-          <div className="space-y-3 max-w-2xl">
-            <span className="bg-blue-600 text-white text-[11px] font-bold px-3 py-1 rounded uppercase tracking-wider">
+      <section className="bg-slate-950 text-white py-10 border-t border-b border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div className="space-y-2 max-w-2xl">
+            <span className="bg-sky-500/10 border border-sky-500/20 text-sky-400 text-[11px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider">
               On-Site Storage Setup Options Available
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+            <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
               Turnkey Cryogenic Tank Installation On Rental / Opex
             </h2>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
               We install vacuum-insulated cryogenic storage tanks (3 KL to 60 KL) and ambient vaporizers directly at your facility on a rental basis. Automated IoT level telemetry triggers seamless replenishment via our 65+ road tanker fleet.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
             <NavLink
               to="/solutions/bulk-gas-supply"
-              className="bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs px-6 py-3 rounded-xl transition shadow-md text-center"
+              className="bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-lg transition shadow-sm text-center"
             >
               Explore Tank Rental Solutions
             </NavLink>
             <NavLink
               to="/contact"
-              className="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs px-5 py-3 rounded-xl transition border border-slate-700 text-center"
+              className="bg-slate-900 hover:bg-slate-800 text-slate-200 font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-lg transition border border-slate-700 text-center"
             >
               Consult an Engineer
             </NavLink>
@@ -326,24 +335,24 @@ const Products: React.FC = () => {
       </section>
 
       {/* Delivery Options */}
-      <section className="py-16 bg-slate-50 border-t border-slate-200">
+      <section className="py-10 sm:py-12 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-blue-600 font-bold uppercase tracking-widest text-xs block mb-1">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <span className="text-sky-700 font-bold uppercase tracking-widest text-xs block mb-1">
               Distribution Logistics
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Bulk Cryogenic Tankers, Cylinders & On-Site Setup
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {DELIVERY_OPTIONS.map((option, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-2xl text-center shadow-xs hover:shadow-md transition duration-300 border border-slate-200 group"
+                className="bg-white p-4 rounded-lg text-center shadow-xs hover:border-slate-300 transition border border-slate-200 group"
               >
-                <div className="h-28 mb-4 overflow-hidden rounded-xl mx-auto bg-slate-50 flex items-center justify-center p-2">
+                <div className="h-20 mb-2 overflow-hidden rounded mx-auto bg-slate-50 flex items-center justify-center p-2">
                   <img
                     src={option.image}
                     alt={`${option.title} gas supply`}
@@ -351,7 +360,7 @@ const Products: React.FC = () => {
                   />
                 </div>
 
-                <h3 className="font-bold text-slate-900 text-sm sm:text-base mb-1">
+                <h3 className="font-bold text-slate-900 text-xs sm:text-sm">
                   {option.title}
                 </h3>
               </div>
@@ -359,17 +368,17 @@ const Products: React.FC = () => {
           </div>
 
           {/* Cross Backlinks Footer */}
-          <div className="mt-12 pt-8 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs font-semibold text-slate-500">
+          <div className="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium text-slate-500">
             <div className="flex flex-wrap items-center gap-3">
               <span>Related Resources:</span>
-              <NavLink to="/company/our-group" className="hover:text-blue-600 underline">Group Manufacturing Network</NavLink>
+              <NavLink to="/company/our-group" className="hover:text-sky-700 underline">Group Manufacturing Network</NavLink>
               <span>•</span>
-              <NavLink to="/solutions/bulk-gas-supply" className="hover:text-blue-600 underline">Bulk Gas Supply & Tank Rental</NavLink>
+              <NavLink to="/solutions/bulk-gas-supply" className="hover:text-sky-700 underline">Bulk Gas Supply & Tank Rental</NavLink>
               <span>•</span>
-              <NavLink to="/industries" className="hover:text-blue-600 underline">Industries Served</NavLink>
+              <NavLink to="/industries" className="hover:text-sky-700 underline">Industries Served</NavLink>
             </div>
 
-            <NavLink to="/contact" className="text-blue-600 font-bold hover:underline">
+            <NavLink to="/contact" className="text-sky-700 font-bold hover:underline">
               Request Full Gas Specification & COA Sheets →
             </NavLink>
           </div>

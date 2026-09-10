@@ -438,7 +438,7 @@ export const SolutionSubPage: React.FC = () => {
       />
 
       {/* Clean Technical Header */}
-      <div className="bg-slate-900 text-white py-12 border-b border-slate-800">
+      <div className="bg-slate-950 text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Breadcrumb */}
@@ -447,25 +447,25 @@ export const SolutionSubPage: React.FC = () => {
             <ChevronRight className="h-3 w-3 text-slate-600" />
             <NavLink to="/solutions" className="hover:text-white transition">Solutions</NavLink>
             <ChevronRight className="h-3 w-3 text-slate-600" />
-            <span className="text-blue-400 font-medium">{data.title}</span>
+            <span className="text-sky-400 font-medium">{data.title}</span>
           </nav>
 
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div className="max-w-3xl space-y-2">
-              <span className="bg-slate-800 text-blue-300 text-xs font-mono px-2.5 py-0.5 rounded border border-slate-700">
+              <span className="bg-sky-950 text-sky-300 text-xs font-mono px-2.5 py-0.5 rounded border border-sky-800 uppercase tracking-wider">
                 {data.serviceCategory}
               </span>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white">
                 {data.title}
               </h1>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                 {data.subtitle}
               </p>
             </div>
 
             <NavLink
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-5 py-2.5 rounded-lg transition shrink-0"
+              className="inline-flex items-center justify-center gap-2 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-lg transition shadow-sm shrink-0"
             >
               <span>Consult Engineering Team</span>
               <ArrowRight className="h-3.5 w-3.5" />
@@ -480,9 +480,9 @@ export const SolutionSubPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {data.keySpecs.map((spec, idx) => (
-              <div key={idx} className="bg-white p-3.5 rounded-xl border border-slate-200">
-                <span className="text-[11px] font-semibold text-slate-500 block">{spec.label}</span>
-                <span className="text-xs sm:text-sm font-bold text-slate-900">{spec.value}</span>
+              <div key={idx} className="bg-white p-4 rounded-lg border border-slate-200">
+                <span className="text-xs font-semibold text-slate-500 block">{spec.label}</span>
+                <span className="text-xs sm:text-sm font-bold text-slate-900 mt-0.5 block">{spec.value}</span>
               </div>
             ))}
           </div>
@@ -497,11 +497,11 @@ export const SolutionSubPage: React.FC = () => {
 
             {/* Overview */}
             <div className="space-y-3">
-              <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
+              <h2 className="text-lg sm:text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
                 {data.overviewHeading}
               </h2>
               {data.overviewText.map((pText, idx) => (
-                <p key={idx} className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                <p key={idx} className="text-slate-700 text-xs sm:text-sm leading-relaxed">
                   {pText}
                 </p>
               ))}
@@ -509,20 +509,20 @@ export const SolutionSubPage: React.FC = () => {
 
             {/* Workflow Timeline */}
             <div className="space-y-4">
-              <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
-                <Wrench className="h-4 w-4 text-blue-700" />
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
+                <Wrench className="h-4 w-4 text-sky-700" />
                 <span>{data.workflowTitle}</span>
               </h3>
 
               <div className="space-y-3">
                 {data.workflowSteps.map((stepItem, idx) => (
-                  <div key={idx} className="bg-white p-4 rounded-xl border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                  <div key={idx} className="bg-white p-4 rounded-lg border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
-                        <span className="bg-blue-100 text-blue-700 text-[11px] font-bold px-2 py-0.5 rounded">
+                        <span className="bg-sky-50 text-sky-800 border border-sky-200 text-xs font-mono font-bold px-2 py-0.5 rounded">
                           Phase {stepItem.step}
                         </span>
-                        <h4 className="font-bold text-slate-900 text-sm">{stepItem.title}</h4>
+                        <h4 className="font-bold text-slate-900 text-xs sm:text-sm">{stepItem.title}</h4>
                       </div>
                       <p className="text-xs text-slate-600 leading-relaxed">{stepItem.desc}</p>
                     </div>
@@ -533,21 +533,21 @@ export const SolutionSubPage: React.FC = () => {
 
             {/* Engineering Specifications */}
             <div className="space-y-4">
-              <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
-                <Settings className="h-4 w-4 text-blue-700" />
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
+                <Settings className="h-4 w-4 text-sky-700" />
                 <span>{data.engineeringSpecsTitle}</span>
               </h3>
 
               <div className="grid grid-cols-1 gap-4">
                 {data.engineeringSpecs.map((spec, idx) => (
-                  <div key={idx} className="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-2">
-                    <h4 className="text-base font-bold text-slate-900">{spec.title}</h4>
+                  <div key={idx} className="bg-slate-50 p-5 rounded-lg border border-slate-200 space-y-2">
+                    <h4 className="text-sm sm:text-base font-bold text-slate-900">{spec.title}</h4>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{spec.desc}</p>
 
-                    <div className="pt-2 border-t border-slate-200/80 space-y-1">
+                    <div className="pt-2 border-t border-slate-200 space-y-1">
                       {spec.points.map((pt, pIdx) => (
                         <div key={pIdx} className="flex items-start gap-1.5 text-xs text-slate-700">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-blue-600 shrink-0 mt-0.5" />
+                          <CheckCircle2 className="h-3.5 w-3.5 text-sky-700 shrink-0 mt-0.5" />
                           <span>{pt}</span>
                         </div>
                       ))}
@@ -562,10 +562,10 @@ export const SolutionSubPage: React.FC = () => {
           {/* Right Sidebar: Key Operational Benefits & Compliance */}
           <div className="lg:col-span-4 space-y-6">
 
-            <div className="bg-slate-900 text-white p-6 rounded-2xl space-y-4 border border-slate-800">
+            <div className="bg-slate-950 text-white p-6 rounded-lg space-y-4 border border-slate-800">
               <div className="flex items-center gap-2 border-b border-slate-800 pb-3">
-                <Gauge className="h-5 w-5 text-blue-400" />
-                <h3 className="text-base font-bold text-white">
+                <Gauge className="h-5 w-5 text-sky-400" />
+                <h3 className="text-sm sm:text-base font-bold text-white">
                   Operational Advantages
                 </h3>
               </div>
@@ -573,21 +573,21 @@ export const SolutionSubPage: React.FC = () => {
               <div className="space-y-3">
                 {data.benefits.map((ben, idx) => (
                   <div key={idx} className="space-y-0.5">
-                    <div className="text-xs font-bold text-blue-300">{ben.title}</div>
-                    <div className="text-[11px] text-slate-400 leading-relaxed">{ben.desc}</div>
+                    <div className="text-xs font-bold text-sky-300">{ben.title}</div>
+                    <div className="text-xs text-slate-400 leading-relaxed">{ben.desc}</div>
                   </div>
                 ))}
               </div>
 
               <div className="pt-3 border-t border-slate-800 space-y-2">
                 <div className="flex items-center gap-1.5 text-xs text-slate-300 font-semibold">
-                  <ShieldCheck className="h-4 w-4 text-blue-400" />
+                  <ShieldCheck className="h-4 w-4 text-sky-400" />
                   <span>Statutory Compliance:</span>
                 </div>
-                <ul className="space-y-1 text-[11px] text-slate-400">
+                <ul className="space-y-1 text-xs text-slate-400">
                   {data.complianceRequirements.map((req, rIdx) => (
                     <li key={rIdx} className="flex items-start gap-1.5">
-                      <span className="h-1 w-1 rounded-full bg-blue-400 mt-1.5 shrink-0" />
+                      <span className="h-1 w-1 rounded-full bg-sky-400 mt-1.5 shrink-0" />
                       <span>{req}</span>
                     </li>
                   ))}
@@ -597,7 +597,7 @@ export const SolutionSubPage: React.FC = () => {
               <div className="pt-2">
                 <NavLink
                   to="/contact"
-                  className="block text-center w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2.5 rounded-lg text-xs transition"
+                  className="block text-center w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-2.5 rounded-lg text-xs uppercase tracking-wider transition shadow-sm"
                 >
                   Request Engineering Proposal
                 </NavLink>

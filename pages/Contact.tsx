@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2, CheckCircle, AlertCircle, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
 import { sendEmail } from '../services/emailService';
+import { NavLink } from 'react-router-dom';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white font-sans text-slate-900">
       {/* React 19 SEO Hoisting */}
       <title>Contact Shakti Gases | Industrial Gas Supplier in Gujarat & West India</title>
       <meta
@@ -70,37 +71,36 @@ const Contact: React.FC = () => {
       </script>
 
       {/* Header */}
-      <div className="bg-shakti-dark relative overflow-hidden h-[350px] flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-blue-900 opacity-90"></div>
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }}
-        ></div>
-
-        <div className="relative text-center px-4 max-w-4xl">
-          <h1 className="text-5xl font-bold text-white mb-6">Contact Us</h1>
-          <p className="text-blue-100 text-xl leading-relaxed">
+      <div className="bg-slate-950 text-white py-10 sm:py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-xs font-bold text-sky-400 uppercase tracking-widest mb-2">
+            Get In Touch
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">
+            Contact Us
+          </h1>
+          <p className="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
             We're here to help with your industrial gas and logistics needs. Reach out to our team today for technical excellence and unmatched reliability.
           </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 -mt-24 relative z-10">
-        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
           {/* Form */}
-          <div className="lg:w-3/5 p-10 md:p-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Send Us a Message</h2>
+          <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-lg border border-slate-200 shadow-xs">
+            <div className="mb-6 pb-4 border-b border-slate-100">
+              <span className="text-sky-700 font-bold uppercase tracking-widest text-xs block mb-1">Direct Communication</span>
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Send Us a Message</h2>
+            </div>
 
             {status === 'success' && (
-              <div className="mb-8 bg-green-50 border border-green-200 text-green-800 px-6 py-4 rounded-xl flex items-start gap-3 animate-fade-in-up">
-                <CheckCircle className="w-6 h-6 shrink-0 text-green-600 mt-0.5" />
-                <div>
-                  <h4 className="font-bold text-lg">Message Sent Successfully!</h4>
-                  <p className="text-green-700 mt-1">
+              <div className="mb-6 bg-emerald-50 border border-emerald-200 text-emerald-900 px-4 py-3 rounded-lg flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 shrink-0 text-emerald-600 mt-0.5" />
+                <div className="text-xs sm:text-sm">
+                  <h4 className="font-bold">Message Sent Successfully!</h4>
+                  <p className="text-emerald-700 mt-0.5">
                     Thank you for contacting us. An email has been generated to <strong>info@shaktigases.com</strong> with your details. Our team will get back to you shortly.
                   </p>
                 </div>
@@ -108,19 +108,19 @@ const Contact: React.FC = () => {
             )}
 
             {status === 'error' && (
-              <div className="mb-8 bg-red-50 border border-red-200 text-red-800 px-6 py-4 rounded-xl flex items-start gap-3 animate-fade-in-up">
-                <AlertCircle className="w-6 h-6 shrink-0 text-red-600 mt-0.5" />
-                <div>
-                  <h4 className="font-bold text-lg">Submission Failed</h4>
-                  <p className="text-red-700 mt-1">{errorMessage}</p>
+              <div className="mb-6 bg-rose-50 border border-rose-200 text-rose-900 px-4 py-3 rounded-lg flex items-start gap-3">
+                <AlertCircle className="w-5 h-5 shrink-0 text-rose-600 mt-0.5" />
+                <div className="text-xs sm:text-sm">
+                  <h4 className="font-bold">Submission Failed</h4>
+                  <p className="text-rose-700 mt-0.5">{errorMessage}</p>
                 </div>
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Full Name *</label>
                   <input
                     type="text"
                     name="name"
@@ -128,27 +128,27 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     disabled={status === 'sending'}
-                    className="w-full px-4 py-3.5 rounded-lg border border-gray-200 focus:ring-2 focus:ring-shakti-blue focus:border-transparent outline-none transition bg-gray-50 focus:bg-white disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition text-sm bg-white disabled:opacity-70 disabled:cursor-not-allowed"
                     placeholder="Enter your full name"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Company Name</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Company Name</label>
                   <input
                     type="text"
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
                     disabled={status === 'sending'}
-                    className="w-full px-4 py-3.5 rounded-lg border border-gray-200 focus:ring-2 focus:ring-shakti-blue focus:border-transparent outline-none transition bg-gray-50 focus:bg-white disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition text-sm bg-white disabled:opacity-70 disabled:cursor-not-allowed"
                     placeholder="Enter your company name"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Email Address *</label>
                   <input
                     type="email"
                     name="email"
@@ -156,56 +156,51 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     disabled={status === 'sending'}
-                    className="w-full px-4 py-3.5 rounded-lg border border-gray-200 focus:ring-2 focus:ring-shakti-blue focus:border-transparent outline-none transition bg-gray-50 focus:bg-white disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition text-sm bg-white disabled:opacity-70 disabled:cursor-not-allowed"
                     placeholder="Enter your email address"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Phone Number</label>
                   <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
                     disabled={status === 'sending'}
-                    className="w-full px-4 py-3.5 rounded-lg border border-gray-200 focus:ring-2 focus:ring-shakti-blue focus:border-transparent outline-none transition bg-gray-50 focus:bg-white disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition text-sm bg-white disabled:opacity-70 disabled:cursor-not-allowed"
                     placeholder="Enter your phone number"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">How can we help you?</label>
-                <div className="relative">
-                  <select
-                    name="type"
-                    value={formData.type}
-                    onChange={handleChange}
-                    disabled={status === 'sending'}
-                    className="w-full px-4 py-3.5 rounded-lg border border-gray-200 focus:ring-2 focus:ring-shakti-blue focus:border-transparent outline-none transition bg-white appearance-none disabled:opacity-70 disabled:cursor-not-allowed"
-                  >
-                    <option>Sales Inquiry</option>
-                    <option>Logistics Query</option>
-                    <option>Engineered Solutions</option>
-                    <option>Media</option>
-                    <option>HR/Careers</option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
-                    <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" /></svg>
-                  </div>
-                </div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Inquiry Type</label>
+                <select
+                  name="type"
+                  value={formData.type}
+                  onChange={handleChange}
+                  disabled={status === 'sending'}
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition text-sm bg-white disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  <option>Sales Inquiry</option>
+                  <option>Logistics Query</option>
+                  <option>Engineered Solutions</option>
+                  <option>Media</option>
+                  <option>HR/Careers</option>
+                </select>
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Your Message</label>
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Your Message *</label>
                 <textarea
                   name="message"
                   required
-                  rows={5}
+                  rows={4}
                   value={formData.message}
                   onChange={handleChange}
                   disabled={status === 'sending'}
-                  className="w-full px-4 py-3.5 rounded-lg border border-gray-200 focus:ring-2 focus:ring-shakti-blue focus:border-transparent outline-none transition bg-gray-50 focus:bg-white disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition text-sm bg-white disabled:opacity-70 disabled:cursor-not-allowed"
                   placeholder="Type your message here..."
                 ></textarea>
               </div>
@@ -213,16 +208,16 @@ const Contact: React.FC = () => {
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className="w-full bg-shakti-blue text-white font-bold py-4 rounded-lg hover:bg-blue-600 transition flex justify-center items-center gap-2 shadow-lg shadow-blue-200 hover:shadow-blue-300 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
+                className="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold uppercase tracking-wider py-3 rounded-lg transition flex justify-center items-center gap-2 shadow-sm disabled:opacity-70 disabled:cursor-not-allowed text-xs"
               >
                 {status === 'sending' ? (
                   <>
-                    <Loader2 className="w-5 h-5 animate-spin" />
+                    <Loader2 className="w-4 h-4 animate-spin" />
                     <span>Sending...</span>
                   </>
                 ) : (
                   <>
-                    <Send className="w-5 h-5" />
+                    <Send className="w-4 h-4" />
                     <span>Send Message</span>
                   </>
                 )}
@@ -231,21 +226,22 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="lg:w-2/5 bg-gray-50 p-10 md:p-16 border-l border-gray-100 flex flex-col justify-between">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Contact Information</h2>
+          <div className="lg:col-span-5 space-y-6">
+            <div className="bg-slate-50 p-6 rounded-lg border border-slate-200">
+              <span className="text-sky-700 font-bold uppercase tracking-widest text-xs block mb-1">Corporate Details</span>
+              <h2 className="text-xl font-bold text-slate-900 mb-6 tracking-tight">Contact Information</h2>
 
-              <div className="space-y-6 text-gray-700">
+              <div className="space-y-4 text-slate-700">
                 {/* Email */}
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-100/60 rounded-xl text-shakti-blue shrink-0">
-                    <Mail className="w-5 h-5" />
+                <div className="flex items-start gap-3.5">
+                  <div className="p-2.5 bg-sky-50 text-sky-700 rounded-lg border border-sky-100 shrink-0">
+                    <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">Email</h3>
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Email</div>
                     <a
                       href="mailto:info@shaktigases.com"
-                      className="text-base font-semibold text-gray-900 hover:text-shakti-blue transition"
+                      className="text-sm font-semibold text-slate-900 hover:text-sky-700 transition"
                     >
                       info@shaktigases.com
                     </a>
@@ -253,15 +249,15 @@ const Contact: React.FC = () => {
                 </div>
 
                 {/* Phone */}
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-100/60 rounded-xl text-shakti-blue shrink-0">
-                    <Phone className="w-5 h-5" />
+                <div className="flex items-start gap-3.5">
+                  <div className="p-2.5 bg-sky-50 text-sky-700 rounded-lg border border-sky-100 shrink-0">
+                    <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">Phone</h3>
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Phone</div>
                     <a
                       href="tel:+919727783440"
-                      className="text-base font-semibold text-gray-900 hover:text-shakti-blue transition"
+                      className="text-sm font-semibold text-slate-900 hover:text-sky-700 transition"
                     >
                       +91 9727783440
                     </a>
@@ -269,13 +265,13 @@ const Contact: React.FC = () => {
                 </div>
 
                 {/* Address */}
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-100/60 rounded-xl text-shakti-blue shrink-0">
-                    <MapPin className="w-5 h-5" />
+                <div className="flex items-start gap-3.5">
+                  <div className="p-2.5 bg-sky-50 text-sky-700 rounded-lg border border-sky-100 shrink-0">
+                    <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">Address</h3>
-                    <p className="text-sm font-medium text-gray-900 leading-relaxed">
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Address</div>
+                    <p className="text-xs font-medium text-slate-900 leading-relaxed">
                       45, Maruti Complex, Ranoli GIDC, Ranoli, Dist: Vadodara-391350, Gujarat
                     </p>
                   </div>
@@ -283,24 +279,26 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-10 rounded-2xl overflow-hidden shadow-lg h-56 relative bg-gray-200 group">
+            {/* Office Map Card */}
+            <div className="rounded-lg overflow-hidden border border-slate-200 bg-slate-100 relative group">
               <a
                 href="https://maps.app.goo.gl/TGuzKakRvxbDB9dCA"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="block h-48 relative"
               >
                 <img
                   src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?q=80&w=600&auto=format&fit=crop"
-                  className="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition duration-500"
+                  className="w-full h-full object-cover opacity-75 group-hover:opacity-90 transition"
                   alt="Shakti Industrial Gases office location in Ranoli GIDC Vadodara Gujarat"
                 />
-              </a>
-
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-bold text-shakti-blue shadow-lg">
-                  Head Office
+                <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-slate-950/10 transition" />
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="bg-slate-950/90 text-white border border-slate-700 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider shadow-md">
+                    Open Google Maps ↗
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 

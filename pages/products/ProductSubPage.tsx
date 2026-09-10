@@ -467,25 +467,25 @@ export const ProductSubPage: React.FC = () => {
               </>
             )}
             <ChevronRight className="h-3 w-3 text-slate-600" />
-            <span className="text-blue-400 font-semibold">{data.title}</span>
+            <span className="text-sky-400 font-semibold">{data.title}</span>
           </nav>
 
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
             <div className="max-w-3xl space-y-4">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="bg-blue-600 text-white font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider shadow-sm">
+                <span className="bg-sky-600 text-white font-bold text-xs px-2.5 py-1 rounded uppercase tracking-wider shadow-xs">
                   {data.symbolBadge}
                 </span>
-                <span className="bg-slate-800 text-blue-300 font-mono text-xs px-3 py-1 rounded-md border border-slate-700 font-semibold">
+                <span className="bg-slate-800 text-sky-300 font-mono text-xs px-2.5 py-1 rounded border border-slate-700 font-semibold">
                   Formula: {data.chemicalFormula}
                 </span>
                 {data.casNumber && (
-                  <span className="bg-slate-800 text-slate-300 font-mono text-xs px-3 py-1 rounded-md border border-slate-700">
+                  <span className="bg-slate-800 text-slate-300 font-mono text-xs px-2.5 py-1 rounded border border-slate-700">
                     CAS: {data.casNumber}
                   </span>
                 )}
                 {data.unNumber && (
-                  <span className="bg-slate-800 text-slate-300 font-mono text-xs px-3 py-1 rounded-md border border-slate-700">
+                  <span className="bg-slate-800 text-slate-300 font-mono text-xs px-2.5 py-1 rounded border border-slate-700">
                     {data.unNumber}
                   </span>
                 )}
@@ -495,7 +495,7 @@ export const ProductSubPage: React.FC = () => {
                 {data.title}
               </h1>
 
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                 {data.subtitle}
               </p>
 
@@ -506,7 +506,7 @@ export const ProductSubPage: React.FC = () => {
                   <span>PESO Certified Storage & Tankers</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-slate-300">
-                  <CheckCircle2 className="h-4 w-4 text-blue-400" />
+                  <CheckCircle2 className="h-4 w-4 text-sky-400" />
                   <span>ISO 9001:2015 Quality Tested</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-slate-300">
@@ -517,7 +517,7 @@ export const ProductSubPage: React.FC = () => {
             </div>
 
             {/* Quick Action Card */}
-            <div className="bg-slate-800/80 border border-slate-700 p-5 rounded-xl shrink-0 w-full lg:w-72 space-y-3">
+            <div className="bg-slate-900 border border-slate-800 p-5 rounded-lg shrink-0 w-full lg:w-72 space-y-3">
               <span className="text-xs font-semibold text-slate-300 block uppercase tracking-wider">
                 Direct Supply Inquiries
               </span>
@@ -526,14 +526,14 @@ export const ProductSubPage: React.FC = () => {
               </p>
               <NavLink
                 to="/contact"
-                className="flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-4 py-3 rounded-lg transition shadow-md"
+                className="flex items-center justify-center gap-2 w-full bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition shadow-sm"
               >
                 <span>Request Technical Quote</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </NavLink>
               <a
                 href="tel:+919825008544"
-                className="flex items-center justify-center gap-2 w-full bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-semibold px-4 py-2.5 rounded-lg transition border border-slate-600"
+                className="flex items-center justify-center gap-2 w-full bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-4 py-2 rounded-lg transition border border-slate-700"
               >
                 <PhoneCall className="h-3.5 w-3.5 text-emerald-400" />
                 <span>Call +91 98250 08544</span>
@@ -545,20 +545,20 @@ export const ProductSubPage: React.FC = () => {
       </div>
 
       {/* Quick Switcher of Key Products */}
-      <section className="bg-slate-100 border-b border-slate-200 py-3 overflow-x-auto">
+      <section className="bg-slate-100 border-b border-slate-200 py-2.5 overflow-x-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-xs">
-          <span className="font-bold text-slate-600 uppercase tracking-wider shrink-0 flex items-center gap-1 mr-2">
-            <Grid className="h-3.5 w-3.5 text-blue-600" />
+          <span className="font-bold text-slate-700 uppercase tracking-wider shrink-0 flex items-center gap-1 mr-2 text-xs">
+            <Grid className="h-3.5 w-3.5 text-sky-700" />
             Quick Select:
           </span>
           <div className="flex items-center gap-1.5 flex-nowrap overflow-x-auto py-1">
             <NavLink
               to="/products/liquid-nitrogen"
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-full font-medium whitespace-nowrap transition border ${
+                `px-3 py-1 rounded font-medium whitespace-nowrap transition border text-xs ${
                   isActive || data.slug === 'liquid-nitrogen'
-                    ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
-                    : 'bg-white text-slate-700 border-slate-300 hover:border-blue-400 hover:text-blue-600'
+                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
+                    : 'bg-white text-slate-700 border-slate-300 hover:border-slate-400 hover:text-sky-700'
                 }`
               }
             >
@@ -567,10 +567,10 @@ export const ProductSubPage: React.FC = () => {
             <NavLink
               to="/products/liquid-oxygen"
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-full font-medium whitespace-nowrap transition border ${
+                `px-3 py-1 rounded font-medium whitespace-nowrap transition border text-xs ${
                   isActive || data.slug === 'liquid-oxygen'
-                    ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
-                    : 'bg-white text-slate-700 border-slate-300 hover:border-blue-400 hover:text-blue-600'
+                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
+                    : 'bg-white text-slate-700 border-slate-300 hover:border-slate-400 hover:text-sky-700'
                 }`
               }
             >
@@ -579,10 +579,10 @@ export const ProductSubPage: React.FC = () => {
             <NavLink
               to="/products/liquid-argon"
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-full font-medium whitespace-nowrap transition border ${
+                `px-3 py-1 rounded font-medium whitespace-nowrap transition border text-xs ${
                   isActive || data.slug === 'liquid-argon'
-                    ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
-                    : 'bg-white text-slate-700 border-slate-300 hover:border-blue-400 hover:text-blue-600'
+                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
+                    : 'bg-white text-slate-700 border-slate-300 hover:border-slate-400 hover:text-sky-700'
                 }`
               }
             >
@@ -591,10 +591,10 @@ export const ProductSubPage: React.FC = () => {
             <NavLink
               to="/products/liquid-carbon-dioxide"
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-full font-medium whitespace-nowrap transition border ${
+                `px-3 py-1 rounded font-medium whitespace-nowrap transition border text-xs ${
                   isActive || data.slug === 'liquid-carbon-dioxide'
-                    ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
-                    : 'bg-white text-slate-700 border-slate-300 hover:border-blue-400 hover:text-blue-600'
+                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
+                    : 'bg-white text-slate-700 border-slate-300 hover:border-slate-400 hover:text-sky-700'
                 }`
               }
             >
@@ -603,10 +603,10 @@ export const ProductSubPage: React.FC = () => {
             <NavLink
               to="/products/bulk-cryogenic"
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-full font-medium whitespace-nowrap transition border ${
+                `px-3 py-1 rounded font-medium whitespace-nowrap transition border text-xs ${
                   isActive || data.slug === 'bulk-cryogenic'
-                    ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
-                    : 'bg-white text-slate-700 border-slate-300 hover:border-blue-400 hover:text-blue-600'
+                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
+                    : 'bg-white text-slate-700 border-slate-300 hover:border-slate-400 hover:text-sky-700'
                 }`
               }
             >
@@ -615,10 +615,10 @@ export const ProductSubPage: React.FC = () => {
             <NavLink
               to="/products/hydrogen-gas"
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-full font-medium whitespace-nowrap transition border ${
+                `px-3 py-1 rounded font-medium whitespace-nowrap transition border text-xs ${
                   isActive || data.slug === 'hydrogen-gas'
-                    ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
-                    : 'bg-white text-slate-700 border-slate-300 hover:border-blue-400 hover:text-blue-600'
+                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
+                    : 'bg-white text-slate-700 border-slate-300 hover:border-slate-400 hover:text-sky-700'
                 }`
               }
             >
@@ -627,10 +627,10 @@ export const ProductSubPage: React.FC = () => {
             <NavLink
               to="/products/dissolved-acetylene"
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-full font-medium whitespace-nowrap transition border ${
+                `px-3 py-1 rounded font-medium whitespace-nowrap transition border text-xs ${
                   isActive || data.slug === 'dissolved-acetylene'
-                    ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
-                    : 'bg-white text-slate-700 border-slate-300 hover:border-blue-400 hover:text-blue-600'
+                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
+                    : 'bg-white text-slate-700 border-slate-300 hover:border-slate-400 hover:text-sky-700'
                 }`
               }
             >
@@ -639,10 +639,10 @@ export const ProductSubPage: React.FC = () => {
             <NavLink
               to="/products/helium-gas"
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-full font-medium whitespace-nowrap transition border ${
+                `px-3 py-1 rounded font-medium whitespace-nowrap transition border text-xs ${
                   isActive || data.slug === 'helium-gas'
-                    ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
-                    : 'bg-white text-slate-700 border-slate-300 hover:border-blue-400 hover:text-blue-600'
+                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
+                    : 'bg-white text-slate-700 border-slate-300 hover:border-slate-400 hover:text-sky-700'
                 }`
               }
             >
@@ -650,7 +650,7 @@ export const ProductSubPage: React.FC = () => {
             </NavLink>
             <NavLink
               to="/products"
-              className="px-3 py-1.5 rounded-full font-semibold text-blue-700 bg-blue-50 border border-blue-200 hover:bg-blue-100 whitespace-nowrap transition"
+              className="px-3 py-1 rounded font-semibold text-sky-800 bg-sky-50 border border-sky-200 hover:bg-sky-100 whitespace-nowrap transition text-xs"
             >
               View Full Catalog →
             </NavLink>
@@ -666,27 +666,27 @@ export const ProductSubPage: React.FC = () => {
 
             {/* Overview */}
             <div className="space-y-3">
-              <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2 flex items-center justify-between">
+              <h2 className="text-lg sm:text-xl font-bold text-slate-900 border-b border-slate-200 pb-2 flex items-center justify-between">
                 <span>Product Overview & Technical Scope</span>
-                <span className="text-xs font-semibold text-blue-700 uppercase bg-blue-50 px-2.5 py-1 rounded">
+                <span className="text-xs font-semibold text-sky-800 uppercase bg-sky-50 border border-sky-200 px-2.5 py-0.5 rounded">
                   {data.categoryLabel}
                 </span>
               </h2>
-              <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+              <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
                 {data.overview}
               </p>
             </div>
 
             {/* On-Site Storage Rental Highlight (For Bulk / Cryo Gases) */}
             {(data.category === 'liquid' || data.slug === 'bulk-cryogenic') && (
-              <div className="bg-gradient-to-r from-blue-900 to-indigo-950 text-white p-6 rounded-2xl border border-blue-800 space-y-3">
+              <div className="bg-slate-950 text-white p-6 rounded-lg border border-slate-800 space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="bg-blue-600 text-white text-[11px] font-bold px-2.5 py-0.5 rounded uppercase">
+                  <span className="bg-sky-600 text-white text-xs font-bold px-2 py-0.5 rounded uppercase">
                     Storage Setup Options Available
                   </span>
-                  <span className="text-blue-300 text-xs font-semibold">Rental / Opex Model</span>
+                  <span className="text-sky-300 text-xs font-semibold">Rental / Opex Model</span>
                 </div>
-                <h3 className="text-lg font-bold text-white">
+                <h3 className="text-base sm:text-lg font-bold text-white">
                   Turnkey On-Site Storage Tanks & Vaporizer Systems On Rental
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -695,7 +695,7 @@ export const ProductSubPage: React.FC = () => {
                 <div className="pt-2">
                   <NavLink
                     to="/solutions/bulk-gas-supply"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-300 hover:text-white transition"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-white transition"
                   >
                     <span>Explore Bulk Gas Supply & Tank Rental Solutions</span>
                     <ArrowRight className="h-3.5 w-3.5" />
@@ -706,23 +706,23 @@ export const ProductSubPage: React.FC = () => {
 
             {/* Supply Modes */}
             <div className="space-y-4">
-              <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
-                <Truck className="h-4 w-4 text-blue-700" />
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
+                <Truck className="h-4 w-4 text-sky-700" />
                 <span>Supply Modes, Packaging & Transport Options</span>
               </h3>
 
               <div className="grid grid-cols-1 gap-4">
                 {data.supplyModes.map((mode, idx) => (
-                  <div key={idx} className="bg-white p-5 rounded-xl border border-slate-200 space-y-2 hover:border-blue-300 transition">
+                  <div key={idx} className="bg-white p-5 rounded-lg border border-slate-200 space-y-2 hover:border-slate-300 transition">
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <h4 className="text-base font-bold text-slate-900">{mode.title}</h4>
+                      <h4 className="text-sm sm:text-base font-bold text-slate-900">{mode.title}</h4>
                       <span className="bg-slate-100 text-slate-800 font-semibold text-xs px-2.5 py-0.5 rounded border border-slate-200">
                         {mode.capacity}
                       </span>
                     </div>
 
                     <div className="text-xs text-slate-500 flex items-center gap-1 font-medium">
-                      <Gauge className="h-3.5 w-3.5 text-blue-600" />
+                      <Gauge className="h-3.5 w-3.5 text-sky-700" />
                       <span>Operating Pressure: {mode.pressure}</span>
                     </div>
 
@@ -740,49 +740,49 @@ export const ProductSubPage: React.FC = () => {
             </div>
 
             {/* Logistics & Geographic Delivery Coverage (High SEO Impact) */}
-            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+            <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 space-y-4">
               <div className="flex items-center justify-between border-b border-slate-200 pb-3">
                 <div className="flex items-center gap-2">
-                  <MapPin className="h-5 w-5 text-blue-600" />
-                  <h3 className="text-base font-bold text-slate-900">
+                  <MapPin className="h-5 w-5 text-sky-700" />
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900">
                     Bulk Logistics, Fleet & Delivery Coverage
                   </h3>
                 </div>
-                <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded flex items-center gap-1">
                   <Clock className="h-3 w-3" />
                   24/7 Dedicated Dispatch
                 </span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-                <div className="bg-white p-3.5 rounded-xl border border-slate-200">
-                  <span className="text-slate-500 block text-[11px] font-medium">Transport Fleet</span>
+                <div className="bg-white p-3.5 rounded-lg border border-slate-200">
+                  <span className="text-slate-500 block text-xs font-medium">Transport Fleet</span>
                   <span className="text-sm font-bold text-slate-900 block mt-0.5">65+ Cryogenic Tankers</span>
-                  <span className="text-slate-500 text-[11px]">10 KL to 35 KL Capacity</span>
+                  <span className="text-slate-500 text-xs">10 KL to 35 KL Capacity</span>
                 </div>
-                <div className="bg-white p-3.5 rounded-xl border border-slate-200">
-                  <span className="text-slate-500 block text-[11px] font-medium">Production Output</span>
+                <div className="bg-white p-3.5 rounded-lg border border-slate-200">
+                  <span className="text-slate-500 block text-xs font-medium">Production Output</span>
                   <span className="text-sm font-bold text-slate-900 block mt-0.5">448 TPD Capacity</span>
-                  <span className="text-slate-500 text-[11px]">Multiple ASU Plants</span>
+                  <span className="text-slate-500 text-xs">Multiple ASU Plants</span>
                 </div>
-                <div className="bg-white p-3.5 rounded-xl border border-slate-200">
-                  <span className="text-slate-500 block text-[11px] font-medium">Emergency Dispatch</span>
-                  <span className="text-sm font-bold text-blue-700 block mt-0.5">2 - 4 Hour TAT</span>
-                  <span className="text-slate-500 text-[11px]">Major Industrial Belts</span>
+                <div className="bg-white p-3.5 rounded-lg border border-slate-200">
+                  <span className="text-slate-500 block text-xs font-medium">Emergency Dispatch</span>
+                  <span className="text-sm font-bold text-sky-700 block mt-0.5">2 - 4 Hour TAT</span>
+                  <span className="text-slate-500 text-xs">Major Industrial Belts</span>
                 </div>
               </div>
             </div>
 
             {/* Industrial Applications Table */}
             <div className="space-y-4">
-              <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
-                <Boxes className="h-4 w-4 text-blue-700" />
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
+                <Boxes className="h-4 w-4 text-sky-700" />
                 <span>Industrial Applications & Purity Specifications</span>
               </h3>
 
-              <div className="overflow-x-auto bg-white rounded-xl border border-slate-200">
+              <div className="overflow-x-auto bg-white rounded-lg border border-slate-200">
                 <table className="w-full text-left text-xs sm:text-sm text-slate-700">
-                  <thead className="bg-slate-50 text-slate-900 font-bold uppercase tracking-wider text-[11px] border-b border-slate-200">
+                  <thead className="bg-slate-50 text-slate-900 font-bold uppercase tracking-wider text-xs border-b border-slate-200">
                     <tr>
                       <th className="p-3.5">Industry Sector</th>
                       <th className="p-3.5">Application / Process</th>
@@ -794,7 +794,7 @@ export const ProductSubPage: React.FC = () => {
                       <tr key={idx} className="hover:bg-slate-50">
                         <td className="p-3.5 font-semibold text-slate-900">{app.industry}</td>
                         <td className="p-3.5">{app.useCase}</td>
-                        <td className="p-3.5 text-blue-700 font-semibold">{app.recommendedPurity}</td>
+                        <td className="p-3.5 text-sky-800 font-semibold">{app.recommendedPurity}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -805,8 +805,8 @@ export const ProductSubPage: React.FC = () => {
             {/* Related Products Bar */}
             {data.relatedProducts && data.relatedProducts.length > 0 && (
               <div className="space-y-3 pt-4 border-t border-slate-200">
-                <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
-                  <Atom className="h-4 w-4 text-blue-700" />
+                <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                  <Atom className="h-4 w-4 text-sky-700" />
                   <span>Related Products in Our Portfolio</span>
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -814,17 +814,17 @@ export const ProductSubPage: React.FC = () => {
                     <NavLink
                       key={rIdx}
                       to={`/products/${rel.slug}`}
-                      className="p-3.5 rounded-xl border border-slate-200 hover:border-blue-500 hover:shadow-xs transition bg-white flex flex-col justify-between"
+                      className="p-3.5 rounded-lg border border-slate-200 hover:border-slate-300 hover:shadow-xs transition bg-white flex flex-col justify-between"
                     >
                       <div>
-                        <span className="text-[11px] font-mono text-blue-600 font-bold block mb-1">
+                        <span className="text-xs font-mono text-sky-700 font-bold block mb-1">
                           {rel.formula}
                         </span>
                         <h4 className="text-xs sm:text-sm font-bold text-slate-900">
                           {rel.title}
                         </h4>
                       </div>
-                      <span className="text-[11px] font-medium text-blue-600 flex items-center gap-1 mt-2">
+                      <span className="text-xs font-medium text-sky-700 flex items-center gap-1 mt-2">
                         <span>View Specifications</span>
                         <ArrowRight className="h-3 w-3" />
                       </span>
@@ -839,10 +839,10 @@ export const ProductSubPage: React.FC = () => {
           {/* Right Sidebar: Safety & Purity */}
           <div className="lg:col-span-4 space-y-6">
 
-            <div className="bg-slate-900 text-white p-6 rounded-2xl space-y-5 border border-slate-800 shadow-md">
+            <div className="bg-slate-950 text-white p-6 rounded-lg space-y-5 border border-slate-800">
               <div className="flex items-center gap-2 border-b border-slate-800 pb-3">
                 <AlertTriangle className="h-5 w-5 text-amber-400 shrink-0" />
-                <h3 className="text-base font-bold text-white">
+                <h3 className="text-sm sm:text-base font-bold text-white">
                   Handling & Safety Directives
                 </h3>
               </div>
@@ -857,10 +857,10 @@ export const ProductSubPage: React.FC = () => {
               </ul>
 
               <div className="pt-3 border-t border-slate-800 space-y-2">
-                <span className="text-[11px] font-semibold text-slate-400 block uppercase tracking-wider">
+                <span className="text-xs font-semibold text-slate-400 block uppercase tracking-wider">
                   Available Purity Grades:
                 </span>
-                <ul className="space-y-1.5 text-xs text-blue-300 font-medium">
+                <ul className="space-y-1.5 text-xs text-sky-300 font-medium">
                   {data.puritiesAvailable.map((pur, pIdx) => (
                     <li key={pIdx} className="flex items-center gap-2">
                       <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
@@ -873,13 +873,13 @@ export const ProductSubPage: React.FC = () => {
               <div className="pt-3 border-t border-slate-800 space-y-2">
                 <NavLink
                   to="/contact"
-                  className="block text-center w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-lg text-xs transition shadow-md"
+                  className="block text-center w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-2.5 rounded-lg text-xs uppercase tracking-wider transition shadow-sm"
                 >
                   Request Technical Quotation
                 </NavLink>
                 <NavLink
                   to="/company/quality-safety"
-                  className="block text-center w-full bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium py-2 rounded-lg text-xs transition border border-slate-700"
+                  className="block text-center w-full bg-slate-900 hover:bg-slate-800 text-slate-300 font-medium py-2 rounded-lg text-xs transition border border-slate-700"
                 >
                   View PESO & Safety Certifications
                 </NavLink>
@@ -887,7 +887,7 @@ export const ProductSubPage: React.FC = () => {
             </div>
 
             {/* Quick Link to All Products */}
-            <div className="bg-slate-50 border border-slate-200 p-5 rounded-xl space-y-3">
+            <div className="bg-slate-50 border border-slate-200 p-5 rounded-lg space-y-3">
               <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
                 Product Categories
               </h4>
@@ -895,7 +895,7 @@ export const ProductSubPage: React.FC = () => {
                 <li>
                   <NavLink
                     to="/products/bulk-cryogenic"
-                    className="text-slate-700 hover:text-blue-600 font-medium flex items-center justify-between"
+                    className="text-slate-700 hover:text-sky-700 font-medium flex items-center justify-between"
                   >
                     <span>Bulk & Cryogenic Gases</span>
                     <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
@@ -904,7 +904,7 @@ export const ProductSubPage: React.FC = () => {
                 <li>
                   <NavLink
                     to="/products/industrial-cylinder"
-                    className="text-slate-700 hover:text-blue-600 font-medium flex items-center justify-between"
+                    className="text-slate-700 hover:text-sky-700 font-medium flex items-center justify-between"
                   >
                     <span>Industrial & Cylinder Gases</span>
                     <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
@@ -913,7 +913,7 @@ export const ProductSubPage: React.FC = () => {
                 <li>
                   <NavLink
                     to="/products/specialty-calibration"
-                    className="text-slate-700 hover:text-blue-600 font-medium flex items-center justify-between"
+                    className="text-slate-700 hover:text-sky-700 font-medium flex items-center justify-between"
                   >
                     <span>Specialty & Calibration Gases</span>
                     <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
@@ -922,7 +922,7 @@ export const ProductSubPage: React.FC = () => {
                 <li>
                   <NavLink
                     to="/products/other"
-                    className="text-slate-700 hover:text-blue-600 font-medium flex items-center justify-between"
+                    className="text-slate-700 hover:text-sky-700 font-medium flex items-center justify-between"
                   >
                     <span>Dry Ice, Dewars & Hardware</span>
                     <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
