@@ -102,6 +102,87 @@ const GAS_OPTIONS = [
   'Other'
 ];
 
+// Subscript and superscript map for chemical notation and units
+const SUBSCRIPT_MAP: { [key: string]: string } = {
+  '0': '₀', '1': '₁', '2': '₂', '3': '₃', '4': '₄',
+  '5': '₅', '6': '₆', '7': '₇', '8': '₈', '9': '₉',
+  '+': '₊', '-': '₋', '=': '⁼', '(': '₍', ')': '₎',
+  'a': 'ₐ', 'e': 'ₑ', 'o': 'ₒ', 'x': 'ₓ', 'h': 'ₕ',
+  'k': 'ₖ', 'l': 'ₗ', 'm': 'ₘ', 'n': 'ₙ', 'p': 'ₚ',
+  's': 'ₛ', 't': 'ₜ'
+};
+
+const SUPERSCRIPT_MAP: { [key: string]: string } = {
+  '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴',
+  '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹',
+  '+': '⁺', '-': '⁻', '=': '⁼', '(': '⁽', ')': '⁾'
+};
+
+/**
+ * Formats LaTeX expressions, chemical formulas, and industrial gas notation
+ * Converts $CO_2$, (co2), CO_2, H_2, $\ge$ into clean Unicode (CO₂, H₂, ≥)
+ */
+export function formatChemicalFormulas(text: string): string {
+  if (!text) return text;
+
+  let cleaned = text;
+
+  // 1. Replace common LaTeX mathematical / relational symbols
+  cleaned = cleaned
+    .replace(/\\(?:ge|geq)\b/g, '≥')
+    .replace(/\\(?:le|leq)\b/g, '≤')
+    .replace(/\\pm\b/g, '±')
+    .replace(/\\times\b/g, '×')
+    .replace(/\\approx\b/g, '≈')
+    .replace(/\\degree\b/g, '°')
+    .replace(/\\circ\b/g, '°')
+    .replace(/\\mu\b/g, 'µ')
+    .replace(/\\to\b/g, '→')
+    .replace(/\\rightarrow\b/g, '→');
+
+  // 2. Replace LaTeX subscript blocks like _{2} or _2 inside math or text
+  cleaned = cleaned.replace(/_\{([0-9a-zA-Z+-]+)\}/g, (_, sub) => {
+    return sub.split('').map((char: string) => SUBSCRIPT_MAP[char.toLowerCase()] || char).join('');
+  });
+  cleaned = cleaned.replace(/_([0-9])/g, (_, digit) => SUBSCRIPT_MAP[digit] || digit);
+
+  // 3. Replace LaTeX superscript blocks like ^{3} or ^3
+  cleaned = cleaned.replace(/\^\{([0-9a-zA-Z+-]+)\}/g, (_, sup) => {
+    return sup.split('').map((char: string) => SUPERSCRIPT_MAP[char.toLowerCase()] || char).join('');
+  });
+  cleaned = cleaned.replace(/\^([0-9])/g, (_, digit) => SUPERSCRIPT_MAP[digit] || digit);
+
+  // 4. Strip surrounding math delimiters $ ... $
+  cleaned = cleaned.replace(/\$([^\$]+)\$/g, (_, content) => content.trim());
+
+  // 5. Standard chemical notation & industrial volume units
+  cleaned = cleaned
+    .replace(/\((?:co2|CO2)\)/gi, '(CO₂)')
+    .replace(/\((?:o2|O2)\)/gi, '(O₂)')
+    .replace(/\((?:n2|N2)\)/gi, '(N₂)')
+    .replace(/\((?:h2|H2)\)/gi, '(H₂)')
+    .replace(/\((?:ar|AR)\)/gi, '(Ar)')
+    .replace(/\((?:he|HE)\)/gi, '(He)')
+    .replace(/\bLCO2\b/gi, 'LCO₂')
+    .replace(/\bCO2\b/gi, 'CO₂')
+    .replace(/\bO2\b/gi, 'O₂')
+    .replace(/\bN2\b/gi, 'N₂')
+    .replace(/\bH2\b/gi, 'H₂')
+    .replace(/\bCH4\b/gi, 'CH₄')
+    .replace(/\bC2H2\b/gi, 'C₂H₂')
+    .replace(/\bN2O\b/gi, 'N₂O')
+    .replace(/\bNH3\b/gi, 'NH₃')
+    .replace(/\bSF6\b/gi, 'SF₆')
+    .replace(/\bSO2\b/gi, 'SO₂')
+    .replace(/\bH2O\b/gi, 'H₂O')
+    .replace(/\bNm3\b/gi, 'Nm³')
+    .replace(/\bSm3\b/gi, 'Sm³')
+    .replace(/\bm3\b/gi, 'm³')
+    .replace(/\bm2\b/gi, 'm²');
+
+  return cleaned;
+}
+
 // Rich Markdown / Industrial Spec Formatter Component
 const FormattedText: React.FC<{ text: string }> = ({ text }) => {
   if (!text) return null;
@@ -111,16 +192,43 @@ const FormattedText: React.FC<{ text: string }> = ({ text }) => {
   return (
     <div className="space-y-1.5 text-[13.5px] leading-relaxed">
       {lines.map((line, i) => {
-        if (!line.trim()) return <div key={i} className="h-1.5" />;
+        const trimmed = line.trim();
+        if (!trimmed) return <div key={i} className="h-1.5" />;
+
+        // Horizontal divider (---)
+        if (/^---+$/.test(trimmed)) {
+          return <hr key={i} className="border-t border-slate-200 my-2" />;
+        }
+
+        // Section headers (### Heading or ## Heading)
+        if (trimmed.startsWith('### ')) {
+          const headerText = formatChemicalFormulas(trimmed.replace(/^###\s+/, ''));
+          return (
+            <div key={i} className="font-bold text-slate-900 text-xs sm:text-[13px] uppercase tracking-wide text-blue-950 mt-2.5 mb-1 pt-1 border-b border-blue-100/70 pb-0.5">
+              {headerText}
+            </div>
+          );
+        }
+        if (trimmed.startsWith('## ')) {
+          const headerText = formatChemicalFormulas(trimmed.replace(/^##\s+/, ''));
+          return (
+            <div key={i} className="font-bold text-slate-900 text-sm sm:text-base text-blue-950 mt-3 mb-1">
+              {headerText}
+            </div>
+          );
+        }
 
         // Check for bullet points
-        const isBullet = line.trim().startsWith('- ') || line.trim().startsWith('* ') || /^\d+\.\s/.test(line.trim());
-        let content = line.trim();
+        const isBullet = trimmed.startsWith('- ') || trimmed.startsWith('* ') || /^\d+\.\s/.test(trimmed);
+        let content = trimmed;
         if (content.startsWith('- ') || content.startsWith('* ')) {
           content = content.substring(2);
         } else if (/^\d+\.\s/.test(content)) {
           content = content.replace(/^\d+\.\s/, '');
         }
+
+        // Format chemical and math symbols cleanly
+        content = formatChemicalFormulas(content);
 
         // Parse bold syntax: **text**
         const parts = content.split(/(\*\*.*?\*\*)/g);
@@ -477,6 +585,7 @@ const ChatAssistant: React.FC = () => {
         ));
       }
     } catch (err) {
+      console.error('[ChatAssistant Stream Error]:', err);
       setMessages(prev => [
         ...prev,
         {

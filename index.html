@@ -4,8 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <script>
+        // Suppress benign Vite WebSocket connection errors in sandboxed preview
+        window.addEventListener('unhandledrejection', function(event) {
+          var msg = (event && event.reason && (event.reason.message || event.reason.toString())) || '';
+          if (msg.indexOf('WebSocket') !== -1 || msg.indexOf('websocket') !== -1) {
+            event.preventDefault();
+            if (typeof event.stopImmediatePropagation === 'function') {
+              event.stopImmediatePropagation();
+            }
+          }
+        });
+        window.addEventListener('error', function(event) {
+          var msg = (event && (event.message || '')) || '';
+          if (msg.indexOf('WebSocket') !== -1 || msg.indexOf('websocket') !== -1) {
+            event.preventDefault();
+            if (typeof event.stopImmediatePropagation === 'function') {
+              event.stopImmediatePropagation();
+            }
+          }
+        });
+    </script>
+
     <title>Shakti Group | Industrial Gas Solutions & Cryogenic Engineering</title>
-    <meta name="description" content="Leading manufacturer of Liquid cryogenic gases - oxygen, nitrogen, argon, co2. Operating high-capacity plants in Gujarat, India. ISO & PESO compliant industrial gas solutions." />
+    <meta name="description" content="Leading provider of industrial gas solutions, cryogenic engineering, and logistical reliability since 1998." />
+    <meta property="og:title" content="Shakti Group | Industrial Gas Solutions & Cryogenic Engineering" />
+    <meta property="og:description" content="Leading provider of industrial gas solutions, cryogenic engineering, and logistical reliability since 1998." />
     <link rel="canonical" href="https://www.shaktigases.com/" />
 
     <link rel="icon" href="/favicon.ico" sizes="any">
@@ -76,20 +100,6 @@
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
-
-    <script type="importmap">
-        {
-          "imports": {
-            "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
-            "react/": "https://aistudiocdn.com/react@^19.2.1/",
-            "react": "https://aistudiocdn.com/react@^19.2.1",
-            "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-            "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
-            "@google/genai": "https://aistudiocdn.com/@google/genai@^1.32.0",
-            "@emailjs/browser": "https://aistudiocdn.com/@emailjs/browser@^4.4.1"
-          }
-        }
-    </script>
 </head>
 <body>
 <div id="root"></div>
