@@ -71,6 +71,7 @@ export const streamChatResponse = async function* (
       })),
     });
 
+
     const result = await chat.sendMessageStream({ message: userMessage });
 
     for await (const chunk of result) {

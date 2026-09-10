@@ -291,7 +291,7 @@ const ChatAssistant: React.FC = () => {
     if (!validateQuoteForm()) return;
     const rfqText = buildStructuredRfqText();
     const encoded = encodeURIComponent(rfqText);
-    window.open(`https://wa.me/919727783440?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/918758331566?text=${encoded}`, '_blank');
     setQuoteGenerated(true);
   };
 
@@ -548,7 +548,7 @@ const ChatAssistant: React.FC = () => {
 
     const messageText = lines.filter((l): l is string => l !== null).join('\n');
     const encoded = encodeURIComponent(messageText);
-    window.open(`https://wa.me/919727783440?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/918758331566?text=${encoded}`, '_blank');
   };
 
   return (
