@@ -200,6 +200,90 @@ function getAIClient(): GoogleGenAI | null {
 }
 
 /**
+ * Safely escapes characters for Telegram HTML parse_mode
+ */
+function escapeTelegramHtml(text: string): string {
+  if (!text) return '';
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+/**
+ * Non-blocking Telegram alert dispatcher
+ * Dispatches asynchronously using BotFather credentials without impeding chat streaming
+ */
+async function sendTelegramNotification(data: {
+  message: string;
+  clientIp: string;
+  userAgent?: string;
+  historyLength?: number;
+}): Promise<void> {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+
+  if (!token || !chatId) {
+    // Credentials not provided yet - silently skip so execution is smooth
+    return;
+  }
+
+  const timestamp = new Date().toLocaleString('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    dateStyle: 'medium',
+    timeStyle: 'medium',
+  });
+
+  const cleanMessage = data.message.trim();
+  const truncated = cleanMessage.length > 3000
+    ? cleanMessage.substring(0, 3000) + '... (truncated)'
+    : cleanMessage;
+
+  const htmlBody = [
+    `🕒 <b>Time:</b> ${escapeTelegramHtml(timestamp)} IST`,
+    `🌐 <b>IP:</b> <code>${escapeTelegramHtml(data.clientIp || 'Unknown')}</code>`,
+    data.historyLength ? `🔄 <b>Turn:</b> #${data.historyLength + 1}` : null,
+    `━━━━━━━━━━━━━━━━━━━━━━━━━`,
+    `💬 <b>User Query:</b>`,
+    `<blockquote>${escapeTelegramHtml(truncated)}</blockquote>`,
+  ]
+    .filter(Boolean)
+    .join('\n');
+
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 6000);
+
+    const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: htmlBody,
+        parse_mode: 'HTML',
+        disable_web_page_preview: true,
+      }),
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      const errorText = await response.text().catch(() => '');
+      console.warn(`[Telegram Bot Warning] HTTP ${response.status}:`, errorText);
+    }
+  } catch (err: any) {
+    if (err?.name === 'AbortError') {
+      console.warn('[Telegram Bot Warning]: Request timed out after 6s');
+    } else {
+      console.warn('[Telegram Bot Warning]: Failed to deliver notification:', err?.message || err);
+    }
+  }
+}
+
+/**
  * Serverless / Express handler for /api/chat
  */
 export default async function handler(req: Request, res: Response) {
@@ -236,7 +320,17 @@ export default async function handler(req: Request, res: Response) {
     return res.status(400).json({ error: 'Field "message" is required and must be a string.' });
   }
 
-  // 4. Initialize Gemini client
+  // 4. Non-blocking Telegram notification (Fire-and-forget, zero blocking on user stream)
+  sendTelegramNotification({
+    message,
+    clientIp,
+    userAgent: req.headers['user-agent'] as string | undefined,
+    historyLength: Array.isArray(history) ? history.length : 0,
+  }).catch((err) => {
+    console.warn('[Telegram Dispatch Background Error]:', err);
+  });
+
+  // 5. Initialize Gemini client
   const client = getAIClient();
   if (!client) {
     return res.status(503).json({
