@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { PRODUCTS, DELIVERY_OPTIONS } from '../constants';
-import { ArrowRight, ChevronRight, Boxes, Factory, ShieldCheck, Truck, FlaskConical, Atom, Sparkles } from 'lucide-react';
+import { ArrowRight, ChevronRight, Boxes, Factory, ShieldCheck, Truck, FlaskConical, Atom, Sparkles, Search, X } from 'lucide-react';
 import SEO from '../components/SEO';
 
 type Category = "liquid" | "industrial" | "high-purity" | "specialty";
@@ -50,8 +50,32 @@ export const POPULAR_INDIVIDUAL_PRODUCTS = [
 
 const Products: React.FC = () => {
   const [filter, setFilter] = useState<Category>("liquid");
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredProducts = PRODUCTS.filter(p => p.category === filter);
+  const query = searchQuery.trim().toLowerCase();
+
+  const filteredPopularProducts = POPULAR_INDIVIDUAL_PRODUCTS.filter(p => {
+    if (!query) return true;
+    return (
+      p.title.toLowerCase().includes(query) ||
+      p.formula.toLowerCase().includes(query) ||
+      p.category.toLowerCase().includes(query) ||
+      p.temp.toLowerCase().includes(query) ||
+      p.slug.toLowerCase().includes(query)
+    );
+  });
+
+  const filteredProducts = PRODUCTS.filter(p => {
+    if (query) {
+      return (
+        p.title.toLowerCase().includes(query) ||
+        p.description.toLowerCase().includes(query) ||
+        (p.slug && p.slug.toLowerCase().includes(query)) ||
+        p.category.toLowerCase().includes(query)
+      );
+    }
+    return p.category === filter;
+  });
 
   const schema = {
     '@context': 'https://schema.org',
