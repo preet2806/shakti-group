@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Loader2, CheckCircle, AlertCircle, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2, CheckCircle, AlertCircle, Clock, ShieldCheck, ArrowRight, Linkedin, ExternalLink } from 'lucide-react';
 import { sendEmail } from '../services/emailService';
 import { NavLink } from 'react-router-dom';
 
@@ -260,6 +260,25 @@ const Contact: React.FC = () => {
                       className="text-sm font-semibold text-slate-900 hover:text-sky-700 transition"
                     >
                       +91 9727783440
+                    </a>
+                  </div>
+                </div>
+
+                {/* LinkedIn */}
+                <div className="flex items-start gap-3.5">
+                  <div className="p-2.5 bg-sky-50 text-sky-700 rounded-lg border border-sky-100 shrink-0">
+                    <Linkedin className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500">LinkedIn</div>
+                    <a
+                      href="https://www.linkedin.com/company/shakti-industrial-gases"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold text-slate-900 hover:text-sky-700 transition inline-flex items-center gap-1.5"
+                    >
+                      <span>Shakti Industrial Gases</span>
+                      <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
                     </a>
                   </div>
                 </div>

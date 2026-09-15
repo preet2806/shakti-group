@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { Phone, Mail, MapPin, ShieldCheck, Award, FileText, ArrowUpRight } from 'lucide-react';
+import { Phone, Mail, MapPin, ShieldCheck, Award, FileText, ArrowUpRight, Linkedin } from 'lucide-react';
 import Navbar from './Navbar';
 import ChatAssistant from './ChatAssistant';
 import ShaktiLogo from './ShaktiLogo';
@@ -121,6 +121,21 @@ const Footer: React.FC = () => {
                   <span className="block text-xs text-slate-500 uppercase font-semibold">Phone</span>
                   <a href="tel:+919727783440" className="text-slate-300 hover:text-white transition">
                     +91 9727783440
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <Linkedin className="h-4 w-4 text-sky-400 shrink-0 mt-0.5" />
+                <div>
+                  <span className="block text-xs text-slate-500 uppercase font-semibold">LinkedIn</span>
+                  <a
+                    href="https://www.linkedin.com/company/shakti-industrial-gases"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-300 hover:text-sky-400 transition inline-flex items-center gap-1 text-xs"
+                  >
+                    <span>Shakti Industrial Gases</span>
+                    <ArrowUpRight className="h-3 w-3 text-sky-400" />
                   </a>
                 </div>
               </li>
