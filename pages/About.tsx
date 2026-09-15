@@ -129,6 +129,9 @@ const About: React.FC = () => {
               <div className="rounded-lg overflow-hidden border border-slate-200 bg-slate-100 shadow-xs h-[280px] sm:h-[340px]">
                 <img
                   src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/Industrial%20gas%20cylinders.webp"
+                  width={600}
+                  height={400}
+                  loading="lazy"
                   className="w-full h-full object-cover"
                   alt="Industrial gas cylinders"
                 />

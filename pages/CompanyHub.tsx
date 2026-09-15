@@ -67,6 +67,8 @@ export const CompanyHub: React.FC = () => {
         <img
           src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/team.webp"
           alt="Shakti Group Team & Leadership"
+          width={1920}
+          height={600}
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
 

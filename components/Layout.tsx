@@ -2,8 +2,10 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { Phone, Mail, MapPin, ShieldCheck, Award, FileText, ArrowUpRight, Linkedin } from 'lucide-react';
 import Navbar from './Navbar';
-import ChatAssistant from './ChatAssistant';
+import BackToTop from './BackToTop';
 import ShaktiLogo from './ShaktiLogo';
+
+const ChatAssistant = React.lazy(() => import('./ChatAssistant'));
 
 const Footer: React.FC = () => {
   return (
@@ -109,7 +111,7 @@ const Footer: React.FC = () => {
               <li className="flex items-start gap-2.5">
                 <Mail className="h-4 w-4 text-sky-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-xs text-slate-500 uppercase font-semibold">Email</span>
+                  <span className="block text-xs text-slate-300 uppercase font-bold tracking-wide">Email</span>
                   <a href="mailto:info@shaktigases.com" className="text-slate-300 hover:text-white transition">
                     info@shaktigases.com
                   </a>
@@ -118,7 +120,7 @@ const Footer: React.FC = () => {
               <li className="flex items-start gap-2.5">
                 <Phone className="h-4 w-4 text-sky-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-xs text-slate-500 uppercase font-semibold">Phone</span>
+                  <span className="block text-xs text-slate-300 uppercase font-bold tracking-wide">Phone</span>
                   <a href="tel:+919727783440" className="text-slate-300 hover:text-white transition">
                     +91 9727783440
                   </a>
@@ -127,12 +129,12 @@ const Footer: React.FC = () => {
               <li className="flex items-start gap-2.5">
                 <Linkedin className="h-4 w-4 text-sky-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-xs text-slate-500 uppercase font-semibold">LinkedIn</span>
+                  <span className="block text-xs text-slate-300 uppercase font-bold tracking-wide">LinkedIn</span>
                   <a
                     href="https://www.linkedin.com/company/shakti-industrial-gases"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-300 hover:text-sky-400 transition inline-flex items-center gap-1 text-xs"
+                    className="text-slate-300 hover:text-sky-300 transition inline-flex items-center gap-1 text-xs"
                   >
                     <span>Shakti Industrial Gases</span>
                     <ArrowUpRight className="h-3 w-3 text-sky-400" />
@@ -142,8 +144,8 @@ const Footer: React.FC = () => {
               <li className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 text-sky-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-xs text-slate-500 uppercase font-semibold">Registered Office</span>
-                  <span className="text-slate-400 text-xs leading-relaxed block">
+                  <span className="block text-xs text-slate-300 uppercase font-bold tracking-wide">Registered Office</span>
+                  <span className="text-slate-300 text-xs leading-relaxed block">
                     45, Maruti Complex, Ranoli GIDC,<br />
                     Ranoli, Dist: Vadodara-391350,<br />
                     Gujarat, India
@@ -156,14 +158,14 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Copyright Strip */}
-        <div className="border-t border-slate-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="border-t border-slate-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
             © {new Date().getFullYear()} Shakti Group of Companies. All Rights Reserved.
           </div>
           <div className="flex items-center gap-6">
-            <NavLink to="/company/quality-safety" className="hover:text-slate-400 transition">Quality & Safety</NavLink>
-            <NavLink to="/company/infrastructure" className="hover:text-slate-400 transition">Infrastructure</NavLink>
-            <NavLink to="/contact" className="hover:text-slate-400 transition">Request Quote</NavLink>
+            <NavLink to="/company/quality-safety" className="text-slate-300 hover:text-white transition">Quality & Safety</NavLink>
+            <NavLink to="/company/infrastructure" className="text-slate-300 hover:text-white transition">Infrastructure</NavLink>
+            <NavLink to="/contact" className="text-slate-300 hover:text-white transition">Request Quote</NavLink>
           </div>
         </div>
       </div>
@@ -172,6 +174,20 @@ const Footer: React.FC = () => {
 };
 
 export const Layout: React.FC = () => {
+  const [loadChat, setLoadChat] = React.useState(false);
+
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if ('requestIdleCallback' in window) {
+        const handle = (window as any).requestIdleCallback(() => setLoadChat(true), { timeout: 2500 });
+        return () => (window as any).cancelIdleCallback(handle);
+      } else {
+        const timer = setTimeout(() => setLoadChat(true), 1800);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-white font-sans text-slate-900">
       <Navbar />
@@ -179,7 +195,12 @@ export const Layout: React.FC = () => {
         <Outlet />
       </main>
       <Footer />
-      <ChatAssistant />
+      <BackToTop />
+      {loadChat && (
+        <React.Suspense fallback={null}>
+          <ChatAssistant />
+        </React.Suspense>
+      )}
     </div>
   );
 };

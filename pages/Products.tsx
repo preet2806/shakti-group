@@ -117,6 +117,8 @@ const Products: React.FC = () => {
         <img
           src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/product_hero.png"
           alt="Industrial gas manufacturing and delivery fleet"
+          width={1920}
+          height={600}
           className="absolute inset-0 w-full h-full object-cover"
         />
 
@@ -198,6 +200,68 @@ const Products: React.FC = () => {
         </div>
       </section>
 
+      {/* Interactive Gas Finder & Search Bar */}
+      <section className="bg-slate-50 border-b border-slate-200 py-6 sm:py-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-4">
+            <span className="text-sky-700 font-bold uppercase tracking-widest text-[11px] block mb-1">
+              Live Product Finder
+            </span>
+            <h2 className="text-lg sm:text-2xl font-bold text-slate-900">
+              Quickly Find Any Gas, Formula, or Application
+            </h2>
+          </div>
+
+          <div className="relative">
+            <div className="relative flex items-center">
+              <Search className="absolute left-3.5 h-4 w-4 text-slate-400 pointer-events-none" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search by gas name, formula (e.g., O₂, N₂, CO₂, SF₆), application, or purity..."
+                className="w-full pl-10 pr-10 py-3 bg-white border border-slate-300 rounded-xl text-sm placeholder-slate-400 text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 shadow-xs transition"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  aria-label="Clear search"
+                  className="absolute right-3 p-1 text-slate-400 hover:text-slate-600 rounded-full"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
+            </div>
+
+            {/* Quick search suggestion chips */}
+            <div className="flex flex-wrap items-center gap-1.5 mt-3 justify-center text-xs">
+              <span className="text-slate-500 font-medium text-[11px]">Popular:</span>
+              {['Oxygen', 'Nitrogen', 'Argon', 'CO₂', 'Hydrogen', 'Acetylene', 'Helium', 'Laser'].map((term) => (
+                <button
+                  key={term}
+                  onClick={() => setSearchQuery(term)}
+                  className={`px-2.5 py-1 rounded-md transition text-xs font-medium border ${
+                    searchQuery.toLowerCase() === term.toLowerCase()
+                      ? 'bg-sky-600 text-white border-sky-600'
+                      : 'bg-white hover:bg-sky-50 text-slate-600 hover:text-sky-700 border-slate-200'
+                  }`}
+                >
+                  {term}
+                </button>
+              ))}
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="px-2 py-1 text-[11px] font-semibold text-rose-600 hover:text-rose-700 underline transition"
+                >
+                  Clear filter
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Quick Individual Products Showcase Section */}
       <section id="individual-products" className="py-10 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-slate-200">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
@@ -213,39 +277,58 @@ const Products: React.FC = () => {
               Access dedicated technical specification pages, purity grades, CAS registry numbers, physical states, and available supply formats for each gas.
             </p>
           </div>
+          {searchQuery && (
+            <div className="text-xs font-semibold text-sky-800 bg-sky-50 px-3 py-1.5 rounded-lg border border-sky-200 w-fit">
+              Found {filteredPopularProducts.length} specification sheet{filteredPopularProducts.length === 1 ? '' : 's'}
+            </div>
+          )}
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-3.5">
-          {POPULAR_INDIVIDUAL_PRODUCTS.map((prod) => (
-            <NavLink
-              key={prod.slug}
-              to={`/products/${prod.slug}`}
-              className="p-3.5 sm:p-4 rounded-lg border border-slate-200 hover:border-slate-300 hover:shadow-xs transition bg-white group flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-1.5">
-                  <span className="font-mono text-xs font-bold text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200">
-                    {prod.formula}
-                  </span>
-                  <span className="text-[11px] text-slate-500 font-medium">
-                    {prod.temp}
+        {filteredPopularProducts.length > 0 ? (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-3.5">
+            {filteredPopularProducts.map((prod) => (
+              <NavLink
+                key={prod.slug}
+                to={`/products/${prod.slug}`}
+                className="p-3.5 sm:p-4 rounded-lg border border-slate-200 hover:border-slate-300 hover:shadow-xs transition bg-white group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-1.5">
+                    <span className="font-mono text-xs font-bold text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200">
+                      {prod.formula}
+                    </span>
+                    <span className="text-[11px] text-slate-500 font-medium">
+                      {prod.temp}
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-sky-700 transition-colors">
+                    {prod.title}
+                  </h3>
+                  <span className="text-[11px] text-slate-500 block mt-0.5">
+                    {prod.category}
                   </span>
                 </div>
-                <h3 className="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-sky-700 transition-colors">
-                  {prod.title}
-                </h3>
-                <span className="text-[11px] text-slate-500 block mt-0.5">
-                  {prod.category}
-                </span>
-              </div>
 
-              <div className="flex items-center justify-between pt-2.5 mt-2.5 border-t border-slate-100 text-[11px] font-semibold text-sky-700">
-                <span>View Details</span>
-                <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </NavLink>
-          ))}
-        </div>
+                <div className="flex items-center justify-between pt-2.5 mt-2.5 border-t border-slate-100 text-[11px] font-semibold text-sky-700">
+                  <span>View Details</span>
+                  <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </NavLink>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-8 bg-slate-50 rounded-xl border border-slate-200 p-6">
+            <p className="text-sm text-slate-600 mb-2">
+              No technical specification sheets matched &ldquo;{searchQuery}&rdquo;.
+            </p>
+            <button
+              onClick={() => setSearchQuery('')}
+              className="text-xs font-bold text-sky-700 hover:underline"
+            >
+              Reset search query
+            </button>
+          </div>
+        )}
       </section>
 
       {/* Portfolio Filter & Cards Grid */}
@@ -284,47 +367,71 @@ const Products: React.FC = () => {
         </div>
 
         {/* Product Grid - Clean Image with text body */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          {filteredProducts.map((product) => (
-            <div key={product.id} className="group bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs hover:border-slate-300 transition flex flex-col justify-between">
-              <NavLink
-                to={`/products/${product.slug || 'bulk-cryogenic'}`}
-                className="relative h-44 overflow-hidden block bg-slate-100"
-              >
-                <img
-                  src={product.image}
-                  alt={`${product.title} industrial gas`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                />
-              </NavLink>
-
-              <div className="p-4 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-slate-900 font-bold text-sm mb-1 group-hover:text-sky-700 transition-colors">
-                    {product.title}
-                  </h3>
-                  <p className="text-slate-600 text-xs line-clamp-2 leading-relaxed">{product.description}</p>
-                </div>
-              </div>
-
-              <div className="p-3 bg-slate-50 flex items-center justify-between gap-2 border-t border-slate-100">
+        {filteredProducts.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+            {filteredProducts.map((product) => (
+              <div key={product.id} className="group bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs hover:border-slate-300 transition flex flex-col justify-between">
                 <NavLink
                   to={`/products/${product.slug || 'bulk-cryogenic'}`}
-                  className="text-xs font-bold text-sky-700 hover:text-sky-900 flex items-center gap-1"
+                  className="relative h-44 overflow-hidden block bg-slate-100"
                 >
-                  <span>View Specs</span>
-                  <ArrowRight className="h-3 w-3" />
+                  <img
+                    src={product.image}
+                    alt={`${product.title} industrial gas`}
+                    width={400}
+                    height={200}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  />
                 </NavLink>
-                <NavLink
-                  to="/contact"
-                  className="text-[11px] font-bold uppercase tracking-wider bg-white hover:bg-slate-100 text-slate-800 border border-slate-200 px-2.5 py-1 rounded transition"
-                >
-                  Request Quote
-                </NavLink>
+
+                <div className="p-4 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-slate-900 font-bold text-sm mb-1 group-hover:text-sky-700 transition-colors">
+                      {product.title}
+                    </h3>
+                    <p className="text-slate-600 text-xs line-clamp-2 leading-relaxed">{product.description}</p>
+                  </div>
+                </div>
+
+                <div className="p-3 bg-slate-50 flex items-center justify-between gap-2 border-t border-slate-100">
+                  <NavLink
+                    to={`/products/${product.slug || 'bulk-cryogenic'}`}
+                    className="text-xs font-bold text-sky-700 hover:text-sky-900 flex items-center gap-1"
+                  >
+                    <span>View Specs</span>
+                    <ArrowRight className="h-3 w-3" />
+                  </NavLink>
+                  <NavLink
+                    to="/contact"
+                    className="text-[11px] font-bold uppercase tracking-wider bg-white hover:bg-slate-100 text-slate-800 border border-slate-200 px-2.5 py-1 rounded transition"
+                  >
+                    Request Quote
+                  </NavLink>
+                </div>
               </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-10 bg-slate-50 rounded-xl border border-slate-200 p-8 max-w-lg mx-auto">
+            <h3 className="text-sm font-bold text-slate-900 mb-1">No products found for &ldquo;{searchQuery}&rdquo;</h3>
+            <p className="text-xs text-slate-600 mb-4">Looking for a custom gas mixture, specific purity grade, or specialized cylinder quad?</p>
+            <div className="flex justify-center gap-3">
+              <button
+                onClick={() => setSearchQuery('')}
+                className="text-xs font-semibold px-3.5 py-1.5 bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition"
+              >
+                Clear Search
+              </button>
+              <NavLink
+                to="/contact"
+                className="text-xs font-semibold px-3.5 py-1.5 bg-sky-600 text-white rounded-lg hover:bg-sky-500 transition"
+              >
+                Request Custom Blend
+              </NavLink>
             </div>
-          ))}
-        </div>
+          </div>
+        )}
       </section>
 
       {/* On-Site Storage Rental Highlight Banner */}
@@ -380,6 +487,9 @@ const Products: React.FC = () => {
                   <img
                     src={option.image}
                     alt={`${option.title} gas supply`}
+                    width={120}
+                    height={80}
+                    loading="lazy"
                     className="max-h-full object-contain group-hover:scale-105 transition duration-500"
                   />
                 </div>

@@ -74,40 +74,61 @@
         }
     </script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              fontFamily: {
-                sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-              },
-              colors: {
-                shakti: {
-                  DEFAULT: '#0284c7',
-                  blue: '#0284c7',
-                  dark: '#0f172a',
-                  navy: '#0b1329',
-                  steel: '#334155',
-                  light: '#f8fafc',
-                  slate: '#f1f5f9',
-                  accent: '#38bdf8'
-                }
-              }
-            }
-          }
-        }
-    </script>
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
+    <!-- Critical Origin Preconnects (Fonts & Vercel Asset Storage) -->
+    <link rel="preconnect" href="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com" crossorigin>
+    <link rel="dns-prefetch" href="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    </noscript>
 </head>
 <body>
-<div id="root"></div>
+<div id="root">
+    <div style="position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#ffffff;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;z-index:9999;">
+        <style>
+            @keyframes initial-heartbeat {
+              0% { transform: scale(1); }
+              14% { transform: scale(1.12); }
+              28% { transform: scale(1); }
+              42% { transform: scale(1.18); }
+              70% { transform: scale(1); }
+              100% { transform: scale(1); }
+            }
+            @keyframes initial-pulse {
+              0%, 100% { transform: scale(0.95); opacity: 0.5; }
+              50% { transform: scale(1.2); opacity: 0.15; }
+            }
+            @keyframes initial-bar {
+              0% { transform: translateX(-100%); }
+              50% { transform: translateX(100%); }
+              100% { transform: translateX(200%); }
+            }
+            .initial-logo-pulse {
+              animation: initial-heartbeat 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+            }
+            .initial-ring {
+              animation: initial-pulse 2.2s infinite;
+            }
+            .initial-bar-anim {
+              animation: initial-bar 1.4s ease-in-out infinite;
+            }
+        </style>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+            <div class="initial-ring" style="position:absolute;width:140px;height:140px;border-radius:50%;background:#e0f2fe;pointer-events:none;"></div>
+            <div class="initial-logo-pulse" style="position:relative;z-index:1;margin-bottom:16px;">
+                <img src="/ShaktiLogo.svg" alt="Shakti Group" width="72" height="51" style="width:72px;height:auto;display:block;" />
+            </div>
+            <div style="font-weight:800;font-size:14px;color:#0f172a;letter-spacing:0.08em;text-transform:uppercase;">SHAKTI GROUP</div>
+            <div style="font-size:10px;font-weight:700;color:#0369a1;letter-spacing:0.12em;text-transform:uppercase;margin-top:2px;">INDUSTRIAL GASES & CRYOGENICS</div>
+            <div style="width:130px;height:4px;background:#f1f5f9;border-radius:9999px;overflow:hidden;margin-top:16px;position:relative;">
+                <div class="initial-bar-anim" style="width:50%;height:100%;background:#0369a1;border-radius:9999px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="module" src="/index.tsx"></script>
 </body>
 </html>

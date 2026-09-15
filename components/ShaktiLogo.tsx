@@ -14,8 +14,10 @@ export const ShaktiLogo: React.FC<ShaktiLogoProps> = ({
   return (
     <div className="flex items-center gap-3">
       <img
-        src="/assets/ShaktiLogo.svg"
+        src="/ShaktiLogo.svg"
         alt="Shakti Group Logo"
+        width={48}
+        height={34}
         className={`${className} object-contain`}
         onError={(e) => {
           // Fallback to favicon.svg if asset path fails
@@ -27,7 +29,7 @@ export const ShaktiLogo: React.FC<ShaktiLogoProps> = ({
           <span className={`font-bold tracking-tight text-lg leading-tight uppercase ${variant === 'white' ? 'text-white' : 'text-slate-900'}`}>
             SHAKTI
           </span>
-          <span className={`text-[10px] font-semibold tracking-widest uppercase ${variant === 'white' ? 'text-sky-300' : 'text-sky-600'}`}>
+          <span className={`text-[10px] font-bold tracking-widest uppercase ${variant === 'white' ? 'text-sky-300' : 'text-sky-800'}`}>
             GROUP OF COMPANIES
           </span>
         </div>

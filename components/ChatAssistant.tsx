@@ -323,11 +323,14 @@ const ChatAssistant: React.FC = () => {
   }, [showTeaser, isOpen, isTeaserHovered]);
 
   const scrollToBottom = () => {
+    if (!isOpen || activeTab !== 'chat') return;
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
-    scrollToBottom();
+    if (isOpen && activeTab === 'chat') {
+      scrollToBottom();
+    }
   }, [messages, isLoading, isOpen, activeTab]);
 
   // Focus input when opened
@@ -693,9 +696,9 @@ const ChatAssistant: React.FC = () => {
                   Shakti Gas Consultant
                 </span>
                 {isTeaserHovered ? (
-                  <span className="text-[9.5px] text-slate-400 font-medium ml-auto pr-4">Paused</span>
+                  <span className="text-[9.5px] text-slate-600 font-semibold ml-auto pr-4">Paused</span>
                 ) : (
-                  <span className="text-[9.5px] text-slate-400 font-mono ml-auto pr-4">
+                  <span className="text-[9.5px] text-slate-600 font-mono font-semibold ml-auto pr-4">
                     {Math.ceil(teaserTimeLeft / 1000)}s
                   </span>
                 )}

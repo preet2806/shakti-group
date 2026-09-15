@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   Factory,
@@ -182,6 +182,9 @@ const PlantCarousel: React.FC<{ data: typeof MANUFACTURING_SITES[0]; index: numb
                 <img
                   src={img}
                   alt={`${data.title} plant view ${i + 1}`}
+                  width={640}
+                  height={480}
+                  loading={i === 0 ? "eager" : "lazy"}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -212,6 +215,38 @@ const PlantCarousel: React.FC<{ data: typeof MANUFACTURING_SITES[0]; index: numb
 };
 
 const Home: React.FC = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Direct DOM attribute configuration for iOS Safari & Android mobile autoplay policy
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', 'true');
+    video.defaultMuted = true;
+    video.muted = true;
+
+    const playVideo = () => {
+      video.play().catch(() => {
+        // Retry muted autoplay on interaction if low-power mode or aggressive browser policy restricts
+        const handleInteraction = () => {
+          if (video) {
+            video.muted = true;
+            video.play().catch(() => {});
+          }
+          window.removeEventListener('touchstart', handleInteraction);
+          window.removeEventListener('click', handleInteraction);
+        };
+        window.addEventListener('touchstart', handleInteraction, { once: true, passive: true });
+        window.addEventListener('click', handleInteraction, { once: true, passive: true });
+      });
+    };
+
+    playVideo();
+  }, []);
+
   return (
     <div className="bg-white font-sans text-slate-900">
       <SEO
@@ -223,12 +258,15 @@ const Home: React.FC = () => {
       {/* 1. HERO SECTION - Full Size Video Hero */}
       <div className="relative min-h-[520px] sm:min-h-[580px] lg:min-h-[620px] flex items-center overflow-hidden bg-slate-950 border-b border-slate-800">
         <video
+          ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
+          poster="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air-separation-unit-karjan.webp"
+          aria-label="Karjan Air Separation Unit and Cryogenic Operations"
         >
           <source src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air-separation-unit-karjan.webm" type="video/webm" />
           <source src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air-separation-unit-karjan.mp4" type="video/mp4" />
@@ -256,7 +294,7 @@ const Home: React.FC = () => {
             <div className="flex flex-wrap gap-3 pt-2">
               <NavLink
                 to="/products"
-                className="inline-flex items-center justify-center bg-sky-600 hover:bg-sky-500 text-white font-semibold px-6 py-3 rounded-lg text-sm transition duration-150 shadow-sm"
+                className="inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white font-bold px-6 py-3 rounded-lg text-sm transition duration-150 shadow-sm"
               >
                 View Gas Portfolio
               </NavLink>
@@ -428,6 +466,9 @@ const Home: React.FC = () => {
                     <img
                       src={opt.image}
                       alt={opt.title}
+                      width={56}
+                      height={56}
+                      loading="lazy"
                       className="w-full h-full object-contain group-hover:scale-105 transition"
                     />
                   </div>
@@ -860,7 +901,7 @@ const Home: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-3 pt-2">
             <NavLink
               to="/contact"
-              className="bg-sky-600 hover:bg-sky-700 text-white font-bold px-6 py-3 rounded-lg text-xs sm:text-sm tracking-wide uppercase transition shadow-sm inline-flex items-center gap-2"
+              className="bg-sky-700 hover:bg-sky-800 text-white font-bold px-6 py-3 rounded-lg text-xs sm:text-sm tracking-wide uppercase transition shadow-sm inline-flex items-center gap-2"
             >
               <span>Request a Supply Quote</span>
               <ArrowRight className="w-4 h-4" />

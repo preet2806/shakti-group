@@ -24,12 +24,10 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
+      return () => {
+        document.body.style.overflow = 'unset';
+      };
     }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
   }, [isOpen]);
 
   const handleMouseEnter = (label: string) => {
@@ -194,7 +192,7 @@ const Navbar: React.FC = () => {
           <div className="hidden lg:flex items-center space-x-3">
             <NavLink
               to="/contact"
-              className="inline-flex items-center justify-center bg-sky-600 hover:bg-sky-700 text-white px-5 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase transition shadow-sm hover:shadow"
+              className="inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white px-5 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase transition shadow-sm hover:shadow"
             >
               REQUEST A QUOTE
             </NavLink>
@@ -204,7 +202,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center gap-2 lg:hidden">
             <NavLink
               to="/contact"
-              className="bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold px-3 py-2 rounded-lg transition shadow-sm"
+              className="bg-sky-700 hover:bg-sky-800 text-white text-xs font-bold px-3 py-2 rounded-lg transition shadow-sm"
             >
               Quote
             </NavLink>
@@ -368,7 +366,7 @@ const Navbar: React.FC = () => {
                 <NavLink
                   to="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 rounded-xl text-sm shadow-sm transition active:bg-sky-800"
+                  className="flex items-center justify-center gap-2 w-full bg-sky-700 hover:bg-sky-800 text-white font-bold py-3 rounded-xl text-sm shadow-sm transition active:bg-sky-900"
                 >
                   <FileText className="h-4 w-4" />
                   <span>Request a Quotation</span>
@@ -384,3 +382,4 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+

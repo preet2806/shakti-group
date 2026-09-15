@@ -308,6 +308,9 @@ const Contact: React.FC = () => {
               >
                 <img
                   src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?q=80&w=600&auto=format&fit=crop"
+                  width={600}
+                  height={192}
+                  loading="lazy"
                   className="w-full h-full object-cover opacity-75 group-hover:opacity-90 transition"
                   alt="Shakti Industrial Gases office location in Ranoli GIDC Vadodara Gujarat"
                 />
