@@ -12,9 +12,10 @@ import {
   Zap,
   PhoneCall,
   Atom,
-  Grid,
   MapPin,
-  Clock
+  Clock,
+  FileText,
+  HelpCircle
 } from 'lucide-react';
 import SEO from '../../components/SEO';
 import {
@@ -31,12 +32,19 @@ export const CATEGORY_SUBPAGES_DATA: Record<string, ProductPageData> = {
     symbolBadge: 'Bulk Cryogenic Liquids',
     casNumber: '7782-44-7 (LOX) | 7727-37-9 (LIN)',
     unNumber: 'UN 1073 (LOX) | UN 1977 (LIN) | UN 1951 (LAR)',
-    subtitle: 'Industrial-volume liquid oxygen, nitrogen, argon, and CO₂ delivered via our 65+ vacuum-insulated cryogenic road tankers (10-35 KL) and on-site tank setups.',
+    subtitle: 'Industrial-volume liquid oxygen, nitrogen, argon, and CO₂ delivered via our 65+ vacuum-insulated cryogenic road tankers (10-35 KL) and turnkey on-site storage setups.',
     heroImage: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/product_hero.png',
     category: 'liquid',
     categoryLabel: 'Bulk & Cryogenic Gases',
     categorySlug: 'bulk-cryogenic',
-    puritiesAvailable: ['99.5% Commercial LOX', '99.999% UHP LIN (Grade 5.0)', '99.999% High Purity LAR', '99.9% Food Grade LCO₂ (E290)'],
+    physicalState: 'Cryogenic Liquid (-196°C to -78.5°C)',
+    puritiesAvailable: [
+      'Commercial Grade LOX (≥ 99.5%)',
+      'Medical Oxygen IP Grade (≥ 99.5% FDA Approved)',
+      'Ultra-High-Purity LIN (Grade 5.0 - 99.999%)',
+      'High-Purity Liquid Argon (Grade 5.0 - 99.999%)',
+      'Food Grade Liquid CO₂ (≥ 99.9% ISBT / E290)'
+    ],
     physicalProperties: {
       boilingPoint: '-195.8°C (LIN) / -183.0°C (LOX)',
       expansionRatio: '1 : 860 (Liquid to Gas @ 15°C)',
@@ -88,14 +96,6 @@ export const CATEGORY_SUBPAGES_DATA: Record<string, ProductPageData> = {
     seoTitle: 'Bulk Cryogenic Gases Supplier India | Liquid Nitrogen (LIN), LOX, LAR Tankers | Shakti Group',
     seoDesc: 'Premier bulk cryogenic gases supplier in India. 448 TPD capacity, 65+ cryogenic road tankers (10-35 KL) delivering Liquid Nitrogen (LIN), Liquid Oxygen (LOX), Liquid Argon (LAR), and LCO2. Turnkey on-site cryogenic tank installation on rental model across Gujarat, Maharashtra & nationwide.',
     keywords: 'Bulk cryogenic gases supplier, Liquid nitrogen bulk supplier India, Liquid oxygen tanker supplier, Liquid argon bulk supplier, Bulk LCO2 tanker, on site cryogenic tank rental, cryogenic road tankers Gujarat Vadodara Dahej Ankleshwar, LIN bulk tanker',
-    alternateNames: ['Bulk Cryogenic Gases', 'Liquid Nitrogen Bulk Supplier', 'Liquid Oxygen Tanker Supplier', 'Bulk Cryogenic Liquids', 'Cryogenic Tank Rental'],
-    targetQueries: [
-      'Liquid nitrogen bulk supplier India',
-      'Bulk cryogenic gas supplier India',
-      'Liquid oxygen cryogenic road tanker supplier',
-      'On-site cryogenic storage tank rental setup',
-      'Bulk LIN LAR LOX supplier Gujarat'
-    ],
     deliveryCoverage: ['Vadodara', 'Dahej PCPIR', 'Ankleshwar', 'Surat & Hazira', 'Ahmedabad', 'Sanand', 'Halol & Savli', 'Bharuch & Jhagadia', 'Maharashtra', 'Madhya Pradesh', 'Rajasthan', 'Pan-India'],
     faqs: [
       {
@@ -125,12 +125,19 @@ export const CATEGORY_SUBPAGES_DATA: Record<string, ProductPageData> = {
     category: 'industrial',
     categoryLabel: 'Industrial & Cylinder Gases',
     categorySlug: 'industrial-cylinder',
-    puritiesAvailable: ['99.5% Commercial Oxygen', '99.99% Industrial Argon', '99.9% Carbon Dioxide', '99.5% Dissolved Acetylene', '99.99% Compressed Nitrogen'],
+    physicalState: 'High-Pressure Compressed Gas (150-200 Bar)',
+    puritiesAvailable: [
+      'Commercial Oxygen (≥ 99.5%)',
+      'Industrial Shielding Argon (≥ 99.99%)',
+      'Carbon Dioxide Welding Grade (≥ 99.9%)',
+      'Dissolved Acetylene IS:308 Grade',
+      'Compressed Nitrogen (≥ 99.99%)'
+    ],
     physicalProperties: {
-      boilingPoint: 'Varies by Gas Chemistry',
+      boilingPoint: 'Varies by Chemistry',
       expansionRatio: 'Compressed Gas @ 150-200 Bar',
       gasDensity: 'Standard Atmospheric Data',
-      molecularWeight: 'Varies by Chemical Formula',
+      molecularWeight: 'Specific to Compound',
       criticalTemp: 'Varies by Gas Type'
     },
     overview: 'Shakti Group operates 6+ high-pressure cylinder refilling stations equipped with automated compression manifolds, vacuum evacuation bays, and hydrostatic testing stations certified by PESO. We supply industrial cylinders, cylinder bundles (MCP quads), and mobile cascades across Gujarat and neighboring states.',
@@ -139,67 +146,68 @@ export const CATEGORY_SUBPAGES_DATA: Record<string, ProductPageData> = {
         title: 'High-Pressure Seamless Cylinders (47L / 50L)',
         capacity: '7m³ to 10m³ Compressed Gas',
         pressure: '150 Bar to 200 Bar',
-        description: 'Individually tested steel cylinders color-coded per IS:4379 with PESO approved brass valves.',
-        idealFor: 'Metal fabrication workshops, maintenance facilities, and construction sites.'
+        description: 'PESO certified carbon steel cylinders with color-coded bodies per IS:4379 standard.',
+        idealFor: 'Fabrication workshops, maintenance operations, and medium cutting shops.'
       },
       {
-        title: 'Multi-Cylinder Packs (MCP Quads)',
-        capacity: '12 to 16 Cylinder Bundles (~100m³)',
-        pressure: '200 Bar Integrated Header',
-        description: 'Manifolded cylinder quads in heavy steel lifting cages with single central pressure regulator connection.',
-        idealFor: 'Heavy structural fabrication, laser cutting workshops, and pipeline testing.'
+        title: 'Manifold Cylinder Quads (MCP - 16 Cylinders)',
+        capacity: '110m³ to 160m³ Bundled Volume',
+        pressure: '150 Bar to 200 Bar',
+        description: 'Pre-manifolded 16-cylinder steel pallets with single outlet connection for high-flow requirements.',
+        idealFor: 'Construction projects, structural steel yards, and batch heat treatment.'
       },
       {
-        title: 'Mobile Hydrogen Tube Cascades',
-        capacity: '1,500m³ to 4,500m³ High-Volume Supply',
-        pressure: 'Up to 200 Bar',
-        description: 'Multi-tube trailer cascades connected to customer pressure regulating and decanting skids.',
-        idealFor: 'Refineries, continuous bright annealing furnaces, and chemical plants.'
+        title: 'Mobile Tube Cascades & Skids',
+        capacity: '1,500m³ to 4,500m³ Bulk Gas',
+        pressure: '200 Bar to 250 Bar',
+        description: 'Multi-tube semi-trailers providing uninterrupted gaseous supply directly to plant manifolds.',
+        idealFor: 'Refinery catalyst regeneration, pipeline pneumatic testing, and chemical synthesis.'
       }
     ],
     applications: [
-      { industry: 'Metal Fabrication & Welding', useCase: 'Oxy-acetylene cutting, brazing, and TIG/MIG inert shielding', recommendedPurity: 'Argon ≥ 99.99% / DA ≥ 98.5%' },
-      { industry: 'Laser Cutting Assist Gas', useCase: 'High-pressure nitrogen cutting of stainless steel & aluminum sheets', recommendedPurity: 'Nitrogen ≥ 99.999%' },
-      { industry: 'Heat Treatment & Annealing', useCase: 'Hydrogen & nitrogen protective reducing atmosphere in bright annealing', recommendedPurity: 'Hydrogen ≥ 99.99% / N₂ ≥ 99.99%' }
+      { industry: 'Metal Fabrication & Welding', useCase: 'MIG/TIG shielding (Argon/CO₂ mixtures) and oxy-acetylene cutting', recommendedPurity: 'Commercial & Shielding Grade' },
+      { industry: 'Refineries & Petrochemicals', useCase: 'Emergency purging and pipeline pressure testing', recommendedPurity: 'Compressed Nitrogen (≥ 99.99%)' },
+      { industry: 'Manufacturing & Automotive', useCase: 'Heat treatment inert atmosphere and laser assist gas', recommendedPurity: 'High-Purity Industrial Grade' }
     ],
     handlingSafety: [
-      'Store high-pressure gas cylinders vertically and secure with safety chains to prevent toppling.',
-      'Always use a certified two-stage pressure regulator matching the specific gas valve type.',
-      'Keep flammable gases like Acetylene and Hydrogen separated from Oxygen cylinders.'
+      'Always secure high-pressure cylinders upright using robust safety chains or trolleys.',
+      'Never allow oil, grease, or flammable lubricants on oxygen cylinder valves or regulators.',
+      'Check hydrostatic test re-certification date stamped on the cylinder neck ring before use.'
     ],
     relatedProducts: [
-      { title: 'Dissolved Acetylene (DA)', slug: 'dissolved-acetylene', formula: 'C₂H₂' },
       { title: 'Hydrogen Gas (H₂)', slug: 'hydrogen-gas', formula: 'H₂' },
+      { title: 'Dissolved Acetylene (DA)', slug: 'dissolved-acetylene', formula: 'C₂H₂' },
       { title: 'Carbon Dioxide Gas (CO₂)', slug: 'carbon-dioxide-gas', formula: 'CO₂' }
     ],
-    seoTitle: 'Industrial Gas Cylinders & MCP Quads Supplier India | Shakti Group',
-    seoDesc: 'High-pressure Oxygen, Nitrogen, Argon, CO2, Hydrogen, and Acetylene cylinders and MCP quads. 100% PESO certified refilling stations in Gujarat.',
-    keywords: 'Industrial Gas Cylinders Vadodara, Oxygen Cylinder Supply, Argon Gas Quad, Hydrogen Cascades',
-    targetQueries: [
-      'Industrial gas cylinder refilling near me',
-      'Oxygen cylinder supplier Gujarat',
-      'Nitrogen gas cylinder MCP quad bundle',
-      'Dissolved acetylene gas cylinder supplier'
-    ],
-    deliveryCoverage: ['Vadodara', 'Ahmedabad', 'Surat', 'Ankleshwar', 'Dahej', 'Halol', 'Savli', 'Bharuch', 'Gujarat']
+    seoTitle: 'Industrial Compressed Gases & Cylinders Supplier Gujarat | Shakti Group',
+    seoDesc: 'High-pressure seamless cylinders, 16-cylinder quads (MCP), and tube cascades. Dissolved Acetylene (DA), Oxygen, Nitrogen, Argon, and CO2 cylinders refilled at PESO certified stations.',
+    keywords: 'Industrial Gas Cylinders Vadodara, Acetylene DA Supplier, MCP Cylinder Quads, Compressed Nitrogen Tankers',
+    deliveryCoverage: ['Vadodara', 'Dahej', 'Ankleshwar', 'Surat', 'Ahmedabad', 'Gujarat', 'Western India']
   },
 
   'specialty-calibration': {
     slug: 'specialty-calibration',
-    title: 'Specialty & Calibration Gases Catalog',
-    chemicalFormula: 'Grade 5.0 - 6.0 / NIST Standards',
-    symbolBadge: 'UHP & Calibration Standards',
-    casNumber: 'Traceable Certified Blends',
-    unNumber: 'UN 1956 (Compressed Gas N.O.S.)',
-    subtitle: 'Ultra-High Purity (UHP) carrier gases and NIST/NABL traceable multi-component calibration gas mixtures for analytical laboratories and CEMS.',
-    heroImage: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1600',
+    title: 'Specialty & Calibration Gas Mixtures',
+    chemicalFormula: 'UHP & Multi-Component Mixes',
+    symbolBadge: 'Grade 5.0 - 6.0 UHP',
+    casNumber: 'Traceable Certified Mixes',
+    unNumber: 'UN 1956 (Compressed Gas, N.O.S.)',
+    subtitle: 'Ultra-High-Purity (UHP) gases up to Grade 6.0 and NIST/NABL traceable calibration mixtures for analytical laboratories and QC instruments.',
+    heroImage: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1600',
     category: 'high-purity',
     categoryLabel: 'Specialty & Calibration Gases',
     categorySlug: 'specialty-calibration',
-    puritiesAvailable: ['Grade 5.0 (99.999%)', 'Grade 5.5 (99.9995%)', 'Grade 6.0 (99.9999%)', 'PPM / PPB Trace Gas Blends', 'NIST / NABL Traceable Calibration Standards'],
+    physicalState: 'High-Purity Gas & Precision Gravimetric Mixes',
+    puritiesAvailable: [
+      'Ultra-High Purity Grade 5.0 (99.999%)',
+      'Electronic Grade 5.5 (99.9995%)',
+      'Semiconductor Grade 6.0 (99.9999%)',
+      'NIST Traceable Calibration Mixtures (PPM / PPB)',
+      'Laser Resonator Cutting Mixtures'
+    ],
     physicalProperties: {
       boilingPoint: 'Certified Purity Specific',
-      expansionRatio: 'N/A - Gravimetric Precision',
+      expansionRatio: 'Gravimetric Precision Blend',
       gasDensity: 'Gravimetric Certified Data',
       molecularWeight: 'NIST Traceable Composition',
       criticalTemp: 'Certified Environment'
@@ -239,12 +247,6 @@ export const CATEGORY_SUBPAGES_DATA: Record<string, ProductPageData> = {
     seoTitle: 'Specialty Gases & Calibration Standards Supplier India | Shakti Group',
     seoDesc: 'Ultra-High Purity (UHP) gases (Grade 5.0 - 6.0) and NIST traceable calibration gas mixtures for GC-MS, CEMS, and analytical laboratories.',
     keywords: 'Specialty Gases Gujarat, UHP Argon, Calibration Gas Mixtures, Gas Chromatography Carrier Gas',
-    targetQueries: [
-      'Specialty gas supplier India',
-      'Calibration gas mixtures supplier Gujarat',
-      'Ultra high purity UHP grade 5.0 6.0 gases',
-      'GC-MS carrier gas helium nitrogen supplier'
-    ],
     deliveryCoverage: ['Vadodara', 'Ahmedabad', 'Surat', 'Mumbai', 'Pune', 'Delhi NCR', 'Pan-India']
   },
 
@@ -260,7 +262,13 @@ export const CATEGORY_SUBPAGES_DATA: Record<string, ProductPageData> = {
     category: 'other',
     categoryLabel: 'Other Products & Hardware',
     categorySlug: 'other',
-    puritiesAvailable: ['Food Grade Solid CO₂ (≥ 99.9%)', '3mm High-Density Pellets', '6mm Pellets', '5kg Insulated Blocks'],
+    physicalState: 'Solid (-78.5°C) & Cryogenic Equipment',
+    puritiesAvailable: [
+      'Food Grade Solid CO₂ (≥ 99.9%)',
+      '3mm High-Density Pellets',
+      '6mm Pellets for Cold-Chain Storage',
+      '5kg Insulated High-Density Blocks'
+    ],
     physicalProperties: {
       boilingPoint: '-78.5°C Sublimation Point',
       expansionRatio: '1 kg Solid = ~500L CO₂ Gas',
@@ -309,17 +317,10 @@ export const CATEGORY_SUBPAGES_DATA: Record<string, ProductPageData> = {
     seoTitle: 'Dry Ice, Cryogenic Dewars & Gas Hardware Supplier | Shakti Group',
     seoDesc: 'Solid CO2 dry ice pellets and blocks, liquid nitrogen dewars, and pressure regulators in Gujarat. FSSAI food grade dry ice supplier in Vadodara.',
     keywords: 'Dry Ice Supplier Vadodara, Solid CO2 Blocks, Liquid Nitrogen Dewar, Gas Pressure Regulators',
-    targetQueries: [
-      'Dry ice supplier in Vadodara Gujarat',
-      'Solid CO2 dry ice pellets for pharma cold chain',
-      'Liquid nitrogen dewar flask container supplier',
-      'High pressure gas regulator double stage'
-    ],
     deliveryCoverage: ['Vadodara', 'Ahmedabad', 'Surat', 'Ankleshwar', 'Bharuch', 'Gujarat', 'Western India']
   }
 };
 
-// Combined dictionary of all subpages (categories + individual products)
 export const ALL_PRODUCTS_SUBPAGES_DATA: Record<string, ProductPageData> = {
   ...CATEGORY_SUBPAGES_DATA,
   ...INDIVIDUAL_PRODUCTS_DATA
@@ -333,7 +334,9 @@ export const ProductSubPage: React.FC = () => {
   const resolvedSlug = PRODUCT_SLUG_ALIASES[rawSlug.toLowerCase()] || rawSlug;
   const data = ALL_PRODUCTS_SUBPAGES_DATA[resolvedSlug] || CATEGORY_SUBPAGES_DATA['bulk-cryogenic'];
 
-  // Structured Data (JSON-LD) multi-schema graph for search engines
+  const isIndividualProduct = !(data.slug in CATEGORY_SUBPAGES_DATA);
+
+  // Structured Data (JSON-LD)
   const canonicalUrl = `https://www.shaktigases.com/products/${data.slug}`;
 
   const productSchema = {
@@ -433,28 +436,27 @@ export const ProductSubPage: React.FC = () => {
 
   const combinedSchema = [productSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])];
 
-  // Dynamic keyword string combining keywords and targetQueries in pipeline format
-  const pipelineTargetQueries = data.targetQueries && data.targetQueries.length > 0
-    ? data.targetQueries.join(' | ')
-    : '';
-  const formattedKeywords = [data.keywords, pipelineTargetQueries].filter(Boolean).join(' | ');
+  // List of other gases in the same category for clean sidebar navigation
+  const siblingProducts = Object.values(INDIVIDUAL_PRODUCTS_DATA).filter(
+    p => p.category === data.category && p.slug !== data.slug
+  ).slice(0, 5);
 
   return (
     <div className="bg-white min-h-screen text-slate-900 font-sans">
       <SEO
         title={data.seoTitle}
         description={data.seoDesc}
-        keywords={formattedKeywords}
+        keywords={data.keywords}
         canonicalUrl={canonicalUrl}
         schemaJson={combinedSchema}
       />
 
-      {/* Hero Header */}
-      <div className="bg-slate-900 text-white border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+      {/* Clean, Refined Hero Header (No Blobs, No Box Clutter) */}
+      <header className="relative bg-slate-950 text-white border-b border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
 
           {/* Breadcrumb Navigation */}
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-xs text-slate-400 mb-6">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-xs text-slate-400 mb-5 font-medium">
             <NavLink to="/" className="hover:text-white transition">Home</NavLink>
             <ChevronRight className="h-3 w-3 text-slate-600" />
             <NavLink to="/products" className="hover:text-white transition">Products</NavLink>
@@ -467,474 +469,530 @@ export const ProductSubPage: React.FC = () => {
               </>
             )}
             <ChevronRight className="h-3 w-3 text-slate-600" />
-            <span className="text-sky-400 font-semibold">{data.title}</span>
+            <span className="text-sky-400 font-semibold truncate max-w-xs">{data.title}</span>
           </nav>
 
-          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
-            <div className="max-w-3xl space-y-4">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="bg-sky-600 text-white font-bold text-xs px-2.5 py-1 rounded uppercase tracking-wider shadow-xs">
-                  {data.symbolBadge}
-                </span>
-                <span className="bg-slate-800 text-sky-300 font-mono text-xs px-2.5 py-1 rounded border border-slate-700 font-semibold">
-                  Formula: {data.chemicalFormula}
-                </span>
-                {data.casNumber && (
-                  <span className="bg-slate-800 text-slate-300 font-mono text-xs px-2.5 py-1 rounded border border-slate-700">
-                    CAS: {data.casNumber}
-                  </span>
-                )}
-                {data.unNumber && (
-                  <span className="bg-slate-800 text-slate-300 font-mono text-xs px-2.5 py-1 rounded border border-slate-700">
-                    {data.unNumber}
-                  </span>
-                )}
-              </div>
-
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+          {/* Title & Chemical Formula Header */}
+          <div className="max-w-4xl space-y-4">
+            <div className="flex flex-wrap items-baseline gap-3">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white">
                 {data.title}
               </h1>
+              {data.chemicalFormula && (
+                <span className="font-mono text-xs sm:text-sm font-bold px-2.5 py-1 rounded bg-sky-950 text-sky-400 border border-sky-800/80">
+                  {data.chemicalFormula}
+                </span>
+              )}
+            </div>
 
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                {data.subtitle}
-              </p>
+            <p className="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed font-normal max-w-3xl">
+              {data.subtitle}
+            </p>
 
-              {/* Quality & PESO Assurance Badges */}
-              <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-slate-400">
-                <div className="flex items-center gap-1.5 text-slate-300">
-                  <ShieldCheck className="h-4 w-4 text-emerald-400" />
-                  <span>PESO Certified Storage & Tankers</span>
+            {/* Quiet, Cohesive Technical Meta Strip (Replacing Scattered Pill Blobs) */}
+            <div className="flex flex-wrap items-center gap-y-2 gap-x-5 pt-3 text-xs text-slate-400 font-medium">
+              <div>
+                <span className="text-slate-500">Classification:</span>{' '}
+                <span className="text-slate-200 font-semibold">{data.categoryLabel}</span>
+              </div>
+              {data.casNumber && (
+                <div>
+                  <span className="text-slate-500">CAS:</span>{' '}
+                  <span className="text-slate-200 font-mono">{data.casNumber}</span>
                 </div>
-                <div className="flex items-center gap-1.5 text-slate-300">
-                  <CheckCircle2 className="h-4 w-4 text-sky-400" />
-                  <span>ISO 9001:2015 Quality Tested</span>
+              )}
+              {data.unNumber && (
+                <div>
+                  <span className="text-slate-500">Transport:</span>{' '}
+                  <span className="text-slate-200 font-mono">{data.unNumber}</span>
                 </div>
-                <div className="flex items-center gap-1.5 text-slate-300">
-                  <Zap className="h-4 w-4 text-amber-400" />
-                  <span>IoT Fleet & Tank Telemetry</span>
+              )}
+              {data.physicalState && (
+                <div>
+                  <span className="text-slate-500">Physical State:</span>{' '}
+                  <span className="text-slate-200 font-semibold">{data.physicalState}</span>
                 </div>
+              )}
+              <div className="text-emerald-400 font-semibold flex items-center gap-1">
+                <CheckCircle2 className="h-3.5 w-3.5" />
+                <span>PESO Certified</span>
               </div>
             </div>
 
-            {/* Quick Action Card */}
-            <div className="bg-slate-900 border border-slate-800 p-5 rounded-lg shrink-0 w-full lg:w-72 space-y-3">
-              <span className="text-xs font-semibold text-slate-300 block uppercase tracking-wider">
-                Direct Supply Inquiries
-              </span>
-              <p className="text-xs text-slate-400">
-                Need bulk tanker loads (10-35 KL), cylinder bundles, or an on-site storage tank setup?
-              </p>
+            {/* Direct Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3 pt-3">
               <NavLink
                 to="/contact"
-                className="flex items-center justify-center gap-2 w-full bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition shadow-sm"
+                className="inline-flex items-center gap-2 bg-sky-700 hover:bg-sky-800 text-white text-xs font-bold px-5 py-2.5 rounded-lg transition shadow-sm"
               >
-                <span>Request Technical Quote</span>
+                <span>Request Quotation & Spec Sheet</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </NavLink>
+
               <a
                 href="tel:+919825008544"
-                className="flex items-center justify-center gap-2 w-full bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-4 py-2 rounded-lg transition border border-slate-700"
+                className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-semibold px-4 py-2.5 rounded-lg transition border border-slate-700"
               >
                 <PhoneCall className="h-3.5 w-3.5 text-emerald-400" />
-                <span>Call +91 98250 08544</span>
+                <span>Plant Dispatch: +91 98250 08544</span>
               </a>
             </div>
           </div>
 
         </div>
-      </div>
+      </header>
 
-      {/* Quick Switcher of Key Products */}
-      <section className="bg-slate-100 border-b border-slate-200 py-2.5 overflow-x-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-xs">
-          <span className="font-bold text-slate-700 uppercase tracking-wider shrink-0 flex items-center gap-1 mr-2 text-xs">
-            <Grid className="h-3.5 w-3.5 text-sky-700" />
-            Quick Select:
-          </span>
-          <div className="flex items-center gap-1.5 flex-nowrap overflow-x-auto py-1">
-            <NavLink
-              to="/products/liquid-nitrogen"
-              className={({ isActive }) =>
-                `px-3 py-1 rounded font-medium whitespace-nowrap transition border text-xs ${
-                  isActive || data.slug === 'liquid-nitrogen'
-                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
-                    : 'bg-white text-slate-700 border-slate-300 hover:border-slate-400 hover:text-sky-700'
-                }`
-              }
-            >
-              Liquid Nitrogen (LIN)
-            </NavLink>
-            <NavLink
-              to="/products/liquid-oxygen"
-              className={({ isActive }) =>
-                `px-3 py-1 rounded font-medium whitespace-nowrap transition border text-xs ${
-                  isActive || data.slug === 'liquid-oxygen'
-                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
-                    : 'bg-white text-slate-700 border-slate-300 hover:border-slate-400 hover:text-sky-700'
-                }`
-              }
-            >
-              Liquid Oxygen (LOX)
-            </NavLink>
-            <NavLink
-              to="/products/liquid-argon"
-              className={({ isActive }) =>
-                `px-3 py-1 rounded font-medium whitespace-nowrap transition border text-xs ${
-                  isActive || data.slug === 'liquid-argon'
-                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
-                    : 'bg-white text-slate-700 border-slate-300 hover:border-slate-400 hover:text-sky-700'
-                }`
-              }
-            >
-              Liquid Argon (LAR)
-            </NavLink>
-            <NavLink
-              to="/products/liquid-carbon-dioxide"
-              className={({ isActive }) =>
-                `px-3 py-1 rounded font-medium whitespace-nowrap transition border text-xs ${
-                  isActive || data.slug === 'liquid-carbon-dioxide'
-                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
-                    : 'bg-white text-slate-700 border-slate-300 hover:border-slate-400 hover:text-sky-700'
-                }`
-              }
-            >
-              Liquid CO₂ (LCO₂)
-            </NavLink>
-            <NavLink
-              to="/products/bulk-cryogenic"
-              className={({ isActive }) =>
-                `px-3 py-1 rounded font-medium whitespace-nowrap transition border text-xs ${
-                  isActive || data.slug === 'bulk-cryogenic'
-                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
-                    : 'bg-white text-slate-700 border-slate-300 hover:border-slate-400 hover:text-sky-700'
-                }`
-              }
-            >
-              Bulk Cryogenic Catalog
-            </NavLink>
-            <NavLink
-              to="/products/hydrogen-gas"
-              className={({ isActive }) =>
-                `px-3 py-1 rounded font-medium whitespace-nowrap transition border text-xs ${
-                  isActive || data.slug === 'hydrogen-gas'
-                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
-                    : 'bg-white text-slate-700 border-slate-300 hover:border-slate-400 hover:text-sky-700'
-                }`
-              }
-            >
-              Hydrogen Gas (H₂)
-            </NavLink>
-            <NavLink
-              to="/products/dissolved-acetylene"
-              className={({ isActive }) =>
-                `px-3 py-1 rounded font-medium whitespace-nowrap transition border text-xs ${
-                  isActive || data.slug === 'dissolved-acetylene'
-                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
-                    : 'bg-white text-slate-700 border-slate-300 hover:border-slate-400 hover:text-sky-700'
-                }`
-              }
-            >
-              Dissolved Acetylene (DA)
-            </NavLink>
-            <NavLink
-              to="/products/helium-gas"
-              className={({ isActive }) =>
-                `px-3 py-1 rounded font-medium whitespace-nowrap transition border text-xs ${
-                  isActive || data.slug === 'helium-gas'
-                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
-                    : 'bg-white text-slate-700 border-slate-300 hover:border-slate-400 hover:text-sky-700'
-                }`
-              }
-            >
-              Helium Gas (He)
-            </NavLink>
-            <NavLink
-              to="/products"
-              className="px-3 py-1 rounded font-semibold text-sky-800 bg-sky-50 border border-sky-200 hover:bg-sky-100 whitespace-nowrap transition text-xs"
-            >
-              View Full Catalog →
-            </NavLink>
-          </div>
-        </div>
-      </section>
+      {/* Main Technical Content Structure */}
+      <main className="py-10 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
 
-      {/* Main Content Area */}
-      <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-
+          {/* Primary Column (8 Columns) */}
           <div className="lg:col-span-8 space-y-10">
 
-            {/* Overview */}
-            <div className="space-y-3">
-              <h2 className="text-lg sm:text-xl font-bold text-slate-900 border-b border-slate-200 pb-2 flex items-center justify-between">
-                <span>Product Overview & Technical Scope</span>
-                <span className="text-xs font-semibold text-sky-800 uppercase bg-sky-50 border border-sky-200 px-2.5 py-0.5 rounded">
+            {/* 1. Technical Overview */}
+            <section className="space-y-3">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+                <h2 className="text-base sm:text-lg font-bold text-slate-900">
+                  Product Overview & Technical Scope
+                </h2>
+                <span className="text-xs font-bold text-sky-800 uppercase">
                   {data.categoryLabel}
                 </span>
-              </h2>
+              </div>
               <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
                 {data.overview}
               </p>
-            </div>
+            </section>
 
-            {/* On-Site Storage Rental Highlight (For Bulk / Cryo Gases) */}
-            {(data.category === 'liquid' || data.slug === 'bulk-cryogenic') && (
-              <div className="bg-slate-950 text-white p-6 rounded-lg border border-slate-800 space-y-3">
-                <div className="flex items-center gap-2">
-                  <span className="bg-sky-600 text-white text-xs font-bold px-2 py-0.5 rounded uppercase">
-                    Storage Setup Options Available
-                  </span>
-                  <span className="text-sky-300 text-xs font-semibold">Rental / Opex Model</span>
-                </div>
-                <h3 className="text-base sm:text-lg font-bold text-white">
-                  Turnkey On-Site Storage Tanks & Vaporizer Systems On Rental
+            {/* 2. Physical & Chemical Properties Specifications Matrix */}
+            <section className="space-y-3">
+              <div className="border-b border-slate-200 pb-2">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                  <Gauge className="h-4 w-4 text-sky-800" />
+                  <span>Physical & Chemical Properties</span>
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Avoid heavy capital expenditure: Shakti Group supplies, installs, and commissions vacuum-insulated cryogenic tanks (3 KL to 60 KL) directly at your factory premises on an opex/rental model. Tanks are equipped with ambient air vaporizers and 24/7 digital IoT level telemetry, automatically scheduling top-ups from our 65+ road tanker fleet.
-                </p>
-                <div className="pt-2">
-                  <NavLink
-                    to="/solutions/bulk-gas-supply"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-white transition"
-                  >
-                    <span>Explore Bulk Gas Supply & Tank Rental Solutions</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </NavLink>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <div className="bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+                  <span className="text-[11px] font-semibold text-slate-500 block uppercase tracking-wider">
+                    Boiling Point
+                  </span>
+                  <span className="text-sm font-bold font-mono text-slate-900 mt-1 block">
+                    {data.physicalProperties.boilingPoint}
+                  </span>
+                </div>
+
+                <div className="bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+                  <span className="text-[11px] font-semibold text-slate-500 block uppercase tracking-wider">
+                    Expansion Ratio
+                  </span>
+                  <span className="text-sm font-bold font-mono text-slate-900 mt-1 block">
+                    {data.physicalProperties.expansionRatio}
+                  </span>
+                </div>
+
+                <div className="bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+                  <span className="text-[11px] font-semibold text-slate-500 block uppercase tracking-wider">
+                    Gas Density
+                  </span>
+                  <span className="text-sm font-bold font-mono text-slate-900 mt-1 block">
+                    {data.physicalProperties.gasDensity}
+                  </span>
+                </div>
+
+                <div className="bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+                  <span className="text-[11px] font-semibold text-slate-500 block uppercase tracking-wider">
+                    Molecular Weight
+                  </span>
+                  <span className="text-sm font-bold font-mono text-slate-900 mt-1 block">
+                    {data.physicalProperties.molecularWeight}
+                  </span>
+                </div>
+
+                <div className="bg-slate-50 p-3.5 rounded-lg border border-slate-200 sm:col-span-2">
+                  <span className="text-[11px] font-semibold text-slate-500 block uppercase tracking-wider">
+                    Critical Temperature / State
+                  </span>
+                  <span className="text-sm font-bold font-mono text-slate-900 mt-1 block">
+                    {data.physicalProperties.criticalTemp}
+                  </span>
                 </div>
               </div>
-            )}
+            </section>
 
-            {/* Supply Modes */}
-            <div className="space-y-4">
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
-                <Truck className="h-4 w-4 text-sky-700" />
-                <span>Supply Modes, Packaging & Transport Options</span>
-              </h3>
+            {/* 3. Available Purity Grades */}
+            <section className="space-y-3">
+              <div className="border-b border-slate-200 pb-2">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                  <ShieldCheck className="h-4 w-4 text-sky-800" />
+                  <span>Available Purity Grades & Standards</span>
+                </h3>
+              </div>
 
-              <div className="grid grid-cols-1 gap-4">
+              <div className="bg-white rounded-xl border border-slate-200 divide-y divide-slate-100">
+                {data.puritiesAvailable.map((grade, idx) => (
+                  <div key={idx} className="p-3.5 flex items-center justify-between gap-3 text-xs sm:text-sm">
+                    <div className="flex items-center gap-2.5">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                      <span className="font-semibold text-slate-800">{grade}</span>
+                    </div>
+                    <span className="text-[11px] font-mono font-medium text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-200 shrink-0">
+                      Certified Analysis
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* 4. Supply Modes & Packaging */}
+            <section className="space-y-4">
+              <div className="border-b border-slate-200 pb-2">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                  <Truck className="h-4 w-4 text-sky-800" />
+                  <span>Supply Modes, Packaging & Transport Formats</span>
+                </h3>
+              </div>
+
+              <div className="space-y-3">
                 {data.supplyModes.map((mode, idx) => (
-                  <div key={idx} className="bg-white p-5 rounded-lg border border-slate-200 space-y-2 hover:border-slate-300 transition">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <h4 className="text-sm sm:text-base font-bold text-slate-900">{mode.title}</h4>
-                      <span className="bg-slate-100 text-slate-800 font-semibold text-xs px-2.5 py-0.5 rounded border border-slate-200">
+                  <div
+                    key={idx}
+                    className="p-5 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition"
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                      <h4 className="font-bold text-slate-900 text-sm sm:text-base">
+                        {mode.title}
+                      </h4>
+                      <span className="bg-slate-100 text-slate-800 font-semibold text-xs px-2.5 py-0.5 rounded border border-slate-200 self-start sm:self-auto">
                         {mode.capacity}
                       </span>
                     </div>
 
-                    <div className="text-xs text-slate-500 flex items-center gap-1 font-medium">
-                      <Gauge className="h-3.5 w-3.5 text-sky-700" />
-                      <span>Operating Pressure: {mode.pressure}</span>
+                    <div className="text-xs text-sky-800 font-medium mb-2 flex items-center gap-1.5">
+                      <Gauge className="h-3.5 w-3.5" />
+                      <span>{mode.pressure}</span>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
                       {mode.description}
                     </p>
 
-                    <div className="bg-slate-50 p-2.5 rounded border border-slate-200 text-xs text-slate-700">
-                      <span className="font-semibold text-slate-900 mr-1">Ideal For:</span>
-                      <span>{mode.idealFor}</span>
+                    <div className="text-xs text-slate-700 bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                      <strong className="text-slate-900">Recommended For:</strong> {mode.idealFor}
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
+            </section>
 
-            {/* Logistics & Geographic Delivery Coverage (High SEO Impact) */}
-            <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-5 w-5 text-sky-700" />
-                  <h3 className="text-sm sm:text-base font-bold text-slate-900">
-                    Bulk Logistics, Fleet & Delivery Coverage
-                  </h3>
-                </div>
-                <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded flex items-center gap-1">
-                  <Clock className="h-3 w-3" />
-                  24/7 Dedicated Dispatch
-                </span>
+            {/* 5. Industrial Applications Table */}
+            <section className="space-y-3">
+              <div className="border-b border-slate-200 pb-2">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                  <Boxes className="h-4 w-4 text-sky-800" />
+                  <span>Industrial Applications & Manufacturing Processes</span>
+                </h3>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-                <div className="bg-white p-3.5 rounded-lg border border-slate-200">
-                  <span className="text-slate-500 block text-xs font-medium">Transport Fleet</span>
-                  <span className="text-sm font-bold text-slate-900 block mt-0.5">65+ Cryogenic Tankers</span>
-                  <span className="text-slate-500 text-xs">10 KL to 35 KL Capacity</span>
-                </div>
-                <div className="bg-white p-3.5 rounded-lg border border-slate-200">
-                  <span className="text-slate-500 block text-xs font-medium">Production Output</span>
-                  <span className="text-sm font-bold text-slate-900 block mt-0.5">448 TPD Capacity</span>
-                  <span className="text-slate-500 text-xs">Multiple ASU Plants</span>
-                </div>
-                <div className="bg-white p-3.5 rounded-lg border border-slate-200">
-                  <span className="text-slate-500 block text-xs font-medium">Emergency Dispatch</span>
-                  <span className="text-sm font-bold text-sky-700 block mt-0.5">2 - 4 Hour TAT</span>
-                  <span className="text-slate-500 text-xs">Major Industrial Belts</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Industrial Applications Table */}
-            <div className="space-y-4">
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
-                <Boxes className="h-4 w-4 text-sky-700" />
-                <span>Industrial Applications & Purity Specifications</span>
-              </h3>
-
-              <div className="overflow-x-auto bg-white rounded-lg border border-slate-200">
+              <div className="overflow-x-auto bg-white rounded-xl border border-slate-200 shadow-2xs">
                 <table className="w-full text-left text-xs sm:text-sm text-slate-700">
                   <thead className="bg-slate-50 text-slate-900 font-bold uppercase tracking-wider text-xs border-b border-slate-200">
                     <tr>
-                      <th className="p-3.5">Industry Sector</th>
+                      <th className="p-3.5">Industry</th>
                       <th className="p-3.5">Application / Process</th>
-                      <th className="p-3.5">Recommended Grade</th>
+                      <th className="p-3.5">Recommended Purity</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-200">
+                  <tbody className="divide-y divide-slate-100">
                     {data.applications.map((app, idx) => (
-                      <tr key={idx} className="hover:bg-slate-50">
-                        <td className="p-3.5 font-semibold text-slate-900">{app.industry}</td>
+                      <tr key={idx} className="hover:bg-slate-50/70 transition-colors">
+                        <td className="p-3.5 font-bold text-slate-900 whitespace-nowrap">{app.industry}</td>
                         <td className="p-3.5">{app.useCase}</td>
-                        <td className="p-3.5 text-sky-800 font-semibold">{app.recommendedPurity}</td>
+                        <td className="p-3.5 font-semibold text-sky-800 whitespace-nowrap">{app.recommendedPurity}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
-            </div>
+            </section>
 
-            {/* Related Products Bar */}
+            {/* 6. Handling & Safety Directives */}
+            {data.handlingSafety && data.handlingSafety.length > 0 && (
+              <section className="space-y-3">
+                <div className="border-b border-slate-200 pb-2">
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <AlertTriangle className="h-4 w-4 text-amber-600" />
+                    <span>Handling, Storage & Safety Protocols</span>
+                  </h3>
+                </div>
+
+                <div className="p-4 rounded-xl bg-amber-50/60 border border-amber-200/80 space-y-2.5">
+                  <ul className="space-y-2 text-xs sm:text-sm text-amber-950">
+                    {data.handlingSafety.map((safe, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-amber-600 mt-2 shrink-0" />
+                        <span className="leading-relaxed">{safe}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="pt-2 border-t border-amber-200/60 text-xs text-amber-900 flex items-center justify-between">
+                    <span>100% PESO statutory compliance guaranteed.</span>
+                    <NavLink
+                      to="/company/quality-safety"
+                      className="font-bold underline hover:text-amber-950"
+                    >
+                      View Safety Certifications →
+                    </NavLink>
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* 7. Related Gases */}
             {data.relatedProducts && data.relatedProducts.length > 0 && (
-              <div className="space-y-3 pt-4 border-t border-slate-200">
-                <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
-                  <Atom className="h-4 w-4 text-sky-700" />
-                  <span>Related Products in Our Portfolio</span>
-                </h3>
+              <section className="space-y-3 pt-4 border-t border-slate-200">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                    <Atom className="h-4 w-4 text-sky-800" />
+                    <span>Related Gases in this Family</span>
+                  </h3>
+                  <NavLink to="/products" className="text-xs font-semibold text-sky-800 hover:underline">
+                    View Full Directory →
+                  </NavLink>
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {data.relatedProducts.map((rel, rIdx) => (
                     <NavLink
                       key={rIdx}
                       to={`/products/${rel.slug}`}
-                      className="p-3.5 rounded-lg border border-slate-200 hover:border-slate-300 hover:shadow-xs transition bg-white flex flex-col justify-between"
+                      className="p-3.5 rounded-lg border border-slate-200 hover:border-sky-300 hover:shadow-2xs transition bg-white flex flex-col justify-between group"
                     >
                       <div>
-                        <span className="text-xs font-mono text-sky-700 font-bold block mb-1">
+                        <span className="text-xs font-mono font-bold text-sky-800 block mb-1">
                           {rel.formula}
                         </span>
-                        <h4 className="text-xs sm:text-sm font-bold text-slate-900">
+                        <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-sky-800 transition-colors">
                           {rel.title}
                         </h4>
                       </div>
-                      <span className="text-xs font-medium text-sky-700 flex items-center gap-1 mt-2">
-                        <span>View Specifications</span>
-                        <ArrowRight className="h-3 w-3" />
+                      <span className="text-xs font-medium text-sky-800 flex items-center gap-1 mt-2">
+                        <span>View Specs</span>
+                        <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
                       </span>
                     </NavLink>
                   ))}
                 </div>
-              </div>
+              </section>
+            )}
+
+            {/* 8. Frequently Asked Questions (If available) */}
+            {data.faqs && data.faqs.length > 0 && (
+              <section className="space-y-4 pt-4 border-t border-slate-200">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                  <HelpCircle className="h-4 w-4 text-sky-800" />
+                  <span>Frequently Asked Technical Questions</span>
+                </h3>
+
+                <div className="space-y-3">
+                  {data.faqs.map((faq, fIdx) => (
+                    <div key={fIdx} className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                      <h4 className="font-bold text-slate-900 text-xs sm:text-sm mb-1.5">
+                        {faq.question}
+                      </h4>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
             )}
 
           </div>
 
-          {/* Right Sidebar: Safety & Purity */}
-          <div className="lg:col-span-4 space-y-6">
+          {/* Sidebar (4 Columns) */}
+          <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
 
-            <div className="bg-slate-950 text-white p-6 rounded-lg space-y-5 border border-slate-800">
-              <div className="flex items-center gap-2 border-b border-slate-800 pb-3">
-                <AlertTriangle className="h-5 w-5 text-amber-400 shrink-0" />
-                <h3 className="text-sm sm:text-base font-bold text-white">
-                  Handling & Safety Directives
-                </h3>
-              </div>
-
-              <ul className="space-y-3 text-xs text-slate-300">
-                {data.handlingSafety.map((safe, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 leading-relaxed">
-                    <span className="h-1.5 w-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0" />
-                    <span>{safe}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="pt-3 border-t border-slate-800 space-y-2">
-                <span className="text-xs font-semibold text-slate-400 block uppercase tracking-wider">
-                  Available Purity Grades:
+            {/* Direct Plant Quotation Card */}
+            <div className="bg-white rounded-xl border border-slate-200 p-5 space-y-4 shadow-2xs">
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-sky-800 block mb-0.5">
+                  Direct Plant Supply
                 </span>
-                <ul className="space-y-1.5 text-xs text-sky-300 font-medium">
-                  {data.puritiesAvailable.map((pur, pIdx) => (
-                    <li key={pIdx} className="flex items-center gap-2">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
-                      <span>{pur}</span>
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="text-base font-bold text-slate-900">
+                  Request Commercial Quotation
+                </h3>
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Connect directly with Shakti Group plant engineers for bulk road tankers (10-35 KL), cylinder quads, or turnkey storage tank setups.
+                </p>
               </div>
 
-              <div className="pt-3 border-t border-slate-800 space-y-2">
+              <div className="space-y-2 pt-2 border-t border-slate-100">
                 <NavLink
                   to="/contact"
-                  className="block text-center w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-2.5 rounded-lg text-xs uppercase tracking-wider transition shadow-sm"
+                  className="flex items-center justify-center gap-2 w-full bg-sky-700 hover:bg-sky-800 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition shadow-sm"
                 >
-                  Request Technical Quotation
+                  <span>Request Custom Quotation</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </NavLink>
-                <NavLink
-                  to="/company/quality-safety"
-                  className="block text-center w-full bg-slate-900 hover:bg-slate-800 text-slate-300 font-medium py-2 rounded-lg text-xs transition border border-slate-700"
+
+                <a
+                  href="tel:+919825008544"
+                  className="flex items-center justify-center gap-2 w-full bg-slate-50 hover:bg-slate-100 text-slate-800 text-xs font-semibold px-4 py-2.5 rounded-lg transition border border-slate-200"
                 >
-                  View PESO & Safety Certifications
-                </NavLink>
+                  <PhoneCall className="h-3.5 w-3.5 text-emerald-600" />
+                  <span>Call +91 98250 08544</span>
+                </a>
+              </div>
+
+              <div className="pt-2 border-t border-slate-100 space-y-2 text-xs text-slate-500">
+                <div className="flex items-center gap-2">
+                  <Clock className="h-3.5 w-3.5 text-sky-800 shrink-0" />
+                  <span>24/7 Dedicated Logistics Dispatch</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-3.5 w-3.5 text-sky-800 shrink-0" />
+                  <span>2 - 4 Hour TAT across Gujarat Belts</span>
+                </div>
               </div>
             </div>
 
-            {/* Quick Link to All Products */}
-            <div className="bg-slate-50 border border-slate-200 p-5 rounded-lg space-y-3">
-              <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                Product Categories
+            {/* Turnkey On-Site Storage Setup (For Liquid / Bulk Products) */}
+            {(data.category === 'liquid' || data.slug === 'bulk-cryogenic') && (
+              <div className="bg-slate-950 text-white rounded-xl p-5 space-y-3 border border-slate-800">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-sky-400 uppercase tracking-wider">
+                    On-Site Storage Setup
+                  </span>
+                  <span className="text-[10px] bg-sky-900/60 text-sky-200 px-2 py-0.5 rounded font-semibold">
+                    Rental / Opex
+                  </span>
+                </div>
+
+                <h4 className="text-sm font-bold text-white">
+                  Turnkey Cryogenic Tank Installation
+                </h4>
+
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Install 3 KL to 60 KL vacuum-insulated storage vessels with zero capital expenditure. 24/7 IoT level telemetry triggers automated tanker replenishment.
+                </p>
+
+                <NavLink
+                  to="/solutions/bulk-gas-supply"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-white pt-1 transition"
+                >
+                  <span>Learn about Tank Rental</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </NavLink>
+              </div>
+            )}
+
+            {/* Other Gases in this Category (Replacing the 10-pill horizontal overflow) */}
+            {siblingProducts.length > 0 && (
+              <div className="bg-slate-50 rounded-xl border border-slate-200 p-5 space-y-3">
+                <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                  Other {data.categoryLabel}
+                </h4>
+
+                <ul className="space-y-1.5 text-xs">
+                  {siblingProducts.map((sib) => (
+                    <li key={sib.slug}>
+                      <NavLink
+                        to={`/products/${sib.slug}`}
+                        className="p-2 rounded-lg bg-white border border-slate-200/80 hover:border-sky-300 hover:text-sky-800 transition flex items-center justify-between font-medium text-slate-700"
+                      >
+                        <span className="flex items-center gap-2">
+                          <span className="font-mono text-[11px] font-bold text-sky-800 w-8">
+                            {sib.chemicalFormula}
+                          </span>
+                          <span className="truncate">{sib.title}</span>
+                        </span>
+                        <ChevronRight className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+
+                <NavLink
+                  to="/products"
+                  className="block text-center text-xs font-bold text-sky-800 hover:underline pt-2"
+                >
+                  Browse Full Gas Catalog →
+                </NavLink>
+              </div>
+            )}
+
+            {/* Direct Category Directory */}
+            <div className="bg-slate-50 rounded-xl border border-slate-200 p-5 space-y-2">
+              <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">
+                All Product Categories
               </h4>
-              <ul className="space-y-2 text-xs">
+              <ul className="space-y-1 text-xs">
                 <li>
                   <NavLink
                     to="/products/bulk-cryogenic"
-                    className="text-slate-700 hover:text-sky-700 font-medium flex items-center justify-between"
+                    className={({ isActive }) =>
+                      `block p-1.5 rounded font-medium transition ${
+                        isActive || data.slug === 'bulk-cryogenic'
+                          ? 'text-sky-900 font-bold bg-sky-100/70'
+                          : 'text-slate-600 hover:text-slate-900'
+                      }`
+                    }
                   >
-                    <span>Bulk & Cryogenic Gases</span>
-                    <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
+                    • Bulk & Cryogenic Gases
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
                     to="/products/industrial-cylinder"
-                    className="text-slate-700 hover:text-sky-700 font-medium flex items-center justify-between"
+                    className={({ isActive }) =>
+                      `block p-1.5 rounded font-medium transition ${
+                        isActive || data.slug === 'industrial-cylinder'
+                          ? 'text-sky-900 font-bold bg-sky-100/70'
+                          : 'text-slate-600 hover:text-slate-900'
+                      }`
+                    }
                   >
-                    <span>Industrial & Cylinder Gases</span>
-                    <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
+                    • Industrial Compressed Cylinders
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
                     to="/products/specialty-calibration"
-                    className="text-slate-700 hover:text-sky-700 font-medium flex items-center justify-between"
+                    className={({ isActive }) =>
+                      `block p-1.5 rounded font-medium transition ${
+                        isActive || data.slug === 'specialty-calibration'
+                          ? 'text-sky-900 font-bold bg-sky-100/70'
+                          : 'text-slate-600 hover:text-slate-900'
+                      }`
+                    }
                   >
-                    <span>Specialty & Calibration Gases</span>
-                    <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
+                    • Specialty & Calibration Gases
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
                     to="/products/other"
-                    className="text-slate-700 hover:text-sky-700 font-medium flex items-center justify-between"
+                    className={({ isActive }) =>
+                      `block p-1.5 rounded font-medium transition ${
+                        isActive || data.slug === 'other'
+                          ? 'text-sky-900 font-bold bg-sky-100/70'
+                          : 'text-slate-600 hover:text-slate-900'
+                      }`
+                    }
                   >
-                    <span>Dry Ice, Dewars & Hardware</span>
-                    <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
+                    • Dry Ice, Dewars & Hardware
                   </NavLink>
                 </li>
               </ul>
             </div>
 
-          </div>
+          </aside>
 
         </div>
-      </section>
+      </main>
     </div>
   );
 };
