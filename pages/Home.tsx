@@ -19,7 +19,10 @@ import {
   FileCheck,
   Award,
   HeartPulse,
-  Utensils
+  Utensils,
+  Globe,
+  Ship,
+  Anchor
 } from 'lucide-react';
 import { STATS, DELIVERY_OPTIONS, GROUP_COMPANIES, TIMELINE, INDUSTRIES } from '../constants';
 import SEO from '../components/SEO';
@@ -270,6 +273,13 @@ const Home: React.FC = () => {
         >
           <source src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air-separation-unit-karjan.webm" type="video/webm" />
           <source src="https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/air-separation-unit-karjan.mp4" type="video/mp4" />
+          <track
+            kind="captions"
+            src="/captions.vtt"
+            srcLang="en"
+            label="English captions"
+            default
+          />
         </video>
 
         {/* Subtle optical gradient scrim for crisp text legibility without artificial shadows */}
@@ -624,28 +634,99 @@ const Home: React.FC = () => {
             </NavLink>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {INDUSTRIES.map((ind, idx) => (
               <NavLink
                 key={idx}
-                to="/industries"
-                className="bg-white p-5 sm:p-6 rounded-lg border border-slate-200 hover:border-slate-300 hover:shadow-xs transition group space-y-2.5"
+                to={ind.path || '/industries'}
+                className="bg-white p-5 rounded-lg border border-slate-200 hover:border-slate-300 hover:shadow-xs transition group space-y-2.5 flex flex-col justify-between"
               >
-                <div className="w-8 h-8 rounded bg-slate-100 text-slate-800 flex items-center justify-center group-hover:bg-sky-600 group-hover:text-white transition">
-                  <ind.icon className="w-4 h-4" />
+                <div className="space-y-2.5">
+                  <div className="w-8 h-8 rounded bg-slate-100 text-slate-800 flex items-center justify-center group-hover:bg-sky-600 group-hover:text-white transition">
+                    <ind.icon className="w-4 h-4" />
+                  </div>
+                  <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-700 transition">
+                    {ind.name}
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
+                    {ind.subtitle || ind.description}
+                  </p>
                 </div>
-                <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-700 transition">
-                  {ind.name}
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Engineered supply for manufacturing pipelines, continuous combustion, reactor inerting, and high-pressure applications.
-                </p>
                 <div className="text-xs font-bold text-sky-700 flex items-center gap-1 pt-1">
                   <span>View Sector Overview</span>
                   <ChevronRight className="w-3.5 h-3.5" />
                 </div>
               </NavLink>
             ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* 7.5. INTERNATIONAL INDUSTRIAL GAS EXPORT */}
+      <section className="py-12 bg-white border-b border-slate-200" id="international-export">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-sky-950 rounded-2xl p-6 sm:p-10 text-white border border-slate-800 shadow-sm relative overflow-hidden">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative z-10">
+
+              <div className="space-y-4 max-w-3xl">
+                <div className="inline-flex items-center gap-2 bg-sky-950/80 text-sky-300 text-xs font-mono font-bold px-3 py-1 rounded-full border border-sky-800">
+                  <Globe className="w-3.5 h-3.5 text-sky-400" />
+                  <span>INTERNATIONAL EXPORT</span>
+                </div>
+
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white leading-tight">
+                  Global Industrial Gas Supply & Export
+                </h2>
+
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  We export high-purity cryogenic liquids as well as compressed industrial gases in multiple container and transport formats tailored to international project specifications and logistics requirements.
+                </p>
+
+                {/* Supply Formats Bricks */}
+                <div className="pt-2">
+                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                    Supply Formats:
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                    <div className="bg-slate-900/90 border border-slate-800 rounded-lg p-3 text-center">
+                      <span className="text-xs sm:text-sm font-bold text-white block">ISO Tanks</span>
+                      <span className="text-2xs text-slate-400 block mt-0.5">20ft T75 Cryogenic</span>
+                    </div>
+                    <div className="bg-slate-900/90 border border-slate-800 rounded-lg p-3 text-center">
+                      <span className="text-xs sm:text-sm font-bold text-white block">Tonners</span>
+                      <span className="text-2xs text-slate-400 block mt-0.5">Heavy Duty Gas Drums</span>
+                    </div>
+                    <div className="bg-slate-900/90 border border-slate-800 rounded-lg p-3 text-center">
+                      <span className="text-xs sm:text-sm font-bold text-white block">Cylinders</span>
+                      <span className="text-2xs text-slate-400 block mt-0.5">High-Pressure Seamless</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* 2 CTAs: Request for Quote (RFQ) and Explore Export */}
+              <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full sm:w-auto shrink-0">
+                <NavLink
+                  to="/contact"
+                  className="inline-flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-400 text-slate-950 text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-lg transition shadow-md whitespace-nowrap"
+                >
+                  <span>Request for Quote (RFQ)</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </NavLink>
+
+                <NavLink
+                  to="/solutions/export"
+                  className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-6 py-3.5 rounded-lg transition border border-slate-700 whitespace-nowrap"
+                >
+                  <Ship className="w-4 h-4 text-sky-400" />
+                  <span>Explore Export Solutions</span>
+                </NavLink>
+              </div>
+
+            </div>
           </div>
 
         </div>

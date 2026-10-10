@@ -30,6 +30,7 @@ import {
 } from 'lucide-react';
 import { streamChatResponse } from '../services/geminiService';
 import { ChatMessage } from '../types';
+import { PRODUCTS } from '../constants';
 
 // Structured quick prompt categories
 interface QuickTopic {
@@ -88,17 +89,13 @@ const SUGGESTED_CHIPS = [
   '📑 Cryogenic storage & engineering solutions'
 ];
 
+// Dynamically derived from PRODUCTS in constants.tsx so adding or updating
+// gases in constants automatically reflects in the chat RFQ selector.
 const GAS_OPTIONS = [
-  'Nitrogen (N₂) - Liquid / Compressed',
-  'Oxygen (O₂) - Liquid / Compressed',
-  'Argon (Ar) - Liquid / Compressed',
-  'Carbon Dioxide (CO₂) - Liquid / Compressed',
-  'Dissolved Acetylene (DA)',
-  'Compressed Hydrogen (H2)',
-  'Compressed Helium (He)',
+  ...PRODUCTS.map(p => p.title),
   'Specialty & Calibration Gas Mixtures',
-  'Turnkey Cryogenic Storage Solutions',
-  'Pipeline Solutions',
+  'Turnkey On-Site Cryogenic Storage (Rental)',
+  'Pipeline & Manifold Solutions',
   'Other'
 ];
 

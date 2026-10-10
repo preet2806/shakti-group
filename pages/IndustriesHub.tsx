@@ -1,79 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {
-  Factory,
-  Flame,
-  Droplets,
-  Heart,
-  Utensils,
-  Zap,
   ArrowRight,
   ChevronRight,
-  Cpu,
-  Sparkles,
   Layers,
   Building2
 } from 'lucide-react';
 import SEO from '../components/SEO';
+import { INDUSTRIES } from '../constants';
 
-export const INDUSTRY_SUBPAGES = [
-  {
-    path: '/industries/metals-manufacturing',
-    title: 'Metals, Steel & Fabrication',
-    subtitle: 'Gas for steel mills, BOF/EAF, laser cutting assist gas & welding shields.',
-    icon: Flame,
-    desc: 'High-purity Liquid Oxygen for blast furnaces, High-Pressure Nitrogen for fiber laser cutting, and Argon for ladle refining & robotic arc welding.'
-  },
-  {
-    path: '/industries/glass-ceramics',
-    title: 'Glass & Ceramics Manufacturing',
-    subtitle: 'LOX for oxy-fuel glass melting, frit kilns & float glass tin baths.',
-    icon: Sparkles,
-    desc: 'Bulk Liquid Oxygen (LOX) for oxy-fuel glass melting cutting fuel by 30%, and ultra-pure Nitrogen/Hydrogen atmospheres for float glass tin baths across Morbi & Gujarat.'
-  },
-  {
-    path: '/industries/chemicals-process',
-    title: 'Chemicals & Process Plants',
-    subtitle: 'Nitrogen reactor blanketing, hydrogen cascades & cryogenic VOC recovery.',
-    icon: Factory,
-    desc: 'Inert nitrogen atmospheres preventing solvent explosion, 200 Bar mobile hydrogen tube cascades, and liquid nitrogen cooling for low-temp synthesis in Dahej & Ankleshwar.'
-  },
-  {
-    path: '/industries/life-sciences',
-    title: 'Life Sciences & Healthcare',
-    subtitle: 'IP grade medical oxygen, pharma API synthesis & bio-cryo banking.',
-    icon: Heart,
-    desc: 'FDA/IP licensed Medical Liquid Oxygen for hospital central pipelines, UHP nitrogen for sterile pharma packaging, and liquid nitrogen for bio-sample preservation.'
-  },
-  {
-    path: '/industries/food-beverage',
-    title: 'Food & Beverage Carbonation',
-    subtitle: 'FSSAI liquid CO₂ (E290), flash freezing & MAP packaging.',
-    icon: Utensils,
-    desc: 'Food-grade E290 Liquid CO₂ for soft drink and soda carbonation, rapid Liquid Nitrogen flash freezing, and dry ice pellets for temperature-controlled cold chains.'
-  },
-  {
-    path: '/industries/energy-infrastructure',
-    title: 'Energy, Refineries & Power',
-    subtitle: 'High-flow refinery nitrogen purging, SF₆ switchgear & hydrogen cooling.',
-    icon: Zap,
-    desc: 'Mobile cryogenic nitrogen pumpers delivering up to 5,000 Nm³/hr for refinery turnarounds, dielectric SF₆ gas for GIS substations, and hydrogen for turbine cooling.'
-  },
-  {
-    path: '/industries/water-environment',
-    title: 'Water Treatment & Environment',
-    subtitle: 'LOX for ozone generation, LCO₂ for effluent pH neutralization & chlorine.',
-    icon: Droplets,
-    desc: 'Bulk Liquid Oxygen feeding ozone generators for refractory COD breakdown, and Liquid CO₂ for safe, non-corrosive wastewater pH balancing without sulfuric acid.'
-  },
-  {
-    path: '/industries/electronics-semiconductor',
-    title: 'Electronics & Semiconductors',
-    subtitle: 'Grade 6.0 UHP gases, wafer fab, solar PV & CVD diamond synthesis.',
-    icon: Cpu,
-    desc: 'Ultra-High Purity Grade 5.0 to 6.0 Argon, Nitrogen, Helium, and Methane for semiconductor wafer fabrication and MPCVD lab-grown diamond synthesis in Surat.'
-  }
-];
+export const INDUSTRY_SUBPAGES = INDUSTRIES;
 
 export const IndustriesHub: React.FC = () => {
   const schema = {

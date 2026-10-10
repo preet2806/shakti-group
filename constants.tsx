@@ -5,6 +5,7 @@ import {
   Activity, 
   Zap, 
   Droplet,
+  Droplets,
   FlaskConical,
   Atom,
   Flame,
@@ -13,9 +14,25 @@ import {
   Settings,
   Users,
   Clock,
-  Briefcase
+  Briefcase,
+  Sparkles,
+  Heart,
+  Utensils,
+  Cpu
 } from 'lucide-react';
-import { NavItem, StatItem, Product, Service, GroupCompany, TimelineEvent, Industry, DeliveryOption, ValueItem } from './types';
+import {
+  NavItem,
+  StatItem,
+  Product,
+  Service,
+  ServiceTab,
+  SolutionSubpageItem,
+  GroupCompany,
+  TimelineEvent,
+  Industry,
+  DeliveryOption,
+  ValueItem
+} from './types';
 
 export const EMAILJS_CONFIG = {
   SERVICE_ID: 'service_e8fankb',   // e.g. service_8x3...
@@ -233,10 +250,10 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'p16',
-    title: 'Hydrogen Chloride (HCl)',
+    title: 'Hydrogen Chloride (HCl Gas)',
     slug: 'hydrogen-chloride',
-    description: 'Used in chemical synthesis, plasma etching, and industrial processing.',
-    image: 'https://plus.unsplash.com/premium_photo-1675186951036-d87283dac099?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZXRjaGluZ3xlbnwwfHwwfHx8MA%3D%3D',
+    description: 'Anhydrous technical & electronic grade HCl gas supplied in specialized passivated cylinders.',
+    image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=900',
     category: 'specialty'
   },
   {
@@ -265,10 +282,10 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'p20',
-    title: 'Sulphur Dioxide (SO₂)',
+    title: 'Sulphur Dioxide (SO₂) Tonners',
     slug: 'sulphur-dioxide',
-    description: 'Used in food preservation, chemicals, and environmental applications.',
-    image: 'https://images.unsplash.com/photo-1551884171-004163219904?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZCUyMHByZXNlcnZhdGlvbnxlbnwwfHwwfHx8MA%3D%3D',
+    description: 'PESO approved 900 kg tonner containers and high-pressure cylinders for chemical sulfonation, bleaching, and food processing.',
+    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=900',
     category: 'specialty'
   },
   {
@@ -293,21 +310,110 @@ export const PRODUCTS: Product[] = [
 export const SERVICES: Service[] = [
   {
     id: 's1',
-    title: 'Cryogenic Engineering & Storage',
-    description: 'Deep expertise in the design, construction, and management of advanced cryogenic storage facilities for maximum safety and efficiency.',
-    icon: Factory
+    title: 'Cryogenic Plant & Storage Operations',
+    description: 'Design, installation, and operation of PESO-approved cryogenic storage and gas handling systems.',
+    desc: 'Design, installation, and operation of PESO-approved cryogenic storage and gas handling systems.',
+    icon: Factory,
+    path: '/solutions/bulk-gas-supply'
   },
   {
     id: 's2',
-    title: 'Unmatched Logistical Reliability',
-    description: 'Operating a state-of-the-art fleet of cryogenic tankers to ensure timely and secure delivery of industrial gases across the nation.',
-    icon: Truck
+    title: 'Nationwide Cryogenic Logistics',
+    description: 'Dedicated cryogenic tanker fleet with trained drivers, 24x7 GPS tracking, and defined delivery cycles.',
+    desc: 'Dedicated cryogenic tanker fleet with trained drivers, 24x7 GPS tracking, and defined delivery cycles.',
+    icon: Truck,
+    path: '/solutions/bulk-gas-supply'
   },
   {
     id: 's3',
-    title: 'Comprehensive Gas Solutions',
-    description: 'From production to distribution, we provide end-to-end solutions for a wide range of industrial gases, tailored to meet client needs.',
-    icon: FlaskConical
+    title: 'End-to-End Industrial Gas Solutions',
+    description: 'Coordinated production planning, storage allocation, and dispatch for steel, refinery, EPC, manufacturing, and food-processing customers.',
+    desc: 'Coordinated production planning, storage allocation, and dispatch for steel, refinery, EPC, manufacturing, and food-processing customers.',
+    icon: FlaskConical,
+    path: '/solutions'
+  }
+];
+
+export const SOLUTIONS_SUBPAGES: SolutionSubpageItem[] = [
+  {
+    path: '/solutions/bulk-gas-supply',
+    title: 'Bulk Gas Supply & Telemetry Solutions',
+    desc: 'On-site cryogenic storage vessel installation, automated tanker refills, and digital tank telemetry.'
+  },
+  {
+    path: '/solutions/cylinder-gas-supply',
+    title: 'Cylinder Gas Supply & Manifolds',
+    desc: 'Scheduled cylinder route delivery, automatic changeover manifolds, and quad bundle supply.'
+  },
+  {
+    path: '/solutions/cryogenic-engineering',
+    title: 'Cryogenic Engineering & Pipelines',
+    desc: 'Custom vacuum insulated piping (VIP), ambient vaporizers, pressure regulation, and plant integration.'
+  },
+  {
+    path: '/solutions/cylinder-services',
+    title: 'Cylinder Testing & Refurbishment',
+    desc: 'PESO approved hydrostatic stretch testing, internal chemical washing, valving, and certification.'
+  },
+  {
+    path: '/solutions/export',
+    title: 'International Export & ISO Tanks',
+    desc: 'Global export of bulk liquids in ISO containers, cylinder pallets, and tonners with dangerous goods clearance.'
+  }
+];
+
+export const SERVICE_TABS: ServiceTab[] = [
+  {
+    id: 'engineering',
+    label: 'Engineered Solutions',
+    title: 'Cryogenic Engineering, Installation & Pipeline Solutions',
+    description: 'Our engineering team designs, installs, and maintains cryogenic gas storage systems tailored to your operational requirements, ensuring efficiency, safety, and long-term reliability.',
+    points: [
+      'Optimized Cryogenic Storage Tank Sizing',
+      'Defined Pressure Ratings & Vaporizer Capacity',
+      'End-to-End Industrial Gas Pipeline Design',
+      'Automated & Flexible Gas Delivery Scheduling'
+    ],
+    image: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Optimised%20images/Custom%20Cryogenic%20Engineering%20%26%20Pipeline%20Solutions.webp'
+  },
+  {
+    id: 'logistics',
+    label: 'Logistical Reliability',
+    title: 'Bulk Cryogenic Gas Transportation & Logistics',
+    description: 'Our GPS-enabled cryogenic tanker fleet and regional refilling stations ensure reliable bulk gas delivery with zero supply interruptions.',
+    points: [
+      'GPS-Tracked Cryogenic Road Tankers',
+      '24x7 Emergency Gas Delivery',
+      'Strategic Regional Refilling Stations',
+      'Automated Inventory & Stock Monitoring'
+    ],
+    image: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/service_tanker.png'
+  },
+  {
+    id: 'support',
+    label: 'Technical Support',
+    title: 'Industrial Gas System Maintenance & Safety Support',
+    description: 'We provide specialized services that support the safe installation, operation, and maintenance of industrial gas systems.',
+    points: [
+      'Nitrogen Purging Services',
+      'Routine Maintenance & PESO Compliance Support',
+      'Gas System Performance Optimization',
+      'Cylinder Hydrostatic Testing'
+    ],
+    image: 'https://images.unsplash.com/photo-1662309376159-b95fb193d96b?q=80&w=774&auto=format&fit=crop'
+  },
+  {
+    id: 'export',
+    label: 'International Supply & Export',
+    title: 'Industrial Gas Export & International Supply',
+    description: 'Supporting international supply of industrial gases through dedicated infrastructure and multimodal road, rail and sea logistics.',
+    points: [
+      'Bulk & Cryogenic Gas Exports',
+      'Cylinder & Tonner Loads',
+      'ISO Tank Shipments',
+      'Multimodal Logistics'
+    ],
+    image: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/Industrial%20Gas%20Storage%20%26%20Vaporization%20Equipment.webp'
   }
 ];
 
@@ -353,28 +459,102 @@ export const GROUP_COMPANIES: GroupCompany[] = [
 export const TIMELINE: TimelineEvent[] = [
   {
     year: '1998',
-    title: 'Legacy in Gas Production Begins',
-    description: 'Established in 1998, laying the foundation for excellence in industrial gas manufacturing.'
+    title: 'Entry into Industrial Gas Sector',
+    description: 'Initiated industrial gas operations with a focus on safe handling, cylinder supply, and customer-specific delivery requirements.'
   },
   {
     year: '2011',
-    title: 'Shakti Industrial Gases',
-    description: 'Consolidation of operations under the Shakti Group brand to serve a wider market.'
+    title: 'Shakti Industrial Gases Established',
+    description: 'Expanded into liquid oxygen, nitrogen, argon, and CO₂ manufacturing with cryogenic storage and tanker dispatch capability.'
   },
   {
     year: 'Present',
-    title: 'Strategic Expansion & Growth',
-    description: 'Continuing to expand our footprint with new plants and an enhanced logistics network.'
+    title: 'Capacity Expansion & Multi-Plant Operations',
+    description: 'Operating and developing multiple ASU and CO₂ plants with regional redundancy and pan-India logistics coverage across 448+ TPD capacity.'
   }
 ];
 
 export const INDUSTRIES: Industry[] = [
-  { name: 'Pharmaceuticals & Chemicals', icon: FlaskConical },
-  { name: 'Nuclear & Power Plants', icon: Atom },
-  { name: 'Oil & Gas', icon: Droplet },
-  { name: 'Steel Plants & Foundries', icon: Factory },
-  { name: 'Food & Beverages', icon: Wind }, // Using wind as a placeholder for preservation/gas
-  { name: 'Automotive & Hydrogen Mobility', icon: Truck },
+  {
+    name: 'Metals, Steel & Fabrication',
+    title: 'Metals, Steel & Fabrication',
+    path: '/industries/metals-manufacturing',
+    subtitle: 'Gas for steel mills, BOF/EAF, laser cutting assist gas & welding shields.',
+    desc: 'High-purity Liquid Oxygen for blast furnaces, High-Pressure Nitrogen for fiber laser cutting, and Argon for ladle refining & robotic arc welding.',
+    description: 'High-purity Liquid Oxygen for blast furnaces, High-Pressure Nitrogen for fiber laser cutting, and Argon for ladle refining & robotic arc welding.',
+    icon: Flame,
+    keyGases: ['Liquid Oxygen (LOX)', 'Liquid Nitrogen (LIN)', 'Liquid Argon (LAR)', 'Dissolved Acetylene']
+  },
+  {
+    name: 'Glass & Ceramics Manufacturing',
+    title: 'Glass & Ceramics Manufacturing',
+    path: '/industries/glass-ceramics',
+    subtitle: 'LOX for oxy-fuel glass melting, frit kilns & float glass tin baths.',
+    desc: 'Bulk Liquid Oxygen (LOX) for oxy-fuel glass melting cutting fuel by 30%, and ultra-pure Nitrogen/Hydrogen atmospheres for float glass tin baths across Morbi & Gujarat.',
+    description: 'Bulk Liquid Oxygen (LOX) for oxy-fuel glass melting cutting fuel by 30%, and ultra-pure Nitrogen/Hydrogen atmospheres for float glass tin baths across Morbi & Gujarat.',
+    icon: Sparkles,
+    keyGases: ['Liquid Oxygen (LOX)', 'Liquid Nitrogen (LIN)', 'Hydrogen Gas (H₂)']
+  },
+  {
+    name: 'Chemicals & Process Plants',
+    title: 'Chemicals & Process Plants',
+    path: '/industries/chemicals-process',
+    subtitle: 'Nitrogen reactor blanketing, hydrogen cascades & cryogenic VOC recovery.',
+    desc: 'Inert nitrogen atmospheres preventing solvent explosion, 200 Bar mobile hydrogen tube cascades, and liquid nitrogen cooling for low-temp synthesis in Dahej & Ankleshwar.',
+    description: 'Inert nitrogen atmospheres preventing solvent explosion, 200 Bar mobile hydrogen tube cascades, and liquid nitrogen cooling for low-temp synthesis in Dahej & Ankleshwar.',
+    icon: Factory,
+    keyGases: ['Liquid Nitrogen (LIN)', 'Hydrogen Gas (H₂)', 'Sulphur Dioxide (SO₂)', 'Hydrogen Chloride (HCl)']
+  },
+  {
+    name: 'Life Sciences & Healthcare',
+    title: 'Life Sciences & Healthcare',
+    path: '/industries/life-sciences',
+    subtitle: 'IP grade medical oxygen, pharma API synthesis & bio-cryo banking.',
+    desc: 'FDA/IP licensed Medical Liquid Oxygen for hospital central pipelines, UHP nitrogen for sterile pharma packaging, and liquid nitrogen for bio-sample preservation.',
+    description: 'FDA/IP licensed Medical Liquid Oxygen for hospital central pipelines, UHP nitrogen for sterile pharma packaging, and liquid nitrogen for bio-sample preservation.',
+    icon: Heart,
+    keyGases: ['Medical Liquid Oxygen (IP)', 'Nitrous Oxide (N₂O IP)', 'Ultra-High Purity Nitrogen', 'Liquid Nitrogen']
+  },
+  {
+    name: 'Food & Beverage Carbonation',
+    title: 'Food & Beverage Carbonation',
+    path: '/industries/food-beverage',
+    subtitle: 'FSSAI liquid CO₂ (E290), flash freezing & MAP packaging.',
+    desc: 'Food-grade E290 Liquid CO₂ for soft drink and soda carbonation, rapid Liquid Nitrogen flash freezing, and dry ice pellets for temperature-controlled cold chains.',
+    description: 'Food-grade E290 Liquid CO₂ for soft drink and soda carbonation, rapid Liquid Nitrogen flash freezing, and dry ice pellets for temperature-controlled cold chains.',
+    icon: Utensils,
+    keyGases: ['Liquid CO₂ (E290)', 'Liquid Nitrogen (E941)', 'Dry Ice Pellets & Blocks']
+  },
+  {
+    name: 'Energy, Refineries & Power',
+    title: 'Energy, Refineries & Power',
+    path: '/industries/energy-infrastructure',
+    subtitle: 'High-flow refinery nitrogen purging, SF₆ switchgear & hydrogen cooling.',
+    desc: 'Mobile cryogenic nitrogen pumpers delivering up to 5,000 Nm³/hr for refinery turnarounds, dielectric SF₆ gas for GIS substations, and hydrogen for turbine cooling.',
+    description: 'Mobile cryogenic nitrogen pumpers delivering up to 5,000 Nm³/hr for refinery turnarounds, dielectric SF₆ gas for GIS substations, and hydrogen for turbine cooling.',
+    icon: Zap,
+    keyGases: ['Liquid Nitrogen Purging', 'Sulphur Hexafluoride (SF₆)', 'High Purity Hydrogen', 'Calibration Gas Mixtures']
+  },
+  {
+    name: 'Water Treatment & Environment',
+    title: 'Water Treatment & Environment',
+    path: '/industries/water-environment',
+    subtitle: 'LOX for ozone generation, LCO₂ for effluent pH neutralization & chlorine.',
+    desc: 'Bulk Liquid Oxygen feeding ozone generators for refractory COD breakdown, and Liquid CO₂ for safe, non-corrosive wastewater pH balancing without sulfuric acid.',
+    description: 'Bulk Liquid Oxygen feeding ozone generators for refractory COD breakdown, and Liquid CO₂ for safe, non-corrosive wastewater pH balancing without sulfuric acid.',
+    icon: Droplets,
+    keyGases: ['Liquid Oxygen (LOX)', 'Liquid CO₂ (LCO₂)', 'High Purity Chlorine (Cl₂)', 'Sulphur Dioxide (SO₂)']
+  },
+  {
+    name: 'Electronics & Semiconductors',
+    title: 'Electronics & Semiconductors',
+    path: '/industries/electronics-semiconductor',
+    subtitle: 'Grade 6.0 UHP gases, wafer fab, solar PV & CVD diamond synthesis.',
+    desc: 'Ultra-High Purity Grade 5.0 to 6.0 Argon, Nitrogen, Helium, and Methane for semiconductor wafer fabrication and MPCVD lab-grown diamond synthesis in Surat.',
+    description: 'Ultra-High Purity Grade 5.0 to 6.0 Argon, Nitrogen, Helium, and Methane for semiconductor wafer fabrication and MPCVD lab-grown diamond synthesis in Surat.',
+    icon: Cpu,
+    keyGases: ['UHP Argon Grade 6.0', 'UHP Nitrogen Grade 6.0', 'UHP Methane (CH₄)', 'UHP Helium (He)', 'Anhydrous HCl Gas']
+  }
 ];
 
 export const DELIVERY_OPTIONS: DeliveryOption[] = [

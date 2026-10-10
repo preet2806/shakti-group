@@ -45,6 +45,303 @@ export interface ProductPageData {
   faqs?: { question: string; answer: string }[];
 }
 
+export const CATEGORY_SUBPAGES_DATA: Record<string, ProductPageData> = {
+  'bulk-cryogenic': {
+    slug: 'bulk-cryogenic',
+    title: 'Bulk & Cryogenic Gases Catalog',
+    chemicalFormula: 'LOX / LIN / LAR / LCO₂',
+    symbolBadge: 'Bulk Cryogenic Liquids',
+    casNumber: '7782-44-7 (LOX) | 7727-37-9 (LIN)',
+    unNumber: 'UN 1073 (LOX) | UN 1977 (LIN) | UN 1951 (LAR)',
+    subtitle: 'Industrial-volume liquid oxygen, nitrogen, argon, and CO₂ delivered via our 65+ vacuum-insulated cryogenic road tankers (10-35 KL) and turnkey on-site storage setups.',
+    heroImage: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/product_hero.png',
+    category: 'liquid',
+    categoryLabel: 'Bulk & Cryogenic Gases',
+    categorySlug: 'bulk-cryogenic',
+    physicalState: 'Cryogenic Liquid (-196°C to -78.5°C)',
+    puritiesAvailable: [
+      'Commercial Grade LOX (≥ 99.5%)',
+      'Medical Oxygen IP Grade (≥ 99.5% FDA Approved)',
+      'Ultra-High-Purity LIN (Grade 5.0 - 99.999%)',
+      'High-Purity Liquid Argon (Grade 5.0 - 99.999%)',
+      'Food Grade Liquid CO₂ (≥ 99.9% ISBT / E290)'
+    ],
+    physicalProperties: {
+      boilingPoint: '-195.8°C (LIN) / -183.0°C (LOX)',
+      expansionRatio: '1 : 860 (Liquid to Gas @ 15°C)',
+      gasDensity: '1.429 kg/m³ (LOX) / 1.251 kg/m³ (LIN)',
+      molecularWeight: '32.00 g/mol (LOX) / 28.01 g/mol (LIN)',
+      criticalTemp: '-118.6°C (LOX) / -146.9°C (LIN)'
+    },
+    overview: 'Shakti Group is a premier manufacturer and bulk cryogenic gases supplier in Western and Central India. Operating 448 TPD combined manufacturing capacity with 65+ specialized cryogenic road tankers, we provide seamless bulk supply of Liquid Nitrogen (LIN), Liquid Oxygen (LOX), Liquid Argon (LAR), and Liquid CO2. We also provide turnkey on-site cryogenic storage tank installations on a flexible rental/opex model for uninterrupted production.',
+    supplyModes: [
+      {
+        title: 'Cryogenic Road Tanker Fleet (65+ Units)',
+        capacity: '10 KL to 35 KL (11 to 40 Metric Tonnes)',
+        pressure: '16 to 24 Bar Operating Pressure',
+        description: 'Direct decanting into customer on-site storage vessels backed by 24/7 GPS routing and IoT digital tank telemetry.',
+        idealFor: 'Steel melting shops, chemical synthesis complexes, large hospitals, and continuous float glass lines.'
+      },
+      {
+        title: 'On-Site Storage Tanks (Rental / Opex Model)',
+        capacity: '3 KL to 60 KL Cryogenic Storage Vessels',
+        pressure: 'Custom Regulated Line Pressures up to 35 Bar',
+        description: 'Turnkey installation of vacuum-insulated storage tanks, ambient air vaporizers, and telemetry on a rental model with zero upfront capital expenditure.',
+        idealFor: 'Heavy industrial consumers seeking guaranteed supply with outsourced maintenance.'
+      },
+      {
+        title: 'Cryogenic Dura Liquid Cylinders',
+        capacity: '160L to 250L Portable Liquid Vessels',
+        pressure: '16 to 24 Bar Max Pressure',
+        description: 'Portable vacuum-insulated liquid cylinders replacing large high-pressure cylinder banks.',
+        idealFor: 'Laser cutting units, pharmaceutical labs, and welding fabrication shops.'
+      }
+    ],
+    applications: [
+      { industry: 'Steel & Metallurgy', useCase: 'Blast furnace oxygen injection, AOD argon stirring & electric arc furnace cutting', recommendedPurity: '≥ 99.5% LOX / 99.999% LAR' },
+      { industry: 'Chemicals & Refining', useCase: 'Volatile tank blanketing, inert gas purging & liquid nitrogen reaction cooling', recommendedPurity: '≥ 99.999% UHP LIN' },
+      { industry: 'Healthcare & Life Sciences', useCase: 'Medical Oxygen IP bulk hospital supply and biological cryo-preservation', recommendedPurity: 'Medical Oxygen IP (FDA Approved)' },
+      { industry: 'Food & Beverage', useCase: 'Liquid nitrogen tunnel flash freezing & LCO₂ carbonation (ISBT Standard)', recommendedPurity: '≥ 99.9% Food Grade' }
+    ],
+    handlingSafety: [
+      'Cryogenic liquids exist below -180°C; contact causes instant tissue frostbite and destruction.',
+      'Liquid oxygen vigorously accelerates fire; keep all grease and flammable materials away.',
+      'Nitrogen and Argon rapidly displace atmospheric oxygen; install continuous oxygen depletion monitors in indoor areas.'
+    ],
+    relatedProducts: [
+      { title: 'Liquid Oxygen (LOX)', slug: 'liquid-oxygen', formula: 'O₂' },
+      { title: 'Liquid Nitrogen (LIN)', slug: 'liquid-nitrogen', formula: 'N₂' },
+      { title: 'Liquid Argon (LAR)', slug: 'liquid-argon', formula: 'Ar' },
+      { title: 'Liquid Carbon Dioxide (LCO₂)', slug: 'liquid-carbon-dioxide', formula: 'CO₂' }
+    ],
+    seoTitle: 'Bulk Cryogenic Gases Supplier India | Liquid Nitrogen (LIN), LOX, LAR Tankers | Shakti Group',
+    seoDesc: 'Premier bulk cryogenic gases supplier in India. 448 TPD capacity, 65+ cryogenic road tankers (10-35 KL) delivering Liquid Nitrogen (LIN), Liquid Oxygen (LOX), Liquid Argon (LAR), and LCO2. Turnkey on-site cryogenic tank installation on rental model across Gujarat, Maharashtra & nationwide.',
+    keywords: 'Bulk cryogenic gases supplier, Liquid nitrogen bulk supplier India, Liquid oxygen tanker supplier, Liquid argon bulk supplier, Bulk LCO2 tanker, on site cryogenic tank rental, cryogenic road tankers Gujarat Vadodara Dahej Ankleshwar, LIN bulk tanker',
+    deliveryCoverage: ['Vadodara', 'Dahej PCPIR', 'Ankleshwar', 'Surat & Hazira', 'Ahmedabad', 'Sanand', 'Halol & Savli', 'Bharuch & Jhagadia', 'Maharashtra', 'Madhya Pradesh', 'Rajasthan', 'Pan-India'],
+    faqs: [
+      {
+        question: 'Who is the leading bulk cryogenic gas supplier in India and Gujarat?',
+        answer: 'Shakti Group is a premier bulk cryogenic gas manufacturer and distributor with 448 TPD manufacturing capacity and a fleet of 65+ dedicated vacuum-insulated cryogenic road tankers (10 KL to 35 KL). We deliver Liquid Nitrogen, Liquid Oxygen, Liquid Argon, and Liquid CO2 across Gujarat, Maharashtra, MP, Rajasthan, and nationwide.'
+      },
+      {
+        question: 'What tanker capacities are available for bulk liquid gas deliveries?',
+        answer: 'Our dedicated cryogenic tanker fleet includes 10 KL, 16 KL, 20 KL, 28 KL, and 35 KL capacity transport tankers, accommodating between 8 to 40 metric tonnes of liquefied gas per shipment.'
+      },
+      {
+        question: 'Can we get an on-site cryogenic storage tank installed on a rental basis?',
+        answer: 'Yes. Shakti Group provides turnkey on-site cryogenic storage tanks (3 KL to 60 KL) with ambient air vaporizers and IoT digital telemetry on an opex/rental model with zero upfront capital expenditure.'
+      }
+    ]
+  },
+
+  'industrial-cylinder': {
+    slug: 'industrial-cylinder',
+    title: 'Industrial Compressed Gases & Cylinders',
+    chemicalFormula: 'O₂ / N₂ / Ar / CO₂ / H₂ / DA',
+    symbolBadge: 'High-Pressure Cylinders',
+    casNumber: 'Standard Industrial Identifiers',
+    unNumber: 'UN 1072 (O₂) | UN 1006 (Ar) | UN 1001 (DA) | UN 1049 (H₂)',
+    subtitle: 'High-pressure compressed gases supplied in 47L / 50L cylinders, 16-cylinder quads (MCP), and high-capacity mobile tube cascades.',
+    heroImage: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=1600',
+    category: 'industrial',
+    categoryLabel: 'Industrial & Cylinder Gases',
+    categorySlug: 'industrial-cylinder',
+    physicalState: 'High-Pressure Compressed Gas (150-200 Bar)',
+    puritiesAvailable: [
+      'Commercial Oxygen (≥ 99.5%)',
+      'Industrial Shielding Argon (≥ 99.99%)',
+      'Carbon Dioxide Welding Grade (≥ 99.9%)',
+      'Dissolved Acetylene IS:308 Grade',
+      'Compressed Nitrogen (≥ 99.99%)'
+    ],
+    physicalProperties: {
+      boilingPoint: 'Varies by Chemistry',
+      expansionRatio: 'Compressed Gas @ 150-200 Bar',
+      gasDensity: 'Standard Atmospheric Data',
+      molecularWeight: 'Specific to Compound',
+      criticalTemp: 'Varies by Gas Type'
+    },
+    overview: 'Shakti Group operates 6+ high-pressure cylinder refilling stations equipped with automated compression manifolds, vacuum evacuation bays, and hydrostatic testing stations certified by PESO. We supply industrial cylinders, cylinder bundles (MCP quads), and mobile cascades across Gujarat and neighboring states.',
+    supplyModes: [
+      {
+        title: 'High-Pressure Seamless Cylinders (47L / 50L)',
+        capacity: '7m³ to 10m³ Compressed Gas',
+        pressure: '150 Bar to 200 Bar',
+        description: 'PESO certified carbon steel cylinders with color-coded bodies per IS:4379 standard.',
+        idealFor: 'Fabrication workshops, maintenance operations, and medium cutting shops.'
+      },
+      {
+        title: 'Manifold Cylinder Quads (MCP - 16 Cylinders)',
+        capacity: '110m³ to 160m³ Bundled Volume',
+        pressure: '150 Bar to 200 Bar',
+        description: 'Pre-manifolded 16-cylinder steel pallets with single outlet connection for high-flow requirements.',
+        idealFor: 'Construction projects, structural steel yards, and batch heat treatment.'
+      },
+      {
+        title: 'Mobile Tube Cascades & Skids',
+        capacity: '1,500m³ to 4,500m³ Bulk Gas',
+        pressure: '200 Bar to 250 Bar',
+        description: 'Multi-tube semi-trailers providing uninterrupted gaseous supply directly to plant manifolds.',
+        idealFor: 'Refinery catalyst regeneration, pipeline pneumatic testing, and chemical synthesis.'
+      }
+    ],
+    applications: [
+      { industry: 'Metal Fabrication & Welding', useCase: 'MIG/TIG shielding (Argon/CO₂ mixtures) and oxy-acetylene cutting', recommendedPurity: 'Commercial & Shielding Grade' },
+      { industry: 'Refineries & Petrochemicals', useCase: 'Emergency purging and pipeline pressure testing', recommendedPurity: 'Compressed Nitrogen (≥ 99.99%)' },
+      { industry: 'Manufacturing & Automotive', useCase: 'Heat treatment inert atmosphere and laser assist gas', recommendedPurity: 'High-Purity Industrial Grade' }
+    ],
+    handlingSafety: [
+      'Always secure high-pressure cylinders upright using robust safety chains or trolleys.',
+      'Never allow oil, grease, or flammable lubricants on oxygen cylinder valves or regulators.',
+      'Check hydrostatic test re-certification date stamped on the cylinder neck ring before use.'
+    ],
+    relatedProducts: [
+      { title: 'Hydrogen Gas (H₂)', slug: 'hydrogen-gas', formula: 'H₂' },
+      { title: 'Dissolved Acetylene (DA)', slug: 'dissolved-acetylene', formula: 'C₂H₂' },
+      { title: 'Carbon Dioxide Gas (CO₂)', slug: 'carbon-dioxide-gas', formula: 'CO₂' }
+    ],
+    seoTitle: 'Industrial Compressed Gases & Cylinders Supplier Gujarat | Shakti Group',
+    seoDesc: 'High-pressure seamless cylinders, 16-cylinder quads (MCP), and tube cascades. Dissolved Acetylene (DA), Oxygen, Nitrogen, Argon, and CO2 cylinders refilled at PESO certified stations.',
+    keywords: 'Industrial Gas Cylinders Vadodara, Acetylene DA Supplier, MCP Cylinder Quads, Compressed Nitrogen Tankers',
+    deliveryCoverage: ['Vadodara', 'Dahej', 'Ankleshwar', 'Surat', 'Ahmedabad', 'Gujarat', 'Western India']
+  },
+
+  'specialty-calibration': {
+    slug: 'specialty-calibration',
+    title: 'Specialty & Calibration Gas Mixtures',
+    chemicalFormula: 'UHP & Multi-Component Mixes',
+    symbolBadge: 'Grade 5.0 - 6.0 UHP',
+    casNumber: 'Traceable Certified Mixes',
+    unNumber: 'UN 1956 (Compressed Gas, N.O.S.)',
+    subtitle: 'Ultra-High-Purity (UHP) gases up to Grade 6.0 and NIST/NABL traceable calibration mixtures for analytical laboratories and QC instruments.',
+    heroImage: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1600',
+    category: 'high-purity',
+    categoryLabel: 'Specialty & Calibration Gases',
+    categorySlug: 'specialty-calibration',
+    physicalState: 'High-Purity Gas & Precision Gravimetric Mixes',
+    puritiesAvailable: [
+      'Ultra-High Purity Grade 5.0 (99.999%)',
+      'Electronic Grade 5.5 (99.9995%)',
+      'Semiconductor Grade 6.0 (99.9999%)',
+      'NIST Traceable Calibration Mixtures (PPM / PPB)',
+      'Laser Resonator Cutting Mixtures'
+    ],
+    physicalProperties: {
+      boilingPoint: 'Certified Purity Specific',
+      expansionRatio: 'Gravimetric Precision Blend',
+      gasDensity: 'Gravimetric Certified Data',
+      molecularWeight: 'NIST Traceable Composition',
+      criticalTemp: 'Certified Environment'
+    },
+    overview: 'Shakti Sales Agency delivers Ultra-High Purity (UHP Grade 5.0 to 6.0) single gases and gravimetrically blended calibration mixtures for analytical gas chromatography, stack emissions CEMS monitoring, semiconductor research, and hazardous gas detector bump testing.',
+    supplyModes: [
+      {
+        title: 'Specialty Gas Passivated Cylinders',
+        capacity: '10L to 47L Aluminum / Stainless Lined',
+        pressure: '150 Bar to 200 Bar',
+        description: 'Internally polished and passivated cylinders maintaining mixture stability over long shelf lives.',
+        idealFor: 'Gas chromatography carrier gas (Helium, Hydrogen, Nitrogen) and detector FID supply.'
+      },
+      {
+        title: 'NIST/NABL Traceable Calibration Standards',
+        capacity: 'PPM to % Level Concentrations',
+        pressure: 'Custom Regulated',
+        description: 'Multi-component mixtures certified with individual Certificates of Analysis (COA).',
+        idealFor: 'CEMS stack emission calibration, ambient air monitoring, and pharmaceutical QC.'
+      }
+    ],
+    applications: [
+      { industry: 'Analytical Chemistry & QC', useCase: 'GC-MS carrier gas, ICP-MS collision gas & NMR spectroscopy', recommendedPurity: 'Grade 5.0 to 6.0' },
+      { industry: 'Environmental & CEMS', useCase: 'Continuous Emission Monitoring System span calibration (SO₂, NOx, CO, O₂)', recommendedPurity: '±1% Analytical Tolerance' },
+      { industry: 'Semiconductor Research', useCase: 'Epitaxial wafer growth and chamber plasma cleaning', recommendedPurity: 'Grade 6.0 UHP' }
+    ],
+    handlingSafety: [
+      'Use dedicated stainless steel purge regulators to prevent ambient air contamination.',
+      'Check Certificate of Analysis (COA) expiration date before calibration.',
+      'Store toxic or corrosive mixture components in ventilated gas cabinets.'
+    ],
+    relatedProducts: [
+      { title: 'Helium Gas (He)', slug: 'helium-gas', formula: 'He' },
+      { title: 'High Purity Oxygen', slug: 'high-purity-oxygen', formula: 'O₂' },
+      { title: 'Calibration Gas Mixtures', slug: 'calibration-gas-mixtures', formula: 'Mixtures' }
+    ],
+    seoTitle: 'Specialty Gases & Calibration Standards Supplier India | Shakti Group',
+    seoDesc: 'Ultra-High Purity (UHP) gases (Grade 5.0 - 6.0) and NIST traceable calibration gas mixtures for GC-MS, CEMS, and analytical laboratories.',
+    keywords: 'Specialty Gases Gujarat, UHP Argon, Calibration Gas Mixtures, Gas Chromatography Carrier Gas',
+    deliveryCoverage: ['Vadodara', 'Ahmedabad', 'Surat', 'Mumbai', 'Pune', 'Delhi NCR', 'Pan-India']
+  },
+
+  'other': {
+    slug: 'other',
+    title: 'Dry Ice, Cryogenic Dewars & Gas Hardware',
+    chemicalFormula: 'Solid CO₂ / Hardware',
+    symbolBadge: 'Dry Ice & Equipment',
+    casNumber: '124-38-9 (CO₂)',
+    unNumber: 'UN 1845 (Carbon Dioxide, Solid)',
+    subtitle: 'Food-grade solid CO₂ dry ice pellets and blocks, cryogenic liquid dewars, pressure regulators, and manifold hardware.',
+    heroImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600',
+    category: 'other',
+    categoryLabel: 'Other Products & Hardware',
+    categorySlug: 'other',
+    physicalState: 'Solid (-78.5°C) & Cryogenic Equipment',
+    puritiesAvailable: [
+      'Food Grade Solid CO₂ (≥ 99.9%)',
+      '3mm High-Density Pellets',
+      '6mm Pellets for Cold-Chain Storage',
+      '5kg Insulated High-Density Blocks'
+    ],
+    physicalProperties: {
+      boilingPoint: '-78.5°C Sublimation Point',
+      expansionRatio: '1 kg Solid = ~500L CO₂ Gas',
+      gasDensity: '1.56 g/cm³ (Solid Density)',
+      molecularWeight: '44.01 g/mol',
+      criticalTemp: '31.1°C'
+    },
+    overview: 'Bhavani Enterprise and Shakti Group manufacture food-grade solid CO₂ dry ice pellets and blocks for cold-chain pharmaceutical shipping, catering, and blast cleaning. We also supply liquid nitrogen dewars, high-pressure regulators, and gas manifold accessories.',
+    supplyModes: [
+      {
+        title: 'Dry Ice Pellets & Blocks',
+        capacity: '3mm / 6mm Pellets & 5kg Blocks',
+        pressure: 'Solid Form (-78.5°C)',
+        description: 'High-density extruded dry ice supplied in insulated thermal containers.',
+        idealFor: 'Cold-chain pharma shipping, food catering, and dry ice blast cleaning.'
+      },
+      {
+        title: 'Cryogenic Liquid Dewars',
+        capacity: '10L to 50L Dewars',
+        pressure: 'Low Pressure Transport',
+        description: 'Super-insulated aluminum dewars with minimal static evaporation loss.',
+        idealFor: 'Biological sample storage, IVF clinics, and dermatological therapy.'
+      },
+      {
+        title: 'Gas Regulators & Manifolds',
+        capacity: 'Single & Dual Stage Brass/SS',
+        pressure: 'Inlet up to 300 Bar',
+        description: 'Pressure regulators, flashback arrestors, pigtails, and auto-changeover panels.',
+        idealFor: 'Factory gas piping lines and lab gas distribution.'
+      }
+    ],
+    applications: [
+      { industry: 'Cold Chain Shipping', useCase: 'Pharmaceutical, biological, and perishable food temperature maintenance', recommendedPurity: 'Food-Grade Solid CO₂' },
+      { industry: 'Industrial Cleaning', useCase: 'Non-abrasive dry ice blast cleaning of machinery and molds', recommendedPurity: '3mm Pellets' },
+      { industry: 'Biological Preservation', useCase: 'Cell line and biological sample storage in liquid nitrogen dewars', recommendedPurity: 'Liquid Nitrogen (-196°C)' }
+    ],
+    handlingSafety: [
+      'Dry ice sublimates directly into CO₂ gas (-78.5°C); never store in airtight containers due to pressure risk.',
+      'Use insulated cryogenic gloves when handling dry ice to prevent frostbite.',
+      'Ensure proper ventilation in storage areas to prevent CO₂ gas buildup.'
+    ],
+    relatedProducts: [
+      { title: 'Liquid Carbon Dioxide (LCO₂)', slug: 'liquid-carbon-dioxide', formula: 'CO₂' },
+      { title: 'Liquid Nitrogen (LIN)', slug: 'liquid-nitrogen', formula: 'N₂' }
+    ],
+    seoTitle: 'Dry Ice, Cryogenic Dewars & Gas Hardware Supplier | Shakti Group',
+    seoDesc: 'Solid CO2 dry ice pellets and blocks, liquid nitrogen dewars, and pressure regulators in Gujarat. FSSAI food grade dry ice supplier in Vadodara.',
+    keywords: 'Dry Ice Supplier Vadodara, Solid CO2 Blocks, Liquid Nitrogen Dewar, Gas Pressure Regulators',
+    deliveryCoverage: ['Vadodara', 'Ahmedabad', 'Surat', 'Ankleshwar', 'Bharuch', 'Gujarat', 'Western India']
+  }
+};
+
 export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
   // ----------------------------------------------------
   // LIQUID OXYGEN (LOX)
@@ -1537,4 +1834,9 @@ export const PRODUCT_SLUG_ALIASES: Record<string, string> = {
   'uhp-oxygen': 'high-purity-oxygen',
   'medical-oxygen': 'liquid-oxygen',
   'dry-ice': 'other'
+};
+
+export const ALL_PRODUCTS_SUBPAGES_DATA: Record<string, ProductPageData> = {
+  ...CATEGORY_SUBPAGES_DATA,
+  ...INDIVIDUAL_PRODUCTS_DATA
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GROUP_COMPANIES, SERVICES } from '../constants';
+import { GROUP_COMPANIES, SERVICES, TIMELINE } from '../constants';
 import { ChevronDown, ChevronUp, Factory, Users, TrendingUp, CheckCircle, Truck, ShieldCheck, ChevronRight, ArrowLeft, ArrowRight } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import SEO from '../components/SEO';
@@ -84,44 +84,20 @@ const About: React.FC = () => {
               </p>
 
               <div className="relative border-l border-slate-200 ml-2 space-y-6">
-                <div className="relative pl-6">
-                  <div className="absolute -left-[5px] top-1.5 bg-white border-2 border-sky-600 w-2.5 h-2.5 rounded-full"></div>
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sky-700 font-mono font-bold text-sm">1998</span>
-                    <h4 className="font-bold text-slate-900 text-sm">
-                      Entry into Industrial Gas Sector
-                    </h4>
+                {TIMELINE.map((item, index) => (
+                  <div key={index} className="relative pl-6">
+                    <div className={`absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full border-2 border-sky-600 ${index === TIMELINE.length - 1 ? 'bg-sky-600' : 'bg-white'}`}></div>
+                    <div className="flex items-center gap-3 mb-1">
+                      <span className="text-sky-700 font-mono font-bold text-sm">{item.year}</span>
+                      <h4 className="font-bold text-slate-900 text-sm">
+                        {item.title}
+                      </h4>
+                    </div>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Initiated industrial gas operations with a focus on safe handling, cylinder supply, and customer-specific delivery requirements.
-                  </p>
-                </div>
-
-                <div className="relative pl-6">
-                  <div className="absolute -left-[5px] top-1.5 bg-white border-2 border-sky-600 w-2.5 h-2.5 rounded-full"></div>
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sky-700 font-mono font-bold text-sm">2011</span>
-                    <h4 className="font-bold text-slate-900 text-sm">
-                      Shakti Industrial Gases Established
-                    </h4>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Expanded into liquid oxygen, nitrogen, argon, and CO₂ manufacturing with cryogenic storage and tanker dispatch capability.
-                  </p>
-                </div>
-
-                <div className="relative pl-6">
-                  <div className="absolute -left-[5px] top-1.5 bg-sky-600 border-2 border-sky-600 w-2.5 h-2.5 rounded-full"></div>
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sky-700 font-mono font-bold text-sm">Present</span>
-                    <h4 className="font-bold text-slate-900 text-sm">
-                      Capacity Expansion & Multi-Plant Operations
-                    </h4>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Operating and developing multiple ASU and CO₂ plants with regional redundancy and pan-India logistics coverage.
-                  </p>
-                </div>
+                ))}
               </div>
             </div>
 
@@ -163,41 +139,22 @@ const About: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div className="bg-white p-5 sm:p-6 rounded-lg border border-slate-200 shadow-xs space-y-2">
-              <div className="w-9 h-9 rounded bg-sky-50 text-sky-700 border border-sky-200 flex items-center justify-center">
-                <Factory className="w-4 h-4" />
-              </div>
-              <h3 className="font-bold text-sm sm:text-base text-slate-900">
-                Cryogenic Plant & Storage Operations
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Design, installation, and operation of PESO-approved cryogenic storage and gas handling systems.
-              </p>
-            </div>
-
-            <div className="bg-white p-5 sm:p-6 rounded-lg border border-slate-200 shadow-xs space-y-2">
-              <div className="w-9 h-9 rounded bg-sky-50 text-sky-700 border border-sky-200 flex items-center justify-center">
-                <Truck className="w-4 h-4" />
-              </div>
-              <h3 className="font-bold text-sm sm:text-base text-slate-900">
-                Nationwide Cryogenic Logistics
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Dedicated cryogenic tanker fleet with trained drivers, GPS tracking, and defined delivery cycles.
-              </p>
-            </div>
-
-            <div className="bg-white p-5 sm:p-6 rounded-lg border border-slate-200 shadow-xs space-y-2">
-              <div className="w-9 h-9 rounded bg-sky-50 text-sky-700 border border-sky-200 flex items-center justify-center">
-                <CheckCircle className="w-4 h-4" />
-              </div>
-              <h3 className="font-bold text-sm sm:text-base text-slate-900">
-                End-to-End Industrial Gas Solutions
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Coordinated production planning, storage allocation, and dispatch for steel, refinery, EPC, manufacturing, and food-processing customers.
-              </p>
-            </div>
+            {SERVICES.map((srv) => {
+              const Icon = srv.icon;
+              return (
+                <div key={srv.id} className="bg-white p-5 sm:p-6 rounded-lg border border-slate-200 shadow-xs space-y-2">
+                  <div className="w-9 h-9 rounded bg-sky-50 text-sky-700 border border-sky-200 flex items-center justify-center">
+                    <Icon className="w-4 h-4" />
+                  </div>
+                  <h3 className="font-bold text-sm sm:text-base text-slate-900">
+                    {srv.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {srv.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
