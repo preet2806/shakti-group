@@ -253,9 +253,10 @@ const Home: React.FC = () => {
   return (
     <div className="bg-white font-sans text-slate-900">
       <SEO
-        title="Shakti Industrial Gases | Industrial & Medical Gas Manufacturer | India"
-        description="Shakti Group operates large-scale Air Separation Units (ASUs), CO₂ recovery plants, 65+ cryogenic road tankers and refilling stations supplying LOX, LIN, LAR, LCO₂, and specialty gases."
-        keywords="Industrial Gas Manufacturer India, Bulk Cryogenic Gas Supplier, Liquid Oxygen Plant, Liquid Nitrogen Gujarat, Karjan ASU, Liquid CO2 Manufacturer, Shakti Group"
+        title="Shakti Group | Industrial Gas Manufacturer, Gujarat"
+        description="Leading industrial & cryogenic gas manufacturer in Vadodara, Gujarat, India. Supplying LOX, LIN, LAR, and LCO₂ with 24x7 tanker logistics. Request an instant quote today."
+        keywords="Industrial Gas Manufacturer Gujarat, Liquid Nitrogen Vadodara, Liquid Oxygen Tanker India, Liquid Argon Supplier, Bulk LCO2 Tankers, Karjan ASU"
+        canonicalUrl="https://www.shaktigases.com/"
       />
 
       {/* 1. HERO SECTION - Full Size Video Hero */}

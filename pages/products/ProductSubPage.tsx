@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, Navigate } from 'react-router-dom';
+import NotFound from '../NotFound';
 import {
   ChevronRight,
   CheckCircle2,
@@ -31,9 +32,18 @@ export const PRODUCT_SUBPAGES_DATA = ALL_PRODUCTS_SUBPAGES_DATA;
 
 export const ProductSubPage: React.FC = () => {
   const location = useLocation();
-  const rawSlug = location.pathname.split('/').pop() || 'bulk-cryogenic';
-  const resolvedSlug = PRODUCT_SLUG_ALIASES[rawSlug.toLowerCase()] || rawSlug;
-  const data = ALL_PRODUCTS_SUBPAGES_DATA[resolvedSlug] || CATEGORY_SUBPAGES_DATA['bulk-cryogenic'];
+  const rawSlug = (location.pathname.split('/').pop() || 'bulk-cryogenic').toLowerCase();
+
+  // If slug is an alias (e.g. /products/dry-ice -> /products/other), redirect to canonical
+  const aliasTarget = PRODUCT_SLUG_ALIASES[rawSlug];
+  if (aliasTarget) {
+    return <Navigate to={`/products/${aliasTarget}`} replace />;
+  }
+
+  const data = ALL_PRODUCTS_SUBPAGES_DATA[rawSlug];
+  if (!data) {
+    return <NotFound />;
+  }
 
   const isIndividualProduct = !(data.slug in CATEGORY_SUBPAGES_DATA);
 

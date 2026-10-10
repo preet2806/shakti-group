@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, Navigate } from 'react-router-dom';
+import NotFound from '../NotFound';
 import {
   ChevronRight,
   CheckCircle2,
@@ -784,11 +785,17 @@ export const INDUSTRY_SUBPAGES_DATA: Record<string, IndustryPageData> = {
 
 export const IndustrySubPage: React.FC = () => {
   const location = useLocation();
-  const rawSlug = location.pathname.split('/').pop() || 'metals-manufacturing';
+  const rawSlug = (location.pathname.split('/').pop() || 'metals-manufacturing').toLowerCase();
 
   // Resolve alias mappings if any
-  const slug = rawSlug === 'chemicals-pharmaceuticals' ? 'chemicals-process' : rawSlug;
-  const data = INDUSTRY_SUBPAGES_DATA[slug] || INDUSTRY_SUBPAGES_DATA['metals-manufacturing'];
+  if (rawSlug === 'chemicals-pharmaceuticals') {
+    return <Navigate to="/industries/chemicals-process" replace />;
+  }
+
+  const data = INDUSTRY_SUBPAGES_DATA[rawSlug];
+  if (!data) {
+    return <NotFound />;
+  }
 
   // Structured Schema for rich SEO results
   const serviceSchema = {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Loader2, CheckCircle, AlertCircle, Clock, ShieldCheck, ArrowRight, Linkedin, ExternalLink } from 'lucide-react';
 import { sendEmail } from '../services/emailService';
 import { NavLink } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -39,20 +40,13 @@ const Contact: React.FC = () => {
 
   return (
     <div className="bg-white font-sans text-slate-900">
-      {/* React 19 SEO Hoisting */}
-      <title>Contact Shakti Gases | Industrial Gas Supplier in Gujarat & West India</title>
-      <meta
-        name="description"
-        content="Contact Shakti Gases, a leading industrial gas supplier in Gujarat. Get in touch for Liquid CO2, Oxygen, Nitrogen, Argon supply, logistics and technical support across West India."
-      />
-      <meta
-        name="keywords"
-        content="Shakti Gases Contact, Industrial Gas Supplier Gujarat, Gas Supplier Vadodara, Liquid CO2 Supplier India, Oxygen Nitrogen Argon Gujarat, Oxygen Nitrogen Argon India"
-      />
-
-      {/* Local Business Schema */}
-      <script type="application/ld+json">
-        {JSON.stringify({
+      <SEO
+        title="Contact Shakti Group | Industrial Gas Supplier in Gujarat & West India"
+        description="Contact Shakti Group in Vadodara, Gujarat for bulk liquid CO2, oxygen, nitrogen, argon supply, tanker dispatch, and technical support across West India."
+        keywords="Contact Shakti Gases, Industrial Gas Supplier Gujarat, Gas Supplier Vadodara, Liquid CO2 Supplier India, Oxygen Nitrogen Argon Gujarat, RFQ Industrial Gases"
+        canonicalUrl="https://www.shaktigases.com/contact"
+        ogType="website"
+        schemaJson={{
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           "name": "Shakti Industrial Gases",
@@ -67,8 +61,8 @@ const Contact: React.FC = () => {
           "telephone": "+91-9727783440",
           "email": "info@shaktigases.com",
           "areaServed": "India"
-        })}
-      </script>
+        }}
+      />
 
       {/* Header */}
       <div className="bg-slate-950 text-white py-10 sm:py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-800">

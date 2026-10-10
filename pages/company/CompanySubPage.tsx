@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import NotFound from '../NotFound';
 import {
   Building2,
   ChevronRight,
@@ -578,8 +579,12 @@ export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
 
 export const CompanySubPage: React.FC = () => {
   const location = useLocation();
-  const slug = location.pathname.split('/').pop() || 'our-group';
-  const data = COMPANY_SUBPAGES_DATA[slug] || COMPANY_SUBPAGES_DATA['our-group'];
+  const slug = (location.pathname.split('/').pop() || 'our-group').toLowerCase();
+  const data = COMPANY_SUBPAGES_DATA[slug];
+
+  if (!data) {
+    return <NotFound />;
+  }
 
   const schema = {
     '@context': 'https://schema.org',

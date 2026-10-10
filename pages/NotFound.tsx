@@ -1,34 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { Home, ArrowRight, Compass, ShieldAlert, PhoneCall, Package, Wrench } from 'lucide-react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { Home, ArrowRight, ShieldAlert, PhoneCall, Package, Wrench } from 'lucide-react';
 import SEO from '../components/SEO';
 
 export const NotFound: React.FC = () => {
-  const [secondsLeft, setSecondsLeft] = useState(6);
-  const [isPaused, setIsPaused] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (isPaused) return;
-
-    if (secondsLeft <= 0) {
-      navigate('/', { replace: true });
-      return;
-    }
-
-    const timer = setInterval(() => {
-      setSecondsLeft((prev) => prev - 1);
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [secondsLeft, isPaused, navigate]);
-
   return (
     <div className="min-h-[75vh] flex items-center justify-center bg-slate-50/60 px-4 py-16">
       <SEO
         title="404 - Page Not Found | Shakti Group"
-        description="The requested page could not be found. Redirecting to Shakti Industrial Gases homepage."
-        canonicalUrl="/404"
+        description="The requested page could not be found. Browse Shakti Industrial Gases catalog or contact our sales desk."
+        canonicalUrl="https://www.shaktigases.com/404"
       />
 
       <div className="max-w-xl w-full bg-white rounded-2xl border border-slate-200 shadow-xl p-6 sm:p-10 text-center relative overflow-hidden">
@@ -39,7 +20,7 @@ export const NotFound: React.FC = () => {
         {/* Status Badge */}
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider mb-4">
           <ShieldAlert className="w-3.5 h-3.5" />
-          <span>Error 404 • Resource Relocated</span>
+          <span>HTTP 404 • Resource Not Found</span>
         </div>
 
         {/* Big 404 Headline with Brand Logo */}
@@ -51,32 +32,8 @@ export const NotFound: React.FC = () => {
             Page or Gas Specification Not Found
           </h2>
           <p className="text-sm text-slate-600 max-w-md mt-2 leading-relaxed">
-            The page you requested may have been renamed, moved during plant catalog updates, or does not exist.
+            The page you requested may have been renamed, moved during catalog updates, or does not exist on this server.
           </p>
-        </div>
-
-        {/* Auto-redirect status alert */}
-        <div className="my-6 p-4 rounded-xl bg-sky-50/80 border border-sky-200/70 text-slate-800 text-xs">
-          <div className="flex items-center justify-between mb-2 font-medium">
-            <span className="inline-flex items-center gap-1.5 text-sky-900 font-semibold">
-              <Compass className="w-4 h-4 text-sky-700 animate-spin" style={{ animationDuration: '4s' }} />
-              {isPaused ? 'Auto-redirect paused' : `Redirecting to homepage in ${secondsLeft}s...`}
-            </span>
-            <button
-              onClick={() => setIsPaused(!isPaused)}
-              className="text-[11px] font-bold text-sky-800 hover:text-sky-900 underline underline-offset-2 ml-2"
-            >
-              {isPaused ? 'Resume Redirect' : 'Pause'}
-            </button>
-          </div>
-
-          {/* Animated Countdown Progress Bar */}
-          <div className="w-full bg-sky-200/60 rounded-full h-1.5 overflow-hidden">
-            <div
-              className="bg-sky-700 h-1.5 rounded-full transition-all duration-1000 ease-linear"
-              style={{ width: `${(secondsLeft / 6) * 100}%` }}
-            />
-          </div>
         </div>
 
         {/* Primary Action Buttons */}

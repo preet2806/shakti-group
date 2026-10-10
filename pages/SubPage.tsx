@@ -4,6 +4,7 @@ import CompanySubPage, { COMPANY_SUBPAGES_DATA } from './company/CompanySubPage'
 import ProductSubPage, { PRODUCT_SUBPAGES_DATA } from './products/ProductSubPage';
 import SolutionSubPage, { SOLUTION_SUBPAGES_DATA } from './solutions/SolutionSubPage';
 import IndustrySubPage, { INDUSTRY_SUBPAGES_DATA } from './industries/IndustrySubPage';
+import NotFound from './NotFound';
 
 export interface SubPageDetails {
   category: 'Company' | 'Products' | 'Solutions' | 'Industries';
@@ -155,8 +156,8 @@ export const SubPage: React.FC = () => {
     return <IndustrySubPage />;
   }
 
-  // Fallback to CompanySubPage if unknown category
-  return <CompanySubPage />;
+  // Unknown category -> 404
+  return <NotFound />;
 };
 
 export default SubPage;

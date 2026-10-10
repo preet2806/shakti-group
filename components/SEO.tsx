@@ -21,7 +21,7 @@ export const SEO: React.FC<SEOProps> = ({
   schemaJson,
   schema
 }) => {
-  const currentUrl = canonicalUrl || (typeof window !== 'undefined' ? window.location.href : 'https://www.shaktigases.com');
+  const currentUrl = canonicalUrl || (typeof window !== 'undefined' ? `${window.location.origin}${window.location.pathname}` : 'https://www.shaktigases.com');
   const activeSchema = schemaJson || schema;
 
   useEffect(() => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import NotFound from '../NotFound';
 import {
   ChevronRight,
   CheckCircle2,
@@ -603,8 +604,12 @@ export const SOLUTION_SUBPAGES_DATA: Record<string, SolutionPageData> = {
 
 export const SolutionSubPage: React.FC = () => {
   const location = useLocation();
-  const slug = location.pathname.split('/').pop() || 'bulk-gas-supply';
-  const data = SOLUTION_SUBPAGES_DATA[slug] || SOLUTION_SUBPAGES_DATA['bulk-gas-supply'];
+  const slug = (location.pathname.split('/').pop() || 'bulk-gas-supply').toLowerCase();
+  const data = SOLUTION_SUBPAGES_DATA[slug];
+
+  if (!data) {
+    return <NotFound />;
+  }
 
   const schema = {
     '@context': 'https://schema.org',

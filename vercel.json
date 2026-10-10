@@ -1,4 +1,41 @@
 {
+  "redirects": [
+    {
+      "source": "/products/dry-ice",
+      "destination": "/products/other",
+      "permanent": true
+    },
+    {
+      "source": "/products/lox",
+      "destination": "/products/liquid-oxygen",
+      "permanent": true
+    },
+    {
+      "source": "/products/lin",
+      "destination": "/products/liquid-nitrogen",
+      "permanent": true
+    },
+    {
+      "source": "/products/lar",
+      "destination": "/products/liquid-argon",
+      "permanent": true
+    },
+    {
+      "source": "/products/lco2",
+      "destination": "/products/liquid-carbon-dioxide",
+      "permanent": true
+    },
+    {
+      "source": "/company/about",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/solutions",
+      "destination": "/services",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",

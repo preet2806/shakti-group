@@ -1809,6 +1809,330 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
     seoTitle: 'Hydrogen Sulfide (H2S) Gas Supplier India | Detector Calibration Standards',
     seoDesc: 'NIST traceable Hydrogen Sulfide (H2S) calibration gas mixtures (10-50 ppm) for refinery safety monitors and catalyst sulfiding.',
     keywords: 'Hydrogen Sulfide Calibration Gas, H2S Bump Test Gas India, H2S Cylinders Gujarat'
+  },
+
+  'gaseous-nitrogen': {
+    slug: 'gaseous-nitrogen',
+    title: 'Gaseous Nitrogen (N₂)',
+    chemicalFormula: 'N₂',
+    symbolBadge: 'N₂ | Compressed Gas',
+    casNumber: '7727-37-9',
+    unNumber: 'UN 1066 (Nitrogen, Compressed)',
+    subtitle: 'High-pressure gaseous nitrogen supplied in seamless cylinders (150-200 bar), 16-cylinder quads (MCP), and tube cascades for chemical inerting and pipeline testing.',
+    heroImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600',
+    category: 'cylinder',
+    categoryLabel: 'Industrial Cylinder Gases',
+    categorySlug: 'industrial-cylinder',
+    physicalState: 'High-Pressure Compressed Gas (150-200 Bar)',
+    puritiesAvailable: [
+      'Commercial Grade (≥ 99.5%)',
+      'High Purity (≥ 99.99%)',
+      'Ultra High Purity Grade 5.0 (99.999%)'
+    ],
+    physicalProperties: {
+      boilingPoint: '-195.8°C',
+      expansionRatio: 'Compressed Gas @ 150-200 Bar',
+      gasDensity: '1.2506 kg/m³ @ 0°C',
+      molecularWeight: '28.0134 g/mol',
+      criticalTemp: '-146.9°C'
+    },
+    overview: 'Shakti Group supplies compressed gaseous nitrogen (N₂) in 47L / 50L seamless steel cylinders, 16-cylinder pre-manifolded MCP quads, and mobile tube trailers across Gujarat and Western India. Produced via cryogenic air separation and compressed with strict moisture control.',
+    availableSupplyFormats: [
+      '47L / 50L Seamless High-Pressure Cylinders (150-200 Bar)',
+      '16-Cylinder Pre-Manifolded Quads (MCP)',
+      'Mobile Semi-Trailer Tube Cascades (up to 4,500 Nm³)'
+    ],
+    supplyModes: [
+      {
+        title: 'High-Pressure Seamless Cylinders (47L / 50L)',
+        capacity: '7m³ to 10m³ Compressed Gas',
+        pressure: '150 Bar to 200 Bar',
+        description: 'PESO certified seamless carbon steel cylinders with IS:4379 compliance.',
+        idealFor: 'Fabrication shops, pharmaceutical inerting, and maintenance testing.'
+      },
+      {
+        title: 'Manifold Cylinder Quads (MCP - 16 Cylinders)',
+        capacity: '110m³ to 160m³ Bundled Gas',
+        pressure: '150 Bar to 200 Bar',
+        description: 'Heavy-duty steel pallets with unified manifold header for high-volume purging.',
+        idealFor: 'Refinery shutdown purging, chemical plant turnarounds, and batch pressure tests.'
+      },
+      {
+        title: 'Mobile Tube Cascades & Skids',
+        capacity: '1,500m³ to 4,500m³ Bulk Gas',
+        pressure: '200 Bar to 250 Bar',
+        description: 'Multi-tube trailer units providing uninterrupted high-pressure nitrogen gas.',
+        idealFor: 'Refinery pipeline pneumatic testing and sub-sea pipeline drying.'
+      }
+    ],
+    applications: [
+      { industry: 'Chemicals & Refining', useCase: 'Pneumatic pressure testing, volatile reactor blanketing, and catalyst drying', recommendedPurity: 'High Purity (≥ 99.99%)' },
+      { industry: 'Metal Fabrication', useCase: 'High-pressure laser cutting assist gas and heat treatment atmosphere', recommendedPurity: 'Ultra High Purity (≥ 99.999%)' },
+      { industry: 'Pharmaceutical & Food', useCase: 'Powder packaging inerting and head-space oxygen displacement', recommendedPurity: 'High Purity (≥ 99.99%)' }
+    ],
+    handlingSafety: [
+      'Store high-pressure cylinders secured upright with valve safety caps intact.',
+      'Asphyxiation risk: nitrogen rapidly displaces oxygen in enclosed rooms without warning odors.',
+      'Always use dual-stage pressure regulators rated for 200 bar inlet pressure.'
+    ],
+    relatedProducts: [
+      { title: 'Liquid Nitrogen (LIN)', slug: 'liquid-nitrogen', formula: 'N₂' },
+      { title: 'Compressed Air', slug: 'compressed-air', formula: 'Air' },
+      { title: 'Hydrogen Gas', slug: 'hydrogen-gas', formula: 'H₂' }
+    ],
+    seoTitle: 'Gaseous Nitrogen (N₂) Gas Supplier & Cylinders Gujarat | Shakti Group',
+    seoDesc: 'High-pressure gaseous nitrogen (N₂) cylinders (150-200 bar) and mobile tube cascades for refinery purging, pipeline testing, and chemical blanketing in Gujarat.',
+    keywords: 'Gaseous Nitrogen Cylinders, Compressed Nitrogen Gujarat, Nitrogen Tube Cascades, Pipeline Purging Nitrogen'
+  },
+
+  'compressed-air': {
+    slug: 'compressed-air',
+    title: 'Industrial Compressed Air & Breathing Air',
+    chemicalFormula: '78% N₂ + 21% O₂',
+    symbolBadge: 'Air | Compressed',
+    casNumber: '132259-10-0',
+    unNumber: 'UN 1002 (Air, Compressed)',
+    subtitle: 'Dry, oil-free high-pressure compressed air and certified breathing air cylinders (200-300 bar) for pneumatic valve testing, refineries, and confined-space work.',
+    heroImage: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1600',
+    category: 'cylinder',
+    categoryLabel: 'Industrial Cylinder Gases',
+    categorySlug: 'industrial-cylinder',
+    physicalState: 'Compressed Gas (200-300 Bar)',
+    puritiesAvailable: [
+      'Dry Industrial Compressed Air',
+      'Breathing Air IS:9623 Grade',
+      'Zero-Air Analytical Grade'
+    ],
+    physicalProperties: {
+      boilingPoint: '-194.5°C',
+      expansionRatio: 'Compressed Gas @ 200-300 Bar',
+      gasDensity: '1.293 kg/m³ @ 0°C',
+      molecularWeight: '28.97 g/mol',
+      criticalTemp: '-140.6°C'
+    },
+    overview: 'Shakti Group supplies triple-filtered, desiccant-dried, and oil-free compressed air pressurized to 200–300 bar complying with IS:9623 breathing standards and industrial instrumentation requirements.',
+    availableSupplyFormats: [
+      '50L High-Pressure Seamless Cylinders (200-300 Bar)',
+      '16-Cylinder Pre-Manifolded Quads',
+      'Emergency Breathing Air Manifolds'
+    ],
+    supplyModes: [
+      {
+        title: 'Breathing Air Cylinders (200-300 Bar)',
+        capacity: '50L Seamless Cylinders',
+        pressure: '200 to 300 Bar',
+        description: 'Oil-free, particulate-free breathable air tested to IS:9623 standard.',
+        idealFor: 'Refinery turnaround teams, confined-space maintenance, and SCBA cylinder charging.'
+      },
+      {
+        title: 'Industrial Air Quads (16-Cylinder MCP)',
+        capacity: '120m³ to 180m³ Bundled Air',
+        pressure: '200 Bar',
+        description: 'High-volume dry air bundles for high-pressure pneumatic actuator testing.',
+        idealFor: 'Valve manufacturing testing bays and pipeline drying.'
+      }
+    ],
+    applications: [
+      { industry: 'Refining & Petrochemicals', useCase: 'SCBA breathing apparatus supply for hazardous entry and pipeline actuation', recommendedPurity: 'IS:9623 Breathing Grade' },
+      { industry: 'Valve & Equipment Testing', useCase: 'High-pressure pneumatic hydro-pneumatic valve seat leak testing', recommendedPurity: 'Dry Industrial Grade' }
+    ],
+    handlingSafety: [
+      'Store high-pressure air cylinders secured upright away from heat sources.',
+      'Never use industrial plant compressed air for human respiration unless certified to IS:9623.'
+    ],
+    relatedProducts: [
+      { title: 'Gaseous Nitrogen', slug: 'gaseous-nitrogen', formula: 'N₂' },
+      { title: 'High Purity Oxygen', slug: 'high-purity-oxygen', formula: 'O₂' }
+    ],
+    seoTitle: 'Compressed Air & Breathing Air Cylinders Supplier | Shakti Group',
+    seoDesc: 'Dry, oil-free high-pressure compressed air and certified breathing air cylinders (200-300 bar) for pneumatic testing, refineries, and diving in Gujarat.',
+    keywords: 'Compressed Air Cylinders, Breathing Air Gujarat, High Pressure Air Quads, Plant Air Supply Vadodara'
+  },
+
+  'high-purity-argon': {
+    slug: 'high-purity-argon',
+    title: 'High Purity & Ultra-High Purity Argon',
+    chemicalFormula: 'Ar',
+    symbolBadge: 'Ar | Grade 5.0 - 6.0',
+    casNumber: '7440-37-1',
+    unNumber: 'UN 1006 (Argon, Compressed)',
+    subtitle: 'Grade 5.0 (99.999%) and Grade 6.0 (99.9999%) argon for high-precision TIG welding, titanium fabrication, semiconductor furnaces, and analytical emission spectrometers.',
+    heroImage: 'https://plus.unsplash.com/premium_photo-1682144582509-e520bf8771d3?w=900&auto=format&fit=crop',
+    category: 'high-purity',
+    categoryLabel: 'Specialty & Calibration Gases',
+    categorySlug: 'specialty-calibration',
+    physicalState: 'High-Purity Compressed Gas (150-200 Bar)',
+    puritiesAvailable: [
+      'Grade 5.0 (99.999%)',
+      'Electronic Grade 5.5 (99.9995%)',
+      'Grade 6.0 (99.9999%)'
+    ],
+    physicalProperties: {
+      boilingPoint: '-185.87°C',
+      expansionRatio: 'Compressed Gas @ 150-200 Bar',
+      gasDensity: '1.784 kg/m³ @ 0°C',
+      molecularWeight: '39.948 g/mol',
+      criticalTemp: '-122.29°C'
+    },
+    overview: 'Fractionally distilled at Karjan ASU with online gas chromatography verification. Ultra-high-purity argon with moisture < 2 ppm, oxygen < 1 ppm, and total hydrocarbons < 0.5 ppm, supplied in passivated cylinders and liquid Dura containers.',
+    availableSupplyFormats: [
+      '47L / 50L Passivated Seamless Cylinders',
+      '16-Cylinder High-Purity Quads',
+      'Cryogenic Liquid Cylinders (Dura)'
+    ],
+    supplyModes: [
+      {
+        title: 'Passivated High-Pressure Cylinders',
+        capacity: '47L / 50L Passivated Steel Cylinders',
+        pressure: '150 to 200 Bar',
+        description: 'Internally cleaned and vacuum-baked cylinders preventing trace moisture contamination.',
+        idealFor: 'Analytical spark OES spectrometers, ICP-MS laboratories, and titanium welding.'
+      },
+      {
+        title: '16-Cylinder UHP Manifold Quads',
+        capacity: '110m³ to 150m³ Bundled Pure Argon',
+        pressure: '150 to 200 Bar',
+        description: 'Dedicated quads manifolded with stainless steel pigtails for aerospace fabrication.',
+        idealFor: 'Exotic alloy welding lines and semiconductor furnaces.'
+      }
+    ],
+    applications: [
+      { industry: 'Aerospace & Metallurgy', useCase: 'Titanium, zirconium, and high-nickel alloy TIG welding and plasma arc cutting', recommendedPurity: 'Grade 5.0 (99.999%)' },
+      { industry: 'Analytical Laboratories', useCase: 'Spark OES spectrometer excitation chamber purge and ICP-MS carrier stream', recommendedPurity: 'Grade 5.5 - 6.0 UHP' },
+      { industry: 'Electronics & Semiconductor', useCase: 'Silicon crystal pulling and inert furnace annealing', recommendedPurity: 'Grade 6.0 (99.9999%)' }
+    ],
+    handlingSafety: [
+      'Completely inert noble gas but displaces oxygen rapidly in unventilated rooms.',
+      'Always install calibrated oxygen depletion alarms in analytical spectrometer rooms.'
+    ],
+    relatedProducts: [
+      { title: 'Liquid Argon (LAR)', slug: 'liquid-argon', formula: 'Ar' },
+      { title: 'Specialty Calibration Gases', slug: 'specialty-calibration', formula: 'Mixes' },
+      { title: 'Helium Gas', slug: 'helium-gas', formula: 'He' }
+    ],
+    seoTitle: 'High Purity Argon (Grade 5.0) Supplier Gujarat | Shakti Group',
+    seoDesc: 'Ultra-High-Purity Argon (Grade 5.0 - 99.999% and Grade 6.0) for TIG welding, semiconductor fabrication, and analytical spark OES instruments across Gujarat.',
+    keywords: 'High Purity Argon Gujarat, UHP Argon Grade 5.0, TIG Shielding Argon, Spectrometer Argon Gas'
+  },
+
+  'chlorine-gas': {
+    slug: 'chlorine-gas',
+    title: 'Liquid Chlorine Gas (Cl₂)',
+    chemicalFormula: 'Cl₂',
+    symbolBadge: 'Cl₂ | Oxidizer & Toxic',
+    casNumber: '7782-50-5',
+    unNumber: 'UN 1017 (Chlorine)',
+    subtitle: 'PESO approved 900 kg liquid chlorine tonners and 100 kg cylinders for industrial water chlorination, chemical synthesis, and pharmaceutical processing.',
+    heroImage: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1600',
+    category: 'specialty',
+    categoryLabel: 'Specialty & Calibration Gases',
+    categorySlug: 'specialty-calibration',
+    physicalState: 'Liquefied Gas (6.8 Bar @ 20°C)',
+    puritiesAvailable: [
+      'Industrial Grade (≥ 99.8% Liquid Chlorine)',
+      'Technical Grade (≥ 99.5%)'
+    ],
+    physicalProperties: {
+      boilingPoint: '-34.04°C',
+      expansionRatio: 'Liquefied Gas @ 6.8 Bar',
+      gasDensity: '3.214 kg/m³ (2.5x heavier than air)',
+      molecularWeight: '70.906 g/mol',
+      criticalTemp: '143.8°C'
+    },
+    overview: 'Shakti Group coordinates statutory PESO licensed chlorine tonner supply and distribution with dedicated hazardous transport logistics across Western India. Supplied in 900 kg tonners with emergency valve hoods.',
+    availableSupplyFormats: [
+      'PESO Approved 900 kg Heavy-Duty Liquid Chlorine Tonners',
+      '100 kg Industrial Cylinders',
+      'Emergency Tonner Kit & Vaporizer Support'
+    ],
+    supplyModes: [
+      {
+        title: 'PESO Certified 900 kg Chlorine Tonners',
+        capacity: '900 kg Net Liquid Chlorine',
+        pressure: '6.8 Bar @ 20°C',
+        description: 'Heavy forged steel tonners with dual emergency fusible plug valves and protective hoods.',
+        idealFor: 'Municipal water treatment plants, chemical chlorination reactors, and paper mills.'
+      },
+      {
+        title: '100 kg Chlorine Cylinders',
+        capacity: '100 kg Net Weight',
+        pressure: '6.8 Bar',
+        description: 'Convenient cylinders for batch water disinfection and effluent treatment plants.',
+        idealFor: 'Industrial ETP systems, cooling tower water chlorination, and textile bleaching.'
+      }
+    ],
+    applications: [
+      { industry: 'Water & Wastewater Treatment', useCase: 'Potable water disinfection, municipal chlorination, and industrial effluent bio-control', recommendedPurity: '≥ 99.8% Industrial Grade' },
+      { industry: 'Chemical Synthesis', useCase: 'Manufacturing chlorinated organic solvents, pesticides, and PVC intermediates', recommendedPurity: '≥ 99.8% Pure' },
+      { industry: 'Pulp & Paper', useCase: 'Cellulose fiber bleaching and slime control', recommendedPurity: '≥ 99.5% Technical Grade' }
+    ],
+    handlingSafety: [
+      'Extremely toxic and corrosive yellowish-green gas with sharp, suffocating odor.',
+      'PESO licensed storage yards only; emergency B-kit and neutralizing ammonia scrubber required on site.'
+    ],
+    relatedProducts: [
+      { title: 'Hydrogen Chloride (HCl)', slug: 'hydrogen-chloride', formula: 'HCl' },
+      { title: 'Sulphur Dioxide', slug: 'sulphur-dioxide', formula: 'SO₂' }
+    ],
+    seoTitle: 'Chlorine Gas (Cl₂) Tonners & Cylinders Supplier Gujarat | Shakti Group',
+    seoDesc: 'PESO approved 900 kg liquid chlorine tonners and 100 kg cylinders for industrial water chlorination, chemical synthesis, and pharmaceutical processing.',
+    keywords: 'Chlorine Gas Tonners Gujarat, Liquid Chlorine Supplier India, 900kg Chlorine Tonners, Water Chlorination Vadodara'
+  },
+
+  'sulfur-hexafluoride': {
+    slug: 'sulfur-hexafluoride',
+    title: 'Sulfur Hexafluoride (SF₆)',
+    chemicalFormula: 'SF₆',
+    symbolBadge: 'SF₆ | Dielectric Gas',
+    casNumber: '2551-62-4',
+    unNumber: 'UN 1080 (Sulfur Hexafluoride)',
+    subtitle: 'High-dielectric insulating gas supplied in high-pressure cylinders with guaranteed purity (≥ 99.9%) for GIS switchgear and electrical substations.',
+    heroImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1600',
+    category: 'specialty',
+    categoryLabel: 'Specialty & Calibration Gases',
+    categorySlug: 'specialty-calibration',
+    physicalState: 'Liquefied Gas (21 Bar @ 20°C)',
+    puritiesAvailable: [
+      'Electrical Grade IEC 60376 (≥ 99.9%)',
+      'Electronic Grade (≥ 99.99%)'
+    ],
+    physicalProperties: {
+      boilingPoint: '-63.8°C (Sublimation)',
+      expansionRatio: 'Liquefied Gas @ 21 Bar',
+      gasDensity: '6.13 kg/m³ (5x heavier than air)',
+      molecularWeight: '146.06 g/mol',
+      criticalTemp: '45.5°C'
+    },
+    overview: 'Conforms to IEC 60376 standards for electrical insulating gas with dielectric strength 2.5 times higher than air at atmospheric pressure. Standard arc quenching and insulating medium in gas-insulated substations (GIS) and transmission circuit breakers.',
+    availableSupplyFormats: [
+      '40L / 50L Seamless High-Pressure Cylinders (40 kg / 50 kg SF₆)',
+      'High-Volume Regulated Tonners',
+      'SF₆ Recovery & Recharging Units'
+    ],
+    supplyModes: [
+      {
+        title: 'Electrical Grade Seamless Cylinders',
+        capacity: '40 kg to 50 kg SF₆ Cylinders',
+        pressure: '21 Bar @ 20°C',
+        description: 'Certified to IEC 60376 with moisture < 15 ppm and acidity < 0.3 ppm.',
+        idealFor: 'Power grid substations, GIS switchgear commissioning, and high-voltage circuit breakers.'
+      }
+    ],
+    applications: [
+      { industry: 'Power Transmission & Distribution', useCase: 'Dielectric insulation and arc suppression in Gas Insulated Switchgear (GIS) and breakers', recommendedPurity: 'IEC 60376 Grade (≥ 99.9%)' },
+      { industry: 'Semiconductor & Electronics', useCase: 'Silicon plasma etching and wafer micro-machining', recommendedPurity: 'Electronic Grade (≥ 99.99%)' }
+    ],
+    handlingSafety: [
+      'Heavy inert gas (5x heavier than air); gathers in low pits causing severe asphyxiation risk.',
+      'High Global Warming Potential (GWP 23,500); use closed-loop recovery carts to prevent atmospheric venting.'
+    ],
+    relatedProducts: [
+      { title: 'Specialty Calibration Gases', slug: 'specialty-calibration', formula: 'Mixes' },
+      { title: 'Compressed Air', slug: 'compressed-air', formula: 'Air' }
+    ],
+    seoTitle: 'Sulfur Hexafluoride (SF₆) Gas Supplier Gujarat | Shakti Group',
+    seoDesc: 'Electrical grade SF₆ gas for high-voltage GIS switchgear, electrical transformers, and circuit breakers with PESO certified cylinder delivery in Gujarat.',
+    keywords: 'SF6 Gas Supplier Gujarat, Sulfur Hexafluoride Cylinders, GIS Switchgear Gas India, Dielectric Insulating Gas'
   }
 };
 
