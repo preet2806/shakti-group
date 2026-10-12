@@ -27,6 +27,13 @@ const Contact: React.FC = () => {
     setErrorMessage('');
 
     try {
+      // Fire notification to backend /api/contact (Telegram alert)
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      }).catch(err => console.warn('Backend contact dispatch notice:', err));
+
       await sendEmail(formData);
       setStatus('success');
       setFormData({ name: '', company: '', email: '', phone: '', type: 'Sales Inquiry', message: '' });

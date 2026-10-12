@@ -7,13 +7,15 @@ export interface ProductPageData {
   unNumber: string;
   subtitle: string;
   heroImage: string;
-  category: 'liquid' | 'industrial' | 'high-purity' | 'specialty' | 'other';
+  category: 'liquid' | 'industrial' | 'high-purity' | 'specialty' | 'other' | 'cylinder';
   categoryLabel: string;
   categorySlug: string;
   physicalState?: string;
   appearance?: string;
   availableSupplyFormats?: string[];
   puritiesAvailable: string[];
+  availableGrades?: string[];
+  commercialOverview?: string;
   physicalProperties: {
     boilingPoint: string;
     expansionRatio: string;
@@ -41,7 +43,6 @@ export interface ProductPageData {
   keywords: string;
   alternateNames?: string[];
   targetQueries?: string[];
-  deliveryCoverage?: string[];
   faqs?: { question: string; answer: string }[];
 }
 
@@ -117,7 +118,6 @@ export const CATEGORY_SUBPAGES_DATA: Record<string, ProductPageData> = {
     seoTitle: 'Bulk Cryogenic Gases Supplier India | Liquid Nitrogen (LIN), LOX, LAR Tankers | Shakti Group',
     seoDesc: 'Premier bulk cryogenic gases supplier in India. 448 TPD capacity, 65+ cryogenic road tankers (10-35 KL) delivering Liquid Nitrogen (LIN), Liquid Oxygen (LOX), Liquid Argon (LAR), and LCO2. Turnkey on-site cryogenic tank installation on rental model across Gujarat, Maharashtra & nationwide.',
     keywords: 'Bulk cryogenic gases supplier, Liquid nitrogen bulk supplier India, Liquid oxygen tanker supplier, Liquid argon bulk supplier, Bulk LCO2 tanker, on site cryogenic tank rental, cryogenic road tankers Gujarat Vadodara Dahej Ankleshwar, LIN bulk tanker',
-    deliveryCoverage: ['Vadodara', 'Dahej PCPIR', 'Ankleshwar', 'Surat & Hazira', 'Ahmedabad', 'Sanand', 'Halol & Savli', 'Bharuch & Jhagadia', 'Maharashtra', 'Madhya Pradesh', 'Rajasthan', 'Pan-India'],
     faqs: [
       {
         question: 'Who is the leading bulk cryogenic gas supplier in India and Gujarat?',
@@ -203,7 +203,6 @@ export const CATEGORY_SUBPAGES_DATA: Record<string, ProductPageData> = {
     seoTitle: 'Industrial Compressed Gases & Cylinders Supplier Gujarat | Shakti Group',
     seoDesc: 'High-pressure seamless cylinders, 16-cylinder quads (MCP), and tube cascades. Dissolved Acetylene (DA), Oxygen, Nitrogen, Argon, and CO2 cylinders refilled at PESO certified stations.',
     keywords: 'Industrial Gas Cylinders Vadodara, Acetylene DA Supplier, MCP Cylinder Quads, Compressed Nitrogen Tankers',
-    deliveryCoverage: ['Vadodara', 'Dahej', 'Ankleshwar', 'Surat', 'Ahmedabad', 'Gujarat', 'Western India']
   },
 
   'specialty-calibration': {
@@ -268,7 +267,6 @@ export const CATEGORY_SUBPAGES_DATA: Record<string, ProductPageData> = {
     seoTitle: 'Specialty Gases & Calibration Standards Supplier India | Shakti Group',
     seoDesc: 'Ultra-High Purity (UHP) gases (Grade 5.0 - 6.0) and NIST traceable calibration gas mixtures for GC-MS, CEMS, and analytical laboratories.',
     keywords: 'Specialty Gases Gujarat, UHP Argon, Calibration Gas Mixtures, Gas Chromatography Carrier Gas',
-    deliveryCoverage: ['Vadodara', 'Ahmedabad', 'Surat', 'Mumbai', 'Pune', 'Delhi NCR', 'Pan-India']
   },
 
   'other': {
@@ -338,7 +336,6 @@ export const CATEGORY_SUBPAGES_DATA: Record<string, ProductPageData> = {
     seoTitle: 'Dry Ice, Cryogenic Dewars & Gas Hardware Supplier | Shakti Group',
     seoDesc: 'Solid CO2 dry ice pellets and blocks, liquid nitrogen dewars, and pressure regulators in Gujarat. FSSAI food grade dry ice supplier in Vadodara.',
     keywords: 'Dry Ice Supplier Vadodara, Solid CO2 Blocks, Liquid Nitrogen Dewar, Gas Pressure Regulators',
-    deliveryCoverage: ['Vadodara', 'Ahmedabad', 'Surat', 'Ankleshwar', 'Bharuch', 'Gujarat', 'Western India']
   }
 };
 
@@ -426,7 +423,6 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
       'Bulk liquid oxygen price per ton / liter',
       'Cryogenic LOX supplier in Gujarat Dahej Ankleshwar'
     ],
-    deliveryCoverage: ['Vadodara', 'Dahej PCPIR', 'Ankleshwar', 'Surat & Hazira', 'Ahmedabad', 'Sanand', 'Halol & Savli', 'Bharuch & Jhagadia', 'Maharashtra', 'Madhya Pradesh', 'Rajasthan', 'Pan-India'],
     faqs: [
       {
         question: 'Who is the leading bulk liquid oxygen (LOX) supplier in India and Gujarat?',
@@ -531,7 +527,6 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
       'Liquid nitrogen price per liter / kg in bulk tanker',
       'Cryogenic liquid nitrogen dewar refilling supplier'
     ],
-    deliveryCoverage: ['Vadodara', 'Dahej PCPIR', 'Ankleshwar', 'Surat & Hazira', 'Ahmedabad', 'Sanand', 'Halol & Savli', 'Bharuch & Jhagadia', 'Vapi & Valsad', 'Maharashtra', 'Madhya Pradesh', 'Rajasthan', 'Pan-India'],
     faqs: [
       {
         question: 'Who is the best Liquid Nitrogen (LIN) bulk supplier in India / Gujarat?',
@@ -638,7 +633,6 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
       'Liquid argon storage tank rental on-site',
       'UHP Liquid Argon Grade 5.0 for stainless steel and 3D printing'
     ],
-    deliveryCoverage: ['Vadodara', 'Dahej PCPIR', 'Ankleshwar', 'Surat', 'Ahmedabad', 'Sanand', 'Halol', 'Maharashtra', 'Madhya Pradesh', 'Rajasthan', 'Pan-India'],
     faqs: [
       {
         question: 'Who supplies bulk Liquid Argon (LAR) in Gujarat and India?',
@@ -733,7 +727,6 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
       'On-site liquid CO2 storage tank rental',
       'LCO2 supplier in Dahej Ankleshwar Vadodara'
     ],
-    deliveryCoverage: ['Vadodara', 'Dahej PCPIR', 'Ankleshwar', 'Surat', 'Ahmedabad', 'Sanand', 'Halol & Savli', 'Bharuch', 'Maharashtra', 'Madhya Pradesh', 'Rajasthan', 'Pan-India'],
     faqs: [
       {
         question: 'Who is the leading bulk Liquid CO2 (LCO2) supplier in Gujarat and India?',
@@ -832,7 +825,6 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
       'Hydrogen gas cylinder refilling Gujarat',
       'Hydrogen gas for bright annealing furnaces'
     ],
-    deliveryCoverage: ['Vadodara', 'Dahej', 'Ankleshwar', 'Surat', 'Ahmedabad', 'Sanand', 'Halol', 'Bharuch', 'Maharashtra', 'Madhya Pradesh', 'Rajasthan', 'Pan-India'],
     faqs: [
       {
         question: 'What supply options does Shakti Group provide for Hydrogen gas?',
@@ -921,7 +913,6 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
       'Oxy-acetylene cutting gas cylinders',
       'Dissolved acetylene manufacturer Vadodara Surat Ankleshwar'
     ],
-    deliveryCoverage: ['Vadodara', 'Ahmedabad', 'Surat', 'Ankleshwar', 'Dahej', 'Halol', 'Savli', 'Bharuch', 'Gujarat', 'Western India'],
     faqs: [
       {
         question: 'Why is Acetylene stored as Dissolved Acetylene (DA) in cylinders?',
@@ -1006,7 +997,6 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
       'Carbon dioxide cylinder for fire fighting systems',
       'Industrial CO2 cylinder supplier Vadodara Ahmedabad'
     ],
-    deliveryCoverage: ['Vadodara', 'Ahmedabad', 'Surat', 'Ankleshwar', 'Dahej', 'Halol', 'Bharuch', 'Gujarat', 'Western India'],
     faqs: [
       {
         question: 'What cylinder sizes are available for compressed CO2 gas?',
@@ -1093,7 +1083,6 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
       'Helium cylinder refilling Gujarat Vadodara Ahmedabad',
       'UHP helium gas Grade 6.0 for GC-MS carrier'
     ],
-    deliveryCoverage: ['Vadodara', 'Ahmedabad', 'Surat', 'Ankleshwar', 'Dahej', 'Halol', 'Maharashtra', 'Madhya Pradesh', 'Rajasthan', 'Pan-India'],
     faqs: [
       {
         question: 'What purity grades of Helium gas does Shakti Group supply?',
@@ -1172,7 +1161,6 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
       'UHP oxygen Grade 5.0 cylinders Gujarat',
       'Electronic grade oxygen gas supplier Vadodara'
     ],
-    deliveryCoverage: ['Vadodara', 'Ahmedabad', 'Surat', 'Dahej', 'Ankleshwar', 'Maharashtra', 'Pan-India'],
     faqs: [
       {
         question: 'What differentiates Grade 6.0 Oxygen from industrial oxygen?',
@@ -1249,7 +1237,6 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
       'NIST traceable span gas supplier Gujarat',
       'Laser resonator gas mixture He N2 CO2'
     ],
-    deliveryCoverage: ['Vadodara', 'Ahmedabad', 'Surat', 'Dahej', 'Ankleshwar', 'Hazira', 'Vapi', 'Maharashtra', 'Pan-India'],
     faqs: [
       {
         question: 'Are your calibration gas mixtures traceable to NIST standards?',
@@ -1326,7 +1313,6 @@ export const INDIVIDUAL_PRODUCTS_DATA: Record<string, ProductPageData> = {
       'Pure CO gas cylinders for chemical research',
       'Carbon monoxide span gas calibration'
     ],
-    deliveryCoverage: ['Vadodara', 'Dahej', 'Ankleshwar', 'Gujarat', 'Western India', 'Pan-India'],
     faqs: [
       {
         question: 'What safety precautions are required when purchasing Carbon Monoxide cylinders?',

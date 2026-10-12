@@ -399,6 +399,24 @@ const ChatAssistant: React.FC = () => {
     if (!validateQuoteForm()) return;
     const rfqText = buildStructuredRfqText();
     const encoded = encodeURIComponent(rfqText);
+
+    // Notify backend / Telegram alert
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'RFQ',
+        name: quoteForm.contactName,
+        company: quoteForm.companyName,
+        phone: quoteForm.contactNumber,
+        email: quoteForm.email,
+        gasType: quoteForm.gasType,
+        quantity: quoteForm.quantity,
+        location: quoteForm.location,
+        message: quoteForm.notes || 'RFQ submitted via WhatsApp action',
+      }),
+    }).catch(err => console.warn('RFQ notify notice:', err));
+
     window.open(`https://wa.me/918758331566?text=${encoded}`, '_blank');
     setQuoteGenerated(true);
   };
@@ -411,6 +429,24 @@ const ChatAssistant: React.FC = () => {
       : quoteForm.gasType;
     const subject = encodeURIComponent(`RFQ: ${gasDisplay} - ${quoteForm.companyName.trim()}`);
     const body = encodeURIComponent(rfqText.replace(/\*/g, ''));
+
+    // Notify backend / Telegram alert
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'RFQ',
+        name: quoteForm.contactName,
+        company: quoteForm.companyName,
+        phone: quoteForm.contactNumber,
+        email: quoteForm.email,
+        gasType: quoteForm.gasType,
+        quantity: quoteForm.quantity,
+        location: quoteForm.location,
+        message: quoteForm.notes || 'RFQ submitted via Email action',
+      }),
+    }).catch(err => console.warn('RFQ notify notice:', err));
+
     window.open(`mailto:info@shaktigases.com?subject=${subject}&body=${body}`, '_blank');
     setQuoteGenerated(true);
   };

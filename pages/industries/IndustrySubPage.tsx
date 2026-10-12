@@ -50,7 +50,6 @@ export interface IndustryPageData {
   keywords: string;
   alternateNames?: string[];
   targetQueries?: string[];
-  deliveryCoverage?: string[];
   faqs?: { question: string; answer: string }[];
 }
 
@@ -147,7 +146,6 @@ export const INDUSTRY_SUBPAGES_DATA: Record<string, IndustryPageData> = {
       'Industrial gas supplier for steel rolling mills Vadodara Ahmedabad',
       'Bulk liquid oxygen road tanker for steel melting'
     ],
-    deliveryCoverage: ['Vadodara', 'Ahmedabad', 'Sanand', 'Surat', 'Hazira Steel Hub', 'Dahej PCPIR', 'Halol & Savli', 'Bharuch', 'Maharashtra', 'Pan-India'],
     faqs: [
       {
         question: 'What is the role of Liquid Oxygen (LOX) in steel manufacturing?',
@@ -244,7 +242,6 @@ export const INDUSTRY_SUBPAGES_DATA: Record<string, IndustryPageData> = {
       'Bulk liquid oxygen road tanker for glass manufacturing',
       'Industrial gas supplier for Morbi ceramic tile cluster'
     ],
-    deliveryCoverage: ['Morbi Ceramic Cluster', 'Vadodara', 'Bharuch & Dahej', 'Ahmedabad', 'Surat', 'Jaipur Glass Hub', 'Firozabad Glass Cluster', 'Pan-India'],
     faqs: [
       {
         question: 'Why is Liquid Oxygen (LOX) essential for oxy-fuel glass melting?',
@@ -333,7 +330,6 @@ export const INDUSTRY_SUBPAGES_DATA: Record<string, IndustryPageData> = {
       'Liquid nitrogen supplier for low temperature chemical reactions',
       'Bulk nitrogen tanker delivery for chemical manufacturing Gujarat'
     ],
-    deliveryCoverage: ['Dahej PCPIR', 'Ankleshwar Chemical Zone', 'Vadodara', 'Vapi', 'Hazira', 'Panoli', 'Jhagadia', 'Maharashtra', 'Pan-India'],
     faqs: [
       {
         question: 'Why is high-purity Nitrogen used for chemical reactor blanketing?',
@@ -417,7 +413,6 @@ export const INDUSTRY_SUBPAGES_DATA: Record<string, IndustryPageData> = {
       'Pharma grade ultra pure nitrogen supplier for API synthesis',
       'Liquid nitrogen supplier for bio banking cryo preservation'
     ],
-    deliveryCoverage: ['Vadodara', 'Ahmedabad', 'Surat', 'Rajkot', 'Ankleshwar Pharma Hub', 'Bharuch', 'Maharashtra', 'Pan-India'],
     faqs: [
       {
         question: 'Are Shakti Group medical gases licensed by the FDA and Indian Pharmacopoeia (IP)?',
@@ -508,7 +503,6 @@ export const INDUSTRY_SUBPAGES_DATA: Record<string, IndustryPageData> = {
       'Modified atmosphere packaging gas supplier Gujarat',
       'Dry ice pellets manufacturer and supplier near me'
     ],
-    deliveryCoverage: ['Vadodara', 'Ahmedabad', 'Surat', 'Ankleshwar', 'Rajkot', 'Sanand', 'Maharashtra', 'Madhya Pradesh', 'Pan-India'],
     faqs: [
       {
         question: 'Is your Liquid CO2 certified for food and beverage carbonation in India?',
@@ -592,7 +586,6 @@ export const INDUSTRY_SUBPAGES_DATA: Record<string, IndustryPageData> = {
       'High flow mobile nitrogen pumper rental for industrial purging',
       'Hydrogen gas supplier for power plant turbine cooling'
     ],
-    deliveryCoverage: ['Jamnagar Refinery Hub', 'Dahej PCPIR', 'Hazira', 'Vadodara', 'Ankleshwar', 'Maharashtra', 'Pan-India'],
     faqs: [
       {
         question: 'How quickly can Shakti Group mobilize Nitrogen pumpers for refinery turnarounds?',
@@ -684,7 +677,6 @@ export const INDUSTRY_SUBPAGES_DATA: Record<string, IndustryPageData> = {
       'Chlorine tonners for municipal drinking water disinfection',
       'Bulk liquid oxygen supplier for industrial effluent treatment'
     ],
-    deliveryCoverage: ['Vadodara', 'Dahej', 'Ankleshwar', 'Surat Textile ETPs', 'Ahmedabad', 'Vapi', 'Maharashtra', 'Pan-India'],
     faqs: [
       {
         question: 'Why is pure Liquid Oxygen (LOX) preferred over air for ozone generation?',
@@ -769,7 +761,6 @@ export const INDUSTRY_SUBPAGES_DATA: Record<string, IndustryPageData> = {
       'Helium gas for mass spectrometer leak detection Gujarat',
       'Electronic grade nitrogen supplier for cleanrooms'
     ],
-    deliveryCoverage: ['Surat Diamond Hub', 'Ahmedabad Semiconductor Zone', 'Sanand Electronics Hub', 'Vadodara', 'Bengaluru', 'Pan-India'],
     faqs: [
       {
         question: 'What purity grades are available for semiconductor and electronics manufacturing?',
@@ -1119,23 +1110,6 @@ export const IndustrySubPage: React.FC = () => {
                   ))}
                 </ul>
               </div>
-
-              {/* Geographic Delivery Coverage */}
-              {data.deliveryCoverage && (
-                <div className="pt-3 border-t border-slate-800 space-y-2">
-                  <div className="flex items-center gap-1.5 text-xs text-slate-300 font-semibold">
-                    <MapPin className="h-4 w-4 text-sky-400" />
-                    <span>Logistics Coverage Hubs:</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1">
-                    {data.deliveryCoverage.map((hub, hIdx) => (
-                      <span key={hIdx} className="bg-slate-800 text-xs text-slate-300 px-2 py-0.5 rounded border border-slate-700">
-                        {hub}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
 
               <div className="pt-3">
                 <NavLink

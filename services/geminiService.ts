@@ -1,3 +1,5 @@
+import { resolveCatalogQuery } from './catalogBotEngine';
+
 declare global {
   interface Window {
     grecaptcha?: {
@@ -79,7 +81,7 @@ export const streamChatResponse = async function* (
         errorData = { raw: await response.text().catch(() => '') };
       }
 
-      console.error('[Gemini Bot HTTP Error]:', {
+      console.warn('[Gemini Bot HTTP Notice]:', {
         status: response.status,
         statusText: response.statusText,
         details: errorData,
@@ -89,17 +91,28 @@ export const streamChatResponse = async function* (
         yield errorData.fallback;
         return;
       }
-      if (errorData?.error) {
+      if (errorData?.error && response.status === 429) {
         yield `_${errorData.error}_\n\nPlease connect directly with our technical team at **info@shaktigases.com** or call **+91-9727783440**.`;
         return;
       }
-      yield "Welcome to Shakti Group! For inquiries regarding industrial gases, cryogenic logistics, or quotes, please reach out directly at **info@shaktigases.com** or call **+91-9727783440**.";
+
+      // Seamless catalog answer on server notice
+      const localAnswer = resolveCatalogQuery(userMessage);
+      const words = localAnswer.split(' ');
+      for (let i = 0; i < words.length; i += 3) {
+        yield words.slice(i, i + 3).join(' ') + ' ';
+        await new Promise(r => setTimeout(r, 15));
+      }
       return;
     }
 
     if (!response.body) {
-      console.error('[Gemini Bot Error]: No response body stream received from /api/chat');
-      yield "No response received from the server. Please contact us at **info@shaktigases.com**.";
+      const localAnswer = resolveCatalogQuery(userMessage);
+      const words = localAnswer.split(' ');
+      for (let i = 0; i < words.length; i += 3) {
+        yield words.slice(i, i + 3).join(' ') + ' ';
+        await new Promise(r => setTimeout(r, 15));
+      }
       return;
     }
 
@@ -136,7 +149,16 @@ export const streamChatResponse = async function* (
       }
     }
   } catch (error) {
-    console.error('[Gemini Bot Network/Execution Error]:', error);
-    yield "Welcome to Shakti Group! For inquiries regarding industrial gases, cryogenic logistics, or quotes, please reach out directly at **info@shaktigases.com** or call **+91-9727783440**.";
+    console.warn('[Gemini Bot Network Notice]: Falling back to local catalog consultant.', error);
+    try {
+      const localAnswer = resolveCatalogQuery(userMessage);
+      const words = localAnswer.split(' ');
+      for (let i = 0; i < words.length; i += 3) {
+        yield words.slice(i, i + 3).join(' ') + ' ';
+        await new Promise(r => setTimeout(r, 15));
+      }
+    } catch {
+      yield "Welcome to Shakti Group! For inquiries regarding industrial gases, cryogenic logistics, or quotes, please reach out directly at **info@shaktigases.com** or call **+91-9727783440**.";
+    }
   }
 };

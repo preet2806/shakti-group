@@ -5,12 +5,15 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { createServer as createViteServer } from 'vite';
 import chatHandler from './api/chat';
+import contactHandler from './api/contact';
+import statusHandler from './api/status';
 import { renderRouteHtml, URL_REDIRECTS, normalizePath } from './services/seoPrerender';
+import { getTelegramDiagnostics, sendTelegramNotification } from './services/telegramService';
 
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -19,13 +22,23 @@ app.use(express.json());
 app.use(express.static(path.join(process.cwd(), 'public')));
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+app.get('/api/health', async (req, res) => {
+  const telegramStatus = await getTelegramDiagnostics();
   res.json({
     status: 'ok',
     timestamp: new Date().toISOString(),
-    telegramAlertsConfigured: Boolean(process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID),
+    telegram: telegramStatus,
   });
 });
+
+// Telegram diagnostics endpoint
+// Telegram diagnostics & health endpoints
+app.all('/api/status', statusHandler);
+app.get('/api/health', statusHandler);
+app.get('/api/telegram/status', statusHandler);
+
+// Website Contact Form & RFQ notification dispatcher (shared with Vercel)
+app.all('/api/contact', contactHandler);
 
 // Serverless handler for /api/chat (shared with Vercel)
 app.all('/api/chat', chatHandler);

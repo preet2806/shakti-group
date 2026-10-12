@@ -1,4 +1,10 @@
 {
   "name": "Shakti Group",
-  "description": "Leading provider of industrial gas solutions, cryogenic engineering, and logistical reliability since 1998."
+  "description": "Leading provider of industrial gas solutions, cryogenic engineering, and logistical reliability since 1998.",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

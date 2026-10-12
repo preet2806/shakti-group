@@ -8,15 +8,15 @@ import {
 import {
   SOLUTION_SUBPAGES_DATA,
   SolutionPageData
-} from '../pages/solutions/SolutionSubPage';
+} from '../pages/solutions/solutionData';
 import {
   INDUSTRY_SUBPAGES_DATA,
   IndustryPageData
-} from '../pages/industries/IndustrySubPage';
+} from '../pages/industries/industryData';
 import {
   COMPANY_SUBPAGES_DATA,
   CompanyPageData
-} from '../pages/company/CompanySubPage';
+} from '../pages/company/companyData';
 import {
   PRODUCTS,
   STATS,
@@ -108,6 +108,41 @@ export function normalizePath(rawUrl: string): string {
  */
 export function resolveRouteSEO(rawUrl: string): RouteSEOData {
   const path = normalizePath(rawUrl);
+
+  // 0. Permanent 301 Redirects for removed or aliased URLs
+  if (URL_REDIRECTS[path]) {
+    const target = URL_REDIRECTS[path];
+    return {
+      isFound: false,
+      status: 301,
+      redirectTo: target,
+      canonicalPath: target,
+      canonicalUrl: `${BASE_URL}${target}`,
+      title: '301 Moved Permanently | Shakti Group',
+      description: `This page has moved permanently to ${target}.`,
+      keywords: 'Redirect, Shakti Group',
+      ogType: 'website',
+      ogImage: DEFAULT_IMAGE,
+      h1: '301 Moved Permanently',
+      subtitle: `This URL has moved permanently to ${target}.`,
+      breadcrumbs: [
+        { label: 'Home', path: '/' },
+        { label: 'Redirect', path: target }
+      ],
+      schemaJson: {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: '301 Moved Permanently',
+        url: `${BASE_URL}${target}`
+      },
+      contentSections: [
+        {
+          heading: 'Page Moved Permanently',
+          body: `This page has moved permanently to ${target}.`
+        }
+      ]
+    };
+  }
 
   // 1. Homepage
   if (path === '' || path === '/') {
@@ -410,7 +445,7 @@ export function resolveRouteSEO(rawUrl: string): RouteSEOData {
         },
         {
           heading: '24x7 Cryogenic Logistics & Tanker Dispatch',
-          body: 'Dedicated operations desk coordinating continuous deliveries across Dahej, Ankleshwar, Hazira, Surat, Ahmedabad, Sanand, Halol, Savli, and nationwide corridors.'
+          body: 'Dedicated operations desk coordinating continuous deliveries across nationwide corridors.'
         }
       ]
     };
@@ -419,11 +454,48 @@ export function resolveRouteSEO(rawUrl: string): RouteSEOData {
   // 8. Individual Products & Category Subpages (/products/:slug)
   if (path.startsWith('/products/')) {
     const rawSlug = path.replace('/products/', '');
-    const resolvedSlug = PRODUCT_SLUG_ALIASES[rawSlug] || rawSlug;
+
+    // Check if requested slug is an alias or removed URL (return 301)
+    if (PRODUCT_SLUG_ALIASES[rawSlug]) {
+      const targetSlug = PRODUCT_SLUG_ALIASES[rawSlug];
+      const targetPath = `/products/${targetSlug}`;
+      return {
+        isFound: false,
+        status: 301,
+        redirectTo: targetPath,
+        canonicalPath: targetPath,
+        canonicalUrl: `${BASE_URL}${targetPath}`,
+        title: '301 Moved Permanently | Shakti Group',
+        description: `This product line has moved permanently to ${targetPath}.`,
+        keywords: 'Redirect, Shakti Group',
+        ogType: 'product',
+        ogImage: DEFAULT_IMAGE,
+        h1: '301 Moved Permanently',
+        subtitle: `This product page has moved permanently to ${targetPath}.`,
+        breadcrumbs: [
+          { label: 'Home', path: '/' },
+          { label: 'Products', path: '/products' },
+          { label: 'Redirect', path: targetPath }
+        ],
+        schemaJson: {
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          name: '301 Moved Permanently',
+          url: `${BASE_URL}${targetPath}`
+        },
+        contentSections: [
+          {
+            heading: 'Resource Relocated',
+            body: `This product specification has moved permanently to ${targetPath}.`
+          }
+        ]
+      };
+    }
+
     const item: ProductPageData | undefined =
-      ALL_PRODUCTS_SUBPAGES_DATA[resolvedSlug] ||
-      CATEGORY_SUBPAGES_DATA[resolvedSlug] ||
-      INDIVIDUAL_PRODUCTS_DATA[resolvedSlug];
+      ALL_PRODUCTS_SUBPAGES_DATA[rawSlug] ||
+      CATEGORY_SUBPAGES_DATA[rawSlug] ||
+      INDIVIDUAL_PRODUCTS_DATA[rawSlug];
 
     if (item) {
       const canonicalPath = `/products/${rawSlug}`;
@@ -933,7 +1005,7 @@ export function buildSemanticHTML(seo: RouteSEOData): string {
 export function renderRouteHtml(
   rawUrl: string,
   templateHtml: string
-): { status: 200 | 404; html: string; seo: RouteSEOData } {
+): { status: 200 | 301 | 404; html: string; seo: RouteSEOData } {
   const seo = resolveRouteSEO(rawUrl);
   const semanticHtml = buildSemanticHTML(seo);
 
@@ -1036,8 +1108,18 @@ export function renderRouteHtml(
     html = html.replace('</head>', `  <meta name="twitter:image" content="${escapeHtml(seo.ogImage)}" />\n</head>`);
   }
 
-  if (!seo.isFound && !html.includes('robots')) {
-    html = html.replace('</head>', `  <meta name="robots" content="noindex, follow" />\n</head>`);
+  if (!seo.isFound) {
+    if (html.includes('<meta name="robots"')) {
+      html = html.replace(/<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/i, '<meta name="robots" content="noindex, follow" />');
+    } else {
+      html = html.replace('</head>', `  <meta name="robots" content="noindex, follow" />\n</head>`);
+    }
+  }
+
+  if (seo.status === 301 && seo.redirectTo) {
+    if (!html.includes('http-equiv="refresh"')) {
+      html = html.replace('</head>', `  <meta http-equiv="refresh" content="0; url=${escapeHtml(seo.redirectTo)}" />\n</head>`);
+    }
   }
 
   // Remove placeholder google-site-verification if present

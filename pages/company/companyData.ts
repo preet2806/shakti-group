@@ -1,0 +1,568 @@
+/**
+ * Company Subpages Data Dictionary
+ * Pure TypeScript data definitions - NO React/JSX dependencies.
+ */
+
+export interface CompanyPageData {
+  slug: string;
+  title: string;
+  subtitle: string;
+  heroImage: string;
+  established: string;
+  primaryStat: { value: string; label: string };
+  stats: { value: string; label: string; desc: string }[];
+  overviewHeading: string;
+  overviewText: string[];
+  entityOrFacilityTitle: string;
+  entitiesOrFacilities: {
+    name: string;
+    location?: string;
+    badge: string;
+    description: string;
+    highlights: string[];
+    specs?: { label: string; value: string }[];
+  }[];
+  processTitle: string;
+  processSteps: { step: string; title: string; desc: string }[];
+  complianceList: string[];
+  seoTitle: string;
+  seoDesc: string;
+  keywords: string;
+}
+
+export const COMPANY_SUBPAGES_DATA: Record<string, CompanyPageData> = {
+  'our-group': {
+    slug: 'our-group',
+    title: 'Group Entities & Operational Network',
+    subtitle: 'Operational profile of Shakti Group\'s 9 specialized divisions, cryogenic Air Separation Units (ASU), CO₂ plants, and refilling hubs.',
+    heroImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600',
+    established: '1998',
+    primaryStat: { value: '448+ TPD', label: 'Group Daily Manufacturing Capacity' },
+    stats: [
+      { value: '9', label: 'Operational Divisions', desc: 'Air separation, hydrogen, CO₂ recovery & refilling hubs' },
+      { value: '448 TPD', label: 'Cryogenic Capacity', desc: 'Liquid Oxygen, Nitrogen, Argon & Carbon Dioxide yield' },
+      { value: '65+', label: 'Cryogenic Road Tankers', desc: 'Vacuum-insulated GPS tracked distribution fleet' },
+      { value: '25+ Yrs', label: 'Industrial Legacy', desc: 'Continuous operations and safety compliance since 1998' }
+    ],
+    overviewHeading: 'Group Entities & Manufacturing Footprint',
+    overviewText: [
+      'Shakti Group operates 9 specialized industrial gas divisions providing complete coverage across production, purification, compression, and logistics.',
+      'Our manufacturing footprint includes cryogenic Air Separation Units (ASUs) in Karjan, 270 TPD liquid CO₂ plants across Ahmedabad, Indore, and Hyderabad (with an upcoming facility in Hazira), dedicated Dissolved Acetylene (DA) gas manufacturing by Shreeji Acetylene in Savli, Hydrogen gas refilling with High Purity (HP) and Ultra High Purity (UHP) by Shakti Gases in Ranoli, and specialized cylinder refilling hubs across the Vadodara industrial corridor.'
+    ],
+    entityOrFacilityTitle: 'Operating Divisions & Plant Locations',
+    entitiesOrFacilities: [
+      {
+        name: 'Shakti Industrial Gases',
+        location: 'Plot No. 628/14, G.I.D.C, Manjusar, Ta. Savli, Dist: Vadodara',
+        badge: 'Bulk Cryogenic Liquids',
+        description: 'Primary air separation unit and distribution hub for Liquid Argon, Oxygen, Nitrogen, and Carbon Dioxide.',
+        highlights: [
+          'Cryogenic air distillation producing ultra-high purity gases',
+          'Dedicated bulk liquid storage buffer tanks',
+          'Vacuum-insulated road tanker loading terminal'
+        ],
+        specs: [
+          { label: 'Plant Yield', value: '300+ TPD Liquid' },
+          { label: 'Products', value: 'LOX, LIN, LAR, LCO₂' }
+        ]
+      },
+      {
+        name: 'Shaktishree Air Private Limited (SAPL)',
+        location: 'Karjan, Gujarat',
+        badge: '178 TPD Cryogenic ASU',
+        description: 'Large-scale cryogenic Air Separation Unit commissioned in April 2026, strengthening Western India\'s liquid gas supply chain.',
+        highlights: [
+          'Low-pressure cryogenic distillation column technology',
+          'High-yield production of Liquid Oxygen, Nitrogen, and Argon',
+          'Direct loading bays for 35 KL road tankers'
+        ],
+        specs: [
+          { label: 'Capacity', value: '178 TPD' },
+          { label: 'Status', value: 'Commissioned April 2026' }
+        ]
+      },
+      {
+        name: 'Indore Carbonic',
+        location: 'Ahmedabad (Gujarat), Indore (Madhya Pradesh) & Hyderabad (Telangana) [Upcoming: Hazira]',
+        badge: '270 TPD Liquid CO₂ & Dry Ice',
+        description: 'CO₂ recovery and catalytic purification facilities across Ahmedabad, Indore, and Hyderabad with a total manufacturing capacity of 270 TPD, producing food-grade liquid carbon dioxide and solid dry ice.',
+        highlights: [
+          'Total group CO₂ manufacturing capacity of 270 TPD across 3 active plants',
+          'E290 beverage-grade CO₂ purification lines (≥ 99.9%) and industrial LCO₂',
+          'Solid dry ice extruders (pellets and high-density blocks)',
+          'Multi-state distribution network expanding to Hazira'
+        ],
+        specs: [
+          { label: 'Total Capacity', value: '270 TPD Liquid CO₂' },
+          { label: 'Locations', value: 'Ahmedabad, Indore & Hyderabad' }
+        ]
+      },
+      {
+        name: 'Shreeji Acetylene Co.',
+        location: 'Plot No. 37, G.I.D.C. Alindra, Ta: Savli, Dist: Vadodara',
+        badge: 'DA Gas Manufacturer',
+        description: 'Dedicated manufacturer of Dissolved Acetylene (DA) gas for oxy-fuel cutting, brazing, chemical synthesis, and metal fabrication workshops.',
+        highlights: [
+          'Calcium carbide reaction chemical generators for direct Dissolved Acetylene (DA) gas manufacturing',
+          'High Purity (HP) and Ultra High Purity (UHP) grades available upon request',
+          'Porous mass cylinder charging manifolds and safety interlocks'
+        ],
+        specs: [
+          { label: 'Role', value: 'DA Gas Manufacturer' },
+          { label: 'Purities', value: 'Industrial, HP & UHP' }
+        ]
+      },
+      {
+        name: 'Moxi Industrial Gases',
+        location: 'Survey No.: 431/1/P, Village: Moxi, Ta: Savli, Dist: Vadodara',
+        badge: 'Industrial CO₂ Supply',
+        description: 'Supplier of Carbon Dioxide gas for MIG welding, chemical processing, and water neutralization.',
+        highlights: [
+          'CO₂ compression and cylinder manifold filling',
+          'Bulk and cylinder packaging options',
+          'Purity and trace moisture testing'
+        ],
+        specs: [
+          { label: 'Product', value: 'Carbon Dioxide (Gaseous & Liquid)' },
+          { label: 'Packaging', value: 'Cylinders & Tanks' }
+        ]
+      },
+      {
+        name: 'Shakti Gases',
+        location: '1002, GIDC Industrial Estate, Ranoli, Dist: Vadodara',
+        badge: 'Hydrogen Refiller & Cascades',
+        description: 'Leading Hydrogen gas refiller supplying industrial, High Purity (HP) and Ultra High Purity (UHP) Hydrogen to refineries, heat treatment plants, and chemical synthesis units.',
+        highlights: [
+          'Specialized Hydrogen gas refilling in individual cylinders, mobile skids, and tube cascades',
+          'High Purity (HP) and Ultra High Purity (UHP Grade 5.0–6.0) grades available',
+          'High-pressure manifold connections and transport skids'
+        ],
+        specs: [
+          { label: 'Role', value: 'Hydrogen Refiller' },
+          { label: 'Grades', value: 'Commercial, HP & UHP' }
+        ]
+      },
+      {
+        name: 'Shakti Sales Agency',
+        location: '45, Maruti Complex, Ranoli GIDC, Vadodara',
+        badge: 'UHP & Calibration Gases',
+        description: 'Commercial division supplying Ultra-High Purity (UHP Grade 5.0–6.0) gases and custom laboratory calibration standards.',
+        highlights: [
+          'NIST & NABL traceable calibration mixtures',
+          'Gravimetric precision blending',
+          'Support for analytical and QC laboratories'
+        ],
+        specs: [
+          { label: 'Purity Grade', value: 'Grade 5.0 to 6.0' },
+          { label: 'Products', value: 'UHP & Calibration Gas' }
+        ]
+      },
+      {
+        name: 'Shakti Air Products',
+        location: 'Plot No. 2, Shri Hari Industrial Park, Por GIDC, Vadodara',
+        badge: 'Multi-Gas Compression Hub',
+        description: 'Cylinder refilling station equipped with high-pressure compression manifolds for Argon, Nitrogen, CO₂, and Oxygen.',
+        highlights: [
+          'High-pressure 200 Bar cylinder filling headers with vacuum evacuation',
+          'Large stock of 47L / 50L cylinders and MCP quads',
+          'Dispatch services for Por and Vadodara industrial corridors'
+        ],
+        specs: [
+          { label: 'Throughput', value: '2,500+ Cylinders/Day' },
+          { label: 'Products', value: 'Argon, Nitrogen, CO₂, Oxygen' }
+        ]
+      },
+      {
+        name: 'Bhavani Enterprise',
+        location: '45, Maruti Complex, Ranoli GIDC, Vadodara',
+        badge: 'Dry Ice Logistics',
+        description: 'Supplier of solid CO₂ dry ice pellets and blocks for cold-chain transport, pharmaceutical preservation, and blast cleaning.',
+        highlights: [
+          '3mm / 6mm dry ice pellets and 5kg insulated blocks',
+          'Temperature stability at -78.5 °C',
+          'Dispatch in insulated shipping containers'
+        ],
+        specs: [
+          { label: 'Temperature', value: '-78.5 °C' },
+          { label: 'Form', value: 'Pellets & Blocks' }
+        ]
+      }
+    ],
+    processTitle: 'End-to-End Gas Operations: Production to Bulk Delivery & Bottling',
+    processSteps: [
+      { step: '01', title: 'Multi-Gas Production & Recovery', desc: 'Cryogenic air separation (LOX, LIN, LAR), catalytic CO₂ recovery & purification (270 TPD), and chemical DA generation across dedicated plants.' },
+      { step: '02', title: 'Cryogenic Bulk Logistics', desc: 'Direct decanting and temperature-controlled bulk road transport via our dedicated fleet of 65+ vacuum-insulated cryogenic tankers (10–35 KL).' },
+      { step: '03', title: 'High-Pressure Bottling & Cascades', desc: 'High-pressure cylinder manifold filling (up to 200 Bar) for O₂, N₂, Ar, CO₂, and DA, along with mobile MCP quads and H₂ tube cascades.' },
+      { step: '04', title: 'Specialty Blending & On-Site Supply', desc: 'Ultra-high purity (UHP) laboratory mixtures, dry ice extrusion (-78.5°C), and automated telemetry monitoring for customer storage installations.' }
+    ],
+    complianceList: [
+      '100% PESO Approved Plants, Assets & Transport Infrastructure',
+      'FDA Drug Manufacturing License & WHO-GMP Certified Facilities',
+      'ISO 9001:2015, ISO 14001:2015 & ISO 45001:2018 Certified Systems',
+      'FSSAI Certified Food-Grade Liquid CO₂ (E290) & Nitrogen'
+    ],
+    seoTitle: 'Group Entities & Manufacturing Network | Shakti Industrial Gases',
+    seoDesc: 'Shakti Group 9 operational entities, Air Separation Units (ASU), CO2 plants, and refilling hubs across India.',
+    keywords: 'Shakti Group Companies, Shakti Industrial Gases, Shaktishree Air, Indore Carbonic, ASU Network'
+  },
+
+  'manufacturing-network': {
+    slug: 'manufacturing-network',
+    title: 'Group Entities & Operational Network',
+    subtitle: 'Operational profile of Shakti Group\'s 9 specialized divisions, cryogenic Air Separation Units (ASU), CO₂ plants, and refilling hubs.',
+    heroImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600',
+    established: '1998',
+    primaryStat: { value: '448+ TPD', label: 'Group Daily Manufacturing Capacity' },
+    stats: [
+      { value: '9', label: 'Operational Divisions', desc: 'Air separation, hydrogen, CO₂ recovery & refilling hubs' },
+      { value: '448 TPD', label: 'Cryogenic Capacity', desc: 'Liquid Oxygen, Nitrogen, Argon & Carbon Dioxide yield' },
+      { value: '65+', label: 'Cryogenic Road Tankers', desc: 'Vacuum-insulated GPS tracked distribution fleet' },
+      { value: '25+ Yrs', label: 'Industrial Legacy', desc: 'Continuous operations and safety compliance since 1998' }
+    ],
+    overviewHeading: 'Group Entities & Manufacturing Footprint',
+    overviewText: [
+      'Shakti Group operates 9 specialized industrial gas divisions providing complete coverage across production, purification, compression, and logistics.',
+      'Our manufacturing footprint includes cryogenic Air Separation Units (ASUs) in Karjan, 270 TPD liquid CO₂ plants across Ahmedabad, Indore, and Hyderabad (with an upcoming facility in Hazira), dedicated Dissolved Acetylene (DA) gas manufacturing by Shreeji Acetylene in Savli, Hydrogen gas refilling with High Purity (HP) and Ultra High Purity (UHP) by Shakti Gases in Ranoli, and specialized cylinder refilling hubs across the Vadodara industrial corridor.'
+    ],
+    entityOrFacilityTitle: 'Operating Divisions & Plant Locations',
+    entitiesOrFacilities: [
+      {
+        name: 'Shakti Industrial Gases',
+        location: 'Plot No. 628/14, G.I.D.C, Manjusar, Ta. Savli, Dist: Vadodara',
+        badge: 'Bulk Cryogenic Liquids',
+        description: 'Primary air separation unit and distribution hub for Liquid Argon, Oxygen, Nitrogen, and Carbon Dioxide.',
+        highlights: [
+          'Cryogenic air distillation producing ultra-high purity gases',
+          'Dedicated bulk liquid storage buffer tanks',
+          'Vacuum-insulated road tanker loading terminal'
+        ],
+        specs: [
+          { label: 'Plant Yield', value: '300+ TPD Liquid' },
+          { label: 'Products', value: 'LOX, LIN, LAR, LCO₂' }
+        ]
+      },
+      {
+        name: 'Shaktishree Air Private Limited (SAPL)',
+        location: 'Karjan, Gujarat',
+        badge: '178 TPD Cryogenic ASU',
+        description: 'Large-scale cryogenic Air Separation Unit commissioned in April 2026, strengthening Western India\'s liquid gas supply chain.',
+        highlights: [
+          'Low-pressure cryogenic distillation column technology',
+          'High-yield production of Liquid Oxygen, Nitrogen, and Argon',
+          'Direct loading bays for 35 KL road tankers'
+        ],
+        specs: [
+          { label: 'Capacity', value: '178 TPD' },
+          { label: 'Status', value: 'Commissioned April 2026' }
+        ]
+      },
+      {
+        name: 'Indore Carbonic',
+        location: 'Ahmedabad (Gujarat), Indore (Madhya Pradesh) & Hyderabad (Telangana) [Upcoming: Hazira]',
+        badge: '270 TPD Liquid CO₂ & Dry Ice',
+        description: 'CO₂ recovery and catalytic purification facilities across Ahmedabad, Indore, and Hyderabad with a total manufacturing capacity of 270 TPD, producing food-grade liquid carbon dioxide and solid dry ice.',
+        highlights: [
+          'Total group CO₂ manufacturing capacity of 270 TPD across 3 active plants',
+          'E290 beverage-grade CO₂ purification lines (≥ 99.9%) and industrial LCO₂',
+          'Solid dry ice extruders (pellets and high-density blocks)',
+          'Multi-state distribution network expanding to Hazira'
+        ],
+        specs: [
+          { label: 'Total Capacity', value: '270 TPD Liquid CO₂' },
+          { label: 'Locations', value: 'Ahmedabad, Indore & Hyderabad' }
+        ]
+      },
+      {
+        name: 'Shreeji Acetylene Co.',
+        location: 'Plot No. 37, G.I.D.C. Alindra, Ta: Savli, Dist: Vadodara',
+        badge: 'DA Gas Manufacturer',
+        description: 'Dedicated manufacturer of Dissolved Acetylene (DA) gas for oxy-fuel cutting, brazing, chemical synthesis, and metal fabrication workshops.',
+        highlights: [
+          'Calcium carbide reaction chemical generators for direct Dissolved Acetylene (DA) gas manufacturing',
+          'High Purity (HP) and Ultra High Purity (UHP) grades available upon request',
+          'Porous mass cylinder charging manifolds and safety interlocks'
+        ],
+        specs: [
+          { label: 'Role', value: 'DA Gas Manufacturer' },
+          { label: 'Purities', value: 'Industrial, HP & UHP' }
+        ]
+      },
+      {
+        name: 'Moxi Industrial Gases',
+        location: 'Survey No.: 431/1/P, Village: Moxi, Ta: Savli, Dist: Vadodara',
+        badge: 'Industrial CO₂ Supply',
+        description: 'Supplier of Carbon Dioxide gas for MIG welding, chemical processing, and water neutralization.',
+        highlights: [
+          'CO₂ compression and cylinder manifold filling',
+          'Bulk and cylinder packaging options',
+          'Purity and trace moisture testing'
+        ],
+        specs: [
+          { label: 'Product', value: 'Carbon Dioxide (Gaseous & Liquid)' },
+          { label: 'Packaging', value: 'Cylinders & Tanks' }
+        ]
+      },
+      {
+        name: 'Shakti Gases',
+        location: '1002, GIDC Industrial Estate, Ranoli, Dist: Vadodara',
+        badge: 'Hydrogen Refiller & Cascades',
+        description: 'Leading Hydrogen gas refiller supplying industrial, High Purity (HP) and Ultra High Purity (UHP) Hydrogen to refineries, heat treatment plants, and chemical synthesis units.',
+        highlights: [
+          'Specialized Hydrogen gas refilling in individual cylinders, mobile skids, and tube cascades',
+          'High Purity (HP) and Ultra High Purity (UHP Grade 5.0–6.0) grades available',
+          'High-pressure manifold connections and transport skids'
+        ],
+        specs: [
+          { label: 'Role', value: 'Hydrogen Refiller' },
+          { label: 'Grades', value: 'Commercial, HP & UHP' }
+        ]
+      },
+      {
+        name: 'Shakti Sales Agency',
+        location: '45, Maruti Complex, Ranoli GIDC, Vadodara',
+        badge: 'UHP & Calibration Gases',
+        description: 'Commercial division supplying Ultra-High Purity (UHP Grade 5.0–6.0) gases and custom laboratory calibration standards.',
+        highlights: [
+          'NIST & NABL traceable calibration mixtures',
+          'Gravimetric precision blending',
+          'Support for analytical and QC laboratories'
+        ],
+        specs: [
+          { label: 'Purity Grade', value: 'Grade 5.0 to 6.0' },
+          { label: 'Products', value: 'UHP & Calibration Gas' }
+        ]
+      },
+      {
+        name: 'Shakti Air Products',
+        location: 'Plot No. 2, Shri Hari Industrial Park, Por GIDC, Vadodara',
+        badge: 'Multi-Gas Compression Hub',
+        description: 'Cylinder refilling station equipped with high-pressure compression manifolds for Argon, Nitrogen, CO₂, and Oxygen.',
+        highlights: [
+          'High-pressure 200 Bar cylinder filling headers with vacuum evacuation',
+          'Large stock of 47L / 50L cylinders and MCP quads',
+          'Dispatch services for Por and Vadodara industrial corridors'
+        ],
+        specs: [
+          { label: 'Throughput', value: '2,500+ Cylinders/Day' },
+          { label: 'Products', value: 'Argon, Nitrogen, CO₂, Oxygen' }
+        ]
+      },
+      {
+        name: 'Bhavani Enterprise',
+        location: '45, Maruti Complex, Ranoli GIDC, Vadodara',
+        badge: 'Dry Ice Logistics',
+        description: 'Supplier of solid CO₂ dry ice pellets and blocks for cold-chain transport, pharmaceutical preservation, and blast cleaning.',
+        highlights: [
+          '3mm / 6mm dry ice pellets and 5kg insulated blocks',
+          'Temperature stability at -78.5 °C',
+          'Dispatch in insulated shipping containers'
+        ],
+        specs: [
+          { label: 'Temperature', value: '-78.5 °C' },
+          { label: 'Form', value: 'Pellets & Blocks' }
+        ]
+      }
+    ],
+    processTitle: 'End-to-End Gas Operations: Production to Bulk Delivery & Bottling',
+    processSteps: [
+      { step: '01', title: 'Multi-Gas Production & Recovery', desc: 'Cryogenic air separation (LOX, LIN, LAR), catalytic CO₂ recovery & purification (270 TPD), and chemical DA generation across dedicated plants.' },
+      { step: '02', title: 'Cryogenic Bulk Logistics', desc: 'Direct decanting and temperature-controlled bulk road transport via our dedicated fleet of 65+ vacuum-insulated cryogenic tankers (10–35 KL).' },
+      { step: '03', title: 'High-Pressure Bottling & Cascades', desc: 'High-pressure cylinder manifold filling (up to 200 Bar) for O₂, N₂, Ar, CO₂, and DA, along with mobile MCP quads and H₂ tube cascades.' },
+      { step: '04', title: 'Specialty Blending & On-Site Supply', desc: 'Ultra-high purity (UHP) laboratory mixtures, dry ice extrusion (-78.5°C), and automated telemetry monitoring for customer storage installations.' }
+    ],
+    complianceList: [
+      '100% PESO Approved Plants, Assets & Transport Infrastructure',
+      'FDA Drug Manufacturing License & WHO-GMP Certified Facilities',
+      'ISO 9001:2015, ISO 14001:2015 & ISO 45001:2018 Certified Systems',
+      'FSSAI Certified Food-Grade Liquid CO₂ (E290) & Nitrogen'
+    ],
+    seoTitle: 'Group Entities & Manufacturing Network | Shakti Industrial Gases',
+    seoDesc: 'Shakti Group 9 operational entities, Air Separation Units (ASU), CO2 plants, and refilling hubs across India.',
+    keywords: 'Shakti Group Companies, Shakti Industrial Gases, Shaktishree Air, Indore Carbonic, ASU Network'
+  },
+
+  'infrastructure': {
+    slug: 'infrastructure',
+    title: 'Cryogenic Logistics Fleet & On-Site Vessels',
+    subtitle: 'Vacuum-insulated cryogenic road tankers, on-site bulk storage installations, and automated telemetry.',
+    heroImage: 'https://qe2eq2zzuxmkvacf.public.blob.vercel-storage.com/service_tanker.png',
+    established: '65+ Tankers',
+    primaryStat: { value: '65+', label: 'Cryogenic Road Tankers' },
+    stats: [
+      { value: '10-35 KL', label: 'Tanker Capacity Range', desc: 'Dedicated liquid transport for LOX, LIN, LAR, and LCO₂' },
+      { value: '24/7 GPS', label: 'Fleet Tracking', desc: 'Real-time vehicle location, route monitoring, and transit security' },
+      { value: 'IoT Telemetry', label: 'Tank Level Monitoring', desc: 'Live differential pressure and vessel liquid level monitoring' },
+      { value: 'Rental / Opex', label: 'On-Site Storage Setup', desc: 'Turnkey tank setup & vaporizer installation provided on rental for continuous gas supply' }
+    ],
+    overviewHeading: 'Cryogenic Logistics & On-Site Storage Engineering',
+    overviewText: [
+      'Shakti Group operates a fleet of stainless steel inner-vessel cryogenic tankers built with double-walled vacuum insulation for transport of liquid gases down to -196°C.',
+      'We provide complete on-site cryogenic storage tank setups on flexible rental models, coupled with automated cellular telemetry modules that notify dispatch centers before liquid levels reach critical reorder thresholds.'
+    ],
+    entityOrFacilityTitle: 'Logistics Assets & On-Site Infrastructure',
+    entitiesOrFacilities: [
+      {
+        name: 'Cryogenic Road Tanker Fleet',
+        location: 'Pan-India Distribution',
+        badge: '10 KL / 20 KL / 35 KL Tankers',
+        description: 'Pressure vessels manufactured to PESO standards, featuring high-vacuum insulation and high-flow cryogenic discharge pumps.',
+        highlights: [
+          'High-flow liquid discharge pumps for rapid decanting',
+          'GPS tracking and safety compliance monitoring',
+          'Dedicated vessels for LOX, LIN, LAR, and LCO₂'
+        ],
+        specs: [
+          { label: 'Pressure', value: 'Up to 24 Bar' },
+          { label: 'Insulation', value: 'Super-Vacuum Perlite' }
+        ]
+      },
+      {
+        name: 'On-Site Storage & Vaporizer Systems (Rental Available)',
+        location: 'Customer Factory Installations',
+        badge: 'Turnkey Tanks (3 KL - 50 KL)',
+        description: 'Vertical and horizontal cryogenic storage vessels with ambient air vaporizers, available on rental/opex models with complete installation and continuous gas supply.',
+        highlights: [
+          'Turnkey tank installation provided on rental basis to eliminate upfront capex',
+          'Replaces cylinder handling and reduces gas loss',
+          'Maintains stable line pressure for continuous 24/7 factory operations',
+          'Full installation, civil/piping setup, and preventive maintenance included'
+        ],
+        specs: [
+          { label: 'Model', value: 'Rental / Turnkey Supply' },
+          { label: 'Capacities', value: '3,000L to 50,000L' }
+        ]
+      },
+      {
+        name: 'Cellular Tank Telemetry',
+        location: 'Remote Logistics Desk',
+        badge: 'IoT Gauging Sensors',
+        description: 'Differential pressure sensors monitor liquid levels and send data every 15 minutes to trigger dispatch orders automatically.',
+        highlights: [
+          'Automated reorder triggers at 25% vessel level',
+          'Daily gas consumption analytics for clients',
+          'Instant pressure anomaly alerts'
+        ],
+        specs: [
+          { label: 'Frequency', value: '15-Minute Data Push' },
+          { label: 'Network', value: 'Cellular Telemetry' }
+        ]
+      }
+    ],
+    processTitle: 'Bulk Supply Distribution Flow',
+    processSteps: [
+      { step: '01', title: 'Telemetry Alert', desc: 'Customer tank sensor sends low-level signal to dispatch desk.' },
+      { step: '02', title: 'Route Allocation', desc: 'Logistics assigns the nearest available cryogenic tanker.' },
+      { step: '03', title: 'Tanker Loading', desc: 'Tanker fills at ASU production hub and receives purity certification.' },
+      { step: '04', title: 'On-Site Decanting', desc: 'Liquid decanted into customer vessel without stopping production.' }
+    ],
+    complianceList: [
+      'PESO approved tanker inspection and safety valve calibration',
+      'Hazchem trained drivers certified for hazardous transport',
+      'Pre-trip mechanical and vacuum insulation verification'
+    ],
+    seoTitle: 'Cryogenic Tanker Fleet & Storage Infrastructure | Shakti Group',
+    seoDesc: 'Shakti Group 65+ cryogenic tankers, ambient vaporizers, on-site storage vessels, and telemetry monitoring.',
+    keywords: 'Cryogenic Tanker Fleet, Liquid Oxygen Transport, Onsite Storage Tanks, Gas Logistics'
+  },
+
+  'quality-safety': {
+    slug: 'quality-safety',
+    title: 'Quality Assurance, ISO & Statutory Compliance',
+    subtitle: 'FDA Licensed, WHO-GMP Certified, ISO 9001/14001/45001, FSSAI accredited, and 100% PESO-approved plants and infrastructure.',
+    heroImage: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1600',
+    established: 'Certified',
+    primaryStat: { value: 'Grade 6.0', label: 'Maximum Gas Purity (99.9999%)' },
+    stats: [
+      { value: 'ISO 9001/14001/45001', label: 'Integrated Systems', desc: 'Audited quality, environmental & safety management' },
+      { value: '100%', label: 'PESO Compliance', desc: 'All plants, storage vessels, cascades & tankers PESO approved' },
+      { value: 'FDA & WHO-GMP', label: 'Medical Accreditations', desc: 'Licensed for IP medical oxygen & pharmaceutical gases' },
+      { value: 'FSSAI Certified', label: 'Food-Grade Compliance', desc: 'E290 beverage CO₂, nitrogen & solid dry ice' }
+    ],
+    overviewHeading: 'Quality Testing & Environmental Safety',
+    overviewText: [
+      'Quality control is integrated across every phase of production—from atmospheric air intake filtration to final tanker loading and cylinder manifold filling.',
+      'Our quality laboratories use Gas Chromatography (GC), paramagnetic oxygen analyzers, and electrolytic moisture meters to certify that every gas batch satisfies client purity specifications.'
+    ],
+    entityOrFacilityTitle: 'Quality & Safety Framework',
+    entitiesOrFacilities: [
+      {
+        name: 'In-House Quality Laboratories',
+        location: 'All Production Plants',
+        badge: 'Gas Chromatography',
+        description: 'Batch sampling and purity verification before release. Certificates of Analysis (COA) are provided with every delivery.',
+        highlights: [
+          'Gas Chromatographs with TCD and FID detectors',
+          'Sub-PPM trace oxygen analyzers',
+          'Electrolytic dew-point moisture meters'
+        ],
+        specs: [
+          { label: 'Frequency', value: 'Every Batch Tested' },
+          { label: 'Traceability', value: 'NIST & NABL Traceable' }
+        ]
+      },
+      {
+        name: 'PESO & Statutory Compliance',
+        location: 'All Plants & Transport Assets',
+        badge: '100% PESO Licensed',
+        description: 'Every manufacturing plant, cryogenic storage tank, transport tanker, and filling manifold strictly complies with Petroleum and Explosives Safety Organization (PESO) standards.',
+        highlights: [
+          'Hydrostatic stretch testing of high-pressure cylinders',
+          'Safety relief valve calibration and burst-disc protocols',
+          'Automated over-pressure shut-off interlocks'
+        ],
+        specs: [
+          { label: 'Infrastructure', value: '100% PESO Approved' },
+          { label: 'Compliance', value: 'Full Statutory Adherence' }
+        ]
+      },
+      {
+        name: 'FDA, WHO-GMP & FSSAI Standards',
+        location: 'Medical & Food Gas Divisions',
+        badge: 'FDA / WHO-GMP / FSSAI',
+        description: 'Statutory pharmaceutical licensing, WHO Good Manufacturing Practices, and food safety standards for beverage and medical gas applications.',
+        highlights: [
+          'FDA Drug Manufacturing licenses for Medical Oxygen (IP)',
+          'WHO-GMP compliance for hygiene and analytical testing',
+          'FSSAI food safety certification for beverage-grade LCO₂ (E290)'
+        ],
+        specs: [
+          { label: 'Medical', value: 'FDA & WHO-GMP Certified' },
+          { label: 'Food Grade', value: 'FSSAI Certified' }
+        ]
+      },
+      {
+        name: 'Environmental, Health & Safety (EHS)',
+        location: 'Group Standard',
+        badge: 'ISO 14001 & 45001',
+        description: 'Occupational health, risk assessment, hazard control, and cryo-handling safety training across all facilities.',
+        highlights: [
+          'Regular safety drills covering cryogenic burns and oxygen safety',
+          'Mandatory PPE standards for liquid handling',
+          'Zero-liquid-discharge water systems'
+        ],
+        specs: [
+          { label: 'Audits', value: 'Periodic EHS Review' },
+          { label: 'Training', value: 'Cryo Safety Certified' }
+        ]
+      }
+    ],
+    processTitle: 'Batch Quality Testing Protocol',
+    processSteps: [
+      { step: '01', title: 'Column Monitoring', desc: 'Online sensors track liquid oxygen and nitrogen purity inside ASU columns.' },
+      { step: '02', title: 'Tank Sampling', desc: 'Storage tanks are isolated and tested via gas chromatograph before batch release.' },
+      { step: '03', title: 'Cylinder Evacuation', desc: 'Cylinders undergo 100% vacuum purging to remove atmospheric moisture.' },
+      { step: '04', title: 'COA Issuance', desc: 'Certificate of Analysis generated with purity metrics.' }
+    ],
+    complianceList: [
+      '100% PESO Approved Plants, Storage Tanks, Road Tankers & Cascades',
+      'FDA Drug Manufacturing License & WHO-GMP Certified Facilities',
+      'ISO 9001:2015 (QMS), ISO 14001:2015 (EMS) & ISO 45001:2018 (OH&S)',
+      'FSSAI Food Safety License for Food-Grade LCO₂ (E290) & Nitrogen',
+      'PESO Licensed Periodic Hydrostatic Cylinder Testing Station'
+    ],
+    seoTitle: 'Quality Standards, FDA, ISO & PESO Compliance | Shakti Group',
+    seoDesc: 'Shakti Group statutory compliance: FDA License, WHO-GMP, ISO 9001/14001/45001, FSSAI, and 100% PESO approved plants and assets.',
+    keywords: 'PESO Gas Certification, FDA Medical Oxygen, WHO-GMP Gas, ISO 9001, ISO 14001, ISO 45001, FSSAI Food Gas'
+  }
+};
+
